@@ -1,0 +1,33 @@
+@import "./components/header";
+@import "./helpers/fonts";
+@import "./helpers/variables";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-medium);
+  background: #000;
+}
+
+.container {
+  max-width: 1676px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: content-box;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  font-style: normal;
+}
+
+ul {
+  list-style: none;
+}
