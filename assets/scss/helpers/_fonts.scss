@@ -1,0 +1,19 @@
+$fontsDirectory: "~/assets/fonts";
+
+@mixin fontFace($fontName, $fontWeight: normal) {
+  @font-face {
+    font-family: $fontName;
+    font-weight: $fontWeight;
+    font-style: normal;
+    font-display: swap;
+    src: local($fontName),
+      url($fontsDirectory + "/" + $fontName + "/" + $fontName + ".woff")
+        format("woff"),
+      url($fontsDirectory + "/" + $fontName + "/" + $fontName + ".eof")
+        format("woff2"),
+      url($fontsDirectory + "/" + $fontName + "/" + $fontName + ".ttf")
+        format("truetype");
+  }
+}
+
+@include fontFace("Gilroy-Medium", 500);
