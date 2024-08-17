@@ -1,6 +1,8 @@
 @import "./components/header";
 @import "./helpers/fonts";
 @import "./helpers/variables";
+@import "./components/mobile-menu";
+@import "./components/footer";
 
 *,
 *::before,
@@ -19,7 +21,7 @@ body {
   max-width: 1676px;
   margin: 0 auto;
   width: 100%;
-  box-sizing: content-box;
+  // box-sizing: content-box;
   padding: 0 20px;
 }
 
