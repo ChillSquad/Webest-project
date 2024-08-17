@@ -16,4 +16,7 @@ $fontsDirectory: "~/assets/fonts";
   }
 }
 
+@include fontFace("Gilroy-Regular", 400);
 @include fontFace("Gilroy-Medium", 500);
+@include fontFace("Gilroy-SemiBold", 600);
+@include fontFace("Montserrat-Bold", 700);
