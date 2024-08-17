@@ -1,12 +1,15 @@
 <script setup>
-import { isShowMobileMenu, toggleMobileMenu } from "../models/header";
+import { ref, defineEmits } from "vue";
+import { toggleMobileMenu } from "../models/header";
 
 // Локальное состояние для анимации кнопки
 const isActive = ref(false);
+const emit = defineEmits(["toggle-adaptive"]);
 
 const toggleBurger = () => {
   isActive.value = !isActive.value;
-  toggleMobileMenu(); // Переключаем видимость MobileMenu при нажатии
+  toggleMobileMenu();
+  emit("toggle-adaptive", isActive.value); // уведомляем родителя об изменении состояния
 };
 </script>
 
@@ -20,5 +23,3 @@ const toggleBurger = () => {
     ></button>
   </div>
 </template>
-
-<style scoped></style>
