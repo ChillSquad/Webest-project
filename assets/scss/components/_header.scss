@@ -1,6 +1,6 @@
 .header {
-  // position: absolute;
-  // width: 100%;
+  position: relative;
+  z-index: 3;
 
   a:not(.header__logo-picture) {
     color: #fff;
@@ -23,6 +23,7 @@
     width: 312px;
     display: flex;
     margin: 0 20px;
+    align-items: center;
   }
 
   &__logo-text {
@@ -99,6 +100,20 @@
     transform: rotate(-405deg);
   }
 
+  &__menu-button.active::before,
+  &__menu-button.active::after {
+    background-color: #000;
+  }
+
+  // .fade-enter-active,
+  // .fade-leave-active {
+  //   transition: opacity 0.5s ease;
+  // }
+  // .fade-enter-from,
+  // .fade-leave-to {
+  //   opacity: 0;
+  // }
+
   @media (max-width: 1200px) {
     &__menu-button-container {
       display: flex;
@@ -111,5 +126,14 @@
     &__contscts {
       display: none;
     }
+
+    // &__logo {
+    //   width: 156px;
+    // }
+
+    // &__logo-text {
+    //   font-size: 8.5px;
+    //   line-height: 8.5px;
+    // }
   }
 }
