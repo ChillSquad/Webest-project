@@ -1,16 +1,34 @@
 <script setup>
-import { ref, defineEmits } from "vue";
-import { toggleMobileMenu } from "../models/header";
+import { ref, onMounted, onBeforeUnmount, watch, defineEmits } from "vue";
+import { toggleMobileMenu, isShowMobileMenu } from "../models/header";
 
-// Локальное состояние для анимации кнопки
 const isActive = ref(false);
 const emit = defineEmits(["toggle-adaptive"]);
 
 const toggleBurger = () => {
   isActive.value = !isActive.value;
   toggleMobileMenu();
-  emit("toggle-adaptive", isActive.value); // уведомляем родителя об изменении состояния
+  emit("toggle-adaptive", isActive.value);
 };
+
+const windowWidth = ref(window ? window.innerWidth : 0);
+
+const checkWindowSize = () => {
+  windowWidth.value = window.innerWidth;
+  if (isActive.value && windowWidth.value > 1220) {
+    isActive.value = false;
+    toggleMobileMenu();
+    emit("toggle-adaptive", false);
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("resize", checkWindowSize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkWindowSize);
+});
 </script>
 
 <template>
