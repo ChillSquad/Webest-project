@@ -1,47 +1,16 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
-import Vk from "./icons/IconVk.vue";
-import Telegram from "./icons/IconTelegram.vue";
-import Vc from "./icons/IconVc.vue";
-import Behance from "./icons/IconBehance.vue";
-import Dprofile from "./icons/IconDprofile.vue";
-import ArrowRightUpLine from "./icons/IconArrowRightUpLine.vue";
-import VkLogotype from "./icons/LogoVk.vue";
-import YandexStarLogo from "./icons/LogoYandexStar.vue";
-import WorkspaceLogo from "./icons/LogoWorkspace.vue";
-import ArdaLogo from "./icons/LogoArda.vue";
+import Vk from "./icons/iconVk.vue";
+import IconTelegram from "./icons/iconTelegram.vue";
+import Vc from "./icons/iconVc.vue";
+import Behance from "./icons/iconBehance.vue";
+import Dprofile from "./icons/iconDprofile.vue";
+import ArrowRightUpLine from "./icons/iconArrowRightUpLine.vue";
+import VkLogotype from "./icons/logoVk.vue";
+import YandexStarLogo from "./icons/logoYandexStar.vue";
+import WorkspaceLogo from "./icons/logoWorkspace.vue";
+import ArdaLogo from "./icons/logoArda.vue";
 
 import FooterLogo from "../public/images/footer-logo.png";
-import FooterLogoSmall from "../public/images/footer-logo-small.png";
-import FooterLogoMini from "../public/images/footer-logo-mini.png";
-import FooterLogoMicro from "../public/images/footer-logo-micro.png";
-
-// Реактивное свойство для логотипа
-const currentFooterLogo = ref(FooterLogo);
-
-// Функция для обновления логотипа в зависимости от ширины экрана
-const updateLogo = () => {
-  if (window.innerWidth <= 900) {
-    currentFooterLogo.value = FooterLogoMicro;
-  } else if (window.innerWidth <= 1300) {
-    currentFooterLogo.value = FooterLogoMini;
-  } else if (window.innerWidth <= 1800) {
-    currentFooterLogo.value = FooterLogoSmall;
-  } else {
-    currentFooterLogo.value = FooterLogo;
-  }
-};
-
-// Выполняем проверку и подписываемся на событие изменения размера окна
-onMounted(() => {
-  updateLogo(); // Изначальная проверка при монтировании
-  window.addEventListener("resize", updateLogo);
-});
-
-// Отписываемся от события при размонтировании компонента
-onBeforeUnmount(() => {
-  window.removeEventListener("resize", updateLogo);
-});
 </script>
 
 <template>
@@ -110,7 +79,7 @@ onBeforeUnmount(() => {
                     <a href="#"><Vk /></a>
                   </li>
                   <li>
-                    <a href="#"><Telegram /></a>
+                    <a href="#"><IconTelegram /></a>
                   </li>
                   <li>
                     <a href="#"><Vc /></a>
@@ -132,7 +101,7 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="footer__logo-footer">
-          <img :src="currentFooterLogo" alt="logo-footer" />
+          <img :src="FooterLogo" alt="logo-footer" />
         </div>
 
         <section class="footer__copyright">
