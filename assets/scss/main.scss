@@ -3,6 +3,15 @@
 @import "./helpers/variables";
 @import "./components/mobile-menu";
 @import "./components/footer";
+@import "./components/first-page";
+
+$debug: false;
+
+@if ($debug) {
+  * {
+    border: 1px solid red;
+  }
+}
 
 *,
 *::before,
@@ -10,6 +19,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -32,4 +45,9 @@ a {
 
 ul {
   list-style: none;
+}
+
+.main-header {
+  width: 100%;
+  position: absolute;
 }
