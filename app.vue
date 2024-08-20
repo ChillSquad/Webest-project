@@ -2,7 +2,8 @@
 import Header from "./components/Header/Header.vue";
 import MobileMenu from "./components/Header/MobileMenu.vue";
 import Footer from "./components/Footer.vue";
-import FirsPage from "./components/FirstPage.vue";
+import FirstPage from "./components/FirstPage.vue";
+// import FeedBack from "./components/FeedBack.vue";
 </script>
 
 <template>
@@ -16,11 +17,13 @@ import FirsPage from "./components/FirstPage.vue";
     </div>
 
     <div class="main-first-page">
-      <FirsPage />
+      <FirstPage />
     </div>
 
     <div class="main-footer">
       <Footer />
     </div>
+
+    <!-- <FeedBack /> -->
   </div>
 </template>

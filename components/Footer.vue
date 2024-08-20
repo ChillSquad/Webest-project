@@ -95,7 +95,9 @@ import FooterLogo from "../public/images/footer-logo.png";
             </address>
 
             <div class="footer__presentation">
-              <a href="#">Скачать презентацию -pdf, 3mb <ArrowRightUpLine /></a>
+              <a href="#"
+                >Скачать презентацию <span>-pdf, 3mb <ArrowRightUpLine /></span
+              ></a>
             </div>
           </div>
         </div>
