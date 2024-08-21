@@ -3,35 +3,29 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
-  color: #fff;
-  list-style: 32px;
+  color: var(--color-white);
   font-size: 20px;
   display: flex;
-
-  a {
-    color: #fff;
-  }
-
-  h4 {
-    font-style: normal;
-    margin-bottom: 40px;
-  }
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  ul li {
-    padding: 3px 0;
-  }
 
   .container {
     display: flex;
     flex-direction: column;
+  }
+
+  &__services-caption {
+    font-style: normal;
+    margin-bottom: 40px;
+  }
+
+  &__services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    li {
+      padding: 3px 0;
+    }
   }
 
   &__inner {
@@ -50,7 +44,6 @@
   &__social {
     display: flex;
     gap: 4px;
-
     a {
       display: flex;
       justify-content: center;
@@ -58,7 +51,7 @@
       width: 60px;
       height: 40px;
       border-radius: 12px;
-      background: #ffffff26;
+      background-color: var(--color-grey-transparent);
     }
   }
 
@@ -70,7 +63,6 @@
   &__logo-footer {
     margin: 149px 0 49px 0;
     text-align: center;
-
     img {
       max-width: 100%;
       height: auto;
@@ -98,19 +90,15 @@
     user-select: none;
     font-family: var(--ff-semi-bold);
     font-size: 11px;
-
     ul {
       flex-direction: row;
       display: flex;
       gap: 26.89px;
-
       li {
         display: flex;
-
         p {
           margin-left: 7.11px;
         }
-
         span {
           display: block;
         }

@@ -1,14 +1,14 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch, defineEmits } from "vue";
-import { toggleMobileMenu, isShowMobileMenu } from "../models/header";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { toggleMobileMenu } from "../models/header";
 
 const isActive = ref(false);
-const emit = defineEmits(["toggle-adaptive"]);
+const emit = defineEmits(["toggle-menu"]);
 
 const toggleBurger = () => {
   isActive.value = !isActive.value;
   toggleMobileMenu();
-  emit("toggle-adaptive", isActive.value);
+  emit("toggle-menu", isActive.value);
 };
 
 const windowWidth = ref(window ? window.innerWidth : 0);
@@ -18,7 +18,7 @@ const checkWindowSize = () => {
   if (isActive.value && windowWidth.value > 1220) {
     isActive.value = false;
     toggleMobileMenu();
-    emit("toggle-adaptive", false);
+    emit("toggle-menu", false);
   }
 };
 
@@ -37,7 +37,11 @@ onBeforeUnmount(() => {
       class="header__menu-button"
       :class="{ active: isActive }"
       type="button"
-      :style="{ backgroundColor: isActive ? 'rgba(255, 255, 255, 0)' : '#fff' }"
+      :style="{
+        backgroundColor: isActive
+          ? 'rgba(255, 255, 255, 0)'
+          : 'var(--color-white)',
+      }"
     ></button>
   </div>
 </template>

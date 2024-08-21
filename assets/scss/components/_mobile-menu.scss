@@ -8,7 +8,7 @@
 }
 
 .mobile-menu {
-  background-color: #fff;
+  background-color: var(--color-white);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -18,7 +18,7 @@
   padding-top: 215px;
 
   a {
-    color: #000;
+    color: var(--color-black);
     text-transform: uppercase;
     margin-bottom: 15px;
   }

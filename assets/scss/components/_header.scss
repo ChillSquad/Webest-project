@@ -1,9 +1,20 @@
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.header-container {
+  max-width: 1676px;
+  width: 100%;
+  position: absolute;
+}
+
 .header {
   position: relative;
   z-index: 3;
 
   a:not(.header__logo-picture) {
-    color: #fff;
+    color: var(--color-white);
     font-size: 18px;
     line-height: 18px;
     padding: 21px 16px 21px 16px;
@@ -17,7 +28,7 @@
     justify-content: space-between;
     margin-top: 18px;
     border-radius: 20px;
-    background-color: #ffffff26;
+    background-color: var(--color-grey-transparent);
   }
 
   &__logo {
@@ -29,7 +40,7 @@
 
   &__logo-text {
     display: flex;
-    color: #fff;
+    color: var(--color-white);
     align-items: center;
     font-size: 17px;
     line-height: 17px;
@@ -44,12 +55,14 @@
     width: 1px;
     height: 28px;
     margin: 0 16px;
-    background-color: #fff;
+    background-color: var(--color-white);
     opacity: 20%;
   }
 
-  &__nav ul {
-    display: flex;
+  &__nav {
+    ul {
+      display: flex;
+    }
   }
 
   /* ButtonMenu */
@@ -72,43 +85,55 @@
     height: 4px;
     width: 30px;
     border: none;
-    /* background-color: #000; */
   }
 
-  &__menu-button::before,
-  &__menu-button::after {
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-    position: absolute;
-    height: 4px;
-    width: 25px;
-    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  &__menu-button {
+    &::before,
+    &::after {
+      display: flex;
+      justify-content: center;
+      background-color: var(--color-white);
+      position: absolute;
+      height: 4px;
+      width: 25px;
+      transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
   }
 
-  &__menu-button::before {
-    content: "";
-    margin-top: -10px;
+  &__menu-button {
+    &::before {
+      content: "";
+      margin-top: -10px;
+    }
   }
 
-  &__menu-button::after {
-    content: "";
-    margin-top: 10px;
+  &__menu-button {
+    &::after {
+      content: "";
+      margin-top: 10px;
+    }
   }
 
-  &__menu-button.active::before {
-    margin-top: 0px;
-    transform: rotate(405deg);
+  &__menu-button {
+    &.active {
+      &::before {
+        margin-top: 0px;
+        transform: rotate(405deg);
+      }
+      &::after {
+        margin-top: 0px;
+        transform: rotate(-405deg);
+      }
+    }
   }
 
-  &__menu-button.active::after {
-    margin-top: 0px;
-    transform: rotate(-405deg);
-  }
-
-  &__menu-button.active::before,
-  &__menu-button.active::after {
-    background-color: #000;
+  &__menu-button {
+    &.active {
+      &::before,
+      &::after {
+        background-color: var(--color-black);
+      }
+    }
   }
 
   @media (max-width: 1220px) {
@@ -130,5 +155,11 @@
       font-size: 8.5px;
       line-height: 8.5px;
     }
+  }
+}
+
+@media (max-width: 1696px) {
+  .header-container {
+    padding: 0 20px;
   }
 }
