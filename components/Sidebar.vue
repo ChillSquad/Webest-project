@@ -1,5 +1,6 @@
 <script setup>
 import iconPaperClip from "./icons/iconPaperClip.vue";
+import iconArrowRightUpLine from "./icons/iconArrowRightUpLine.vue";
 
 import Sidebar from "primevue/sidebar";
 import InputText from "primevue/inputtext";
@@ -92,9 +93,10 @@ const sidebarPT = {
       </div>
 
       <div class="sidebar-footer">
-        <Button label="Оставить заявку" iconPos="right">
+        <Button class="sidebar-button" iconPos="right">
           <template v-slot:icon>
-            <iconPaperClip />
+            <span>Оставить заявку</span>
+            <iconArrowRightUpLine />
           </template>
         </Button>
       </div>

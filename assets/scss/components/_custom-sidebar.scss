@@ -76,3 +76,24 @@
 .sidebar-mask {
   backdrop-filter: blur(10px);
 }
+
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 20px 22px 20px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-family: "Gilroy-SemiBold";
+  font-size: 18px;
+  gap: 12px;
+  color: var(--color-white);
+  background: linear-gradient(
+    97.17deg,
+    #075bf7 2.87%,
+    #7f07f7 49.35%,
+    #ff559f 98.08%
+  );
+  cursor: pointer;
+}
