@@ -4,6 +4,7 @@
 @import "./components/mobile-menu";
 @import "./components/footer";
 @import "./components/first-page";
+@import "./components/custom-sidebar";
 
 $debug: false;
 
@@ -27,17 +28,16 @@ html {
 
 body {
   font-family: var(--ff-medium);
-  background: #000;
 }
 
 .container {
   max-width: 1676px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 20px;
 }
 
 a {
+  color: var(--color-white);
   text-decoration: none;
   font-style: normal;
 }
@@ -46,7 +46,12 @@ ul {
   list-style: none;
 }
 
-.main-header {
-  width: 100%;
-  position: absolute;
+label {
+  user-select: none;
+}
+
+@media (max-width: 1696px) {
+  .container {
+    padding: 0 20px;
+  }
 }

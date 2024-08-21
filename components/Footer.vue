@@ -19,8 +19,8 @@ import FooterLogo from "../public/images/footer-logo.png";
       <div class="footer__inner">
         <div class="footer__references">
           <section class="footer__services">
-            <h4>УСЛУГИ</h4>
-            <ul>
+            <h4 class="footer__services-caption">УСЛУГИ</h4>
+            <ul class="footer__services-list">
               <li><a href="#">Веб-разработка</a></li>
               <li><a href="#">CRM-системы</a></li>
               <li><a href="#">Сопровождение и развитие</a></li>
@@ -31,8 +31,8 @@ import FooterLogo from "../public/images/footer-logo.png";
           </section>
 
           <section class="footer__blog">
-            <h4>БЛОГ</h4>
-            <ul>
+            <h4 class="footer__services-caption">БЛОГ</h4>
+            <ul class="footer__services-list">
               <li><a href="#">Контекстная реклама</a></li>
               <li><a href="#">SEO</a></li>
               <li><a href="#">SMM</a></li>
@@ -46,8 +46,8 @@ import FooterLogo from "../public/images/footer-logo.png";
           </section>
 
           <nav class="footer__nav">
-            <h4>КОМПАНИЯ</h4>
-            <ul>
+            <h4 class="footer__services-caption">КОМПАНИЯ</h4>
+            <ul class="footer__services-list">
               <li><a href="#">Услуги</a></li>
               <li><a href="#">Кейсы</a></li>
               <li><a href="#">Блог</a></li>
@@ -64,8 +64,8 @@ import FooterLogo from "../public/images/footer-logo.png";
 
           <div class="footer__touch">
             <address class="footer__contact">
-              <h4>КОНТАКТЫ</h4>
-              <ul>
+              <h4 class="footer__services-caption">КОНТАКТЫ</h4>
+              <ul class="footer__services-list">
                 <li><a href="#">г. Москва, пр-кт Ленинградский, д. 36</a></li>
                 <li><a href="#">г. Череповец, ул. Монтклер, д. 20</a></li>
                 <li>
