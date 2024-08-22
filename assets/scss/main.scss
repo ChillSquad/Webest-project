@@ -22,7 +22,8 @@ $debug: false;
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   scrollbar-gutter: stable;
 }
 
