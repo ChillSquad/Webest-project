@@ -6,6 +6,21 @@
   --ff-bold: "Montserrat-Bold", Arial, sans-serif;
   --color-white: #fff;
   --color-black: #000;
+  --color-black-transparent: #00030905;
+  --color-blue-link: #0000ff;
+  --color-blue-header: #075bf7;
   --color-grey-transparent: #ffffff26;
   --color-grey-light: #eff0f3;
+  --color-button-gradient: linear-gradient(
+    97.17deg,
+    #075bf7 2.87%,
+    #7f07f7 49.35%,
+    #ff559f 98.08%
+  );
+  --color-button-gradient-hover: linear-gradient(
+    276.39deg,
+    #075bf7 0%,
+    #7f07f7 48.82%,
+    #ff559f 100%
+  );
 }

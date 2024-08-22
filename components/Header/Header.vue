@@ -60,7 +60,9 @@ onBeforeUnmount(() => {
         <div
           class="header__inner"
           :style="{
-            backgroundColor: isAdaptiveActive ? '#00030905' : '#ffffff26',
+            backgroundColor: isAdaptiveActive
+              ? 'var(--color-black-transparent)'
+              : 'var(--color-grey-transparent)',
           }"
         >
           <div class="header__logo">
@@ -70,12 +72,18 @@ onBeforeUnmount(() => {
 
             <div
               class="header__logo-text"
-              :style="{ color: isAdaptiveActive ? '#075BF7' : '#fff' }"
+              :style="{
+                color: isAdaptiveActive
+                  ? 'var(--color-blue-header)'
+                  : 'var(--color-white)',
+              }"
             >
               <span
                 class="header__logo-line"
                 :style="{
-                  backgroundColor: isAdaptiveActive ? '#075BF7' : '#fff',
+                  backgroundColor: isAdaptiveActive
+                    ? 'var(--color-blue-header)'
+                    : 'var(--color-white)',
                 }"
               ></span>
               <p>цифровое <span>решение</span></p>
