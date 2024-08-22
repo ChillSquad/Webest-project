@@ -3,7 +3,7 @@ import Header from "./components/Header/Header.vue";
 import MobileMenu from "./components/Header/MobileMenu.vue";
 import Footer from "./components/Footer.vue";
 import FirstPage from "./components/FirstPage.vue";
-import FeedBack from "./components/Sidebar.vue";
+import Sidebar from "./components/Sidebar/Sidebar.vue";
 </script>
 
 <template>
@@ -14,6 +14,6 @@ import FeedBack from "./components/Sidebar.vue";
       <FirstPage />
     </main>
     <Footer />
-    <FeedBack />
+    <Sidebar />
   </div>
 </template>
