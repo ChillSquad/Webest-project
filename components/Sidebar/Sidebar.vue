@@ -51,7 +51,7 @@ const sidebarPT = {
   },
   transition() {
     return {
-      name: "fade",
+      name: "slide-fade",
     };
   },
 };
@@ -65,7 +65,7 @@ const sidebarPT = {
       header=""
       position="right"
     >
-      <template v-slot:header="props">
+      <template v-slot:header>
         <div v-if="isActive" class="sidebar-heading">
           <h4 class="sidebar-heading__headline">расскажите о своей задаче</h4>
           <span>Чтобы мы могли начать работу, необходимо заполнить форму.</span>
@@ -79,3 +79,19 @@ const sidebarPT = {
     </Sidebar>
   </aside>
 </template>
+
+<style>
+.slide-fade-enter-active {
+  transition: all 0.4s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(500px);
+  opacity: 0;
+}
+</style>
