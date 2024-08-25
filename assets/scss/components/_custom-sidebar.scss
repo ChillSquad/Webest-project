@@ -1,5 +1,15 @@
 .sidebar-mask {
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(0px); /* Начальное состояние без размытия */
+  animation: blur-in 0.4s ease forwards; /* Анимация для размытия */
+}
+
+@keyframes blur-in {
+  from {
+    backdrop-filter: blur(0px); /* Начальное состояние */
+  }
+  to {
+    backdrop-filter: blur(10px); /* Конечное состояние */
+  }
 }
 
 .sidebar-custom {
@@ -9,8 +19,6 @@
   background-color: var(--color-white);
   border-radius: 40px 0 0 40px;
   position: fixed;
-
-  // width: 732px;
 
   .sidebar-close-icon {
     width: 24px;
