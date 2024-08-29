@@ -18,7 +18,7 @@ defineProps({
 
 <template>
   <Button
-    class="sidebar-footer__button"
+    class="gradient-button"
     iconPos="right"
     @mouseenter="isHovered = true"
     @mouseleave="isHovered = false"
@@ -31,7 +31,7 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
-.sidebar-footer__button {
+.gradient-button {
   display: flex;
   align-items: center;
   justify-content: center;

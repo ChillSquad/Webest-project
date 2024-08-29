@@ -1,9 +1,6 @@
 <script setup>
 import Sidebar from "primevue/sidebar";
-
-import SideStepFirst from "./SideStepFirst.vue";
-import SideStepSecond from "./SideStepSecond.vue";
-import SideStepThird from "./SideStepThird.vue";
+import FeedbackForm from "./FeedbackForm.vue";
 
 import { useSidebarModel } from "../models/sidebar";
 import { watch } from "vue";
@@ -44,14 +41,16 @@ const sidebarPT = {
       class: "sidebar-content",
     };
   },
-  mask() {
+  mask(options) {
+    console.log(options);
+
     return {
       class: "sidebar-mask",
     };
   },
   transition() {
     return {
-      name: "fade",
+      name: "slide-fade",
     };
   },
 };
@@ -65,7 +64,7 @@ const sidebarPT = {
       header=""
       position="right"
     >
-      <template v-slot:header="props">
+      <template v-slot:header>
         <div v-if="isActive" class="sidebar-heading">
           <h4 class="sidebar-heading__headline">расскажите о своей задаче</h4>
           <span>Чтобы мы могли начать работу, необходимо заполнить форму.</span>
@@ -73,9 +72,7 @@ const sidebarPT = {
         </div>
       </template>
 
-      <SideStepFirst />
-      <!-- <SideStepSecond /> -->
-      <!-- <SideStepThird /> -->
+      <FeedbackForm />
     </Sidebar>
   </aside>
 </template>

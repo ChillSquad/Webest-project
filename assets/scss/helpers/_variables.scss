@@ -1,9 +1,10 @@
 :root {
   --index: calc(1vw + 1vh);
-  --ff-regular: "Gilroy-Regular", Arial, sans-serif;
-  --ff-medium: "Gilroy-Medium", Arial, sans-serif;
-  --ff-semi-bold: "Gilroy-SemiBold", Arial, sans-serif;
-  --ff-bold: "Montserrat-Bold", Arial, sans-serif;
+  --ff-gilroy-regular: "Gilroy-Regular", Arial, sans-serif;
+  --ff-gilroy-medium: "Gilroy-Medium", Arial, sans-serif;
+  --ff-gilroy-semi-bold: "Gilroy-SemiBold", Arial, sans-serif;
+  --ff-montserrat-bold: "Montserrat-Bold", Arial, sans-serif;
+  --ff-montserrat-semi-bold: "Montserrat-SemiBold", Arial, sans-serif;
   --color-white: #fff;
   --color-black: #000;
   --color-black-transparent: #00030905;
@@ -11,6 +12,10 @@
   --color-blue-header: #075bf7;
   --color-grey-transparent: #ffffff26;
   --color-grey-light: #eff0f3;
+  --color-grey-light-span: #d8dce9;
+  --color-pink: rgba(255, 85, 159, 1);
+  --color-purple: rgba(127, 7, 247, 1);
+  --color-yellow: rgba(255, 187, 85, 1);
   --color-button-gradient: linear-gradient(
     97.17deg,
     #075bf7 2.87%,
@@ -23,4 +28,5 @@
     #7f07f7 48.82%,
     #ff559f 100%
   );
+  --shadow-card: rgba(235, 238, 242, 1);
 }

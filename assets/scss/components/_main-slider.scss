@@ -1,0 +1,34 @@
+.main-menu {
+  &__inner {
+    display: flex;
+    overflow-x: scroll;
+    margin: 220px 0;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+.main-menu-card {
+  width: 266px;
+  height: 266px;
+  &__inner {
+    position: relative;
+  }
+  &__story-image {
+    border-radius: 20px;
+  }
+  &__story-heading {
+    font-family: "Gilroy-SemiBold";
+    font-size: 14px;
+    color: var(--color-white);
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: inherit;
+
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-wrap: wrap;
+  }
+}

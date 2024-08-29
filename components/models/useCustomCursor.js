@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
 export function useCustomCursor(isActive) {
-  const isCursorVisible = ref(true);
+  const isCursorVisible = ref(false);
   const x = ref(0);
   const y = ref(0);
   const circlePosX = ref(0);
