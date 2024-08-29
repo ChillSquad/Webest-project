@@ -5,6 +5,8 @@ import Footer from "./components/Footer.vue";
 import FirstPage from "./components/FirstPage.vue";
 import Sidebar from "./components/Sidebar/Sidebar.vue";
 import MainSliderCard from "./components/MainSlider/MainSlider.vue";
+import CasePage from "./components/CasePage/CasePage.vue";
+import TalkPage from "./components/TalkPage/TalkPage.vue";
 </script>
 
 <template>
@@ -14,6 +16,9 @@ import MainSliderCard from "./components/MainSlider/MainSlider.vue";
     <main>
       <FirstPage />
       <MainSliderCard />
+      <ExpertisePage />
+      <CasePage />
+      <TalkPage />
     </main>
     <Footer />
     <Sidebar />
