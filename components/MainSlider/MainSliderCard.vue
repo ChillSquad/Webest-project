@@ -1,10 +1,27 @@
-<script setup></script>
+<script setup>
+defineProps({
+  urlImage: {
+    type: String,
+    default: null,
+  },
+  title: {
+    type: String,
+    default: null,
+  },
+});
+</script>
 
 <template>
   <div class="main-menu-card">
     <div class="main-menu-card__inner">
-      <img src="/public/images/imageStory1.png" alt="imageStory1" />
-      <p>Hello Hello Hello</p>
+      <img
+        class="main-menu-card__story-image"
+        :src="urlImage"
+        alt="story image"
+      />
+      <p class="main-menu-card__story-heading">
+        {{ title }}
+      </p>
     </div>
   </div>
 </template>
