@@ -2,32 +2,33 @@
   &__inner {
     display: flex;
     overflow-x: scroll;
-    margin: 220px 0 220px 120px;
-    gap: 16px;
+    margin: 220px 0;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
-
 .main-menu-card {
+  width: 266px;
+  height: 266px;
   &__inner {
     position: relative;
+  }
+  &__story-image {
+    border-radius: 20px;
+  }
+  &__story-heading {
+    font-family: "Gilroy-SemiBold";
+    font-size: 14px;
+    color: var(--color-white);
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: inherit;
 
-    img {
-      border-radius: 20px;
-    }
-
-    p {
-      color: var(--color-white);
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      width: 100px;
-      border: 1px solid black;
-
-      /* Новые свойства */
-      word-break: break-word; /* Разбивает длинные слова */
-      overflow: hidden; /* Скрывает текст, выходящий за границы */
-      text-overflow: ellipsis; /* Показывает многоточие, если текст не помещается */
-      flex-wrap: wrap; /* Переносит текст на следующую строку */
-    }
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-wrap: wrap;
   }
 }

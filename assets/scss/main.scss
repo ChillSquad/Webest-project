@@ -1,11 +1,17 @@
-@import "./components/header";
 @import "./helpers/fonts";
 @import "./helpers/variables";
+@import "./helpers/transition";
+
+@import "./components/header";
 @import "./components/mobile-menu";
 @import "./components/footer";
 @import "./components/first-page";
 @import "./components/custom-sidebar";
 @import "./components/main-slider";
+@import "./components/expertise-page";
+@import "./components/custom-cursor";
+@import "./components/case-page";
+@import "./components/talk-page";
 
 $debug: false;
 
@@ -29,7 +35,7 @@ body {
 }
 
 body {
-  font-family: var(--ff-medium);
+  font-family: var(--ff-gilroy-medium);
 }
 
 .container {

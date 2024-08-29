@@ -1,14 +1,14 @@
 .sidebar-mask {
-  backdrop-filter: blur(0px); /* Начальное состояние без размытия */
-  animation: blur-in 0.4s ease forwards; /* Анимация для размытия */
+  backdrop-filter: blur(0px);
+  animation: blur-in 0.4s ease forwards;
 }
 
 @keyframes blur-in {
   from {
-    backdrop-filter: blur(0px); /* Начальное состояние */
+    backdrop-filter: blur(0px);
   }
   to {
-    backdrop-filter: blur(10px); /* Конечное состояние */
+    backdrop-filter: blur(10px);
   }
 }
 
@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   height: 100dvh;
+  height: 100%;
   background-color: var(--color-white);
   border-radius: 40px 0 0 40px;
   position: fixed;
@@ -48,7 +49,7 @@
 
       &__headline {
         text-transform: uppercase;
-        font-family: var(--ff-bold);
+        font-family: var(--ff-montserrat-bold);
         font-size: 28px;
         margin-bottom: 16px;
       }
@@ -60,6 +61,10 @@
     flex-direction: column;
     height: 100%;
     overflow-y: scroll;
+
+    form {
+      height: 100%;
+    }
 
     &::-webkit-scrollbar {
       display: none;
@@ -104,7 +109,6 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      margin-top: auto;
 
       &__privacy {
         display: flex;
