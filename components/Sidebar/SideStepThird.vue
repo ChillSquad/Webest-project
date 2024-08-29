@@ -4,10 +4,10 @@ import GradientButton from "../UI-kit/GradientButton.vue";
 
 <template>
   <div class="sidebar-content">
-    <div class="sidebar-success">
-      <div class="sidebar-success__massage">
-        <span class="sidebar-success__uppercase">Что-то пошло не так</span>
-        <span class="sidebar-success__span"
+    <div class="sidebar-failure">
+      <div class="sidebar-failure__massage">
+        <span class="sidebar-failure__uppercase">Что-то пошло не так</span>
+        <span class="sidebar-failure__span"
           >Попробуйте еще раз или вернитесь позже</span
         >
       </div>
@@ -24,7 +24,7 @@ import GradientButton from "../UI-kit/GradientButton.vue";
   align-items: center;
   justify-content: center;
   padding: 0 62px;
-  .sidebar-success {
+  .sidebar-failure {
     width: 100%;
     display: flex;
     flex-direction: column;

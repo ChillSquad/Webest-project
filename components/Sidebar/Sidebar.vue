@@ -1,9 +1,6 @@
 <script setup>
 import Sidebar from "primevue/sidebar";
-
-import SideStepFirst from "./SideStepFirst.vue";
-import SideStepSecond from "./SideStepSecond.vue";
-import SideStepThird from "./SideStepThird.vue";
+import FeedbackForm from "./FeedbackForm.vue";
 
 import { useSidebarModel } from "../models/sidebar";
 import { watch } from "vue";
@@ -44,7 +41,9 @@ const sidebarPT = {
       class: "sidebar-content",
     };
   },
-  mask() {
+  mask(options) {
+    console.log(options);
+
     return {
       class: "sidebar-mask",
     };
@@ -73,25 +72,7 @@ const sidebarPT = {
         </div>
       </template>
 
-      <SideStepFirst />
-      <!-- <SideStepSecond /> -->
-      <!-- <SideStepThird /> -->
+      <FeedbackForm />
     </Sidebar>
   </aside>
 </template>
-
-<style>
-.slide-fade-enter-active {
-  transition: all 0.4s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.4s cubic-bezier(0, 0, 1, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(800px);
-  opacity: 0;
-}
-</style>
