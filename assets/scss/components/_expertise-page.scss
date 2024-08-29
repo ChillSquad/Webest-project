@@ -1,0 +1,120 @@
+.expertise-page {
+  margin: 0 0 220px 0;
+  &__heading {
+    display: flex;
+    align-items: flex-start;
+  }
+  &__heading-subtitle {
+    margin-left: auto;
+    width: 569px;
+    font-size: 24px;
+    line-height: 33.6px;
+    user-select: none;
+    .custom-standing-pink {
+      display: inline-block;
+      padding: 0 8px;
+      border-radius: 8px;
+      background: var(--color-pink);
+      color: var(--color-white);
+      transform: rotate(-2.39deg) translateY(-4px);
+    }
+    .custom-standing-purple {
+      display: inline-block;
+      padding: 0 8px;
+      border-radius: 8px;
+      background: var(--color-purple);
+      color: var(--color-white);
+      transform: rotate(0.91deg) translateX(-5px);
+    }
+    .custom-standing-yellow {
+      display: inline-block;
+      padding: 0 8px;
+      border-radius: 8px;
+      background: var(--color-yellow);
+      color: var(--color-white);
+      transform: rotate(-2.39deg);
+    }
+  }
+  &__table {
+    box-shadow: 0 0 50px 5px var(--shadow-card);
+    height: 688px;
+    margin: 100px 0 0 0;
+    background: var(--shadow-card);
+    border-radius: 40px;
+  }
+  &__table-list {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 100%;
+    .tall {
+      grid-row: span 2;
+    }
+  }
+  &__table-item {
+    background: var(--color-white);
+    border-radius: 40px;
+  }
+  @media (max-width: 1300px) {
+    &__heading {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    &__heading-subtitle {
+      margin: 24px 0 0 0;
+    }
+  }
+  @media (max-width: 1000px) {
+    &__table {
+      height: fit-content;
+    }
+    &__table-list {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto-fit;
+    }
+    .tall {
+      grid-row: span 1;
+    }
+  }
+  @media (max-width: 800px) {
+    &__heading-subtitle {
+      width: 328px;
+      font-size: 18px;
+      line-height: normal;
+    }
+  }
+  @media (max-width: 400px) {
+    &__heading-subtitle {
+      width: 290px;
+      font-size: 18px;
+      line-height: normal;
+    }
+  }
+}
+.expertise-card {
+  color: var(--color-black);
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    padding: 36px 38px;
+    height: 100%;
+  }
+  &__heading {
+    margin-top: auto;
+    font-family: "Montserrat-SemiBold";
+    font-size: 22px;
+  }
+  &__subhead {
+    display: none;
+    margin-top: 8px;
+  }
+  @media (max-width: 1000px) {
+    &__inner {
+      height: 328px;
+    }
+    &__subhead {
+      display: block;
+    }
+  }
+}
