@@ -1,5 +1,5 @@
 .case-page {
-  margin-bottom: 220px;
+  margin-bottom: var(--page-margin-y);
   &__heading {
     display: flex;
     align-items: flex-start;
@@ -53,10 +53,17 @@
     align-items: end;
     justify-content: center;
   }
-  &__case-image {
+  &__wrapper {
+    overflow: hidden;
     border-radius: 20px;
+  }
+  &__case-image {
     width: 100%;
     height: auto;
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   &__case-heading {
     padding: 30px;
@@ -65,8 +72,8 @@
     line-height: 32.12px;
     color: var(--color-white);
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 0;
+    left: 0;
     width: 480px;
 
     word-break: break-word;
@@ -81,6 +88,7 @@
   }
   @media (max-width: 600px) {
     &__case-heading {
+      line-height: 19.6px;
       font-size: 20px;
       width: 400px;
       padding: 20px;
@@ -95,7 +103,7 @@
   }
   @media (max-width: 400px) {
     &__case-heading {
-      font-size: 16px;
+      font-size: 14px;
       width: 300px;
       padding: 10px;
       line-height: 22px;
@@ -115,7 +123,7 @@
   bottom: 10px;
   z-index: 3;
   background: var(--color-white);
-  width: 820px;
+  width: 814px;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -136,11 +144,15 @@
   }
   &__text {
     width: 246px;
+    font-size: 16px;
+    line-height: 22.4px;
+    font-family: "Gilroy-Regular";
   }
   &__percent {
     font-family: "Montserrat-SemiBold";
     font-size: 22px;
     padding: 0 0 3px 0;
+    line-height: 32.12px;
   }
   &__line {
     align-self: center;
@@ -167,6 +179,9 @@
     }
     &__box {
       flex-direction: column;
+    }
+    &__text {
+      width: 100%;
     }
   }
 }

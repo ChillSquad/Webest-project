@@ -40,10 +40,11 @@ $ease: cubic-bezier(0.23, 1, 0.32, 1);
 
   &__circle-span {
     font-family: var(--ff-gilroy-semi-bold);
+    font-size: 20px;
+    line-height: 20px;
     display: flex;
     flex-direction: column;
     color: var(--color-white);
-    font-size: 20px;
     text-align: center;
     z-index: 1;
     transition: transform 0.6s $ease;

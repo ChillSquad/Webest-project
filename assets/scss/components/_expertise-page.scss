@@ -1,5 +1,5 @@
 .expertise-page {
-  margin: 0 0 220px 0;
+  margin-bottom: var(--page-margin-y);
   &__heading {
     display: flex;
     align-items: flex-start;
@@ -10,13 +10,14 @@
     font-size: 24px;
     line-height: 33.6px;
     user-select: none;
+    color: var(--color-black-subtitle);
     .custom-standing-pink {
       display: inline-block;
       padding: 0 8px;
       border-radius: 8px;
       background: var(--color-pink);
       color: var(--color-white);
-      transform: rotate(-2.39deg) translateY(-4px);
+      transform: rotate(-2.39deg);
     }
     .custom-standing-purple {
       display: inline-block;
@@ -24,7 +25,7 @@
       border-radius: 8px;
       background: var(--color-purple);
       color: var(--color-white);
-      transform: rotate(0.91deg) translateX(-5px);
+      transform: rotate(0.91deg);
     }
     .custom-standing-yellow {
       display: inline-block;
@@ -49,11 +50,13 @@
     height: 100%;
     .tall {
       grid-row: span 2;
+      height: 688px;
     }
   }
   &__table-item {
     background: var(--color-white);
     border-radius: 40px;
+    height: 340px;
   }
   @media (max-width: 1300px) {
     &__heading {
@@ -73,8 +76,12 @@
       grid-template-columns: 1fr;
       grid-template-rows: auto-fit;
     }
+    &__table-item {
+      height: 328px;
+    }
     .tall {
       grid-row: span 1;
+      height: 328px;
     }
   }
   @media (max-width: 800px) {
@@ -86,7 +93,6 @@
   }
   @media (max-width: 400px) {
     &__heading-subtitle {
-      width: 290px;
       font-size: 18px;
       line-height: normal;
     }
@@ -99,21 +105,26 @@
     flex-direction: column;
     padding: 36px 38px;
     height: 100%;
+
+    &:hover .expertise-card__subhead {
+      display: block;
+    }
   }
   &__heading {
     margin-top: auto;
     font-family: "Montserrat-SemiBold";
     font-size: 22px;
+    line-height: 32.12px;
   }
   &__subhead {
     display: none;
     margin-top: 8px;
   }
   @media (max-width: 1000px) {
-    &__inner {
-      height: 328px;
-    }
     &__subhead {
+      font-family: "Gilroy-Regular";
+      font-size: 13px;
+      line-height: 18.98px;
       display: block;
     }
   }

@@ -15,13 +15,14 @@
   &__heading {
     display: flex;
     flex-direction: column;
-    margin: 80px 0 80px 0;
+    margin: 100px 0 100px 0;
     gap: 60px;
   }
 
   &__heading-caption {
     display: flex;
-    font-size: calc(var(--index) * 5);
+    font-size: calc(var(--index) * 4.5);
+    font-family: "Montserrat-Bold";
     flex-direction: column;
     text-transform: uppercase;
   }
