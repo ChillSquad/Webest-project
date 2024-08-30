@@ -6,10 +6,12 @@
   --ff-montserrat-bold: "Montserrat-Bold", Arial, sans-serif;
   --ff-montserrat-semi-bold: "Montserrat-SemiBold", Arial, sans-serif;
   --color-white: #fff;
+  --color-white-transparent: #ffffffcc;
   --color-black: #000;
   --color-black-transparent: #00030905;
-  --color-blue-link: #0000ff;
-  --color-blue-header: #075bf7;
+  --color-black-subtitle: #000309;
+  --color-blue: #075bf7;
+  --color-blue-line: #075bf733;
   --color-grey-transparent: #ffffff26;
   --color-grey-light: #eff0f3;
   --color-grey-light-span: #d8dce9;
@@ -29,4 +31,6 @@
     #ff559f 100%
   );
   --shadow-card: rgba(235, 238, 242, 1);
+  --page-margin-y: 220px;
+  --container-max-width: 1676px;
 }
