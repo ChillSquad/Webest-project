@@ -1,14 +1,13 @@
 <template>
   <svg
+    class="arrow-right-up"
     width="16"
     height="16"
     viewBox="0 0 16 16"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
       d="M11.0032 3.41421L2.39663 12.0208L0.982422 10.6066L9.58901 2H2.00324V0H13.0032V11H11.0032V3.41421Z"
-      fill="white"
     />
   </svg>
 </template>
