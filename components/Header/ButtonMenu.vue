@@ -38,9 +38,7 @@ onBeforeUnmount(() => {
       :class="{ active: isActive }"
       type="button"
       :style="{
-        backgroundColor: isActive
-          ? 'rgba(255, 255, 255, 0)'
-          : 'var(--color-white)',
+        backgroundColor: isActive ? 'transparent' : 'var(--color-white)',
       }"
     ></button>
   </div>

@@ -74,7 +74,7 @@ onBeforeUnmount(() => {
               class="header__logo-text"
               :style="{
                 color: isAdaptiveActive
-                  ? 'var(--color-blue-header)'
+                  ? 'var(--color-blue)'
                   : 'var(--color-white)',
               }"
             >
@@ -82,7 +82,7 @@ onBeforeUnmount(() => {
                 class="header__logo-line"
                 :style="{
                   backgroundColor: isAdaptiveActive
-                    ? 'var(--color-blue-header)'
+                    ? 'var(--color-blue-line)'
                     : 'var(--color-white)',
                 }"
               ></span>
