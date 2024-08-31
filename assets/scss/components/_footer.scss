@@ -1,5 +1,5 @@
 .footer {
-  background-image: url("images/footer-background.png");
+  background-image: url("public/images/footer-background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -75,27 +75,25 @@
     }
   }
   &__copyright {
-    p {
-      font-family: var(--ff-gilroy-regular);
-      font-size: 14px;
-      line-height: 18.2px;
-    }
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
     p {
+      font-family: var(--ff-gilroy-regular);
+      font-size: 14px;
+      line-height: 18.2px;
       user-select: none;
     }
   }
   &__copyright-links {
+    display: flex;
+    gap: 20px;
     a {
       color: var(--color-white-transparent);
       font-size: 14px;
       line-height: 18.2px;
     }
-    display: flex;
-    gap: 20px;
   }
   &__copyright-insignia {
     user-select: none;
