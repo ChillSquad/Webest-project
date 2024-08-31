@@ -30,8 +30,8 @@ defineProps({
   }
   &__heading {
     font-family: "Montserrat-Bold";
-    font-size: 80px;
-    line-height: 96px;
+    font-size: var(--fs-h2-1920);
+    line-height: var(--lh-h2-1920);
     text-transform: uppercase;
     transition: color 0.3s ease-in-out;
   }
@@ -43,8 +43,8 @@ defineProps({
   }
   @media (max-width: 800px) {
     &__heading {
-      font-size: 32px;
-      line-height: 36.48px;
+      font-size: var(--fs-h2-360);
+      line-height: var(--lh-h2-360);
     }
     .title-arrow-right {
       width: 22.67px;

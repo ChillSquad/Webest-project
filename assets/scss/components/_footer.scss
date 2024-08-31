@@ -15,8 +15,8 @@
   &__services-caption {
     font-style: normal;
     font-family: "Montserrat-Bold";
-    font-size: 24px;
-    line-height: 33.6px;
+    font-size: var(--fs-text1-1920);
+    line-height: var(--lh-text1-1920);
     margin-bottom: 40px;
     text-transform: uppercase;
   }
@@ -27,8 +27,8 @@
     li {
       padding: 3px 0;
       a {
-        font-size: 18px;
-        line-height: 27.54px;
+        font-size: var(--fs-text1-1920);
+        line-height: var(--lh-text1-1920);
         color: var(--color-white-transparent);
       }
     }
@@ -61,8 +61,8 @@
     margin-top: 59px;
     text-align: center;
     a {
-      font-size: 18px;
-      line-height: 27.54px;
+      font-size: var(--fs-text2-1920);
+      line-height: var(--lh-text2-1920);
       color: var(--color-white-transparent);
     }
   }

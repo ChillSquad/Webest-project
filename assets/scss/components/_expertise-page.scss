@@ -7,8 +7,8 @@
   &__heading-subtitle {
     margin-left: auto;
     width: 569px;
-    font-size: 24px;
-    line-height: 33.6px;
+    font-size: var(--fs-text1-1920);
+    line-height: var(--lh-text1-1920);
     user-select: none;
     color: var(--color-black-subtitle);
     .custom-standing-pink {
@@ -114,8 +114,8 @@
   &__heading {
     margin-top: auto;
     font-family: "Montserrat-SemiBold";
-    font-size: 22px;
-    line-height: 32.12px;
+    font-size: var(--fs-h6-1920);
+    line-height: var(--lh-h6-1920);
   }
   &__subhead {
     display: none;

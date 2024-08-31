@@ -64,8 +64,8 @@
   }
   &__subtitle {
     width: 420px;
-    font-size: 24px;
-    line-height: 33.6px;
+    font-size: var(--fs-text1-1920);
+    line-height: var(--lh-text1-1920);
     text-align: center;
     .custom-standing-purple {
       display: inline-block;
@@ -85,8 +85,8 @@
   @media (max-width: 800px) {
     &__subtitle {
       width: 328px;
-      font-size: 18px;
-      line-height: 25.2px;
+      font-size: var(--fs-text1-360);
+      line-height: var(--lh-text1-360);
     }
   }
   @media (max-width: 400px) {

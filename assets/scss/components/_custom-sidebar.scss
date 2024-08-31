@@ -38,8 +38,8 @@
     .sidebar-heading {
       display: flex;
       flex-direction: column;
-      line-height: 27.54px;
-      font-size: 18px;
+      font-size: var(--fs-text2-1920);
+      line-height: var(--lh-text2-1920);
       &__headline {
         text-transform: uppercase;
         font-family: var(--ff-montserrat-bold);

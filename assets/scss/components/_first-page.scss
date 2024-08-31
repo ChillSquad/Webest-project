@@ -28,8 +28,8 @@
   }
   &__heading-paragraph {
     max-width: 554px;
-    font-size: 24px;
-    line-height: 33.6px;
+    font-size: var(--fs-text1-1920);
+    line-height: var(--lh-text1-1920);
   }
 
   @media (max-width: 1200px) {
