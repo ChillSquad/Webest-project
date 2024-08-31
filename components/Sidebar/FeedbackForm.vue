@@ -10,7 +10,7 @@ const { activeFormStep } = useFeedbackFormModel();
 <template>
   <form @submit.prevent="false">
     <Transition name="fade" mode="out-in">
-      <SideStepFirst v-if="activeFormStep === 0" />
+      <SideStepFirst v-if="activeFormStep === 1" />
       <SideStepSecond v-else-if="activeFormStep === 1" />
       <SideStepThird v-else="activeFormStep === 2" />
     </Transition>

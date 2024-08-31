@@ -9,8 +9,8 @@ defineProps({
 </script>
 
 <template>
-  <a href="#" class="title-button">
-    <h2 id="title-button-class-management" class="title-button__heading">
+  <a href="#" id="title-button-class-management" class="title-button">
+    <h2 class="title-button__heading">
       {{ title }}
     </h2>
     <iconTitleArrowRight />
@@ -23,7 +23,6 @@ defineProps({
   gap: 21.33px;
   align-items: center;
   color: var(--color-black);
-  width: fit-content;
   transition: gap 0.3s ease-in-out;
   &:hover {
     color: var(--color-blue);
@@ -48,8 +47,8 @@ defineProps({
       line-height: 36.48px;
     }
     .title-arrow-right {
-      width: 27px;
-      height: 26px;
+      width: 22.67px;
+      height: 22.04px;
     }
   }
 }

@@ -19,7 +19,7 @@ import TalkPage from "./components/TalkPage/TalkPage.vue";
       <MainSliderCard />
       <ExpertisePage />
       <CasePage />
-      <!-- <AboutCompany /> -->
+      <AboutCompany />
       <TalkPage />
     </main>
     <Footer />
