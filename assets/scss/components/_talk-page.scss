@@ -1,8 +1,8 @@
 .talk-page {
-  margin: 0 0 220px 0;
+  margin-bottom: var(--page-margin-y);
   &__heading {
     font-family: "Montserrat-Bold";
-    font-size: 80px;
+    font-size: var(--fs-h2-1920);
     text-transform: uppercase;
     user-select: none;
   }
@@ -23,7 +23,7 @@
   }
   @media (max-width: 800px) {
     &__heading {
-      font-size: 32px;
+      font-size: var(--fs-h2-360);
     }
     &__table-item {
       height: 200px;

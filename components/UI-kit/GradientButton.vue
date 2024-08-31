@@ -25,7 +25,10 @@ defineProps({
   >
     <template v-slot:icon>
       <span>{{ title }}</span>
-      <component :is="isHovered ? iconArrowRightLine : iconArrowRightUpLine" />
+      <component
+        class="gradient-button__arrow"
+        :is="isHovered ? iconArrowRightLine : iconArrowRightUpLine"
+      />
     </template>
   </Button>
 </template>
@@ -35,7 +38,7 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 22px 20px 22px 20px;
+  padding: 22px 0 22px 20px;
   border-radius: 20px;
   border: none;
   outline: none;
@@ -45,7 +48,11 @@ defineProps({
   color: var(--color-white);
   background: var(--color-button-gradient);
   cursor: pointer;
-
+  .arrow-right-up {
+    fill: var(--color-white);
+    position: relative;
+    top: 3px;
+  }
   &:hover {
     background: var(--color-button-gradient-hover);
   }

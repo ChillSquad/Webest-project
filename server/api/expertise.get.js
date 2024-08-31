@@ -3,7 +3,7 @@ export default defineEventHandler((event) => {
     {
       id: 0,
       title: "Веб-разработка",
-      subtitle: "#Интернет-магазины и B2B-платформы и обучающие платформы",
+      subtitle: "Интернет-магазины и B2B-платформы и обучающие платформы",
       tall: true,
       icon: "iconDevelopment",
       link: "#",

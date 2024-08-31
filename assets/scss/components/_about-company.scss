@@ -1,0 +1,97 @@
+.about-company-page {
+  margin-bottom: var(--page-margin-y);
+  background: var(--color-grey-light);
+  position: relative;
+  &__inner {
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__photo-collage > img {
+    position: absolute;
+  }
+  &__photo-collage {
+    :nth-child(1) {
+      top: 0;
+      left: 40px;
+    }
+    :nth-child(2) {
+      top: 26px;
+      left: 194px;
+    }
+    :nth-child(3) {
+      top: 0;
+      right: 383px;
+    }
+    :nth-child(4) {
+      top: 60px;
+      right: 0;
+    }
+    :nth-child(5) {
+      top: 333px;
+      right: 0;
+    }
+    :nth-child(6) {
+      bottom: 211px;
+      left: 36px;
+    }
+    :nth-child(7) {
+      bottom: 50px;
+      left: 269px;
+    }
+    :nth-child(8) {
+      bottom: 126px;
+      right: 417px;
+    }
+    :nth-child(9) {
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+.about-company-content {
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  &__subtitle {
+    width: 420px;
+    font-size: var(--fs-text1-1920);
+    line-height: var(--lh-text1-1920);
+    text-align: center;
+    .custom-standing-purple {
+      display: inline-block;
+      padding: 0 8px;
+      border-radius: 8px;
+      background: var(--color-purple);
+      color: var(--color-white);
+    }
+    .custom-standing-yellow {
+      display: inline-block;
+      padding: 0 8px;
+      border-radius: 8px;
+      background: var(--color-yellow);
+      color: var(--color-white);
+    }
+  }
+  @media (max-width: 800px) {
+    &__subtitle {
+      width: 328px;
+      font-size: var(--fs-text1-360);
+      line-height: var(--lh-text1-360);
+    }
+  }
+  @media (max-width: 400px) {
+    &__subtitle {
+      width: 100%;
+    }
+  }
+}

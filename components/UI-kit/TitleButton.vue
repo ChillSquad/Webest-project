@@ -9,34 +9,46 @@ defineProps({
 </script>
 
 <template>
-  <a href="#" class="title-button">
-    <h2 class="title-button__heading">{{ title }}</h2>
-    <div class="super">
-      <iconTitleArrowRight />
-    </div>
+  <a href="#" id="title-button-class-management" class="title-button">
+    <h2 class="title-button__heading">
+      {{ title }}
+    </h2>
+    <iconTitleArrowRight />
   </a>
 </template>
 
 <style lang="scss" scoped>
 .title-button {
   display: flex;
-  gap: 20px;
+  gap: 21.33px;
   align-items: center;
   color: var(--color-black);
-  width: fit-content;
+  transition: gap 0.3s ease-in-out;
+  &:hover {
+    color: var(--color-blue);
+    gap: 29.33px;
+  }
   &__heading {
     font-family: "Montserrat-Bold";
-    font-size: 80px;
+    font-size: var(--fs-h2-1920);
+    line-height: var(--lh-h2-1920);
     text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
   }
-
+  .title-arrow-right {
+    transition: fill 0.3s ease-in-out;
+  }
+  &:hover .title-arrow-right {
+    fill: var(--color-blue);
+  }
   @media (max-width: 800px) {
     &__heading {
-      font-size: 32px;
+      font-size: var(--fs-h2-360);
+      line-height: var(--lh-h2-360);
     }
     .title-arrow-right {
-      width: 27px;
-      height: 26px;
+      width: 22.67px;
+      height: 22.04px;
     }
   }
 }

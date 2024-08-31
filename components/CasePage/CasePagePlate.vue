@@ -2,7 +2,7 @@
 defineProps({
   items: Array,
   platePosition: {
-    type: String,
+    type: Boolean,
     default: false,
   },
 });

@@ -17,7 +17,7 @@ defineProps({
     default: "#000",
   },
   wide: {
-    type: String,
+    type: Boolean,
     default: false,
   },
 });
@@ -26,11 +26,13 @@ defineProps({
 <template>
   <div class="case-page-card">
     <div :class="['case-page-card__inner', { right: wide }]">
-      <img
-        class="case-page-card__case-image"
-        :src="urlImage"
-        alt="story image"
-      />
+      <div class="case-page-card__wrapper">
+        <img
+          class="case-page-card__case-image"
+          :src="urlImage"
+          alt="story image"
+        />
+      </div>
       <p
         :key="index"
         :style="{ color: textColor }"

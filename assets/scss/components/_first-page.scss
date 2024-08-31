@@ -1,5 +1,5 @@
 .first-page {
-  background-image: url("images/first-page-background.png");
+  background-image: url("public/images/first-page-background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -15,20 +15,21 @@
   &__heading {
     display: flex;
     flex-direction: column;
-    margin: 80px 0 80px 0;
+    margin: 100px 0 100px 0;
     gap: 60px;
   }
 
   &__heading-caption {
     display: flex;
-    font-size: calc(var(--index) * 5);
+    font-size: calc(var(--index) * 4.5);
+    font-family: "Montserrat-Bold";
     flex-direction: column;
     text-transform: uppercase;
   }
   &__heading-paragraph {
     max-width: 554px;
-    font-size: 24px;
-    line-height: 33.6px;
+    font-size: var(--fs-text1-1920);
+    line-height: var(--lh-text1-1920);
   }
 
   @media (max-width: 1200px) {
