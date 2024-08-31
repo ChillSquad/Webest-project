@@ -17,7 +17,7 @@ defineProps({
     default: "#000",
   },
   wide: {
-    type: String,
+    type: Boolean,
     default: false,
   },
 });

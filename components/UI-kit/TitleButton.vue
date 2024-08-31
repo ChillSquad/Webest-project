@@ -26,6 +26,7 @@ defineProps({
   width: fit-content;
   transition: gap 0.3s ease-in-out;
   &:hover {
+    color: var(--color-blue);
     gap: 29.33px;
   }
   &__heading {
@@ -34,9 +35,6 @@ defineProps({
     line-height: 96px;
     text-transform: uppercase;
     transition: color 0.3s ease-in-out;
-    &:hover {
-      color: var(--color-blue);
-    }
   }
   .title-arrow-right {
     transition: fill 0.3s ease-in-out;
