@@ -30,14 +30,10 @@ defineProps({
         <img
           class="case-page-card__case-image"
           :src="urlImage"
-          alt="story image"
+          :alt="urlImage"
         />
       </div>
-      <p
-        :key="index"
-        :style="{ color: textColor }"
-        class="case-page-card__case-heading"
-      >
+      <p :style="{ color: textColor }" class="case-page-card__case-heading">
         {{ title }}
       </p>
       <CasePagePlate v-if="hasData" :items="moreData" :platePosition="wide" />

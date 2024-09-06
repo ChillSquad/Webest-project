@@ -12,14 +12,14 @@ defineProps({
 </script>
 
 <template>
-  <div class="main-menu-card">
-    <div class="main-menu-card__inner">
+  <div class="main-slider-card">
+    <div class="main-slider-card__inner">
       <img
-        class="main-menu-card__story-image"
+        class="main-slider-card__story-image"
         :src="urlImage"
         alt="story image"
       />
-      <p class="main-menu-card__story-heading">
+      <p class="main-slider-card__story-heading">
         {{ title }}
       </p>
     </div>

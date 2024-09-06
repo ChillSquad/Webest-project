@@ -1,14 +1,8 @@
 <script setup>
-import Vk from "./icons/iconVk.vue";
-import IconTelegram from "./icons/iconTelegram.vue";
-import Vc from "./icons/iconVc.vue";
-import Behance from "./icons/iconBehance.vue";
-import Dprofile from "./icons/iconDprofile.vue";
-import ArrowRightUpLine from "./icons/iconArrowRightUpLine.vue";
-import VkLogotype from "./icons/logoVk.vue";
-import YandexStarLogo from "./icons/logoYandexStar.vue";
-import WorkspaceLogo from "./icons/logoWorkspace.vue";
-import ArdaLogo from "./icons/logoArda.vue";
+import VkLogotype from "../assets/icons/logoVk.vue";
+import YandexStarLogo from "../assets/icons/logoYandexStar.vue";
+import WorkspaceLogo from "../assets/icons/logoWorkspace.vue";
+import ArdaLogo from "../assets/icons/logoArda.vue";
 
 import FooterLogo from "../public/images/footer-logo.png";
 </script>
@@ -54,52 +48,50 @@ import FooterLogo from "../public/images/footer-logo.png";
               <li><a href="#">Компания</a></li>
               <li><a href="#">Контакты</a></li>
               <li>
-                <a href="#">Академия <ArrowRightUpLine /></a>
+                <a href="#" class="icon-arrow-right-up">Академия</a>
               </li>
               <li>
-                <a href="#">Партнерам <ArrowRightUpLine /></a>
+                <a href="#" class="icon-arrow-right-up">Партнерам</a>
               </li>
             </ul>
           </nav>
 
-          <div class="footer__touch">
-            <address class="footer__contact">
-              <h4 class="footer__services-caption">контакты</h4>
-              <ul class="footer__services-list">
-                <li><a href="#">г. Москва, пр-кт Ленинградский, д. 36</a></li>
-                <li><a href="#">г. Череповец, ул. Монтклер, д. 20</a></li>
+          <address class="footer__contact">
+            <h4 class="footer__services-caption">контакты</h4>
+            <ul class="footer__services-list">
+              <li><a href="#">г. Москва, пр-кт Ленинградский, д. 36</a></li>
+              <li><a href="#">г. Череповец, ул. Монтклер, д. 20</a></li>
+              <li>
+                <a href="tel:+74951282290"> +7 (495) 128-22-90 </a>
+              </li>
+              <li>
+                <a href="mailto:info@webest.ru">info@webest.ru </a>
+              </li>
+              <section class="footer__social">
                 <li>
-                  <a href="tel:+74951282290"> +7 (495) 128-22-90 </a>
+                  <a href="#" class="icon-vkontakte"></a>
                 </li>
                 <li>
-                  <a href="mailto:info@webest.ru">info@webest.ru </a>
+                  <a href="#" class="icon-telegram"></a>
                 </li>
-                <section class="footer__social">
-                  <li>
-                    <a href="#"><Vk /></a>
-                  </li>
-                  <li>
-                    <a href="#"><IconTelegram /></a>
-                  </li>
-                  <li>
-                    <a href="#"><Vc /></a>
-                  </li>
-                  <li>
-                    <a href="#"><Behance /></a>
-                  </li>
-                  <li>
-                    <a href="#"><Dprofile /></a>
-                  </li>
-                </section>
-              </ul>
-            </address>
+                <li>
+                  <a href="#" class="icon-vcru"></a>
+                </li>
+                <li>
+                  <a href="#" class="icon-behance"></a>
+                </li>
+                <li>
+                  <a href="#" class="icon-dprofile"></a>
+                </li>
+              </section>
+            </ul>
 
             <div class="footer__presentation">
-              <a href="#"
-                >Скачать презентацию <span>- pdf, 3mb <ArrowRightUpLine /></span
-              ></a>
+              <a href="#" class="icon-arrow-right-up"
+                >Скачать презентацию <span>- pdf, 3mb</span></a
+              >
             </div>
-          </div>
+          </address>
         </div>
 
         <div class="footer__logo-footer">

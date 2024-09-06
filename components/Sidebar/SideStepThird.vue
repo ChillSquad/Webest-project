@@ -13,6 +13,7 @@ import GradientButton from "../UI-kit/GradientButton.vue";
       </div>
       <GradientButton title="Повторить" />
     </div>
+    <div class="sidebar-failure__plug"></div>
   </div>
 </template>
 
@@ -23,27 +24,6 @@ import GradientButton from "../UI-kit/GradientButton.vue";
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 62px;
-  .sidebar-failure {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    &__massage {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-    &__uppercase {
-      text-transform: uppercase;
-      font-family: "Montserrat-Bold";
-      font-size: 28px;
-    }
-    &__span {
-      font-size: 18px;
-    }
-  }
+  padding: 0 16px;
 }
 </style>

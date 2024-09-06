@@ -1,12 +1,5 @@
 <script setup>
-import { ref } from "vue";
-
-import iconArrowRightUpLine from "../icons/iconArrowRightUpLine.vue";
-import iconArrowRightLine from "../icons/iconArrowRightLine.vue";
-
 import Button from "primevue/button";
-
-const isHovered = ref(false);
 
 defineProps({
   title: {
@@ -17,19 +10,9 @@ defineProps({
 </script>
 
 <template>
-  <Button
-    class="gradient-button"
-    iconPos="right"
-    @mouseenter="isHovered = true"
-    @mouseleave="isHovered = false"
-  >
-    <template v-slot:icon>
-      <span>{{ title }}</span>
-      <component
-        class="gradient-button__arrow"
-        :is="isHovered ? iconArrowRightLine : iconArrowRightUpLine"
-      />
-    </template>
+  <Button label="Submit" class="gradient-button" iconPos="right">
+    <span>{{ title }}</span>
+    <span class="gradient-button__arrow icon-arrow-right-up"></span>
   </Button>
 </template>
 
@@ -38,23 +21,34 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 22px 0 22px 20px;
+  padding: 15px 16px;
   border-radius: 20px;
   border: none;
   outline: none;
-  font-family: "Gilroy-SemiBold";
+  font-family: var(--ff-gilroy-semi-bold);
   font-size: 18px;
   gap: 12px;
   color: var(--color-white);
   background: var(--color-button-gradient);
   cursor: pointer;
-  .arrow-right-up {
-    fill: var(--color-white);
-    position: relative;
-    top: 3px;
+
+  .icon-arrow-right-up {
+    &:after {
+      content: "\0042";
+      font-size: 12px;
+      color: inherit;
+      margin-left: 10px;
+      transition: transform 0.2s ease-in-out;
+    }
   }
+
   &:hover {
     background: var(--color-button-gradient-hover);
+    .icon-arrow-right-up {
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
   }
 }
 </style>
