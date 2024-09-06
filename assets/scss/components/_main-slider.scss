@@ -1,33 +1,39 @@
-.main-menu {
+.main-slider {
   &__inner {
     display: flex;
+    align-items: center;
+    justify-content: center;
     overflow-x: scroll;
     margin: var(--page-margin-y) 0;
+
     &::-webkit-scrollbar {
       display: none;
     }
   }
 }
-.main-menu-card {
+
+.main-slider-card {
   width: 266px;
   height: 266px;
+
   &__inner {
     position: relative;
   }
+
   &__story-image {
     border-radius: 20px;
   }
+
   &__story-heading {
+    @include font-text-2;
+
+    font-family: var(--ff-gilroy-semi-bold);
+    color: var(--color-white);
     margin: 16px;
     width: 234px;
-    font-family: "Gilroy-SemiBold";
-    font-size: 14px;
-    line-height: 18.2px;
-    color: var(--color-white);
     position: absolute;
     bottom: 0;
     left: 0;
-
     word-break: break-word;
     overflow: hidden;
     text-overflow: ellipsis;

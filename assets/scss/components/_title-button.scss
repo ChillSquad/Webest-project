@@ -1,0 +1,57 @@
+.title-button {
+  display: flex;
+  gap: 21.33px;
+  align-items: center;
+  color: var(--color-black);
+
+  &:hover {
+    color: var(--color-blue);
+    .icon-arrow-right {
+      &:after {
+        transform: translateX(8px);
+      }
+    }
+  }
+
+  &__heading {
+    @include font-h2;
+
+    transition: color 0.3s ease-in-out;
+
+    br {
+      display: none;
+    }
+  }
+
+  .icon-arrow-right {
+    &:after {
+      content: "\0041";
+      font-size: 56px;
+      color: inherit;
+      margin-left: 21px;
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  .title-arrow-right {
+    transition: fill 0.3s ease-in-out;
+  }
+
+  &:hover .title-arrow-right {
+    fill: var(--color-blue);
+  }
+
+  @media (max-width: 1000px) {
+    &__heading {
+      br {
+        display: block;
+      }
+    }
+
+    .icon-arrow-right {
+      &:after {
+        font-size: 23px;
+      }
+    }
+  }
+}
