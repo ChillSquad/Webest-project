@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   alias: {
     "@": resolve(__dirname, "."),
   },
-  modules: ["nuxt-primevue"],
+  modules: ["nuxt-primevue", "nuxt-marquee"],
   primevue: {
     /* Options */
   },
