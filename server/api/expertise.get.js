@@ -5,7 +5,7 @@ export default defineEventHandler((event) => {
       title: "Веб-разработка",
       subtitle: "Интернет-магазины и B2B-платформы и обучающие платформы",
       tall: true,
-      icon: "iconDevelopment",
+      icon: "icon-development",
       link: "#",
     },
     {
@@ -14,7 +14,7 @@ export default defineEventHandler((event) => {
       subtitle:
         "Подбор и внедрение CRM-систем. Интеграция и кастомизация для облачных и коробочных решений",
       tall: false,
-      icon: "iconCRM",
+      icon: "icon-crm",
       link: "#",
     },
     {
@@ -23,7 +23,7 @@ export default defineEventHandler((event) => {
       subtitle:
         "Выстраиваем маркетинговую стратегию руководствуясь глубоким анализом особенностей бизнеса клиента",
       tall: true,
-      icon: "iconMarketplace",
+      icon: "icon-marketplace",
       link: "#",
     },
     {
@@ -32,7 +32,7 @@ export default defineEventHandler((event) => {
       subtitle:
         "Обеспечиваем полный цикл разработки мобильного приложения: от проектирования до поддержки",
       tall: false,
-      icon: "iconMobile",
+      icon: "icon-mobile",
       link: "#",
     },
     {
@@ -40,7 +40,7 @@ export default defineEventHandler((event) => {
       title: "Сопровождение и развитие",
       subtitle: "Техническая поддержка, Администрирование, Развитие проектов",
       tall: false,
-      icon: "iconMarketing",
+      icon: "icon-marketing",
       link: "#",
     },
     {
@@ -48,7 +48,7 @@ export default defineEventHandler((event) => {
       title: "Аутстаффинг",
       subtitle: "Усилим вашу команду квалифицированными специалистами",
       tall: false,
-      icon: "iconOutstaff",
+      icon: "icon-outstaff",
       link: "#",
     },
   ];
