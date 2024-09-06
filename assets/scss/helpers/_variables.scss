@@ -3,20 +3,37 @@
   --ff-gilroy-regular: "Gilroy-Regular", Arial, sans-serif;
   --ff-gilroy-medium: "Gilroy-Medium", Arial, sans-serif;
   --ff-gilroy-semi-bold: "Gilroy-SemiBold", Arial, sans-serif;
-  --ff-montserrat-bold: "Montserrat-Bold", Arial, sans-serif;
   --ff-montserrat-semi-bold: "Montserrat-SemiBold", Arial, sans-serif;
-  --fs-h2-1920: 80px;
-  --lh-h2-1920: 96px;
-  --fs-h2-360: 32px;
-  --lh-h2-360: 36.48px;
-  --fs-h6-1920: 22px;
-  --lh-h6-1920: 32.12px;
-  --fs-text1-1920: 24px;
-  --lh-text1-1920: 33.6px;
-  --fs-text1-360: 18px;
-  --lh-text1-360: 25.2px;
-  --fs-text2-1920: 18px;
-  --lh-text2-1920: 27.54px;
+  --ff-montserrat-bold: "Montserrat-Bold", Arial, sans-serif;
+
+  --fs-h1-1920: calc(var(--index) * 4.8);
+  --fs-h2: 80px;
+  --lh-h2: 96px;
+  --font-h2: normal 700 var(--fs-h2) / var(--lh-h2) var(--ff-montserrat-bold);
+  --fs-h6: 22px;
+  --lh-h6: 32.12px;
+  --font-h6: normal 600 var(--fs-h6) / var(--lh-h6) var(--ff-gilroy-semi-bold);
+  --fs-h5: 24px;
+  --lh-h5: 33.6px;
+  --font-h5: normal 500 var(--fs-h5) / var(--lh-h5) var(--ff-gilroy-medium);
+  --fs-h4: 28px;
+  --lh-h4: 36.12px;
+  --font-h4: normal 700 var(--fs-h4) / var(--lh-h4) var(--ff-montserrat-bold);
+  --fs-text-1: 18px;
+  --lh-text-1: 27.54px;
+  --font-text-1: normal 500 var(--fs-text-1) / var(--lh-text-1)
+    var(--ff-gilroy-medium);
+  --fs-text-2-1920: 14px;
+  --lh-text-2-1920: 18.2px;
+  --fs-link-1: 18px;
+  --lh-link-1: 18px;
+  --font-link-1: normal 500 var(--fs-link-1) / var(--lh-link-1)
+    var(--ff-gilroy-medium);
+  --fs-text-3: 15px;
+  --lh-text-3: 21px;
+  --font-text-3: normal 500 var(--fs-text-3) / var(--lh-text-3)
+    var(--ff-gilroy-medium);
+
   --color-white: #fff;
   --color-white-transparent: #ffffffcc;
   --color-black: #000;
@@ -27,6 +44,7 @@
   --color-grey-transparent: #ffffff26;
   --color-grey-light: #eff0f3;
   --color-grey-light-span: #d8dce9;
+  --color-grey-light-date: #5d6d89;
   --color-pink: rgba(255, 85, 159, 1);
   --color-purple: rgba(127, 7, 247, 1);
   --color-yellow: rgba(255, 187, 85, 1);
@@ -42,7 +60,14 @@
     #7f07f7 48.82%,
     #ff559f 100%
   );
+
   --shadow-card: rgba(235, 238, 242, 1);
+
   --page-margin-y: 220px;
+
   --container-max-width: 1676px;
+
+  --border-radius-expertise: 40px;
+  --border-radius-case: 36px;
+  --border-radius-custom-standing: 8px;
 }

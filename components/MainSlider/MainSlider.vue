@@ -9,9 +9,8 @@ const { data: items } = await useAsyncData("slider", () => {
 </script>
 
 <template>
-  <div class="main-menu">
-    <!-- <div class="container"></div> -->
-    <div class="main-menu__inner">
+  <div class="main-slider">
+    <div class="main-slider__inner">
       <swiper
         :slides-per-view="6.5"
         :loop="false"

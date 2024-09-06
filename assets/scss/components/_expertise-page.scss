@@ -1,104 +1,121 @@
 .expertise-page {
   margin-bottom: var(--page-margin-y);
+
   &__heading {
     display: flex;
     align-items: flex-start;
+    gap: 24px;
   }
+
   &__heading-subtitle {
+    @include font-h5;
+
     margin-left: auto;
     width: 569px;
-    font-size: var(--fs-text1-1920);
-    line-height: var(--lh-text1-1920);
     user-select: none;
     color: var(--color-black-subtitle);
+
     .custom-standing-pink {
       display: inline-block;
       padding: 0 8px;
-      border-radius: 8px;
+      border-radius: var(--border-radius-custom-standing);
       background: var(--color-pink);
       color: var(--color-white);
       transform: rotate(-2.39deg);
     }
+
     .custom-standing-purple {
       display: inline-block;
       padding: 0 8px;
-      border-radius: 8px;
+      border-radius: var(--border-radius-custom-standing);
       background: var(--color-purple);
       color: var(--color-white);
       transform: rotate(0.91deg);
     }
+
     .custom-standing-yellow {
       display: inline-block;
       padding: 0 8px;
-      border-radius: 8px;
+      border-radius: var(--border-radius-custom-standing);
       background: var(--color-yellow);
       color: var(--color-white);
       transform: rotate(-2.39deg);
     }
   }
+
   &__table {
     box-shadow: 0 0 50px 5px var(--shadow-card);
     height: 688px;
     margin: 100px 0 0 0;
     background: var(--shadow-card);
-    border-radius: 40px;
+    border-radius: var(--border-radius-expertise);
   }
+
   &__table-list {
     display: grid;
     gap: 8px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     height: 100%;
+
     .tall {
       grid-row: span 2;
-      height: 688px;
+      height: 100%;
     }
   }
+
   &__table-item {
     background: var(--color-white);
-    border-radius: 40px;
+    border-radius: var(--border-radius-expertise);
     height: 340px;
+
+    &:hover {
+      background-color: var(--color-blue);
+    }
   }
+
   @media (max-width: 1300px) {
     &__heading {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
     }
+
     &__heading-subtitle {
-      margin: 24px 0 0 0;
+      margin-left: 0;
     }
   }
+
   @media (max-width: 1000px) {
     &__table {
       height: fit-content;
     }
+
     &__table-list {
       grid-template-columns: 1fr;
       grid-template-rows: auto-fit;
     }
+
     &__table-item {
       height: 328px;
     }
+
+    &__heading-subtitle {
+      width: 328px;
+    }
+
     .tall {
       grid-row: span 1;
       height: 328px;
     }
   }
-  @media (max-width: 800px) {
-    &__heading-subtitle {
-      width: 328px;
-      font-size: 18px;
-      line-height: normal;
-    }
-  }
+
   @media (max-width: 400px) {
     &__heading-subtitle {
       width: 100%;
-      font-size: 18px;
-      line-height: normal;
     }
   }
 }
+
 .expertise-card {
   color: var(--color-black);
   &__inner {
@@ -107,23 +124,113 @@
     padding: 36px 38px;
     height: 100%;
 
-    &:hover .expertise-card__subhead {
-      display: block;
+    .icon-development {
+      &:after {
+        content: "\0057";
+        font-size: 45px;
+        color: var(--color-blue);
+      }
+    }
+
+    .icon-crm {
+      &:after {
+        content: "\0058";
+        font-size: 45px;
+        color: var(--color-blue);
+      }
+    }
+
+    .icon-marketplace {
+      &:after {
+        content: "\005A";
+        font-size: 45px;
+        color: var(--color-blue);
+      }
+    }
+
+    .icon-mobile {
+      &:after {
+        content: "\004D";
+        font-size: 45px;
+        color: var(--color-blue);
+      }
+    }
+
+    .icon-marketing {
+      &:after {
+        content: "\0065";
+        font-size: 45px;
+        color: var(--color-blue);
+      }
+    }
+
+    .icon-outstaff {
+      &:after {
+        content: "\0067";
+        font-size: 45px;
+        color: var(--color-blue);
+      }
+    }
+
+    &:hover {
+      color: var(--color-white);
+
+      .icon-development {
+        &:after {
+          color: inherit;
+        }
+      }
+
+      .icon-crm {
+        &:after {
+          color: inherit;
+        }
+      }
+
+      .icon-marketplace {
+        &:after {
+          color: inherit;
+        }
+      }
+
+      .icon-mobile {
+        &:after {
+          color: inherit;
+        }
+      }
+
+      .icon-marketing {
+        &:after {
+          color: inherit;
+        }
+      }
+
+      .icon-outstaff {
+        &:after {
+          color: inherit;
+        }
+      }
+
+      .expertise-card__subhead {
+        display: block;
+      }
     }
   }
+
   &__heading {
+    @include font-h6;
+
     margin-top: auto;
-    font-family: "Montserrat-SemiBold";
-    font-size: var(--fs-h6-1920);
-    line-height: var(--lh-h6-1920);
   }
+
   &__subhead {
     display: none;
     margin-top: 8px;
   }
+
   @media (max-width: 1000px) {
     &__subhead {
-      font-family: "Gilroy-Regular";
+      font-family: var(--ff-gilroy-regular);
       font-size: 13px;
       line-height: 18.98px;
       display: block;

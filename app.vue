@@ -8,6 +8,8 @@ import MainSliderCard from "./components/MainSlider/MainSlider.vue";
 import CasePage from "./components/CasePage/CasePage.vue";
 import AboutCompany from "./components/AboutCompany/AboutCompany.vue";
 import TalkPage from "./components/TalkPage/TalkPage.vue";
+import BlogPage from "./components/BlogPage/BlogPage.vue";
+import CustomersPage from "./components/CustomersPage/CustomersPage.vue";
 </script>
 
 <template>
@@ -20,6 +22,8 @@ import TalkPage from "./components/TalkPage/TalkPage.vue";
       <ExpertisePage />
       <CasePage />
       <AboutCompany />
+      <BlogPage />
+      <CustomersPage />
       <TalkPage />
     </main>
     <Footer />

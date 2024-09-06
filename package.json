@@ -12,6 +12,7 @@
   "dependencies": {
     "@vueuse/core": "^11.0.1",
     "nuxt": "^3.12.4",
+    "nuxt-marquee": "^1.0.4",
     "primevue": "3.52.0",
     "swiper": "^11.1.11",
     "vue": "latest"

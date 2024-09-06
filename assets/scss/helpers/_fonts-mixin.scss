@@ -1,0 +1,56 @@
+@mixin font-h2 {
+  font: var(--font-h2);
+  text-transform: uppercase;
+}
+@media (max-width: 1000px) {
+  :root {
+    --fs-h2: 32px;
+    --lh-h2: 36.48px;
+  }
+}
+
+@mixin font-h6 {
+  font: var(--font-h6);
+}
+
+@mixin font-h5 {
+  font: var(--font-h5);
+}
+@media (max-width: 1000px) {
+  :root {
+    --fs-h5: 18px;
+    --lh-h5: 25.2px;
+  }
+}
+
+@mixin font-h4 {
+  font: var(--font-h4);
+  text-transform: uppercase;
+}
+
+@mixin font-text-1 {
+  font: var(--font-text-1);
+}
+
+@mixin font-text-2 {
+  font-size: var(--fs-text-2-1920);
+  line-height: var(--lh-text-2-1920);
+}
+
+@mixin font-text-3 {
+  font: var(--font-text-3);
+}
+
+@mixin font-link-1 {
+  font: var(--font-link-1);
+}
+
+@mixin icon-arrow-right-hover {
+  &:hover {
+    .icon-arrow-right-up {
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

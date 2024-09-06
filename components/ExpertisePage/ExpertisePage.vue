@@ -1,22 +1,6 @@
 <script setup>
 import TitleButton from "../UI-kit/TitleButton.vue";
 
-import iconDevelopment from "../icons/iconDevelopment.vue";
-import iconCRM from "../icons/iconCRM.vue";
-import iconMarketing from "../icons/iconMarketing.vue";
-import iconMarketplace from "../icons/iconMarketplace.vue";
-import iconMobile from "../icons/iconMobile.vue";
-import iconOutstaff from "../icons/iconOutstaff.vue";
-
-const iconMap = {
-  iconDevelopment,
-  iconCRM,
-  iconMarketing,
-  iconMarketplace,
-  iconMobile,
-  iconOutstaff,
-};
-
 const { data: items } = await useAsyncData("expertise", async () => {
   return await $fetch("/api/expertise/", { method: "GET" });
 });
@@ -47,11 +31,8 @@ const { data: items } = await useAsyncData("expertise", async () => {
                 :title="item.title"
                 :subtitle="item.subtitle"
                 :link="item.link"
-              >
-                <template #icon>
-                  <component :is="iconMap[item.icon]" />
-                </template>
-              </ExpertisePageCard>
+                :icon="item.icon"
+              />
             </li>
           </ul>
         </div>

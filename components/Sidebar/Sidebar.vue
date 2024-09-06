@@ -1,11 +1,31 @@
 <script setup>
 import Sidebar from "primevue/sidebar";
 import FeedbackForm from "./FeedbackForm.vue";
-
+import { useFeedbackFormModel } from "../models/feedback";
 import { useSidebarModel } from "../models/sidebar";
-import { watch } from "vue";
+import { ref, watch, onMounted, onUnmounted } from "vue";
 
 const { isActive } = useSidebarModel();
+const { activeFormStep } = useFeedbackFormModel();
+
+const transitionName = ref("slide-fade-left");
+
+const updateTransitionName = () => {
+  if (window.innerWidth <= 1220) {
+    transitionName.value = "slide-fade-right";
+  } else {
+    transitionName.value = "slide-fade-left";
+  }
+};
+
+onMounted(() => {
+  updateTransitionName();
+  window.addEventListener("resize", updateTransitionName);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateTransitionName);
+});
 
 const toggleScrollbar = (isActive) => {
   document.body.style.overflow = isActive ? "hidden" : "";
@@ -26,14 +46,14 @@ const sidebarPT = {
       class: "sidebar-header",
     };
   },
-  closeIcon() {
-    return {
-      class: "sidebar-close-icon",
-    };
-  },
   closeButton() {
     return {
       class: "sidebar-close-button",
+    };
+  },
+  closeIcon() {
+    return {
+      class: "sidebar-close-icon",
     };
   },
   content() {
@@ -41,16 +61,14 @@ const sidebarPT = {
       class: "sidebar-content",
     };
   },
-  mask(options) {
-    console.log(options);
-
+  mask() {
     return {
       class: "sidebar-mask",
     };
   },
   transition() {
     return {
-      name: "slide-fade",
+      name: transitionName.value,
     };
   },
 };
@@ -65,7 +83,7 @@ const sidebarPT = {
       position="right"
     >
       <template v-slot:header>
-        <div v-if="isActive" class="sidebar-heading">
+        <div v-if="activeFormStep === 0" class="sidebar-heading">
           <h4 class="sidebar-heading__headline">расскажите о своей задаче</h4>
           <span>Чтобы мы могли начать работу, необходимо заполнить форму.</span>
           <span>Это займёт немного времени. Погнали!</span>

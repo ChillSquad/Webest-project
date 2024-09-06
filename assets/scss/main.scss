@@ -1,6 +1,7 @@
 @import "./helpers/fonts";
 @import "./helpers/variables";
 @import "./helpers/transition";
+@import "./helpers/fonts-mixin";
 
 @import "./components/header";
 @import "./components/mobile-menu";
@@ -13,6 +14,9 @@
 @import "./components/case-page";
 @import "./components/talk-page";
 @import "./components/about-company";
+@import "./components/blog-page";
+@import "./components/customers-page";
+@import "./components/title-button";
 
 $debug: false;
 
@@ -37,6 +41,18 @@ body {
 
 body {
   font-family: var(--ff-gilroy-medium);
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue);
+  border-radius: 20px;
+  border: 2px solid var(--color-white);
 }
 
 .container {
@@ -68,4 +84,15 @@ label {
   .container {
     padding: 0 20px;
   }
+}
+
+[class*="icon-"]:before,
+[class*="icon-"]:after {
+  display: inline-block;
+  font-family: "Glyphter";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

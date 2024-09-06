@@ -12,13 +12,17 @@ defineProps({
     type: String,
     default: null,
   },
+  icon: {
+    type: String,
+    default: null,
+  },
 });
 </script>
 
 <template>
   <a :href="`${link}`" class="expertise-card">
     <div class="expertise-card__inner">
-      <slot class="expertise-card__icon" name="icon"></slot>
+      <div :class="[`${icon}`]"></div>
       <h6 class="expertise-card__heading">
         {{ title }}
       </h6>
@@ -26,3 +30,5 @@ defineProps({
     </div>
   </a>
 </template>
+
+<style lang="scss" scoped></style>
