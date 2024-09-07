@@ -53,5 +53,3 @@ const { fields, submit } = useFeedbackFormModel();
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped></style>
