@@ -31,7 +31,7 @@ const onSwiperInit = (swiperInstance) => {
 </script>
 
 <template>
-  <section class="blog-page">
+  <div class="blog-page">
     <div class="blog-page__inner">
       <div class="container">
         <div class="blog-page__heading">
@@ -67,5 +67,5 @@ const onSwiperInit = (swiperInstance) => {
         </swiper-slide>
       </swiper>
     </div>
-  </section>
+  </div>
 </template>
