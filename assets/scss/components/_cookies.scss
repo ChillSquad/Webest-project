@@ -1,0 +1,40 @@
+.cookies {
+  width: 616px;
+  height: 180px;
+  border-radius: 40px;
+  padding: 32px;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: var(--color-white);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__heading {
+    @include font-text-1;
+
+    color: var(--color-black-subtitle);
+  }
+}
+
+@media (max-width: 1220px) {
+  .cookies {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 696px) {
+  .cookies {
+    width: inherit;
+    left: 16px;
+    bottom: 16px;
+    right: 16px;
+
+    &__heading {
+      @include font-text-3;
+    }
+  }
+}

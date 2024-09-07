@@ -20,7 +20,7 @@ defineProps({
 </script>
 
 <template>
-  <section class="blog-page-card">
+  <div class="blog-page-card">
     <div class="blog-page-card__inner">
       <p class="blog-page-card__story-category">
         {{ category }}
@@ -39,5 +39,5 @@ defineProps({
         </p>
       </div>
     </div>
-  </section>
+  </div>
 </template>

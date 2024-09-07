@@ -45,6 +45,17 @@
   font: var(--font-link-1);
 }
 
+@mixin font-subscribe {
+  font: var(--font-subscribe);
+  color: var(--color-red-subscribe);
+}
+@media (max-width: 800px) {
+  :root {
+    --fs-subscribe: 13px;
+    --lh-subscribe: 15.6px;
+  }
+}
+
 @mixin icon-arrow-right-hover {
   &:hover {
     .icon-arrow-right-up {

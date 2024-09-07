@@ -4,7 +4,7 @@ import InputText from "primevue/inputtext";
 import Textarea from "primevue/textarea";
 import { useFeedbackFormModel } from "../models/feedback";
 
-const { fields, submit } = useFeedbackFormModel();
+const { fields, errors, submit } = useFeedbackFormModel();
 </script>
 
 <template>
@@ -14,18 +14,26 @@ const { fields, submit } = useFeedbackFormModel();
         <label for="username">Как вас зовут</label>
         <InputText
           class="sidebar-input__field"
+          :class="{ 'input-error': errors.name }"
           id="username"
           v-model="fields.name"
         />
+        <span v-if="errors.name" class="sidebar-input__error-message"
+          >Это поле обязательно</span
+        >
       </div>
 
       <div class="sidebar-input__item">
         <label for="mail">Почта, телефон или мессенджер</label>
         <InputText
           class="sidebar-input__field"
+          :class="{ 'input-error': errors.email }"
           id="mail"
           v-model="fields.email"
         />
+        <span v-if="errors.email" class="sidebar-input__error-message"
+          >Это поле обязательно</span
+        >
       </div>
 
       <div class="sidebar-input__item">
@@ -34,9 +42,13 @@ const { fields, submit } = useFeedbackFormModel();
           autoResize
           rows="1"
           class="sidebar-input__field"
+          :class="{ 'input-error': errors.task }"
           id="task"
           v-model="fields.task"
         />
+        <span v-if="errors.task" class="sidebar-input__error-message"
+          >Это поле обязательно</span
+        >
       </div>
 
       <div class="sidebar-input__file icon-paper-clip">Прикрепить файл</div>
@@ -53,5 +65,3 @@ const { fields, submit } = useFeedbackFormModel();
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped></style>
