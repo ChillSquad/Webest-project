@@ -289,14 +289,4 @@
       flex-wrap: wrap;
     }
   }
-
-  @media (max-width: 380px) {
-    &__presentation {
-      a {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  }
 }
