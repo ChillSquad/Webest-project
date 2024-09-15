@@ -1,3 +1,9 @@
+@mixin font-h1-1920 {
+  font-family: var(--ff-montserrat-bold);
+  font-size: var(--fs-h1-1920);
+  text-transform: uppercase;
+}
+
 @mixin font-h2 {
   font: var(--font-h2);
   text-transform: uppercase;
@@ -33,16 +39,29 @@
 }
 
 @mixin font-text-2 {
-  font-size: var(--fs-text-2-1920);
-  line-height: var(--lh-text-2-1920);
+  font: var(--font-text-2-1920);
 }
 
 @mixin font-text-3 {
   font: var(--font-text-3);
 }
 
+@mixin font-text-4-1920 {
+  font: var(--font-text-4-1920);
+}
+
+@mixin font-text-4-360 {
+  font: var(--font-text-4-360);
+}
+
 @mixin font-link-1 {
   font: var(--font-link-1);
+}
+@media (max-width: 800px) {
+  :root {
+    --fs-link-1: 14px;
+    --lh-link-1: 14px;
+  }
 }
 
 @mixin font-subscribe {
@@ -56,6 +75,27 @@
   }
 }
 
+@mixin font-logo-text {
+  font: var(--font-logo-text);
+}
+@media (max-width: 600px) {
+  :root {
+    --fs-logo-text: 8.5px;
+    --lh-logo-text: 8.5px;
+  }
+}
+
+@mixin font-h3-menu {
+  font: var(--font-h3-menu);
+}
+
+@mixin custom-standing {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: var(--border-radius-custom-standing);
+  color: var(--color-white);
+}
+
 @mixin icon-arrow-right-hover {
   &:hover {
     .icon-arrow-right-up {
@@ -63,5 +103,11 @@
         transform: rotate(45deg);
       }
     }
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --page-margin-y: 120px;
   }
 }
