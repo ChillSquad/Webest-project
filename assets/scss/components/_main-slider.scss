@@ -12,12 +12,29 @@
   }
 
   .swiper {
+    height: 276px;
     padding: 0 120px 0 120px;
+  }
+
+  .swiper-slide {
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(10px);
+    &:hover {
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 360px) {
     .swiper {
+      height: 150px;
       padding: 0 16px 0 16px;
+    }
+
+    .swiper-slide {
+      transform: translateY(10px);
+      &:hover {
+        transform: translateY(0);
+      }
     }
   }
 }

@@ -11,10 +11,10 @@ defineProps({
   <div class="talk-card">
     <div class="talk-card__inner">
       <div class="talk-card__content">
-        <h6 class="talk-card__heading">
+        <p class="talk-card__heading">
           {{ title }}
-        </h6>
-        <div class="talk-card__arrow icon-arrow-right"></div>
+        </p>
+        <div class="icon-arrow-right"></div>
       </div>
     </div>
   </div>

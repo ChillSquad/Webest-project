@@ -280,6 +280,10 @@
       flex-direction: column;
       gap: 18px;
     }
+
+    &__logo-footer {
+      margin: 40px 0;
+    }
   }
 
   @media (max-width: 900px) {
@@ -287,16 +291,6 @@
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-    }
-  }
-
-  @media (max-width: 380px) {
-    &__presentation {
-      a {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
     }
   }
 }
