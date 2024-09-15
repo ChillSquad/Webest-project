@@ -280,6 +280,10 @@
       flex-direction: column;
       gap: 18px;
     }
+
+    &__logo-footer {
+      margin: 40px 0;
+    }
   }
 
   @media (max-width: 900px) {

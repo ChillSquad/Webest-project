@@ -12,8 +12,8 @@ const { data: items } = await useAsyncData("blog", () => {
 });
 
 const swiperRef = ref(null);
-const isBeginning = ref(true); // Флаг для состояния начала
-const isEnd = ref(false); // Флаг для состояния конца
+const isBeginning = ref(true);
+const isEnd = ref(false);
 
 const slideNext = () => {
   if (swiperRef.value) {
@@ -30,11 +30,9 @@ const slidePrev = () => {
 const onSwiperInit = (swiperInstance) => {
   swiperRef.value = swiperInstance;
 
-  // Обновление состояния при инициализации
   isBeginning.value = swiperInstance.isBeginning;
   isEnd.value = swiperInstance.isEnd;
 
-  // Добавляем слушатели событий для Swiper
   swiperInstance.on("slideChange", () => {
     isBeginning.value = swiperInstance.isBeginning;
     isEnd.value = swiperInstance.isEnd;

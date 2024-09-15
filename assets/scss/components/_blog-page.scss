@@ -30,6 +30,10 @@
     text-align: center;
     outline: none;
 
+    &:hover {
+      border: 1px solid var(--color-blue);
+    }
+
     &:disabled {
       border: none;
       cursor: default;
