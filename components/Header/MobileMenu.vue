@@ -9,12 +9,9 @@ import Contacts from "./Contacts.vue";
     <div class="mobile-menu" v-if="isShowMobileMenu">
       <div class="container">
         <div class="mobile-menu__inner">
-          <div class="mobile-menu__nav">
-            <h3><Navigation /></h3>
-          </div>
-          <div class="mobile-menu__contscts">
-            <Contacts phone="+7 (495) 128-22-90" mail="info@webest.ru" />
-          </div>
+          <Navigation />
+
+          <Contacts phone="+7 (495) 128-22-90" mail="info@webest.ru" />
         </div>
       </div>
     </div>

@@ -18,6 +18,7 @@
 @import "./components/customers-page";
 @import "./components/title-button";
 @import "./components/cookies";
+@import "./components/slider-cursor";
 
 $debug: false;
 
@@ -42,6 +43,7 @@ body {
 
 body {
   font-family: var(--ff-gilroy-medium);
+  // color: var(--color-white);
 }
 
 body::-webkit-scrollbar {
@@ -83,7 +85,7 @@ label {
 
 @media (max-width: 1696px) {
   .container {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 }
 

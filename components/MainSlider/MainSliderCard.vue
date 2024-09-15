@@ -13,15 +13,13 @@ defineProps({
 
 <template>
   <div class="main-slider-card">
-    <div class="main-slider-card__inner">
-      <img
-        class="main-slider-card__story-image"
-        :src="urlImage"
-        alt="story image"
-      />
-      <p class="main-slider-card__story-heading">
-        {{ title }}
-      </p>
-    </div>
+    <img
+      class="main-slider-card__story-image"
+      :src="urlImage"
+      alt="story image"
+    />
+    <p class="main-slider-card__story-heading">
+      {{ title }}
+    </p>
   </div>
 </template>

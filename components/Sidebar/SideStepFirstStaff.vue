@@ -4,8 +4,8 @@ import FileUploadCustom from "../UI-kit/FileUploadCustom.vue";
 import InputText from "primevue/inputtext";
 import Textarea from "primevue/textarea";
 
-import { useFeedbackFormModel } from "../models/feedback";
-const { fields, errors, submit } = useFeedbackFormModel();
+import { useFeedbackFormModelStaff } from "../models/feedbackStaff";
+const { fieldsStaff, errorsStaff, submitStaff } = useFeedbackFormModelStaff();
 </script>
 
 <template>
@@ -15,11 +15,11 @@ const { fields, errors, submit } = useFeedbackFormModel();
         <label for="username">Как вас зовут</label>
         <InputText
           class="sidebar-input__field"
-          :class="{ 'input-error': errors.name }"
+          :class="{ 'input-error': errorsStaff.name }"
           id="username"
-          v-model="fields.name"
+          v-model="fieldsStaff.name"
         />
-        <span v-if="errors.name" class="sidebar-input__error-message"
+        <span v-if="errorsStaff.name" class="sidebar-input__error-message"
           >Это поле обязательно</span
         >
       </div>
@@ -28,34 +28,34 @@ const { fields, errors, submit } = useFeedbackFormModel();
         <label for="mail">Почта, телефон или мессенджер</label>
         <InputText
           class="sidebar-input__field"
-          :class="{ 'input-error': errors.email }"
+          :class="{ 'input-error': errorsStaff.email }"
           id="mail"
-          v-model="fields.email"
+          v-model="fieldsStaff.email"
         />
-        <span v-if="errors.email" class="sidebar-input__error-message"
+        <span v-if="errorsStaff.email" class="sidebar-input__error-message"
           >Это поле обязательно</span
         >
       </div>
 
       <div class="sidebar-input__item">
-        <label for="task">Кратко опишите задачу</label>
+        <label for="about">Расскажи немного о себе</label>
         <Textarea
           autoResize
           rows="1"
           class="sidebar-input__field"
-          :class="{ 'input-error': errors.task }"
-          id="task"
-          v-model="fields.task"
+          :class="{ 'input-error': errorsStaff.about }"
+          id="about"
+          v-model="fieldsStaff.about"
         />
-        <span v-if="errors.task" class="sidebar-input__error-message"
+        <span v-if="errorsStaff.about" class="sidebar-input__error-message"
           >Это поле обязательно</span
         >
       </div>
-      <FileUploadCustom title="Прикрепить файл" />
+      <FileUploadCustom title="Прикрепить резюме" />
     </div>
 
     <div class="sidebar-footer">
-      <GradientButton title="Оставить заявку" @click="submit" />
+      <GradientButton title="Оставить заявку" @click="submitStaff" />
       <span class="sidebar-footer__privacy">
         Нажимая кнопку, вы соглашаетесь с нашей
         <a class="sidebar-footer__privacy-link" href="#">

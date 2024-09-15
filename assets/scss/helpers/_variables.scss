@@ -10,33 +10,51 @@
   --fs-h2: 80px;
   --lh-h2: 96px;
   --font-h2: normal 700 var(--fs-h2) / var(--lh-h2) var(--ff-montserrat-bold);
-  --fs-h6: 22px;
-  --lh-h6: 32.12px;
-  --font-h6: normal 600 var(--fs-h6) / var(--lh-h6) var(--ff-gilroy-semi-bold);
-  --fs-h5: 24px;
-  --lh-h5: 33.6px;
-  --font-h5: normal 500 var(--fs-h5) / var(--lh-h5) var(--ff-gilroy-medium);
+  --fs-h3-menu: 24px;
+  --lh-h3-menu: 27.36px;
+  --font-h3-menu: normal 700 var(--fs-h3-menu) / var(--lh-h3-menu)
+    var(--ff-montserrat-bold);
   --fs-h4: 28px;
   --lh-h4: 36.12px;
   --font-h4: normal 700 var(--fs-h4) / var(--lh-h4) var(--ff-montserrat-bold);
+  --fs-h5: 24px;
+  --lh-h5: 33.6px;
+  --font-h5: normal 500 var(--fs-h5) / var(--lh-h5) var(--ff-gilroy-medium);
+  --fs-h6: 22px;
+  --lh-h6: 32.12px;
+  --font-h6: normal 600 var(--fs-h6) / var(--lh-h6) var(--ff-gilroy-semi-bold);
   --fs-text-1: 18px;
   --lh-text-1: 27.54px;
   --font-text-1: normal 500 var(--fs-text-1) / var(--lh-text-1)
     var(--ff-gilroy-medium);
   --fs-text-2-1920: 14px;
   --lh-text-2-1920: 18.2px;
-  --fs-link-1: 18px;
-  --lh-link-1: 18px;
-  --font-link-1: normal 500 var(--fs-link-1) / var(--lh-link-1)
+  --font-text-2-1920: normal 500 var(--fs-text-2-1920) / var(--lh-text-2-1920)
     var(--ff-gilroy-medium);
   --fs-text-3: 15px;
   --lh-text-3: 21px;
   --font-text-3: normal 500 var(--fs-text-3) / var(--lh-text-3)
     var(--ff-gilroy-medium);
+  --fs-text-4-1920: 16px;
+  --lh-text-4-1920: 22.4px;
+  --font-text-4-1920: normal 400 var(--fs-text-4-1920) / var(--lh-text-4-1920)
+    var(--ff-gilroy-regular);
+  --fs-text-4-360: 13px;
+  --lh-text-4-360: 18.98px;
+  --font-text-4-360: normal 400 var(--fs-text-4-360) / var(--lh-text-4-360)
+    var(--ff-gilroy-regular);
+  --fs-link-1: 18px;
+  --lh-link-1: 18px;
+  --font-link-1: normal 500 var(--fs-link-1) / var(--lh-link-1)
+    var(--ff-gilroy-medium);
   --fs-subscribe: 16px;
   --lh-subscribe: 19.2px;
   --font-subscribe: normal 400 var(--fs-subscribe) / var(--lh-subscribe)
     var(--ff-gilroy-regular);
+  --fs-logo-text: 17px;
+  --lh-logo-text: 17px;
+  --font-logo-text: normal 500 var(--fs-logo-text) / var(--lh-logo-text)
+    var(--ff-gilroy-medium);
 
   --color-white: #fff;
   --color-white-transparent: #ffffffcc;

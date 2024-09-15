@@ -5,12 +5,12 @@
     @include font-h2;
 
     user-select: none;
+    margin-bottom: 100px;
   }
 
   &__table {
     box-shadow: 0 0 50px 5px var(--shadow-card);
-    margin: 100px 0 0 0;
-    background: var(--shadow-card);
+    background-color: rgba(235, 238, 242, 0.5);
     border-radius: 40px;
     display: flex;
     gap: 8px;
@@ -22,11 +22,15 @@
       flex-direction: column;
       gap: 8px;
     }
-  }
 
-  @media (max-width: 1000px) {
     &__table-item {
       height: 200px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    &__heading {
+      margin-bottom: 40px;
     }
   }
 }

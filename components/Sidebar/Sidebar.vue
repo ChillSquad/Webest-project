@@ -1,21 +1,20 @@
 <script setup>
 import Sidebar from "primevue/sidebar";
-import FeedbackForm from "./FeedbackForm.vue";
-import { useFeedbackFormModel } from "../models/feedback";
-import { useSidebarModel } from "../models/sidebar";
 import { ref, watch, onMounted, onUnmounted } from "vue";
+import { useFeedbackFormModel } from "../models/feedback";
+import { useFeedbackFormModelStaff } from "../models/feedbackStaff";
+import { useSidebarModel } from "../models/sidebar";
+import FeedbackForm from "./FeedbackForm.vue";
 
-const { isActive } = useSidebarModel();
+const { isActiveStaff, isActive } = useSidebarModel();
 const { activeFormStep } = useFeedbackFormModel();
+const { activeFormStepStaff } = useFeedbackFormModelStaff();
 
 const transitionName = ref("slide-fade-left");
 
 const updateTransitionName = () => {
-  if (window.innerWidth <= 1220) {
-    transitionName.value = "slide-fade-right";
-  } else {
-    transitionName.value = "slide-fade-left";
-  }
+  transitionName.value =
+    window.innerWidth <= 1220 ? "slide-fade-bottom" : "slide-fade-left";
 };
 
 onMounted(() => {
@@ -31,45 +30,37 @@ const toggleScrollbar = (isActive) => {
   document.body.style.overflow = isActive ? "hidden" : "";
 };
 
+watch(isActiveStaff, (newVal) => {
+  if (newVal) activeFormStepStaff.value = 0;
+  toggleScrollbar(newVal);
+});
+
 watch(isActive, (newVal) => {
+  if (newVal) activeFormStep.value = 0;
   toggleScrollbar(newVal);
 });
 
 const sidebarPT = {
   root() {
-    return {
-      class: "sidebar-custom",
-    };
+    return { class: "sidebar-custom" };
   },
   header() {
-    return {
-      class: "sidebar-header",
-    };
+    return { class: "sidebar-header" };
   },
   closeButton() {
-    return {
-      class: "sidebar-close-button",
-    };
+    return { class: "sidebar-close-button" };
   },
   closeIcon() {
-    return {
-      class: "sidebar-close-icon",
-    };
+    return { class: "sidebar-close-icon" };
   },
   content() {
-    return {
-      class: "sidebar-content",
-    };
+    return { class: "sidebar-content" };
   },
   mask() {
-    return {
-      class: "sidebar-mask",
-    };
+    return { class: "sidebar-mask" };
   },
   transition() {
-    return {
-      name: transitionName.value,
-    };
+    return { name: transitionName.value };
   },
 };
 </script>
@@ -77,17 +68,40 @@ const sidebarPT = {
 <template>
   <aside>
     <Sidebar
+      v-model:visible="isActiveStaff"
+      :pt="sidebarPT"
+      header=""
+      position="right"
+    >
+      <template v-slot:header>
+        <Transition name="fade" mode="out-in">
+          <div v-if="activeFormStepStaff === 0" class="sidebar-heading">
+            <h4 class="sidebar-heading__headline">Присоединиться к команде</h4>
+            <span>Мы всегда в поиске скилловых и талантливых коллег!</span>
+            <span>Заполняй скорее форму.</span>
+          </div>
+        </Transition>
+      </template>
+
+      <FeedbackForm />
+    </Sidebar>
+
+    <Sidebar
       v-model:visible="isActive"
       :pt="sidebarPT"
       header=""
       position="right"
     >
       <template v-slot:header>
-        <div v-if="activeFormStep === 0" class="sidebar-heading">
-          <h4 class="sidebar-heading__headline">расскажите о своей задаче</h4>
-          <span>Чтобы мы могли начать работу, необходимо заполнить форму.</span>
-          <span>Это займёт немного времени. Погнали!</span>
-        </div>
+        <Transition name="fade" mode="out-in">
+          <div v-if="activeFormStep === 0" class="sidebar-heading">
+            <h4 class="sidebar-heading__headline">Расскажите о своей задаче</h4>
+            <span
+              >Чтобы мы могли начать работу, необходимо заполнить форму.</span
+            >
+            <span>Это займёт немного времени. Погнали!</span>
+          </div>
+        </Transition>
       </template>
 
       <FeedbackForm />

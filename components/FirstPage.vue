@@ -18,20 +18,14 @@ const {
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
-    <div class="content">
-      <div @click="toggleSidebarForm" class="first-page">
-        <div class="container">
-          <div class="first-page__inner">
-            <div class="first-page__heading">
-              <h1 class="first-page__heading-caption">
-                создаем <span>и развиваем</span>
-              </h1>
-              <p class="first-page__heading-paragraph">
-                E-commerce проекты, B2B- и B2C-сервисы, мобильные приложения,
-                корпоративные сайты для компаний в сфере услуг и производства
-              </p>
-            </div>
-          </div>
+    <div @click="toggleSidebarForm" class="first-page">
+      <div class="container">
+        <div class="first-page__heading">
+          <h1 class="first-page__heading-caption">создаем <br />и развиваем</h1>
+          <p class="first-page__heading-paragraph">
+            E-commerce проекты, B2B- и B2C-сервисы, мобильные приложения,
+            корпоративные сайты для компаний в сфере услуг и производства
+          </p>
         </div>
       </div>
     </div>

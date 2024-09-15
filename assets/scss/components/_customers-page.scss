@@ -43,6 +43,13 @@
   &__table-list {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 120px;
+  }
+
+  &__table-list_gap {
+    display: flex;
+    align-items: center;
     gap: 110px;
   }
 
@@ -65,6 +72,23 @@
   @media (max-width: 400px) {
     &__heading-subtitle {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 360px) {
+    &__table {
+      margin-top: 40px;
+      gap: 24px;
+    }
+
+    &__table-list {
+      gap: 30px;
+      margin-right: 30px;
+    }
+
+    &__table-list_gap {
+      gap: 30px;
+      margin-right: 30px;
     }
   }
 }

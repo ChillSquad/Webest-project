@@ -1,13 +1,13 @@
-.slide-fade-right-enter-active {
+.slide-fade-bottom-enter-active {
   transition: all 0.4s ease-out;
 }
 
-.slide-fade-right-leave-active {
+.slide-fade-bottom-leave-active {
   transition: all 0.4s cubic-bezier(0, 0, 1, 1);
 }
 
-.slide-fade-right-enter-from,
-.slide-fade-right-leave-to {
+.slide-fade-bottom-enter-from,
+.slide-fade-bottom-leave-to {
   transform: translateY(800px);
   opacity: 0;
 }

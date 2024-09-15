@@ -105,6 +105,11 @@
     }
   }
 
+  .title-button__span {
+    display: inline-block;
+    text-align: center;
+  }
+
   @media (max-width: 1000px) {
     &__subtitle {
       width: 328px;
