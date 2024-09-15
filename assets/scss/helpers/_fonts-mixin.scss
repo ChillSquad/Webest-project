@@ -15,6 +15,21 @@
   }
 }
 
+@mixin font-h3-menu {
+  font: var(--font-h3-menu);
+}
+
+@mixin font-h3 {
+  font: var(--font-h3);
+  text-transform: uppercase;
+}
+@media (max-width: 360px) {
+  :root {
+    --fs-h3: 24px;
+    --lh-h3: 27.36px;
+  }
+}
+
 @mixin font-h6 {
   font: var(--font-h6);
 }
@@ -83,10 +98,6 @@
     --fs-logo-text: 8.5px;
     --lh-logo-text: 8.5px;
   }
-}
-
-@mixin font-h3-menu {
-  font: var(--font-h3-menu);
 }
 
 @mixin custom-standing {

@@ -65,13 +65,9 @@
   }
 
   &__heading {
-    font-family: var(--ff-montserrat-semi-bold);
-    font-size: 44px;
-  }
+    @include font-h3;
 
-  &__arrow {
-    display: flex;
-    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .icon-arrow-right {
@@ -83,26 +79,22 @@
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 360px) {
     &__inner {
       height: 200px;
     }
 
-    &__heading {
-      font-size: 32px;
+    &__content {
+      align-items: start;
     }
-  }
 
-  @media (max-width: 400px) {
-    &__heading {
-      font-size: 26px;
+    .icon-arrow-right {
+      &:after {
+        content: "\0041";
+        font-size: 24px;
+        color: inherit;
+        transition: transform 0.3s ease-in-out;
+      }
     }
-  }
-}
-
-@media (max-width: 800px) {
-  .title-arrow-right {
-    width: 29px;
-    height: 28px;
   }
 }
