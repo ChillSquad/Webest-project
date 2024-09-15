@@ -1,9 +1,10 @@
 <script setup>
 import GradientButton from "../UI-kit/GradientButton.vue";
+import FileUploadCustom from "../UI-kit/FileUploadCustom.vue";
 import InputText from "primevue/inputtext";
 import Textarea from "primevue/textarea";
-import { useFeedbackFormModel } from "../models/feedback";
 
+import { useFeedbackFormModel } from "../models/feedback";
 const { fields, errors, submit } = useFeedbackFormModel();
 </script>
 
@@ -50,8 +51,7 @@ const { fields, errors, submit } = useFeedbackFormModel();
           >Это поле обязательно</span
         >
       </div>
-
-      <div class="sidebar-input__file icon-paper-clip">Прикрепить файл</div>
+      <FileUploadCustom title="Прикрепить файл" />
     </div>
 
     <div class="sidebar-footer">

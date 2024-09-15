@@ -18,6 +18,7 @@ import Cookies from "./components/Cookies.vue";
     <Header />
     <MobileMenu />
     <Cookies />
+    <Sidebar />
     <main>
       <FirstPage />
       <MainSliderCard />
@@ -29,6 +30,5 @@ import Cookies from "./components/Cookies.vue";
       <TalkPage />
     </main>
     <Footer />
-    <Sidebar />
   </div>
 </template>

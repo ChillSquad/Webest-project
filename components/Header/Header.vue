@@ -66,12 +66,12 @@ onBeforeUnmount(() => {
           }"
         >
           <div class="header__logo">
-            <a href="#" class="header__logo-picture">
+            <a href="#" class="header__logo-title">
               <img :src="logoSrc" alt="header-logo " />
             </a>
 
             <div
-              class="header__logo-text"
+              class="header__logo-subtitle"
               :style="{
                 color: isAdaptiveActive
                   ? 'var(--color-blue)'
@@ -86,7 +86,7 @@ onBeforeUnmount(() => {
                     : 'var(--color-white)',
                 }"
               ></span>
-              <p>цифровое <span>решение</span></p>
+              <p class="header__logo-text">цифровое <br />решение</p>
             </div>
           </div>
 

@@ -5,8 +5,10 @@
     <div class="about-company-content__inner">
       <a href="#" id="title-button-class-management" class="title-button">
         <h2 class="title-button__heading icon-arrow-right">
-          кратко <br />
-          о webest
+          <span class="title-button__span"
+            >кратко <br />
+            о webest</span
+          >
         </h2>
       </a>
 

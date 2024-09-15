@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <ul>
+    <ul class="header-navigation-list">
       <li><a href="#">Услуги</a></li>
       <li><a href="#">Кейсы</a></li>
       <li><a href="#">Блог</a></li>

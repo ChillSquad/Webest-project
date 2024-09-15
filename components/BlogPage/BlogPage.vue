@@ -35,7 +35,7 @@ const onSwiperInit = (swiperInstance) => {
     <div class="blog-page__inner">
       <div class="container">
         <div class="blog-page__heading">
-          <TitleButton title="блог" />
+          <TitleButton title="наш блог" />
           <div class="blog-page__slider">
             <Button
               class="blog-page__button icon-slide-to-left"
@@ -54,8 +54,11 @@ const onSwiperInit = (swiperInstance) => {
         @swiper="onSwiperInit"
         :loop="false"
         direction="horizontal"
-        :slides-per-view="2"
         :modules="[Navigation]"
+        :breakpoints="{
+          400: { slidesPerView: 2, spaceBetween: 8 },
+          0: { slidesPerView: 1.1, spaceBetween: 8 },
+        }"
       >
         <swiper-slide v-for="(item, index) in items" :key="index">
           <BlogPageCard

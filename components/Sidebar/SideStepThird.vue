@@ -1,5 +1,13 @@
 <script setup>
 import GradientButton from "../UI-kit/GradientButton.vue";
+import { useSidebarModel } from "../models/sidebar";
+
+const { isActive, isActiveStaff } = useSidebarModel();
+
+const closeSidebar = () => {
+  isActive.value = false;
+  isActiveStaff.value = false;
+};
 </script>
 
 <template>
@@ -11,7 +19,7 @@ import GradientButton from "../UI-kit/GradientButton.vue";
           >Попробуйте еще раз или вернитесь позже</span
         >
       </div>
-      <GradientButton title="Повторить" />
+      <GradientButton title="Повторить" @click="closeSidebar" />
     </div>
     <div class="sidebar-failure__plug"></div>
   </div>

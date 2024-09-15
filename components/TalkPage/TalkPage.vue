@@ -1,8 +1,8 @@
 <script setup>
 import TalkPageCard from "./TalkPageCard.vue";
-import { useSidebarModel } from "../models/sidebar";
 
-const { toggleSidebarForm, isActive } = useSidebarModel();
+import { useSidebarModel } from "../models/sidebar";
+const { toggleSidebarForm, toggleSidebarFormStaff } = useSidebarModel();
 </script>
 
 <template>
@@ -12,7 +12,10 @@ const { toggleSidebarForm, isActive } = useSidebarModel();
         <div class="talk-page__heading">Привет! Поговорим?</div>
         <div class="talk-page__table">
           <TalkPageCard @click="toggleSidebarForm" title="У меня есть задача" />
-          <TalkPageCard title="Хочу к вам в команду" />
+          <TalkPageCard
+            @click="toggleSidebarFormStaff"
+            title="Хочу к вам в команду"
+          />
         </div>
       </div>
     </div>
