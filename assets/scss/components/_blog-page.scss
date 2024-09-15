@@ -29,6 +29,11 @@
     font-weight: 900;
     text-align: center;
     outline: none;
+
+    &:disabled {
+      border: none;
+      cursor: default;
+    }
   }
 
   .p-button-label {
