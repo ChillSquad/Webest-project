@@ -5,6 +5,7 @@
     display: flex;
     align-items: flex-start;
     gap: 24px;
+    margin-bottom: 100px;
   }
 
   &__heading-subtitle {
@@ -16,39 +17,32 @@
     color: var(--color-black-subtitle);
 
     .custom-standing-pink {
-      display: inline-block;
-      padding: 0 8px;
-      border-radius: var(--border-radius-custom-standing);
+      @include custom-standing;
+
       background: var(--color-pink);
-      color: var(--color-white);
       transform: rotate(-2.39deg);
     }
 
     .custom-standing-purple {
-      display: inline-block;
-      padding: 0 8px;
-      border-radius: var(--border-radius-custom-standing);
+      @include custom-standing;
+
       background: var(--color-purple);
-      color: var(--color-white);
       transform: rotate(0.91deg);
     }
 
     .custom-standing-yellow {
-      display: inline-block;
-      padding: 0 8px;
-      border-radius: var(--border-radius-custom-standing);
+      @include custom-standing;
+
       background: var(--color-yellow);
-      color: var(--color-white);
       transform: rotate(-2.39deg);
     }
   }
 
   &__table {
-    box-shadow: 0 0 50px 5px var(--shadow-card);
     height: 688px;
-    margin: 100px 0 0 0;
-    background: var(--shadow-card);
     border-radius: var(--border-radius-expertise);
+    box-shadow: 0 0 50px 5px var(--shadow-card);
+    background-color: rgba(235, 238, 242, 0.5);
   }
 
   &__table-list {
@@ -114,15 +108,21 @@
       width: 100%;
     }
   }
+
+  @media (max-width: 360px) {
+    &__heading {
+      margin-bottom: 40px;
+    }
+  }
 }
 
 .expertise-card {
-  color: var(--color-black);
   &__inner {
     display: flex;
     flex-direction: column;
-    padding: 36px 38px;
+    padding: 32px;
     height: 100%;
+    color: var(--color-black);
 
     .icon-development {
       &:after {
@@ -224,15 +224,16 @@
   }
 
   &__subhead {
+    @include font-text-4-1920;
+
     display: none;
     margin-top: 8px;
   }
 
   @media (max-width: 1000px) {
     &__subhead {
-      font-family: var(--ff-gilroy-regular);
-      font-size: 13px;
-      line-height: 18.98px;
+      @include font-text-4-360;
+
       display: block;
     }
   }
