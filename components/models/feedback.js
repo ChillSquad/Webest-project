@@ -1,7 +1,10 @@
 import { ref } from "vue";
+import { useState } from "#app";
 
 const useFeedbackFormModel = () => {
-  const activeFormStep = ref(0);
+  const activeFormStep = useState("feedbackFormStep", () => {
+    return 0;
+  });
 
   const fields = ref({
     name: "",
