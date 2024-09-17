@@ -6,6 +6,7 @@ import Textarea from "primevue/textarea";
 
 import { useFeedbackFormModel } from "../models/feedback";
 const { fields, errors, submit } = useFeedbackFormModel();
+const uploadError = ref(null);
 </script>
 
 <template>
@@ -51,7 +52,13 @@ const { fields, errors, submit } = useFeedbackFormModel();
           >Это поле обязательно</span
         >
       </div>
-      <FileUploadCustom title="Прикрепить файл" />
+      <FileUploadCustom
+        title="Прикрепить файл"
+        @update:uploadError="uploadError = $event"
+      />
+      <span v-if="uploadError" class="sidebar-input__error-message">{{
+        uploadError
+      }}</span>
     </div>
 
     <div class="sidebar-footer">

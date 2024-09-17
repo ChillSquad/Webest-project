@@ -9,7 +9,9 @@ defineProps({
   },
 });
 
-const error = ref(null);
+const emit = defineEmits(["update:uploadError"]);
+
+const uploadError = ref(null);
 const allowedExtensions = ["txt", "doc", "docx"];
 
 const formatFileSize = (size) => {
@@ -26,11 +28,12 @@ const handleFileSelect = (event) => {
   const fileExtension = file.name.split(".").pop().toLowerCase();
 
   if (!allowedExtensions.includes(fileExtension)) {
-    error.value = "Файл должен быть в формате .txt, .doc или .docx";
+    uploadError.value = "Файл должен быть в формате .txt, .doc или .docx";
+    emit("update:uploadError", uploadError.value);
     event.files.splice(0, event.files.length);
-    event.files.push(file);
   } else {
-    error.value = null;
+    uploadError.value = null;
+    emit("update:uploadError", null);
     event.files.splice(0, event.files.length);
     event.files.push(file);
   }
@@ -74,7 +77,6 @@ const handleFileSelect = (event) => {
           class="close-button icon-close"
         ></button>
       </div>
-      <span v-if="error" class="error-message">{{ error }}</span>
     </template>
   </FileUpload>
 </template>
