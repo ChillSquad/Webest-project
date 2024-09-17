@@ -22,14 +22,16 @@ defineProps({
 <template>
   <div class="blog-page-card">
     <div class="blog-page-card__inner">
-      <p class="blog-page-card__story-category">
-        {{ category }}
-      </p>
-      <img
-        class="blog-page-card__story-image"
-        :src="urlImage"
-        :alt="urlImage"
-      />
+      <div class="blog-page-card__content">
+        <p class="blog-page-card__story-category">
+          {{ category }}
+        </p>
+        <img
+          class="blog-page-card__story-image"
+          :src="urlImage"
+          :alt="urlImage"
+        />
+      </div>
       <div class="blog-page-card__story-description">
         <p class="blog-page-card__story-date">
           {{ date }}

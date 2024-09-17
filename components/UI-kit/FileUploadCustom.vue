@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import FileUpload from "primevue/fileupload";
 
 defineProps({
@@ -7,6 +8,12 @@ defineProps({
     default: null,
   },
 });
+
+const emit = defineEmits(["update:uploadError"]);
+
+const uploadError = ref(null);
+const allowedExtensions = ["txt", "doc", "docx"];
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB в байтах
 
 const formatFileSize = (size) => {
   const i = Math.floor(Math.log(size) / Math.log(1024));
@@ -18,8 +25,25 @@ const formatFileSize = (size) => {
 };
 
 const handleFileSelect = (event) => {
-  event.files.splice(0, event.files.length);
-  event.files.push(event.originalEvent.target.files[0]);
+  const file = event.originalEvent.target.files[0];
+  const fileExtension = file.name.split(".").pop().toLowerCase();
+
+  if (!allowedExtensions.includes(fileExtension)) {
+    uploadError.value = "Файл должен быть в формате .txt, .doc или .docx";
+    emit("update:uploadError", uploadError.value);
+    event.files.splice(0, event.files.length);
+  } else if (file.size > MAX_FILE_SIZE) {
+    uploadError.value = `Файл не должен превышать 5MB. Текущий размер: ${formatFileSize(
+      file.size
+    )}`;
+    emit("update:uploadError", uploadError.value);
+    event.files.splice(0, event.files.length);
+  } else {
+    uploadError.value = null;
+    emit("update:uploadError", null);
+    event.files.splice(0, event.files.length);
+    event.files.push(file);
+  }
 };
 </script>
 
@@ -37,15 +61,7 @@ const handleFileSelect = (event) => {
       fileSize: { class: 'file-size-file-upload' },
     }"
   >
-    <template
-      #header="{
-        files,
-        uploadedFiles,
-        chooseCallback,
-        uploadCallback,
-        clearCallback,
-      }"
-    >
+    <template #header="{ files, uploadedFiles, chooseCallback, clearCallback }">
       <div :class="[{ 'file-upload-selected': files.length > 0 }]">
         <button
           :class="[
@@ -93,10 +109,6 @@ const handleFileSelect = (event) => {
 
 .file-file-upload {
   display: flex;
-}
-
-.thumbnail-file-upload {
-  display: none;
 }
 
 .details-file-upload {

@@ -117,8 +117,31 @@
   }
 }
 
+@mixin expertise-icon {
+  font-size: var(--font-expertise-icon);
+  color: var(--color-blue);
+}
+@mixin expertise-icon-hover {
+  &:after {
+    color: inherit;
+  }
+}
+@media (max-width: 1000px) {
+  :root {
+    --font-expertise-icon: 32px;
+  }
+}
+
+@mixin footer-icon {
+  font-size: var(--font-footer-icon);
+  color: var(--color-white);
+  transition: color 0.3s ease-in-out;
+}
+
 @media (max-width: 360px) {
   :root {
     --page-margin-y: 120px;
+    --heading-margin-bottom: 40px;
+    --swiper-padding: 0 16px;
   }
 }

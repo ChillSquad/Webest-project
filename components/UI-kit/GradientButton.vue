@@ -21,7 +21,7 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px 16px;
+  padding: 22px 20px;
   border-radius: 20px;
   border: none;
   outline: none;
@@ -49,6 +49,10 @@ defineProps({
         transform: rotate(45deg);
       }
     }
+  }
+
+  @media (max-width: 360px) {
+    padding: 15px 16px;
   }
 }
 </style>

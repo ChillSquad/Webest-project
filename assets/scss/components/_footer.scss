@@ -1,13 +1,12 @@
 .footer {
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
   background-image: url("public/images/footer-background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100dvh;
-  width: 100%;
   color: var(--color-white);
-  font-size: 20px;
-  display: flex;
 
   .container {
     display: flex;
@@ -27,6 +26,7 @@
   &__services-caption {
     @include font-h5;
 
+    font-family: var(--ff-montserrat-bold);
     font-style: normal;
     margin-bottom: 40px;
     text-transform: uppercase;
@@ -39,6 +39,7 @@
 
     li {
       padding: 3px 0;
+
       @include icon-arrow-right-hover;
 
       a {
@@ -50,46 +51,41 @@
 
     .icon-vkontakte {
       &:after {
+        @include footer-icon;
+
         content: "\004F";
-        font-size: 21px;
-        color: var(--color-white);
-        transition: color 0.3s ease-in-out;
       }
     }
 
     .icon-telegram {
       &:after {
+        @include footer-icon;
+
         content: "\0050";
-        font-size: 20px;
-        color: var(--color-white);
-        transition: color 0.3s ease-in-out;
       }
     }
 
     .icon-vcru {
       &:after {
-        content: "\0051";
-        font-size: 20px;
-        color: var(--color-white);
-        transition: color 0.3s ease-in-out;
+        @include footer-icon;
+
+        content: "\0052";
       }
     }
 
     .icon-behance {
       &:after {
-        content: "\0052";
-        font-size: 20px;
-        color: var(--color-white);
-        transition: color 0.3s ease-in-out;
+        @include footer-icon;
+
+        content: "\0051";
       }
     }
 
     .icon-dprofile {
       &:after {
+        @include footer-icon;
+
         content: "\0053";
-        font-size: 20px;
-        color: var(--color-white);
-        transition: color 0.3s ease-in-out;
       }
     }
   }
@@ -187,13 +183,12 @@
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
+  }
 
-    p {
-      @include font-text-2;
+  &__copyright-logo {
+    @include font-text-2;
 
-      font-family: var(--ff-gilroy-regular);
-      user-select: none;
-    }
+    user-select: none;
   }
 
   &__copyright-links {
@@ -209,30 +204,24 @@
 
   &__copyright-insignia {
     user-select: none;
-    font-family: var(--ff-gilroy-semi-bold);
-    font-size: 11px;
 
     ul {
-      flex-direction: row;
       display: flex;
+      flex-direction: row;
       gap: 26.89px;
 
       li {
         display: flex;
         align-items: center;
-
-        p {
-          font-family: var(--ff-gilroy-semi-bold);
-          font-size: 11px;
-          line-height: 12.1px;
-          margin-left: 7.11px;
-        }
-
-        span {
-          display: block;
-        }
       }
     }
+  }
+
+  &__copyright-insignia-text {
+    font-family: var(--ff-gilroy-semi-bold);
+    font-size: 11px;
+    line-height: 12.1px;
+    margin-left: 7.11px;
   }
 
   @media (max-width: 1300px) {
@@ -278,7 +267,7 @@
 
     &__copyright {
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
     }
 
     &__logo-footer {
@@ -287,10 +276,36 @@
   }
 
   @media (max-width: 900px) {
+    &__inner {
+      padding-bottom: 16px;
+    }
+
     &__copyright-insignia ul {
-      align-items: center;
       justify-content: center;
+      gap: 8px;
       flex-wrap: wrap;
+    }
+
+    &__presentation {
+      margin-top: 44px;
+    }
+
+    &__services-caption {
+      padding: 6px 0;
+      margin-bottom: 16px;
+    }
+
+    &__copyright-insignia-text {
+      font-family: var(--ff-gilroy-semi-bold);
+      font-size: 8.25px;
+      line-height: 9.08px;
+      margin-left: 4.4px;
+    }
+
+    &__contact {
+      ul {
+        gap: 9px;
+      }
     }
   }
 }

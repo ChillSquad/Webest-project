@@ -1,5 +1,6 @@
 <template>
   <svg
+    class="logoYandexStar"
     width="32"
     height="32"
     viewBox="0 0 32 32"
@@ -14,3 +15,17 @@
     />
   </svg>
 </template>
+
+<style scoped>
+.logoYandexStar {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 900px) {
+  .logoYandexStar {
+    width: 24px;
+    height: 24px;
+  }
+}
+</style>

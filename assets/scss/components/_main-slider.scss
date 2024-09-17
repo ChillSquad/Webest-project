@@ -13,12 +13,13 @@
 
   .swiper {
     height: 276px;
-    padding: 0 120px 0 120px;
+    padding: var(--swiper-padding);
   }
 
   .swiper-slide {
     transition: transform 0.3s ease-in-out;
     transform: translateY(10px);
+
     &:hover {
       transform: translateY(0);
     }
@@ -27,11 +28,11 @@
   @media (max-width: 360px) {
     .swiper {
       height: 150px;
-      padding: 0 16px 0 16px;
     }
 
     .swiper-slide {
       transform: translateY(10px);
+
       &:hover {
         transform: translateY(0);
       }
@@ -51,7 +52,7 @@
   }
 
   &__story-heading {
-    @include font-text-2;
+    @include font-text-4-1920;
 
     font-family: var(--ff-gilroy-semi-bold);
     color: var(--color-white);
@@ -72,9 +73,9 @@
 
     &__story-heading {
       width: 123px;
-      font-size: 11px;
       margin: 8px;
-      line-height: 12.76px;
+      font-size: 13px;
+      line-height: 14.76px;
     }
   }
 }
