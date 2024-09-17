@@ -99,7 +99,7 @@ import FooterLogo from "../public/images/footer-logo.png";
         </div>
 
         <section class="footer__copyright">
-          <p>© 2024, Webest</p>
+          <p class="footer__copyright-logo">© 2024, Webest</p>
           <div class="footer__copyright-links">
             <a href="#">Политика конфиденциальности</a>
             <a href="#">Реквизиты</a>
@@ -108,19 +108,30 @@ import FooterLogo from "../public/images/footer-logo.png";
             <ul>
               <li>
                 <YandexStarLogo />
-                <p>Сертифицировано <span>Яндексом</span></p>
+                <p class="footer__copyright-insignia-text">
+                  Сертифицировано <br />Яндексом
+                </p>
               </li>
-              <li>
-                <VkLogotype />
-                <p>Верифицировано <span>Вконтакте</span></p>
-              </li>
+
               <li>
                 <WorkspaceLogo />
-                <p>Мы на <span>Workspace</span></p>
+                <p class="footer__copyright-insignia-text">
+                  Мы на <br />Workspace
+                </p>
               </li>
+
+              <li>
+                <VkLogotype />
+                <p class="footer__copyright-insignia-text">
+                  Верифицировано <br />Вконтакте
+                </p>
+              </li>
+
               <li>
                 <ArdaLogo />
-                <p>Участник ассоциации <span>развития Digital-агенств</span></p>
+                <p class="footer__copyright-insignia-text">
+                  Участник ассоциации <br />развития Digital-агенств
+                </p>
               </li>
             </ul>
           </section>

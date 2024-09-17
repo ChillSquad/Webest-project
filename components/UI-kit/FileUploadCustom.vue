@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import FileUpload from "primevue/fileupload";
 
 defineProps({
@@ -7,6 +8,9 @@ defineProps({
     default: null,
   },
 });
+
+const error = ref(null);
+const allowedExtensions = ["txt", "doc", "docx"];
 
 const formatFileSize = (size) => {
   const i = Math.floor(Math.log(size) / Math.log(1024));
@@ -18,8 +22,18 @@ const formatFileSize = (size) => {
 };
 
 const handleFileSelect = (event) => {
-  event.files.splice(0, event.files.length);
-  event.files.push(event.originalEvent.target.files[0]);
+  const file = event.originalEvent.target.files[0];
+  const fileExtension = file.name.split(".").pop().toLowerCase();
+
+  if (!allowedExtensions.includes(fileExtension)) {
+    error.value = "Файл должен быть в формате .txt, .doc или .docx";
+    event.files.splice(0, event.files.length);
+    event.files.push(file);
+  } else {
+    error.value = null;
+    event.files.splice(0, event.files.length);
+    event.files.push(file);
+  }
 };
 </script>
 
@@ -37,15 +51,7 @@ const handleFileSelect = (event) => {
       fileSize: { class: 'file-size-file-upload' },
     }"
   >
-    <template
-      #header="{
-        files,
-        uploadedFiles,
-        chooseCallback,
-        uploadCallback,
-        clearCallback,
-      }"
-    >
+    <template #header="{ files, uploadedFiles, chooseCallback, clearCallback }">
       <div :class="[{ 'file-upload-selected': files.length > 0 }]">
         <button
           :class="[
@@ -68,6 +74,7 @@ const handleFileSelect = (event) => {
           class="close-button icon-close"
         ></button>
       </div>
+      <span v-if="error" class="error-message">{{ error }}</span>
     </template>
   </FileUpload>
 </template>
@@ -93,10 +100,6 @@ const handleFileSelect = (event) => {
 
 .file-file-upload {
   display: flex;
-}
-
-.thumbnail-file-upload {
-  display: none;
 }
 
 .details-file-upload {

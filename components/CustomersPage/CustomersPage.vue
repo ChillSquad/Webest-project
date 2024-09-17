@@ -21,7 +21,7 @@ const { data: customers } = await useAsyncData("customers", () => {
       </div>
     </div>
     <div class="customers-page__table">
-      <NuxtMarquee direction="right">
+      <NuxtMarquee direction="right" :autoFill="true">
         <ul class="customers-page__table-list">
           <li v-for="(customer, index) in customers.slice(0, 6)" :key="index">
             <CustomersPageSlide :urlLogo="customer.urlLogo" />
@@ -29,7 +29,7 @@ const { data: customers } = await useAsyncData("customers", () => {
         </ul>
       </NuxtMarquee>
 
-      <NuxtMarquee>
+      <NuxtMarquee :autoFill="true">
         <ul class="customers-page__table-list">
           <li v-for="(customer, index) in customers.slice(6, 13)" :key="index">
             <CustomersPageSlide :urlLogo="customer.urlLogo" />
@@ -37,8 +37,8 @@ const { data: customers } = await useAsyncData("customers", () => {
         </ul>
       </NuxtMarquee>
 
-      <NuxtMarquee direction="right">
-        <ul class="customers-page__table-list_gap">
+      <NuxtMarquee direction="right" :autoFill="true">
+        <ul class="customers-page__table-list">
           <li v-for="(customer, index) in customers.slice(13, 20)" :key="index">
             <CustomersPageSlide :urlLogo="customer.urlLogo" />
           </li>

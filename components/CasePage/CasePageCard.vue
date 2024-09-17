@@ -26,13 +26,11 @@ defineProps({
 <template>
   <div class="case-page-card">
     <div :class="['case-page-card__inner', { right: wide }]">
-      <div class="case-page-card__wrapper">
-        <img
-          class="case-page-card__case-image"
-          :src="urlImage"
-          :alt="urlImage"
-        />
-      </div>
+      <img
+        :class="['case-page-card__case-image', { pruning: wide }]"
+        :src="urlImage"
+        :alt="urlImage"
+      />
       <p :style="{ color: textColor }" class="case-page-card__case-heading">
         {{ title }}
       </p>
