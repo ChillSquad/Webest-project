@@ -13,6 +13,7 @@ const emit = defineEmits(["update:uploadError"]);
 
 const uploadError = ref(null);
 const allowedExtensions = ["txt", "doc", "docx"];
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB в байтах
 
 const formatFileSize = (size) => {
   const i = Math.floor(Math.log(size) / Math.log(1024));
@@ -29,6 +30,12 @@ const handleFileSelect = (event) => {
 
   if (!allowedExtensions.includes(fileExtension)) {
     uploadError.value = "Файл должен быть в формате .txt, .doc или .docx";
+    emit("update:uploadError", uploadError.value);
+    event.files.splice(0, event.files.length);
+  } else if (file.size > MAX_FILE_SIZE) {
+    uploadError.value = `Файл не должен превышать 5MB. Текущий размер: ${formatFileSize(
+      file.size
+    )}`;
     emit("update:uploadError", uploadError.value);
     event.files.splice(0, event.files.length);
   } else {
