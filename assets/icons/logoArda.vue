@@ -1,11 +1,5 @@
 <template>
-  <svg
-    width="84"
-    height="32"
-    viewBox="0 0 84 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg class="logoArda" viewBox="0 0 84 32" xmlns="http://www.w3.org/2000/svg">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -32,3 +26,17 @@
     />
   </svg>
 </template>
+
+<style scoped>
+.logoArda {
+  width: 84px;
+  height: 32px;
+}
+
+@media (max-width: 900px) {
+  .logoArda {
+    width: 63px;
+    height: 24px;
+  }
+}
+</style>

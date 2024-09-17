@@ -1,11 +1,5 @@
 <template>
-  <svg
-    width="30"
-    height="32"
-    viewBox="0 0 30 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg class="logoVK" viewBox="0 0 30 32" xmlns="http://www.w3.org/2000/svg">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -14,3 +8,17 @@
     />
   </svg>
 </template>
+
+<style scoped>
+.logoVK {
+  width: 30px;
+  height: 32px;
+}
+
+@media (max-width: 900px) {
+  .logoVK {
+    width: 22.51px;
+    height: 22.75px;
+  }
+}
+</style>
