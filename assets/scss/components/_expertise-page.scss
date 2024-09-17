@@ -5,7 +5,7 @@
     display: flex;
     align-items: flex-start;
     gap: 24px;
-    margin-bottom: 100px;
+    margin-bottom: var(--heading-margin-bottom);
   }
 
   &__heading-subtitle {
@@ -90,7 +90,7 @@
     }
 
     &__table-item {
-      height: 328px;
+      height: 210px;
     }
 
     &__heading-subtitle {
@@ -99,19 +99,13 @@
 
     .tall {
       grid-row: span 1;
-      height: 328px;
+      height: 210px;
     }
   }
 
   @media (max-width: 400px) {
     &__heading-subtitle {
       width: 100%;
-    }
-  }
-
-  @media (max-width: 360px) {
-    &__heading {
-      margin-bottom: 40px;
     }
   }
 }
@@ -126,49 +120,49 @@
 
     .icon-development {
       &:after {
+        @include expertise-icon;
+
         content: "\0057";
-        font-size: 45px;
-        color: var(--color-blue);
       }
     }
 
     .icon-crm {
       &:after {
+        @include expertise-icon;
+
         content: "\0058";
-        font-size: 45px;
-        color: var(--color-blue);
       }
     }
 
     .icon-marketplace {
       &:after {
+        @include expertise-icon;
+
         content: "\005A";
-        font-size: 45px;
-        color: var(--color-blue);
       }
     }
 
     .icon-mobile {
       &:after {
+        @include expertise-icon;
+
         content: "\004D";
-        font-size: 45px;
-        color: var(--color-blue);
       }
     }
 
     .icon-marketing {
       &:after {
+        @include expertise-icon;
+
         content: "\0065";
-        font-size: 45px;
-        color: var(--color-blue);
       }
     }
 
     .icon-outstaff {
       &:after {
+        @include expertise-icon;
+
         content: "\0067";
-        font-size: 45px;
-        color: var(--color-blue);
       }
     }
 
@@ -176,39 +170,27 @@
       color: var(--color-white);
 
       .icon-development {
-        &:after {
-          color: inherit;
-        }
+        @include expertise-icon-hover;
       }
 
       .icon-crm {
-        &:after {
-          color: inherit;
-        }
+        @include expertise-icon-hover;
       }
 
       .icon-marketplace {
-        &:after {
-          color: inherit;
-        }
+        @include expertise-icon-hover;
       }
 
       .icon-mobile {
-        &:after {
-          color: inherit;
-        }
+        @include expertise-icon-hover;
       }
 
       .icon-marketing {
-        &:after {
-          color: inherit;
-        }
+        @include expertise-icon-hover;
       }
 
       .icon-outstaff {
-        &:after {
-          color: inherit;
-        }
+        @include expertise-icon-hover;
       }
 
       .expertise-card__subhead {
@@ -231,10 +213,18 @@
   }
 
   @media (max-width: 1000px) {
+    &__heading {
+      @include font-text-3;
+    }
+
     &__subhead {
       @include font-text-4-360;
 
       display: block;
+    }
+
+    &__inner {
+      padding: 16px;
     }
   }
 }
