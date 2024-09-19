@@ -6,16 +6,17 @@
 @import "./components/header";
 @import "./components/mobile-menu";
 @import "./components/footer";
-@import "./components/first-page";
+@import "./components/first-unit";
 @import "./components/custom-sidebar";
 @import "./components/main-slider";
-@import "./components/expertise-page";
+@import "./components/expertise-unit";
 @import "./components/custom-cursor";
-@import "./components/case-page";
-@import "./components/talk-page";
+@import "./components/case-unit";
+@import "./components/talk-unit";
 @import "./components/about-company";
+@import "./components/blog-unit";
 @import "./components/blog-page";
-@import "./components/customers-page";
+@import "./components/customers-unit";
 @import "./components/title-button";
 @import "./components/cookies";
 @import "./components/slider-cursor";
@@ -43,7 +44,6 @@ body {
 
 body {
   font-family: var(--ff-gilroy-medium);
-  // color: var(--color-white);
 }
 
 body::-webkit-scrollbar {
@@ -98,4 +98,82 @@ label {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.slide-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 30px;
+  border: 1px solid var(--color-grey-light-span);
+  border-radius: 20px;
+  cursor: pointer;
+  background: transparent;
+  font-weight: 900;
+  text-align: center;
+  outline: none;
+
+  &:hover {
+    border: 1px solid var(--color-blue);
+  }
+
+  &:disabled {
+    border: 1px solid transparent;
+    cursor: default;
+  }
+}
+
+.p-button-label {
+  display: none;
+}
+
+.icon-slide-to-left {
+  &:after {
+    content: "\0046";
+    font-size: 18px;
+    color: inherit;
+  }
+}
+
+.icon-slide-to-right {
+  &:after {
+    content: "\0045";
+    font-size: 18px;
+    color: inherit;
+  }
+}
+
+@media (max-width: 360px) {
+  .slide-button {
+    padding: 0px 19px;
+
+    &:hover {
+      border: 1px solid var(--color-blue);
+    }
+
+    &:disabled {
+      border: 1px solid transparent;
+      cursor: default;
+    }
+  }
+
+  .p-button-label {
+    display: none;
+  }
+
+  .icon-slide-to-left {
+    &:after {
+      content: "\0046";
+      font-size: 18px;
+      color: inherit;
+    }
+  }
+
+  .icon-slide-to-right {
+    &:after {
+      content: "\0045";
+      font-size: 18px;
+      color: inherit;
+    }
+  }
 }

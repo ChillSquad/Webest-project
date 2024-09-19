@@ -30,9 +30,9 @@
   --lh-text-1: 27.54px;
   --font-text-1: normal 500 var(--fs-text-1) / var(--lh-text-1)
     var(--ff-gilroy-medium);
-  --fs-text-2-1920: 14px;
-  --lh-text-2-1920: 18.2px;
-  --font-text-2-1920: normal 500 var(--fs-text-2-1920) / var(--lh-text-2-1920)
+  --fs-text-2: 14px;
+  --lh-text-2: 18.2px;
+  --font-text-2: normal 500 var(--fs-text-2) / var(--lh-text-2)
     var(--ff-gilroy-regular);
   --fs-text-3: 15px;
   --lh-text-3: 21px;
@@ -68,6 +68,7 @@
   --color-black-subtitle: #000309;
   --color-blue: #075bf7;
   --color-blue-line: #075bf733;
+  --color-dark-blue: #5d6d89;
   --color-grey-transparent: #ffffff26;
   --color-grey-light: #eff0f3;
   --color-grey-light-span: #d8dce9;
@@ -91,7 +92,7 @@
 
   --shadow-card: rgba(235, 238, 242, 1);
 
-  --page-margin-y: 220px;
+  --unit-margin-y: 220px;
   --heading-margin-bottom: 100px;
 
   --swiper-padding: 0 120px;
