@@ -25,7 +25,9 @@ import FooterLogo from "../public/images/footer-logo.png";
           </section>
 
           <section class="footer__blog">
-            <h4 class="footer__services-caption">блог</h4>
+            <h4 class="footer__services-caption">
+              <NuxtLink to="/blog">блог</NuxtLink>
+            </h4>
             <ul class="footer__services-list">
               <li><a href="#">Контекстная реклама</a></li>
               <li><a href="#">SEO</a></li>
@@ -44,7 +46,7 @@ import FooterLogo from "../public/images/footer-logo.png";
             <ul class="footer__services-list">
               <li><a href="#">Услуги</a></li>
               <li><a href="#">Кейсы</a></li>
-              <li><a href="#">Блог</a></li>
+              <li><NuxtLink to="/blog">Блог</NuxtLink></li>
               <li><a href="#">Компания</a></li>
               <li><a href="#">Контакты</a></li>
               <li>

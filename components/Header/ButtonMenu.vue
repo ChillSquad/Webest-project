@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { toggleMobileMenu } from "../models/header";
+import { useRouter } from "vue-router";
 
 const isActive = ref(false);
 const emit = defineEmits(["toggle-menu"]);
@@ -28,6 +29,14 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", checkWindowSize);
+});
+
+const router = useRouter();
+
+router.afterEach(() => {
+  isActive.value = false;
+  toggleMobileMenu();
+  emit("toggle-menu", false);
 });
 </script>
 

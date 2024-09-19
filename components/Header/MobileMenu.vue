@@ -2,6 +2,13 @@
 import { isShowMobileMenu } from "../models/header";
 import Navigation from "./Navigation.vue";
 import Contacts from "./Contacts.vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+router.afterEach(() => {
+  isShowMobileMenu.value = false;
+});
 </script>
 
 <template>
