@@ -30,6 +30,8 @@
     font-style: normal;
     margin-bottom: 40px;
     text-transform: uppercase;
+    pointer-events: none;
+    user-select: none;
   }
 
   &__services-list {
@@ -228,6 +230,11 @@
     &__references {
       flex-direction: column;
       align-items: center;
+    }
+
+    &__services-caption {
+      pointer-events: all;
+      user-select: all;
     }
 
     &__services {

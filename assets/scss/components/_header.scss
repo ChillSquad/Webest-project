@@ -31,9 +31,19 @@
 
   &__logo {
     width: 312px;
+    height: 34px;
     display: flex;
     margin: 0 20px;
     align-items: center;
+    overflow: hidden;
+
+    .icon-header-logo {
+      &:after {
+        content: "\0069";
+        font-size: 194px;
+        color: inherit;
+      }
+    }
   }
 
   &__logo-subtitle {
@@ -142,6 +152,22 @@
 
     &__contscts {
       display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__inner {
+      height: 60px;
+    }
+
+    &__logo {
+      height: 28px;
+
+      .icon-header-logo {
+        &:after {
+          font-size: 97px;
+        }
+      }
     }
   }
 }
