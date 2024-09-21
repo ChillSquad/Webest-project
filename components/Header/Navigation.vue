@@ -5,7 +5,7 @@
       <li><a href="#">Кейсы</a></li>
       <li><NuxtLink to="/blog">Блог</NuxtLink></li>
       <li><a href="#">Компания</a></li>
-      <li><a href="#">Контакты</a></li>
+      <li><NuxtLink to="/contacts">Контакты</NuxtLink></li>
     </ul>
   </nav>
 </template>

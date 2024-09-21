@@ -48,7 +48,9 @@ const companyLinks = [
           <FooterLinks title="Компания" :items="companyLinks" />
 
           <address class="footer__contact">
-            <h4 class="footer__services-caption">Контакты</h4>
+            <h4 class="footer__services-caption">
+              <NuxtLink to="/contacts">Контакты</NuxtLink>
+            </h4>
             <ul class="footer__services-list">
               <li><a href="#">г. Москва, пр-кт Ленинградский, д. 36</a></li>
               <li><a href="#">г. Череповец, ул. Монтклер, д. 20</a></li>
