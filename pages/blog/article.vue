@@ -1,6 +1,7 @@
 <script setup>
 import BreadcrumbCustom from "~/components/UI-kit/BreadcrumbCustom.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
+import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 
 const title =
   "Когда компании нужен оптовый портал для поставщиков: 6 причин создания торговой площадки";
@@ -94,6 +95,7 @@ const breadcrumbItems = [
           </div>
 
           <img
+            class="blog-article__chapter-image"
             src="public/images/imageBlogArticle1.png"
             alt="Изображение раздела"
           />
@@ -103,7 +105,7 @@ const breadcrumbItems = [
           Serphunt
 
           <img
-            style="margin-top: 40px"
+            class="blog-article__chapter-image margin-top-40"
             src="public/images/imageBlogArticle2.png"
             alt="Изображение раздела"
           />
@@ -122,10 +124,12 @@ const breadcrumbItems = [
 
           <div class="blog-article__split">
             <img
+              class="blog-article__chapter-image"
               src="public/images/imageBlogArticle3.png"
               alt="Изображение раздела"
             />
             <img
+              class="blog-article__chapter-image"
               src="public/images/imageBlogArticle4.png"
               alt="Изображение раздела"
             />
@@ -137,7 +141,7 @@ const breadcrumbItems = [
 
           <ArticleSlider />
 
-          <div class="blog-article__chapter-content">
+          <div class="blog-article__chapter-content margin-bottom">
             <p>
               <a href="#" target="_blank">SEOlib</a> предлагает своим
               пользователям широкий спектр функций, включая анализ сайта,
@@ -188,7 +192,7 @@ const breadcrumbItems = [
         <li class="blog-article__chapter">
           RUSH ANALYTICS
 
-          <div class="blog-article__chapter-content">
+          <div class="blog-article__chapter-content margin-bottom">
             <p>
               <a href="#" target="_blank">RUSH ANALYTICS</a> — современный и
               многофункциональный инструмент для анализа позиций сайта в
@@ -223,11 +227,93 @@ const breadcrumbItems = [
               сформировать образ проекта и составить грамотное техническое
               задание на его разработку.
             </p>
+
+            <p class="margin-top-20">
+              Опыт создания более 100 проектов позволил нам сформировать
+              алгоритм, который мы используем для предпроектного анализа:
+            </p>
+
+            <div class="blog-article__list">
+              <p>1</p>
+              <p>Общение с клиентом</p>
+            </div>
+
+            <div class="blog-article__list">
+              <p>2</p>
+              <p>Образ проекта и дизайн-концепция</p>
+            </div>
+
+            <div class="margin-left-24">
+              <div class="icon-marker">
+                <p>Функционал и визуал проекта на основе референсов</p>
+              </div>
+            </div>
+
+            <div class="blog-article__list">
+              <p>3</p>
+              <p>Бенчмаркинг</p>
+            </div>
+
+            <div class="margin-left-24">
+              <div class="icon-marker">
+                <p>Исследование рынка</p>
+              </div>
+
+              <div class="icon-marker">
+                <p>Исследование ЦА</p>
+              </div>
+
+              <div class="icon-marker">
+                <p>Анализ клиента и конкурентов</p>
+              </div>
+
+              <div class="icon-marker">
+                <p>Формирование требований к проекту</p>
+              </div>
+            </div>
+
+            <div class="blog-article__list">
+              <p>4</p>
+              <p>Анализ поискового спроса</p>
+            </div>
+
+            <div class="blog-article__list">
+              <p>5</p>
+              <p>Анализ клиентского опыта</p>
+            </div>
+
+            <div class="blog-article__list">
+              <p>6</p>
+              <p>Выводы</p>
+            </div>
           </div>
         </div>
       </ol>
 
-      <div class="blog-article__footer"></div>
+      <div class="blog-article__footer">
+        <hr class="blog-article__line" />
+
+        <div class="blog-article__tags">
+          <div>Теги <span class="blog-article__tag">SEO</span></div>
+
+          <div>
+            Дата
+            <span class="blog-article__date">20 мая 2024</span>
+          </div>
+
+          <div>
+            Поделиться
+            <div class="blog-article__social">
+              <a href="#" class="icon-link"></a>
+              <a href="#" class="icon-vkontakte"></a>
+              <a href="#" class="icon-telegram"></a>
+              <a href="#" class="icon-whatsapp"></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <BlogUnit />
   </div>
 </template>
