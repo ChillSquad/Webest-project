@@ -13,7 +13,7 @@ const emit = defineEmits(["update:uploadError"]);
 
 const uploadError = ref(null);
 const allowedExtensions = ["txt", "doc", "docx"];
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB в байтах
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
 const formatFileSize = (size) => {
   const i = Math.floor(Math.log(size) / Math.log(1024));

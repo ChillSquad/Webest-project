@@ -4,6 +4,10 @@
   text-transform: uppercase;
 }
 
+@mixin font-h2-inner {
+  font: var(--font-h2-inner);
+}
+
 @mixin font-h2 {
   font: var(--font-h2);
   text-transform: uppercase;

@@ -6,34 +6,27 @@ import Contacts from "./Contacts.vue";
 import Navigation from "./Navigation.vue";
 
 const isAdaptiveActive = ref(false);
-const windowWidth = ref(window ? window.innerWidth : 0);
+const windowWidth = ref(0);
 
 const toggleAdaptive = (isActive) => {
   isAdaptiveActive.value = isActive;
-
-  toggleSCrollbar(isActive);
-};
-
-const toggleSCrollbar = (isActive) => {
   document.body.style.overflow = isActive ? "hidden" : "";
 };
 
-const updateLogoForScreenSize = () => {
+const updateWindowWidth = () => {
   windowWidth.value = window.innerWidth;
 };
 
 onMounted(() => {
-  updateLogoForScreenSize();
-
-  window.addEventListener("resize", updateLogoForScreenSize);
+  updateWindowWidth();
+  window.addEventListener("resize", updateWindowWidth);
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener("resize", updateLogoForScreenSize);
+  window.removeEventListener("resize", updateWindowWidth);
 });
 
 const router = useRouter();
-
 router.afterEach(() => {
   isAdaptiveActive.value = false;
 });
@@ -86,9 +79,10 @@ router.afterEach(() => {
             <Navigation />
           </div>
 
-          <div class="header__contscts">
+          <div class="header__contacts">
             <Contacts phone="+7 (495) 128-22-90" mail="info@webest.ru" />
           </div>
+
           <ButtonMenu @toggle-menu="toggleAdaptive" />
         </div>
       </header>

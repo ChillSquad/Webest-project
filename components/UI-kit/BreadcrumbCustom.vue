@@ -64,6 +64,7 @@ const home = ref({
   align-items: center;
   justify-content: center;
   gap: 4px;
+  margin-bottom: 40px;
 }
 
 .breadcrumb-menuitem {

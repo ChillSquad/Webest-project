@@ -53,7 +53,7 @@ const props = defineProps({
       padding: 11px 16px 9px 16px;
       border: 1px solid var(--color-grey-light);
       border-radius: 16px;
-      color: var(--color-grey-light-date);
+      color: var(--color-dark-blue);
       cursor: pointer;
       user-select: none;
 

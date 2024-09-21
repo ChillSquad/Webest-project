@@ -6,7 +6,7 @@
 @import "./components/header";
 @import "./components/mobile-menu";
 @import "./components/footer";
-@import "./components/first-unit";
+@import "./components/first-page";
 @import "./components/custom-sidebar";
 @import "./components/main-slider";
 @import "./components/expertise-unit";
@@ -16,6 +16,7 @@
 @import "./components/about-company";
 @import "./components/blog-unit";
 @import "./components/blog-page";
+@import "./components/blog-article";
 @import "./components/customers-unit";
 @import "./components/title-button";
 @import "./components/cookies";
@@ -64,6 +65,12 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
+.article-container {
+  max-width: 1150px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 a {
   color: var(--color-white);
   text-decoration: none;
@@ -83,8 +90,14 @@ label {
   top: 5px;
 }
 
-@media (max-width: 1696px) {
+@media (max-width: 1692px) {
   .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 1166px) {
+  .article-container {
     padding: 0 16px;
   }
 }

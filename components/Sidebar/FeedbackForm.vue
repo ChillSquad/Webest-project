@@ -1,6 +1,6 @@
 <script setup>
-import SideStepFirstStaff from "./SideStepFirstStaff.vue";
 import SideStepFirst from "./SideStepFirst.vue";
+import SideStepFirstStaff from "./SideStepFirstStaff.vue";
 import SideStepSecond from "./SideStepSecond.vue";
 import SideStepThird from "./SideStepThird.vue";
 import { useFeedbackFormModel } from "../models/feedback";
@@ -10,24 +10,30 @@ import { useSidebarModel } from "../models/sidebar";
 const { isActiveStaff, isActive } = useSidebarModel();
 const { activeFormStepStaff } = useFeedbackFormModelStaff();
 const { activeFormStep } = useFeedbackFormModel();
+
+const getComponentForStep = (step) => {
+  if (step === 0) return SideStepFirst;
+  if (step === 1) return SideStepSecond;
+  if (step === 2) return SideStepThird;
+  return null;
+};
 </script>
 
 <template>
   <form @submit.prevent="false">
     <Transition name="fade" mode="out-in">
-      <template v-if="isActive">
-        <SideStepFirst v-if="activeFormStep === 0" />
-        <SideStepSecond v-else-if="activeFormStep === 1" />
-        <SideStepThird v-else-if="activeFormStep === 2" />
-      </template>
+      <component v-if="isActive" :is="getComponentForStep(activeFormStep)" />
     </Transition>
 
     <Transition name="fade" mode="out-in">
-      <template v-if="isActiveStaff">
-        <SideStepFirstStaff v-if="activeFormStepStaff === 0" />
-        <SideStepSecond v-else-if="activeFormStepStaff === 1" />
-        <SideStepThird v-else-if="activeFormStepStaff === 2" />
-      </template>
+      <component
+        v-if="isActiveStaff"
+        :is="
+          activeFormStepStaff === 0
+            ? SideStepFirstStaff
+            : getComponentForStep(activeFormStepStaff)
+        "
+      />
     </Transition>
   </form>
 </template>

@@ -51,12 +51,10 @@ const useFeedbackFormModelStaff = () => {
       );
 
       if (response) {
-        // Если запрос успешен, переходим на шаг 1
         activeFormStepStaff.value = 1;
         clearFields();
       }
     } catch (error) {
-      // Если произошла ошибка, переходим на шаг 2
       activeFormStepStaff.value = 2;
     }
   };
