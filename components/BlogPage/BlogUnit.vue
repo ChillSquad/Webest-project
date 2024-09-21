@@ -38,6 +38,13 @@ const onSwiperInit = (swiperInstance) => {
     isEnd.value = swiperInstance.isEnd;
   });
 };
+
+defineProps({
+  title: {
+    type: String,
+    default: "наш блог",
+  },
+});
 </script>
 
 <template>
@@ -45,7 +52,7 @@ const onSwiperInit = (swiperInstance) => {
     <div class="blog-unit__inner">
       <div class="container">
         <div class="blog-unit__heading">
-          <TitleButton title="наш блог" route="/blog" />
+          <TitleButton :title="title" route="/blog" />
 
           <div class="blog-unit__slider">
             <Button

@@ -314,6 +314,6 @@ const breadcrumbItems = [
       </div>
     </div>
 
-    <BlogUnit />
+    <BlogUnit title="Что еще почитать" />
   </div>
 </template>
