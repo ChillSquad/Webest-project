@@ -1,6 +1,6 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import "swiper/swiper-bundle.css";
 
 const currentIndex = ref(0);
@@ -13,6 +13,10 @@ const images = ref([
 ]);
 
 const count = computed(() => images.value.length);
+
+const updateCurrentIndex = (swiper) => {
+  currentIndex.value = swiper.activeIndex;
+};
 </script>
 
 <template>
@@ -24,6 +28,7 @@ const count = computed(() => images.value.length);
         :breakpoints="{
           0: { slidesPerView: 1.2, spaceBetween: 4 },
         }"
+        @slideChange="updateCurrentIndex"
       >
         <swiper-slide v-for="(image, index) in images" :key="index">
           <img
@@ -37,7 +42,7 @@ const count = computed(() => images.value.length);
       <div class="article-slider-mobile-bar">
         <div
           class="article-slider-mobile-progress"
-          :style="{ width: ((currentIndex + 1) / images.length) * 100 + '%' }"
+          :style="{ width: ((currentIndex + 1) / count) * 100 + '%' }"
         ></div>
       </div>
 
@@ -49,10 +54,11 @@ const count = computed(() => images.value.length);
 </template>
 
 <style lang="scss" scoped>
+.article-slider-mobile {
+  margin-top: 40px;
+}
+
 .article-slider-mobile-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
   height: 2px;
   background-color: #e0e0e0;
@@ -62,6 +68,11 @@ const count = computed(() => images.value.length);
   height: 100%;
   background-color: var(--color-blue);
   transition: width 0.3s ease;
+}
+
+.article-slider-pagination {
+  margin-top: 8px;
+  font-size: 14px;
 }
 
 @media (min-width: 361px) {
