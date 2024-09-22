@@ -26,16 +26,17 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 18px;
+    padding: 0 4px;
     border-radius: 20px;
   }
 
   &__logo {
-    width: 312px;
+    width: max-content;
     height: 34px;
     display: flex;
-    margin: 0 20px;
     align-items: center;
     overflow: hidden;
+    margin-left: 16px;
 
     .icon-header-logo {
       &:after {
