@@ -1,0 +1,67 @@
+.policy-page {
+  padding-top: var(--page-padding);
+
+  &__title {
+    @include font-h1-1920;
+
+    text-align: center;
+    margin-bottom: 100px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    margin-bottom: var(--unit-margin-y);
+  }
+
+  &__chapter {
+    @include font-h5;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-transform: uppercase;
+    font-family: var(--ff-montserrat-bold);
+    list-style-position: inside;
+  }
+
+  &__chapter-intro {
+    @include font-text-1;
+    text-transform: initial;
+  }
+
+  &__chapter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__chapter-list {
+    @include font-text-1;
+
+    text-transform: initial;
+    display: flex;
+    gap: 8px;
+
+    :first-child {
+      color: var(--color-blue);
+    }
+  }
+
+  .icon-marker {
+    @include font-text-1;
+
+    margin-left: 36px;
+    display: flex;
+    text-transform: initial;
+
+    &:before {
+      content: "\004E";
+      font-size: 12px;
+      color: var(--color-blue);
+      padding-right: 8px;
+      transform: translateY(7px);
+    }
+  }
+}

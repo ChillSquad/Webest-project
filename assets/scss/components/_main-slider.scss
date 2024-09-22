@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     overflow-x: scroll;
-    margin: var(--page-margin-y) 0;
+    margin: var(--unit-margin-y) 0;
+    user-select: none;
 
     &::-webkit-scrollbar {
       display: none;

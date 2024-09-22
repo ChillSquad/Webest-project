@@ -47,12 +47,10 @@ const useFeedbackFormModel = () => {
       );
 
       if (response) {
-        // Если запрос успешен, переходим на шаг 1
         activeFormStep.value = 1;
         clearFields();
       }
     } catch (error) {
-      // Если произошла ошибка, переходим на шаг 2
       activeFormStep.value = 2;
     }
   };

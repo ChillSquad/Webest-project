@@ -1,95 +1,129 @@
-.talk-page {
-  margin-bottom: var(--page-margin-y);
+.contact-page {
+  padding-top: var(--page-padding);
 
   &__heading {
-    @include font-h2;
-
-    user-select: none;
-    margin-bottom: var(--heading-margin-bottom);
-  }
-
-  &__table {
-    box-shadow: 0 0 50px 5px var(--shadow-card);
-    background-color: rgba(235, 238, 242, 0.5);
-    border-radius: 40px;
     display: flex;
-    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  @media (max-width: 1000px) {
-    &__table {
+  &__title {
+    @include font-h1-1920;
+
+    margin-bottom: 100px;
+  }
+
+  &__addres {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    a {
+      @include font-text-1;
+
+      font-style: normal;
+      color: var(--color-black-subtitle);
+    }
+  }
+
+  &__tags {
+    @include font-text-4-1920;
+
+    color: var(--color-dark-blue);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--unit-margin-y);
+
+    > div {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-    }
-
-    &__table-item {
-      height: 200px;
+      gap: 20px;
     }
   }
-}
 
-.talk-card {
-  color: var(--color-black);
-  width: 100%;
-  cursor: pointer;
+  &__date {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-  &__inner {
-    height: 374px;
-    border-radius: 40px;
-    background: var(--color-white);
-    padding: 36px 38px;
+  &__social {
+    display: flex;
+    gap: 4px;
 
-    &:hover {
-      background: var(--color-button-gradient);
-      color: var(--color-white);
+    a {
+      width: 60px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 16px;
+      background-color: var(--color-blue);
+      transition: background-color 0.3s ease-in-out;
 
-      .icon-arrow-right {
-        &:after {
-          transform: rotate(-45deg);
+      &:hover {
+        background-color: var(--color-white);
+
+        &:hover:after {
+          color: var(--color-blue);
         }
       }
     }
-  }
 
-  &__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+    .icon-vkontakte {
+      &:after {
+        content: "\004F";
+        font-size: 20px;
+        color: var(--color-white);
+        transition: color 0.2s ease-in-out;
+      }
+    }
 
-  &__heading {
-    @include font-h3;
+    .icon-telegram {
+      &:after {
+        content: "\0050";
+        font-size: 20px;
+        color: var(--color-white);
+        transition: color 0.2s ease-in-out;
+      }
+    }
 
-    margin-right: 20px;
-  }
+    .icon-vcru {
+      &:after {
+        content: "\0052";
+        font-size: 20px;
+        color: var(--color-white);
+        transition: color 0.2s ease-in-out;
+      }
+    }
 
-  .icon-arrow-right {
-    &:after {
-      content: "\0041";
-      font-size: 36px;
-      color: inherit;
-      transition: transform 0.3s ease-in-out;
+    .icon-behance {
+      &:after {
+        content: "\0051";
+        font-size: 20px;
+        color: var(--color-white);
+        transition: color 0.2s ease-in-out;
+      }
+    }
+
+    .icon-dprofile {
+      &:after {
+        content: "\0053";
+        font-size: 20px;
+        color: var(--color-white);
+        transition: color 0.2s ease-in-out;
+      }
     }
   }
 
   @media (max-width: 360px) {
-    &__inner {
-      height: 200px;
-      padding: 24px;
-    }
-
-    &__content {
-      align-items: start;
-    }
-
-    .icon-arrow-right {
-      &:after {
-        content: "\0041";
-        font-size: 24px;
-        color: inherit;
-        transition: transform 0.3s ease-in-out;
-      }
+    &__tags {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
   }
 }

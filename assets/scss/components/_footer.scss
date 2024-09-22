@@ -13,83 +13,6 @@
     flex-direction: column;
   }
 
-  .icon-arrow-right-up {
-    &:after {
-      content: "\0042";
-      font-size: 12px;
-      color: inherit;
-      margin-left: 10px;
-      transition: transform 0.2s ease-in-out;
-    }
-  }
-
-  &__services-caption {
-    @include font-h5;
-
-    font-family: var(--ff-montserrat-bold);
-    font-style: normal;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-  }
-
-  &__services-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-
-    li {
-      padding: 3px 0;
-
-      @include icon-arrow-right-hover;
-
-      a {
-        @include font-text-1;
-
-        color: var(--color-white-transparent);
-      }
-    }
-
-    .icon-vkontakte {
-      &:after {
-        @include footer-icon;
-
-        content: "\004F";
-      }
-    }
-
-    .icon-telegram {
-      &:after {
-        @include footer-icon;
-
-        content: "\0050";
-      }
-    }
-
-    .icon-vcru {
-      &:after {
-        @include footer-icon;
-
-        content: "\0052";
-      }
-    }
-
-    .icon-behance {
-      &:after {
-        @include footer-icon;
-
-        content: "\0051";
-      }
-    }
-
-    .icon-dprofile {
-      &:after {
-        @include footer-icon;
-
-        content: "\0053";
-      }
-    }
-  }
-
   &__inner {
     display: flex;
     flex-direction: column;
@@ -103,7 +26,41 @@
     justify-content: space-between;
   }
 
+  &__services-caption {
+    @include font-h5;
+
+    font-family: var(--ff-montserrat-bold);
+    font-style: normal;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    li {
+      padding: 3px 0;
+
+      a {
+        @include font-text-1;
+
+        color: var(--color-white-transparent);
+
+        &:hover {
+          &:after {
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+  }
+
   &__social {
+    margin-top: 8px;
     display: flex;
     gap: 4px;
 
@@ -116,39 +73,11 @@
       border-radius: 12px;
       background-color: var(--color-grey-transparent);
       transition: background-color 0.3s ease-in-out;
-    }
 
-    :hover {
-      a {
+      &:hover {
         background-color: var(--color-white);
-      }
 
-      .icon-vkontakte {
-        &:after {
-          color: var(--color-blue);
-        }
-      }
-
-      .icon-telegram {
-        &:after {
-          color: var(--color-blue);
-        }
-      }
-
-      .icon-vcru {
-        &:after {
-          color: var(--color-blue);
-        }
-      }
-
-      .icon-behance {
-        &:after {
-          color: var(--color-blue);
-        }
-      }
-
-      .icon-dprofile {
-        &:after {
+        &:hover:after {
           color: var(--color-blue);
         }
       }
@@ -156,8 +85,7 @@
   }
 
   &__presentation {
-    margin-top: 59px;
-    text-align: center;
+    margin-top: 37px;
 
     @include icon-arrow-right-hover;
 
@@ -230,6 +158,11 @@
       align-items: center;
     }
 
+    &__services-caption {
+      pointer-events: all;
+      user-select: all;
+    }
+
     &__services {
       ul {
         display: none;
@@ -286,8 +219,8 @@
       flex-wrap: wrap;
     }
 
-    &__presentation {
-      margin-top: 44px;
+    &__social {
+      margin-top: 17px;
     }
 
     &__services-caption {
@@ -306,6 +239,56 @@
       ul {
         gap: 9px;
       }
+    }
+  }
+
+  .icon-arrow-right-up {
+    &:after {
+      content: "\0042";
+      font-size: 12px;
+      color: inherit;
+      margin-left: 10px;
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  .icon-vkontakte {
+    &:after {
+      @include footer-icon;
+
+      content: "\004F";
+    }
+  }
+
+  .icon-telegram {
+    &:after {
+      @include footer-icon;
+
+      content: "\0050";
+    }
+  }
+
+  .icon-vcru {
+    &:after {
+      @include footer-icon;
+
+      content: "\0052";
+    }
+  }
+
+  .icon-behance {
+    &:after {
+      @include footer-icon;
+
+      content: "\0051";
+    }
+  }
+
+  .icon-dprofile {
+    &:after {
+      @include footer-icon;
+
+      content: "\0053";
     }
   }
 }

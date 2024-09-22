@@ -4,6 +4,10 @@
   text-transform: uppercase;
 }
 
+@mixin font-h2-inner {
+  font: var(--font-h2-inner);
+}
+
 @mixin font-h2 {
   font: var(--font-h2);
   text-transform: uppercase;
@@ -54,7 +58,7 @@
 }
 
 @mixin font-text-2 {
-  font: var(--font-text-2-1920);
+  font: var(--font-text-2);
 }
 
 @mixin font-text-3 {
@@ -140,7 +144,7 @@
 
 @media (max-width: 360px) {
   :root {
-    --page-margin-y: 120px;
+    --unit-margin-y: 120px;
     --heading-margin-bottom: 40px;
     --swiper-padding: 0 16px;
   }

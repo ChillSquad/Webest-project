@@ -1,55 +1,34 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useRouter } from "vue-router";
 import ButtonMenu from "./ButtonMenu.vue";
 import Contacts from "./Contacts.vue";
 import Navigation from "./Navigation.vue";
 
-import headerLogoWhite from "../../public/images/header-logo.png";
-import headerLogoBlue from "../../public/images/header-logo-blue.png";
-import headerLogoMobileBlue from "../../public/images/header-logo-mobile-blue.png";
-import headerLogoMobileWhite from "../../public/images/header-logo-mobile-white.png";
-
 const isAdaptiveActive = ref(false);
-const windowWidth = ref(window ? window.innerWidth : 0);
-const logoSrc = ref(headerLogoWhite);
-
-const updateLogoSrc = () => {
-  if (windowWidth.value <= 600) {
-    logoSrc.value = isAdaptiveActive.value
-      ? headerLogoMobileBlue
-      : headerLogoMobileWhite;
-  } else {
-    logoSrc.value = isAdaptiveActive.value ? headerLogoBlue : headerLogoWhite;
-  }
-};
+const windowWidth = ref(0);
 
 const toggleAdaptive = (isActive) => {
   isAdaptiveActive.value = isActive;
-
-  toggleSCrollbar(isActive);
-  updateLogoSrc();
-};
-
-const toggleSCrollbar = (isActive) => {
   document.body.style.overflow = isActive ? "hidden" : "";
 };
 
-const updateLogoForScreenSize = () => {
+const updateWindowWidth = () => {
   windowWidth.value = window.innerWidth;
-
-  updateLogoSrc();
 };
 
-watch(windowWidth, updateLogoSrc);
-
 onMounted(() => {
-  updateLogoForScreenSize();
-
-  window.addEventListener("resize", updateLogoForScreenSize);
+  updateWindowWidth();
+  window.addEventListener("resize", updateWindowWidth);
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener("resize", updateLogoForScreenSize);
+  window.removeEventListener("resize", updateWindowWidth);
+});
+
+const router = useRouter();
+router.afterEach(() => {
+  isAdaptiveActive.value = false;
 });
 </script>
 
@@ -62,13 +41,19 @@ onBeforeUnmount(() => {
           :style="{
             backgroundColor: isAdaptiveActive
               ? 'var(--color-black-transparent)'
-              : 'var(--color-grey-transparent)',
+              : 'var(--color-black)',
           }"
         >
           <div class="header__logo">
-            <a href="#" class="header__logo-title">
-              <img :src="logoSrc" alt="header-logo " />
-            </a>
+            <NuxtLink
+              to="/"
+              class="header__logo-title icon-header-logo"
+              :style="{
+                color: isAdaptiveActive
+                  ? 'var(--color-blue)'
+                  : 'var(--color-white)',
+              }"
+            ></NuxtLink>
 
             <div
               class="header__logo-subtitle"
@@ -94,9 +79,10 @@ onBeforeUnmount(() => {
             <Navigation />
           </div>
 
-          <div class="header__contscts">
+          <div class="header__contacts">
             <Contacts phone="+7 (495) 128-22-90" mail="info@webest.ru" />
           </div>
+
           <ButtonMenu @toggle-menu="toggleAdaptive" />
         </div>
       </header>
