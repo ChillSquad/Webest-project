@@ -3,24 +3,25 @@
 @import "./helpers/transition";
 @import "./helpers/fonts-mixin";
 
+@import "./components/slider-cursor";
+@import "./components/cookies";
 @import "./components/header";
 @import "./components/mobile-menu";
-@import "./components/footer";
 @import "./components/first-page";
 @import "./components/custom-sidebar";
 @import "./components/main-slider";
 @import "./components/expertise-unit";
 @import "./components/custom-cursor";
 @import "./components/case-unit";
-@import "./components/talk-unit";
 @import "./components/about-company";
 @import "./components/blog-unit";
 @import "./components/blog-page";
 @import "./components/blog-article";
 @import "./components/customers-unit";
 @import "./components/title-button";
-@import "./components/cookies";
-@import "./components/slider-cursor";
+@import "./components/talk-unit";
+@import "./components/talk-page";
+@import "./components/footer";
 
 $debug: false;
 
