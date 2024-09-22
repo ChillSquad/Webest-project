@@ -1,5 +1,6 @@
 <script setup>
 import BreadcrumbCustom from "~/components/UI-kit/BreadcrumbCustom.vue";
+import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 
@@ -139,6 +140,7 @@ const breadcrumbItems = [
         <li class="blog-article__chapter">
           SEOlib
 
+          <ArticleSliderMobile />
           <ArticleSlider />
 
           <div class="blog-article__chapter-content margin-bottom">

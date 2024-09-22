@@ -29,7 +29,7 @@ const prevSlide = () => {
       :key="index"
       :class="['article-slide', { active: index === currentIndex }]"
       :style="{
-        transform: `translateX(${(index - currentIndex.value) * 100}%)`,
+        transform: `translateX(${(index - currentIndex) * 100}%)`,
       }"
     >
       <img
@@ -131,6 +131,10 @@ const prevSlide = () => {
 
 @media (max-width: 360px) {
   .article-slider {
+    display: none;
+  }
+
+  .article-slider-pagination {
     display: none;
   }
 }
