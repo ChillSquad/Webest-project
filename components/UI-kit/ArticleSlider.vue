@@ -128,4 +128,10 @@ const prevSlide = () => {
   padding-top: 8px;
   font-weight: 900;
 }
+
+@media (max-width: 360px) {
+  .article-slider {
+    display: none;
+  }
+}
 </style>

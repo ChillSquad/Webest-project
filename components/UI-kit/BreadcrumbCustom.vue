@@ -95,4 +95,12 @@ const home = ref({
 svg.breadcrumb-separatorIcon {
   display: none;
 }
+
+@media (max-width: 360px) {
+  .breadcrumb-root {
+  }
+
+  .breadcrumb-menu {
+  }
+}
 </style>

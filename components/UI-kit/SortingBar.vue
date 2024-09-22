@@ -64,7 +64,6 @@ const props = defineProps({
   }
 
   @media (max-width: 360px) {
-    display: none;
   }
 }
 </style>

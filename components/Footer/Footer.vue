@@ -30,7 +30,7 @@ const companyLinks = [
   { name: "Кейсы", route: "/" },
   { name: "Блог", route: "/blog" },
   { name: "Компания", route: "/" },
-  { name: "Контакты", route: "/" },
+  { name: "Контакты", route: "/contacts" },
   { name: "Академия", route: "/" },
   { name: "Партнерам", route: "/" },
 ];
