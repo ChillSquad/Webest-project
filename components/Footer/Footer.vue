@@ -93,7 +93,7 @@ const companyLinks = [
         <section class="footer__copyright">
           <p class="footer__copyright-logo">© 2024, Webest</p>
           <div class="footer__copyright-links">
-            <a href="#">Политика конфиденциальности</a>
+            <NuxtLink to="/policy">Политика конфиденциальности</NuxtLink>
             <a href="#">Реквизиты</a>
           </div>
 

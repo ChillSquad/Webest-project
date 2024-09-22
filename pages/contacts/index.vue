@@ -2,7 +2,9 @@
 import BreadcrumbCustom from "~/components/UI-kit/BreadcrumbCustom.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 
-const breadcrumbItems = [{ label: "Контакты", route: "/contacts" }];
+const title = "Контакты";
+
+const breadcrumbItems = [{ label: `${title}`, route: "/contacts" }];
 </script>
 
 <template>
@@ -10,7 +12,7 @@ const breadcrumbItems = [{ label: "Контакты", route: "/contacts" }];
     <div class="container">
       <div class="contact-page__heading">
         <BreadcrumbCustom :items="breadcrumbItems" />
-        <div class="contact-page__title">контакты</div>
+        <div class="contact-page__title">{{ title }}</div>
       </div>
 
       <div class="contact-page__tags">

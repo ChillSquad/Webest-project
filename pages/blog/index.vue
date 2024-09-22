@@ -4,6 +4,8 @@ import SortingBar from "~/components/UI-kit/SortingBar.vue";
 import BlogUnitCard from "~/components/BlogPage/BlogUnitCard.vue";
 import Pagination from "~/components/UI-kit/Pagination.vue";
 
+const title = "Блог";
+
 const { data: items } = await useAsyncData("blog", () => {
   return $fetch("/api/blog/", { method: "GET" });
 });
@@ -30,7 +32,7 @@ const sortingBarItems = [
   { title: `Маркетинг ${categoryCount["Маркетинг"] || 0}` },
 ];
 
-const breadcrumbItems = [{ label: "Блог", route: "/blog" }];
+const breadcrumbItems = [{ label: `${title}`, route: "/blog" }];
 </script>
 
 <template>
@@ -38,7 +40,7 @@ const breadcrumbItems = [{ label: "Блог", route: "/blog" }];
     <div class="container">
       <div class="blog-page__heading">
         <BreadcrumbCustom :items="breadcrumbItems" />
-        <div class="blog-page__title">блог</div>
+        <div class="blog-page__title">{{ title }}</div>
         <div class="blog-page__subtitle">
           <span class="custom-standing-purple">Полезный контент</span> для наших
           клиентов, партнёров и коллег
