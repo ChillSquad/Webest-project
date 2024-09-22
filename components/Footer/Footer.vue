@@ -27,7 +27,7 @@ const blogLinks = [
 
 const companyLinks = [
   { name: "Услуги", route: "/" },
-  { name: "Кейсы", route: "/" },
+  { name: "Кейсы", route: "/case" },
   { name: "Блог", route: "/blog" },
   { name: "Компания", route: "/" },
   { name: "Контакты", route: "/contacts" },
