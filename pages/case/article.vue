@@ -1,17 +1,8 @@
 <script setup>
-import BreadcrumbCustom from "~/components/UI-kit/BreadcrumbCustom.vue";
 import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
-
-const title = "Редизайн интернет-магазина Kamatyres";
-const breadcrumbItems = [
-  { label: "Кейсы", route: "/case" },
-  {
-    label: `${title}`,
-    route: "/case/article",
-  },
-];
+import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 
 const images = [
   { src: "/images/imageCaseArticle6.png" },
@@ -25,8 +16,6 @@ const images = [
 <template>
   <div class="case-article">
     <div class="container">
-      <BreadcrumbCustom :items="breadcrumbItems" />
-
       <div class="case-article__heading">
         <div class="article-container">
           <div class="case-article__title">
@@ -493,6 +482,12 @@ const images = [
       </div>
     </div>
 
-    <BlogUnit title="Что еще почитать" />
+    <TalkUnit
+      title="Хотите так же?"
+      titleLeft="У меня есть задача. Хочу крутое решение"
+      titleRight="Хочу к вам в команду делать классные решения"
+    />
+
+    <BlogUnit :article="true" title="еще кейсы" route="/case" />
   </div>
 </template>

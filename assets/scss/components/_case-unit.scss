@@ -71,6 +71,12 @@
     justify-content: center;
   }
 
+  .article {
+    object-fit: cover;
+    width: 100%;
+    height: 656px;
+  }
+
   &__case-image {
     width: 100%;
     height: auto;
@@ -148,6 +154,12 @@
       font-family: var(--ff-montserrat-semi-bold);
       width: 300px;
       margin: 16px;
+    }
+
+    .article {
+      object-fit: cover;
+      width: 100%;
+      height: 320px;
     }
   }
 

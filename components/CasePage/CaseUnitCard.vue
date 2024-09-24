@@ -20,6 +20,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  article: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
@@ -28,7 +32,7 @@ defineProps({
     <div :class="['case-unit-card__inner', { right: wide }]">
       <NuxtLink to="/case/article">
         <img
-          :class="['case-unit-card__case-image', { pruning: wide }]"
+          :class="['case-unit-card__case-image', { article: article }]"
           :src="urlImage"
           :alt="urlImage"
         />

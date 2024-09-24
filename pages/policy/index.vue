@@ -1,19 +1,5 @@
-<script setup>
-import BreadcrumbCustom from "~/components/UI-kit/BreadcrumbCustom.vue";
-
-const title = "Политика в отношении обработки персональных данных";
-const breadcrumbItems = [
-  {
-    label: `${title}`,
-    route: "/policy",
-  },
-];
-</script>
-
 <template>
   <div class="policy-page">
-    <BreadcrumbCustom :items="breadcrumbItems" />
-
     <div class="container">
       <div class="policy-page__title">Наша политика</div>
     </div>
