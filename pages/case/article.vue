@@ -4,6 +4,7 @@ import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
+import MagneticButton from "~/components/UI-kit/MagneticButton.vue";
 
 const title = "Редизайн интернет-магазина Kamatyres";
 const breadcrumbItems = [
@@ -39,6 +40,10 @@ const images = [
             Разработали редизайн интернет-магазина для B2C- и B2B-клиентов
             Kamatyres
           </div>
+        </div>
+
+        <div class="magnetic-button">
+          <MagneticButton />
         </div>
 
         <img

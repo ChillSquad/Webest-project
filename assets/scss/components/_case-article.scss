@@ -1,6 +1,12 @@
 .case-article {
   padding-top: var(--page-padding);
 
+  .magnetic-button {
+    position: absolute; /* Фиксируем кнопку в правом верхнем углу */
+    top: 300px;
+    right: 200px;
+  }
+
   &__heading {
     display: flex;
     flex-direction: column;
@@ -304,6 +310,7 @@
     }
 
     &__content {
+      margin-top: 200px;
       gap: 120px;
     }
 
@@ -322,6 +329,12 @@
 
     &__date {
       justify-content: start;
+    }
+
+    .magnetic-button {
+      position: absolute; /* Фиксируем кнопку в правом верхнем углу */
+      top: 600px;
+      right: 50px;
     }
   }
 }
