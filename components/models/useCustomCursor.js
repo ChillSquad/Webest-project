@@ -14,6 +14,9 @@ export function useCustomCursor(isActive) {
   const MAX_ROTATION_ANGLE = 10;
   const BASE_ROTATION_ANGLE = 5;
 
+  let scrollTimeout;
+  let isMouseInsideComponent = ref(false);
+
   const smoothRotate = () => {
     const diff = targetAngle.value - currentAngle.value;
     if (Math.abs(diff) > 0.1) {
@@ -59,19 +62,38 @@ export function useCustomCursor(isActive) {
   const handleMouseEnter = () => {
     if (!isActive.value) {
       isCursorVisible.value = true;
+      isMouseInsideComponent.value = true;
     }
   };
 
   const handleMouseLeave = () => {
     isCursorVisible.value = false;
+    isMouseInsideComponent.value = false;
+  };
+
+  const handleScroll = () => {
+    isCursorVisible.value = false;
+
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+
+    scrollTimeout = setTimeout(() => {
+      if (isMouseInsideComponent.value) {
+        isCursorVisible.value = true;
+      }
+    }, 100);
   };
 
   onMounted(() => {
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleScroll);
   });
 
   onUnmounted(() => {
     window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("scroll", handleScroll);
+    clearTimeout(scrollTimeout);
   });
 
   return {
