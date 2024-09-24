@@ -1,104 +1,109 @@
 <script setup>
-import { ref, computed } from "vue";
+import { defineProps, ref, computed } from "vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation } from "swiper/modules";
+
+const props = defineProps({
+  images: {
+    type: Array,
+    required: true,
+  },
+});
 
 const currentIndex = ref(0);
-const images = ref([
-  { src: "/images/imageBlogArticle5.png" },
-  { src: "/images/imageBlogArticle1.png" },
-  { src: "/images/imageBlogArticle2.png" },
-  { src: "/images/imageBlogArticle5.png" },
-  { src: "/images/imageBlogArticle1.png" },
-]);
+const count = computed(() => props.images.length);
 
-const count = computed(() => images.value.length);
-
-const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % images.value.length;
+const updateCurrentIndex = (swiper) => {
+  currentIndex.value = swiper.activeIndex;
 };
 
-const prevSlide = () => {
-  currentIndex.value =
-    (currentIndex.value - 1 + images.value.length) % images.value.length;
+const addCustomClasses = (swiper) => {
+  const prevButton = swiper.navigation.prevEl;
+  const nextButton = swiper.navigation.nextEl;
+
+  if (prevButton) {
+    prevButton.classList.add("icon-slide-to-left");
+  }
+  if (nextButton) {
+    nextButton.classList.add("icon-slide-to-right");
+  }
 };
 </script>
 
 <template>
   <div class="article-slider">
-    <div
-      v-for="(image, index) in images"
-      :key="index"
-      :class="['article-slide', { active: index === currentIndex }]"
-      :style="{
-        transform: `translateX(${(index - currentIndex) * 100}%)`,
-      }"
-    >
-      <img
-        class="article-slider-image"
-        :src="image.src"
-        :alt="'Image ' + (index + 1)"
-      />
+    <div class="article-slider__inner">
+      <swiper
+        :navigation="true"
+        :pagination="{ clickable: true }"
+        :modules="[Navigation]"
+        :loop="false"
+        direction="horizontal"
+        :breakpoints="{
+          0: { slidesPerView: 1 },
+        }"
+        @slideChange="updateCurrentIndex"
+        @init="addCustomClasses"
+      >
+        <swiper-slide v-for="(image, index) in props.images" :key="index">
+          <img
+            class="main-slider-card__story-image"
+            :src="image.src"
+            alt="story image"
+          />
+        </swiper-slide>
+      </swiper>
+
+      <div class="article-slider-bar">
+        <div
+          class="article-slider-progress"
+          :style="{ width: ((currentIndex + 1) / count) * 100 + '%' }"
+        ></div>
+      </div>
+
+      <div class="article-slider-pagination">
+        0{{ currentIndex + 1 }}-0{{ count }}
+      </div>
     </div>
-
-    <div class="article-slider-bar">
-      <div
-        class="article-slider-progress"
-        :style="{ width: ((currentIndex + 1) / images.length) * 100 + '%' }"
-      ></div>
-    </div>
-
-    <Button
-      class="slide-button icon-slide-to-left"
-      aria-label="Previous Slide"
-      @click="prevSlide"
-    />
-
-    <Button
-      class="slide-button icon-slide-to-right"
-      aria-label="Next Slide"
-      @click="nextSlide"
-    />
-  </div>
-
-  <div class="article-slider-pagination">
-    0{{ currentIndex + 1 }}-0{{ count }}
   </div>
 </template>
 
-<style lang="scss" scoped>
-@import "../../assets/scss/helpers/fonts-mixin";
-
+<style lang="scss">
 .article-slider {
-  position: relative;
-  width: 100%;
-  height: 740px;
-  margin: auto;
-  overflow: hidden;
   margin-top: 40px;
 }
 
-.article-slide {
-  position: absolute;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
+.swiper-button-prev,
+.swiper-button-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 30px;
+  border: 1px solid var(--color-grey-light-span);
+  border-radius: 20px;
+  background: var(--color-white);
+  font-weight: 900;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
 
-.article-slide.active {
-  opacity: 1;
-}
+  &::after {
+    display: none;
+  }
 
-.article-slider-image {
-  width: 100%;
-  height: auto;
+  &:hover {
+    border: 1px solid var(--color-blue);
+  }
 }
 
 .article-slider-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
   height: 2px;
   background-color: #e0e0e0;
+  margin-top: 18px;
 }
 
 .article-slider-progress {
@@ -107,34 +112,18 @@ const prevSlide = () => {
   transition: width 0.3s ease;
 }
 
-.slide-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--color-white);
-}
-
-.icon-slide-to-left {
-  left: 10px;
-}
-
-.icon-slide-to-right {
-  right: 10px;
-}
-
 .article-slider-pagination {
-  @include font-text-2;
+  margin-top: 8px;
+  font-size: 14px;
+}
 
-  padding-top: 8px;
-  font-weight: 900;
+.main-slider-card__story-image {
+  width: 100%;
+  height: auto;
 }
 
 @media (max-width: 360px) {
   .article-slider {
-    display: none;
-  }
-
-  .article-slider-pagination {
     display: none;
   }
 }
