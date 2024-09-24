@@ -222,7 +222,7 @@ const images = [
             </div>
           </div>
 
-          <ArticleSliderMobile />
+          <ArticleSliderMobile :images="images" />
 
           <ArticleSlider :images="images" />
         </li>

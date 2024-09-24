@@ -3,16 +3,15 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { ref, computed } from "vue";
 import "swiper/swiper-bundle.css";
 
-const currentIndex = ref(0);
-const images = ref([
-  { src: "/images/imageBlogArticle5.png" },
-  { src: "/images/imageBlogArticle1.png" },
-  { src: "/images/imageBlogArticle2.png" },
-  { src: "/images/imageBlogArticle5.png" },
-  { src: "/images/imageBlogArticle1.png" },
-]);
+const props = defineProps({
+  images: {
+    type: Array,
+    required: true,
+  },
+});
 
-const count = computed(() => images.value.length);
+const currentIndex = ref(0);
+const count = computed(() => props.images.length);
 
 const updateCurrentIndex = (swiper) => {
   currentIndex.value = swiper.activeIndex;

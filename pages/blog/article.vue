@@ -145,7 +145,7 @@ const images = [
         <li class="blog-article__chapter">
           SEOlib
 
-          <ArticleSliderMobile />
+          <ArticleSliderMobile :images="images" />
 
           <ArticleSlider :images="images" />
 
