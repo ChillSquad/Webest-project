@@ -9,10 +9,15 @@ const title =
 const breadcrumbItems = [
   { label: "Блог", route: "/blog" },
   { label: "SEO", route: "/blog" },
-  {
-    label: `${title}`,
-    route: "/blog/article",
-  },
+  { label: `${title}`, route: "/blog/article" },
+];
+
+const images = [
+  { src: "/images/imageBlogArticle5.png" },
+  { src: "/images/imageBlogArticle1.png" },
+  { src: "/images/imageBlogArticle2.png" },
+  { src: "/images/imageBlogArticle5.png" },
+  { src: "/images/imageBlogArticle1.png" },
 ];
 </script>
 
@@ -141,7 +146,8 @@ const breadcrumbItems = [
           SEOlib
 
           <ArticleSliderMobile />
-          <ArticleSlider />
+
+          <ArticleSlider :images="images" />
 
           <div class="blog-article__chapter-content margin-bottom">
             <p>
