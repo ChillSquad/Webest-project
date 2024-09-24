@@ -1,18 +1,12 @@
 <script setup>
-import BreadcrumbCustom from "~/components/UI-kit/BreadcrumbCustom.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
-
-const title = "Контакты";
-
-const breadcrumbItems = [{ label: `${title}`, route: "/contacts" }];
 </script>
 
 <template>
   <div class="contact-page">
     <div class="container">
       <div class="contact-page__heading">
-        <BreadcrumbCustom :items="breadcrumbItems" />
-        <div class="contact-page__title">{{ title }}</div>
+        <div class="contact-page__title">Контакты</div>
       </div>
 
       <div class="contact-page__tags">

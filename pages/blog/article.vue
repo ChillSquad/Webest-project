@@ -1,16 +1,7 @@
 <script setup>
-import BreadcrumbCustom from "~/components/UI-kit/BreadcrumbCustom.vue";
 import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
-
-const title =
-  "Когда компании нужен оптовый портал для поставщиков: 6 причин создания торговой площадки";
-const breadcrumbItems = [
-  { label: "Блог", route: "/blog" },
-  { label: "SEO", route: "/blog" },
-  { label: `${title}`, route: "/blog/article" },
-];
 
 const images = [
   { src: "/images/imageBlogArticle5.png" },
@@ -24,11 +15,10 @@ const images = [
 <template>
   <div class="blog-article">
     <div class="article-container">
-      <BreadcrumbCustom :items="breadcrumbItems" />
-
       <div class="blog-article__heading">
         <div class="blog-article__title">
-          {{ title }}
+          Когда компании нужен оптовый портал для поставщиков: 6 причин создания
+          торговой площадки
         </div>
 
         <div class="blog-article__subtitle">

@@ -1,19 +1,8 @@
 <script setup>
-import BreadcrumbCustom from "~/components/UI-kit/BreadcrumbCustom.vue";
 import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
-import MagneticButton from "~/components/UI-kit/MagneticButton.vue";
-
-const title = "Редизайн интернет-магазина Kamatyres";
-const breadcrumbItems = [
-  { label: "Кейсы", route: "/case" },
-  {
-    label: `${title}`,
-    route: "/case/article",
-  },
-];
 
 const images = [
   { src: "/images/imageCaseArticle6.png" },
@@ -27,8 +16,6 @@ const images = [
 <template>
   <div class="case-article">
     <div class="container">
-      <BreadcrumbCustom :items="breadcrumbItems" />
-
       <div class="case-article__heading">
         <div class="article-container">
           <div class="case-article__title">
@@ -40,10 +27,6 @@ const images = [
             Разработали редизайн интернет-магазина для B2C- и B2B-клиентов
             Kamatyres
           </div>
-        </div>
-
-        <div class="magnetic-button">
-          <MagneticButton />
         </div>
 
         <img

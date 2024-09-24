@@ -155,6 +155,12 @@
       width: 300px;
       margin: 16px;
     }
+
+    .article {
+      object-fit: cover;
+      width: 100%;
+      height: 320px;
+    }
   }
 
   @media (max-width: 350px) {
