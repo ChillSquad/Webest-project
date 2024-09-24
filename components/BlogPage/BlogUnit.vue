@@ -6,9 +6,14 @@ import BlogUnitCard from "./BlogUnitCard.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
 import { Navigation } from "swiper/modules";
+import CaseUnitCard from "../CasePage/CaseUnitCard.vue";
 
 const { data: items } = await useAsyncData("blog", () => {
   return $fetch("/api/blog/", { method: "GET" });
+});
+
+const { data: casesData } = await useAsyncData("cases", () => {
+  return $fetch("/api/cases/", { method: "GET" });
 });
 
 const swiperRef = ref(null);
@@ -44,6 +49,14 @@ defineProps({
     type: String,
     default: "наш блог",
   },
+  route: {
+    type: String,
+    default: "/blog",
+  },
+  article: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
@@ -52,7 +65,7 @@ defineProps({
     <div class="blog-unit__inner">
       <div class="container">
         <div class="blog-unit__heading">
-          <TitleButton :title="title" route="/blog" />
+          <TitleButton :title="title" :route="route" />
 
           <div class="blog-unit__slider">
             <Button
@@ -82,12 +95,32 @@ defineProps({
           0: { slidesPerView: 1.1, spaceBetween: 8 },
         }"
       >
-        <swiper-slide v-for="(item, index) in items" :key="index">
+        <swiper-slide
+          v-if="!article"
+          v-for="(item, index) in items"
+          :key="index"
+        >
           <BlogUnitCard
             :title="item.title"
             :urlImage="item.urlImage"
             :date="item.date"
             :category="item.category"
+          />
+        </swiper-slide>
+
+        <swiper-slide
+          v-if="article"
+          v-for="(caseItem, index) in casesData"
+          :key="index"
+        >
+          <CaseUnitCard
+            :urlImage="`/images/imageCase${index + 1}.png`"
+            :title="caseItem.title"
+            :hasData="caseItem.plate"
+            :moreData="caseItem.moreData"
+            :textColor="caseItem.textColor"
+            :wide="caseItem.wide"
+            :article="article"
           />
         </swiper-slide>
       </swiper>

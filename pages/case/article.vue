@@ -500,6 +500,6 @@ const images = [
       titleRight="Хочу к вам в команду делать классные решения"
     />
 
-    <BlogUnit title="Что еще почитать" />
+    <BlogUnit :article="true" title="еще кейсы" route="/case" />
   </div>
 </template>
