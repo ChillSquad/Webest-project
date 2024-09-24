@@ -17,6 +17,12 @@
     @include font-link-1;
 
     padding: 20px 16px;
+    border-radius: 16px;
+
+    &:hover {
+      background: var(--color-white);
+      color: var(--color-blue);
+    }
   }
 
   &__inner {
@@ -67,6 +73,7 @@
   &__nav {
     ul {
       display: flex;
+      gap: 4px;
     }
   }
 
