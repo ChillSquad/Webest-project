@@ -7,6 +7,7 @@ export default defineEventHandler((event) => {
       textColor: "#fff",
       plate: false,
       wide: false,
+      category: "Веб-разработка",
     },
     {
       id: 1,
@@ -14,6 +15,7 @@ export default defineEventHandler((event) => {
       textColor: "#000",
       plate: true,
       wide: false,
+      category: "CRM",
       moreData: [
         {
           id: 0,
@@ -36,6 +38,7 @@ export default defineEventHandler((event) => {
       textColor: "#000",
       plate: true,
       wide: true,
+      category: "Веб-разработка",
       moreData: [
         {
           id: 0,
@@ -58,6 +61,7 @@ export default defineEventHandler((event) => {
       textColor: "#000",
       plate: false,
       wide: false,
+      category: "Веб-разработка",
     },
     {
       id: 4,
@@ -66,6 +70,7 @@ export default defineEventHandler((event) => {
       textColor: "#000",
       plate: false,
       wide: false,
+      category: "Веб-разработка",
     },
     {
       id: 5,
@@ -73,6 +78,7 @@ export default defineEventHandler((event) => {
       textColor: "#fff",
       plate: false,
       wide: true,
+      category: "Веб-разработка",
     },
     {
       id: 6,
@@ -81,6 +87,7 @@ export default defineEventHandler((event) => {
       textColor: "#fff",
       plate: false,
       wide: false,
+      category: "Веб-разработка",
     },
     {
       id: 7,
@@ -88,6 +95,127 @@ export default defineEventHandler((event) => {
       textColor: "#000",
       plate: true,
       wide: false,
+      category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
+    },
+    {
+      id: 8,
+      title: "Разработка обучающего портала для Марии Батхан",
+      textColor: "#000",
+      plate: false,
+      wide: true,
+      category: "Веб-разработка",
+    },
+    {
+      id: 9,
+      title:
+        "Разработка планшетного приложения по управлению умным домом «TouchOn»",
+      textColor: "#000",
+      plate: false,
+      wide: false,
+      category: "Веб-разработка",
+    },
+    {
+      id: 10,
+      title:
+        "Новый сайт и мобильное приложение для сервиса доставки еды «КингСуши»",
+      textColor: "#fff",
+      plate: true,
+      wide: false,
+      category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
+    },
+    {
+      id: 11,
+      title: "Интеграция сайта гостиницы с системой бронирования Logus",
+      textColor: "#fff",
+      plate: true,
+      wide: true,
+      category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
+    },
+    {
+      id: 12,
+      title: "Разработка агрегатора недвижимости «Georid»",
+      textColor: "#ff",
+      plate: false,
+      wide: false,
+      category: "Веб-разработка",
+    },
+    {
+      id: 13,
+      title: "Разработка сайта курсов по английскому языку",
+      textColor: "#000",
+      plate: false,
+      wide: false,
+      category: "Веб-разработка",
+    },
+    {
+      id: 14,
+      title:
+        "Развитие интернет-магазина дистрибьютора шинной продукции «Kamatyres»",
+      textColor: "#ff",
+      plate: false,
+      wide: true,
+      category: "CRM",
+    },
+    {
+      id: 15,
+      title: "Разработка мобильноно приложения для школы танцев «Элефанк»",
+      textColor: "#000",
+      plate: false,
+      wide: false,
+      category: "Веб-разработка",
+    },
+    {
+      id: 16,
+      title: "Редизайн интернет-магазина «Дельта»",
+      textColor: "#fff",
+      plate: true,
+      wide: false,
+      category: "Веб-разработка",
       moreData: [
         {
           id: 0,
