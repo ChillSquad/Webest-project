@@ -3,6 +3,7 @@ import BreadcrumbCustom from "~/components/UI-kit/BreadcrumbCustom.vue";
 import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
+import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 
 const title = "Редизайн интернет-магазина Kamatyres";
 const breadcrumbItems = [
@@ -492,6 +493,12 @@ const images = [
         </div>
       </div>
     </div>
+
+    <TalkUnit
+      title="Хотите так же?"
+      titleLeft="У меня есть задача. Хочу крутое решение"
+      titleRight="Хочу к вам в команду делать классные решения"
+    />
 
     <BlogUnit title="Что еще почитать" />
   </div>

@@ -91,7 +91,9 @@ const addCustomClasses = (swiper) => {
   cursor: pointer;
 
   &::after {
-    display: none;
+    color: var(--color-black);
+    font-size: 14px;
+    font-weight: bold;
   }
 
   &:hover {

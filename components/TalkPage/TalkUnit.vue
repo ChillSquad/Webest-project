@@ -3,19 +3,31 @@ import TalkUnitCard from "./TalkUnitCard.vue";
 
 import { useSidebarModel } from "../models/sidebar";
 const { toggleSidebarForm, toggleSidebarFormStaff } = useSidebarModel();
+
+defineProps({
+  title: {
+    type: String,
+    default: "Привет! Поговорим?",
+  },
+  titleLeft: {
+    type: String,
+    default: "У меня есть задача",
+  },
+  titleRight: {
+    type: String,
+    default: "Хочу к вам в команду",
+  },
+});
 </script>
 
 <template>
   <div class="talk-unit">
     <div class="container">
       <div class="talk-unit__inner">
-        <div class="talk-unit__heading">Привет! Поговорим?</div>
+        <div class="talk-unit__heading">{{ title }}</div>
         <div class="talk-unit__table">
-          <TalkUnitCard @click="toggleSidebarForm" title="У меня есть задача" />
-          <TalkUnitCard
-            @click="toggleSidebarFormStaff"
-            title="Хочу к вам в команду"
-          />
+          <TalkUnitCard @click="toggleSidebarForm" :title="titleLeft" />
+          <TalkUnitCard @click="toggleSidebarFormStaff" :title="titleRight" />
         </div>
       </div>
     </div>
