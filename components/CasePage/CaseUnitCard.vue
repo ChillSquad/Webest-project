@@ -26,14 +26,18 @@ defineProps({
 <template>
   <div class="case-unit-card">
     <div :class="['case-unit-card__inner', { right: wide }]">
-      <img
-        :class="['case-unit-card__case-image', { pruning: wide }]"
-        :src="urlImage"
-        :alt="urlImage"
-      />
-      <p :style="{ color: textColor }" class="case-unit-card__case-heading">
-        {{ title }}
-      </p>
+      <NuxtLink to="/case/article">
+        <img
+          :class="['case-unit-card__case-image', { pruning: wide }]"
+          :src="urlImage"
+          :alt="urlImage"
+        />
+
+        <p :style="{ color: textColor }" class="case-unit-card__case-heading">
+          {{ title }}
+        </p>
+      </NuxtLink>
+
       <CaseUnitPlate v-if="hasData" :items="moreData" :platePosition="wide" />
     </div>
   </div>

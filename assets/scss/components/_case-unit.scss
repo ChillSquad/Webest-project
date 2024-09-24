@@ -51,6 +51,8 @@
   align-items: center;
   cursor: pointer;
   overflow: hidden;
+  background: var(--color-grey-light);
+  border-radius: var(--border-radius-case);
 
   &__inner {
     position: relative;
@@ -107,9 +109,6 @@
   }
 
   @media (max-width: 875px) {
-    background: var(--color-grey-light);
-    border-radius: var(--border-radius-case);
-
     &__case-image {
       height: 100%;
     }
