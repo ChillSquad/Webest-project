@@ -11,7 +11,11 @@ const isActive = (basePath) => {
 <template>
   <nav>
     <ul class="header-navigation-list">
-      <li><a href="#">Услуги</a></li>
+      <li>
+        <NuxtLink to="/expertise" :class="{ selected: isActive('/expertise') }"
+          >Услуги</NuxtLink
+        >
+      </li>
       <li>
         <NuxtLink to="/case" :class="{ selected: isActive('/case') }"
           >Кейсы</NuxtLink

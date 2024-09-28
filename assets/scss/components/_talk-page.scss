@@ -62,13 +62,12 @@
       align-items: center;
       border-radius: 16px;
       background-color: var(--color-blue);
-      transition: background-color 0.3s ease-in-out;
 
       &:hover {
-        background-color: var(--color-white);
+        background: var(--color-button-gradient-hover);
 
         &:hover:after {
-          color: var(--color-blue);
+          color: var(--color-white);
         }
       }
     }

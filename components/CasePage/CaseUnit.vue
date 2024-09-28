@@ -1,6 +1,6 @@
 <script setup>
-import TitleButton from "../UI-kit/TitleButton.vue";
 import CaseUnitCard from "./CaseUnitCard.vue";
+import TitleButton from "../UI-kit/TitleButton.vue";
 
 const { data: casesData } = await useAsyncData("cases", () => {
   return $fetch("/api/cases/", { method: "GET" });

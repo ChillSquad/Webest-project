@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from "vue";
-import InputNumber from "primevue/inputnumber";
+
 import Button from "primevue/button";
+import InputNumber from "primevue/inputnumber";
 
 const value1 = ref(1);
 const value2 = ref(9);
@@ -51,7 +52,7 @@ const slideNext = () => {
 </template>
 
 <style lang="scss">
-@import "../../assets/scss/helpers/fonts-mixin";
+@import "~/assets/scss/helpers/fonts-mixin";
 .pagination {
   margin: 60px 0 var(--unit-margin-y) 0;
   display: flex;

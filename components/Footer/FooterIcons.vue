@@ -1,8 +1,8 @@
 <script setup>
 import VkLogotype from "~/assets/icons/logoVk.vue";
-import YandexStarLogo from "~/assets/icons/logoYandexStar.vue";
-import WorkspaceLogo from "~/assets/icons/logoWorkspace.vue";
 import ArdaLogo from "~/assets/icons/logoArda.vue";
+import WorkspaceLogo from "~/assets/icons/logoWorkspace.vue";
+import YandexStarLogo from "~/assets/icons/logoYandexStar.vue";
 </script>
 
 <template>

@@ -39,7 +39,8 @@
   }
 
   &__table {
-    height: 688px;
+    width: 100%;
+    height: max-content;
     border-radius: var(--border-radius-expertise);
     box-shadow: 0 0 50px 5px var(--shadow-card);
     background-color: rgba(235, 238, 242, 0.5);
@@ -134,6 +135,14 @@
       }
     }
 
+    .icon-marketing {
+      &:after {
+        @include expertise-icon;
+
+        content: "\0063";
+      }
+    }
+
     .icon-marketplace {
       &:after {
         @include expertise-icon;
@@ -150,7 +159,7 @@
       }
     }
 
-    .icon-marketing {
+    .icon-outstaff {
       &:after {
         @include expertise-icon;
 
@@ -158,11 +167,35 @@
       }
     }
 
-    .icon-outstaff {
+    .icon-promotion {
       &:after {
         @include expertise-icon;
 
-        content: "\0067";
+        content: "\0068";
+      }
+    }
+
+    .icon-advertisement {
+      &:after {
+        @include expertise-icon;
+
+        content: "\0061";
+      }
+    }
+
+    .icon-smm {
+      &:after {
+        @include expertise-icon;
+
+        content: "\0059";
+      }
+    }
+
+    .icon-seo {
+      &:after {
+        @include expertise-icon;
+
+        content: "\0064";
       }
     }
 
@@ -177,6 +210,10 @@
         @include expertise-icon-hover;
       }
 
+      .icon-marketing {
+        @include expertise-icon-hover;
+      }
+
       .icon-marketplace {
         @include expertise-icon-hover;
       }
@@ -185,11 +222,23 @@
         @include expertise-icon-hover;
       }
 
-      .icon-marketing {
+      .icon-outstaff {
         @include expertise-icon-hover;
       }
 
-      .icon-outstaff {
+      .icon-promotion {
+        @include expertise-icon-hover;
+      }
+
+      .icon-advertisement {
+        @include expertise-icon-hover;
+      }
+
+      .icon-smm {
+        @include expertise-icon-hover;
+      }
+
+      .icon-seo {
         @include expertise-icon-hover;
       }
 

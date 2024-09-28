@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
-import { toggleMobileMenu } from "../models/header";
 import { useRouter } from "vue-router";
+import { toggleMobileMenu } from "../models/header";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const isActive = ref(false);
 const emit = defineEmits(["toggle-menu"]);

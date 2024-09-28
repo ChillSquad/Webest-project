@@ -8,7 +8,7 @@ defineProps({
     type: String,
     default: null,
   },
-  link: {
+  route: {
     type: String,
     default: null,
   },
@@ -20,15 +20,15 @@ defineProps({
 </script>
 
 <template>
-  <a :href="`${link}`" class="expertise-card">
+  <NuxtLink :to="route" class="expertise-card">
     <div class="expertise-card__inner">
-      <div :class="[`${icon}`]"></div>
+      <span :class="icon"></span>
+
       <h6 class="expertise-card__heading">
         {{ title }}
       </h6>
+
       <p class="expertise-card__subhead">{{ subtitle }}</p>
     </div>
-  </a>
+  </NuxtLink>
 </template>
-
-<style lang="scss" scoped></style>

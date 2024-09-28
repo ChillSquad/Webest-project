@@ -41,10 +41,12 @@
     height: 34px;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
     margin-left: 16px;
 
     .icon-header-logo {
+      display: flex;
       &:after {
         content: "\0069";
         font-size: 194px;

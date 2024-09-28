@@ -1,16 +1,15 @@
 <script setup>
 import FooterLinks from "./FooterLinks.vue";
 import FooterIcons from "./FooterIcons.vue";
-
 import FooterLogo from "../public/images/footer-logo.png";
 
 const servicesLinks = [
-  { name: "Веб-разработка", route: "/" },
-  { name: "CRM-системы", route: "/" },
-  { name: "Сопровождение и развитие", route: "/" },
-  { name: "Интернет-маркетинг", route: "/" },
-  { name: "Мобильная разработка", route: "/" },
-  { name: "Аутстаффинг", route: "/" },
+  { name: "Веб-разработка", route: "/expertise/development" },
+  { name: "CRM-системы", route: "/expertise/crm" },
+  { name: "Сопровождение и развитие", route: "/expertise/marketing" },
+  { name: "Интернет-маркетинг", route: "/expertise/marketplace" },
+  { name: "Мобильная разработка", route: "/expertise/mobile" },
+  { name: "Аутстаффинг", route: "/expertise/outstaff" },
 ];
 
 const blogLinks = [
@@ -26,7 +25,7 @@ const blogLinks = [
 ];
 
 const companyLinks = [
-  { name: "Услуги", route: "/" },
+  { name: "Услуги", route: "/expertise" },
   { name: "Кейсы", route: "/case" },
   { name: "Блог", route: "/blog" },
   { name: "Компания", route: "/" },
@@ -41,7 +40,11 @@ const companyLinks = [
     <div class="container">
       <div class="footer__inner">
         <div class="footer__references">
-          <FooterLinks title="Услуги" :items="servicesLinks" />
+          <FooterLinks
+            title="Услуги"
+            route="/expertise"
+            :items="servicesLinks"
+          />
 
           <FooterLinks title="Блог" route="/blog" :items="blogLinks" />
 

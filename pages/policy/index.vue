@@ -17,8 +17,8 @@
             данных ООО «Вэбест» (далее – Оператор).
           </div>
 
-          <div class="policy-page__chapter-content">
-            <div class="policy-page__chapter-list">
+          <ol class="policy-page__chapter-content">
+            <li class="policy-page__chapter-list">
               <p>1.1</p>
               <p>
                 Оператор ставит своей важнейшей целью и условием осуществления
@@ -27,9 +27,9 @@
                 защиты прав на неприкосновенность частной жизни, личную и
                 семейную тайну.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>1.2</p>
               <p>
                 Оператор ставит своей важнейшей целью и условием осуществления
@@ -38,32 +38,32 @@
                 защиты прав на неприкосновенность частной жизни, личную и
                 семейную тайну.
               </p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </li>
 
         <li class="policy-page__chapter">
           2. Основные понятия, используемые в Политике
 
-          <div class="policy-page__chapter-content">
-            <div class="policy-page__chapter-list">
+          <ol class="policy-page__chapter-content">
+            <li class="policy-page__chapter-list">
               <p>2.1</p>
               <p>
                 Автоматизированная обработка персональных данных – обработка
                 персональных данных с помощью средств вычислительной техники.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.2</p>
               <p>
                 Блокирование персональных данных – временное прекращение
                 обработки персональных данных (за исключением случаев, если
                 обработка необходима для уточнения персональных данных).
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.3</p>
               <p>
                 Веб-сайт – совокупность графических и информационных материалов,
@@ -71,9 +71,9 @@
                 доступность в сети интернет по сетевому адресу
                 https://webest.ru/.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.4</p>
               <p>
                 Информационная система персональных данных — совокупность
@@ -81,9 +81,9 @@
                 обеспечивающих их обработку информационных технологий и
                 технических средств.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.5</p>
               <p>
                 Обезличивание персональных данных — действия, в результате
@@ -91,9 +91,9 @@
                 информации принадлежность персональных данных конкретному
                 Пользователю или иному субъекту персональных данных.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.6</p>
               <p>
                 Обработка персональных данных – любое действие (операция) или
@@ -105,9 +105,9 @@
                 предоставление, доступ), обезличивание, блокирование, удаление,
                 уничтожение персональных данных.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.7</p>
               <p>
                 Оператор – государственный орган, муниципальный орган,
@@ -118,32 +118,32 @@
                 обработке, действия (операции), совершаемые с персональными
                 данными.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.8</p>
               <p>
                 Персональные данные – любая информация, относящаяся прямо или
                 косвенно к определенному или определяемому Пользователю
                 веб-сайта https://webest.ru
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.9</p>
               <p>Пользователь – любой посетитель веб-сайта https://webest.ru</p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.10</p>
               <p>
                 Предоставление персональных данных – действия, направленные на
                 раскрытие персональных данных определенному лицу или
                 определенному кругу лиц.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.11</p>
               <p>
                 Распространение персональных данных – любые действия,
@@ -155,9 +155,9 @@
                 сетях или предоставление доступа к персональным данным
                 каким-либо иным способом.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.12</p>
               <p>
                 Трансграничная передача персональных данных – передача
@@ -165,9 +165,9 @@
                 органу власти иностранного государства, иностранному физическому
                 или иностранному юридическому лицу.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>2.13</p>
               <p>
                 Уничтожение персональных данных – любые действия, в результате
@@ -177,21 +177,21 @@
                 и (или) результате которых уничтожаются материальные носители
                 персональных данных.
               </p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </li>
 
         <li class="policy-page__chapter">
           3. Сбор персональных данных
 
-          <div class="policy-page__chapter-content">
-            <div class="policy-page__chapter-list">
+          <ol class="policy-page__chapter-content">
+            <li class="policy-page__chapter-list">
               <p>3.1</p>
               <p>
                 Оператор может обрабатывать следующие персональные данные
                 Пользователя:
               </p>
-            </div>
+            </li>
             <div class="icon-marker">
               <p>Фамилия, имя, отчество;</p>
             </div>
@@ -202,7 +202,7 @@
               <p>Телефонные номера;</p>
             </div>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>3.2</p>
               <p>
                 Также на сайте происходит сбор и обработка обезличенных данных о
@@ -221,23 +221,23 @@
                 Отказ, Время на сайте, Глубина просмотра. Указанные в настоящем
                 пункте сведения не являются персональными данными.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>3.3</p>
               <p>
                 Вышеперечисленные данные далее по тексту Политики объединены
                 общим понятием Персональные данные.
               </p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </li>
 
         <li class="policy-page__chapter">
           4. Цели обработки персональных данных
 
-          <div class="policy-page__chapter-content">
-            <div class="policy-page__chapter-list">
+          <ol class="policy-page__chapter-content">
+            <li class="policy-page__chapter-list">
               <p>4.1</p>
               <p>
                 Цели обработки персональных данных Пользователя: продвижение
@@ -248,9 +248,9 @@
                 https://webest.ru , оказания услуг, а также обработка запросов и
                 заявок Пользователя.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>4.2</p>
               <p>
                 Также Оператор имеет право направлять Пользователю уведомления о
@@ -261,18 +261,18 @@
                 уведомлениях о новых продуктах и услугах и специальных
                 предложениях».
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>4.3</p>
               <p>
                 Обезличенные данные о действиях Пользователей на сайте,
                 собираемые с помощью сервисов интернет-статистики, служат для
                 улучшения качества сайта и его содержания.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>4.4</p>
               <p>
                 Для всех, указанных в настоящем пункте целей обработки
@@ -282,15 +282,15 @@
                 использованием средств автоматизации путем выполнения действий,
                 предусмотренных п. 2.6. Политики.
               </p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </li>
 
         <li class="policy-page__chapter">
           5. Правовые основания обработки персональных данных.
 
-          <div class="policy-page__chapter-content">
-            <div class="policy-page__chapter-list">
+          <ol class="policy-page__chapter-content">
+            <li class="policy-page__chapter-list">
               <p>5.1</p>
               <p>
                 Оператор обрабатывает персональные данные Пользователя только в
@@ -302,9 +302,9 @@
                 обработку персональных данных, расположенных по адресу,
                 указанному в п. 8.4. настоящей Политики.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>5.2</p>
               <p>
                 Оператор обрабатывает обезличенные данные о Пользователе в
@@ -312,24 +312,24 @@
                 (включено сохранение файлов «cookie» и использование технологии
                 JavaScript).
               </p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </li>
 
         <li class="policy-page__chapter">
           6. Порядок сбора, хранения, передачи и других видов обработки
           персональных данных.
 
-          <div class="policy-page__chapter-content">
-            <div class="policy-page__chapter-list">
+          <ol class="policy-page__chapter-content">
+            <li class="policy-page__chapter-list">
               <p>6.1</p>
               <p>
                 Оператор обрабатывает данные с использованием средств
                 автоматизации.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>6.2</p>
               <p>
                 Безопасность персональных данных, которые обрабатываются
@@ -338,27 +338,27 @@
                 полном объеме требований действующего законодательства в области
                 защиты персональных данных.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>6.3</p>
               <p>
                 Оператор обеспечивает сохранность персональных данных и
                 принимает все возможные меры, исключающие доступ к персональным
                 данным неуполномоченных лиц.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>6.4</p>
               <p>
                 Персональные данные Пользователя никогда, ни при каких условиях
                 не будут переданы третьим лицам, за исключением случаев,
                 связанных с исполнением действующего законодательства.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>6.5</p>
               <p>
                 В случае выявления неточностей в персональных данных,
@@ -367,9 +367,9 @@
                 Оператора dir@webest.ru с пометкой «Актуализация персональных
                 данных».
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>6.6</p>
               <p>
                 Срок обработки персональных данных составляет 15 (пятнадцать)
@@ -381,15 +381,15 @@
                 вправе уничтожить персональные данные до истечения срока,
                 указанного в настоящем пункте.
               </p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </li>
 
         <li class="policy-page__chapter">
           7. Трансграничная передача персональных данных
 
-          <div class="policy-page__chapter-content">
-            <div class="policy-page__chapter-list">
+          <ol class="policy-page__chapter-content">
+            <li class="policy-page__chapter-list">
               <p>7.1</p>
               <p>
                 Оператор до начала осуществления трансграничной передачи
@@ -398,9 +398,9 @@
                 передачу персональных данных, обеспечивается надежная защита
                 прав субъектов персональных данных.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>7.2</p>
               <p>
                 Трансграничная передача персональных данных на территории
@@ -410,15 +410,15 @@
                 передачу его персональных данных и/или исполнения договора,
                 стороной которого является субъект персональных данных.
               </p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </li>
 
         <li class="policy-page__chapter">
           8. Заключительные положения
 
-          <div class="policy-page__chapter-content">
-            <div class="policy-page__chapter-list">
+          <ol class="policy-page__chapter-content">
+            <li class="policy-page__chapter-list">
               <p>8.1</p>
               <p>
                 Пользователь может получить любые разъяснения по интересующим
@@ -426,35 +426,35 @@
                 обратившись к Оператору с помощью электронной
                 почты dir@webest.ru.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>8.2</p>
               <p>
                 В данном документе будут отражены любые изменения политики
                 обработки персональных данных Оператором. Политика действует
                 бессрочно до замены ее новой версией.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>8.3</p>
               <p>
                 В данном документе будут отражены любые изменения политики
                 обработки персональных данных Оператором. Политика действует
                 бессрочно до замены ее новой версией.
               </p>
-            </div>
+            </li>
 
-            <div class="policy-page__chapter-list">
+            <li class="policy-page__chapter-list">
               <p>8.4</p>
               <p>
                 В данном документе будут отражены любые изменения политики
                 обработки персональных данных Оператором. Политика действует
                 бессрочно до замены ее новой версией.
               </p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </li>
       </ol>
     </div>

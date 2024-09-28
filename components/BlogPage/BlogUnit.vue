@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from "vue";
-import TitleButton from "../UI-kit/TitleButton.vue";
-import Button from "primevue/button";
-import BlogUnitCard from "./BlogUnitCard.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper-bundle.css";
 import { Navigation } from "swiper/modules";
+
+import "swiper/swiper-bundle.css";
+import Button from "primevue/button";
+import TitleButton from "../UI-kit/TitleButton.vue";
+import BlogUnitCard from "./BlogUnitCard.vue";
 import CaseUnitCard from "../CasePage/CaseUnitCard.vue";
 
 const { data: items } = await useAsyncData("blog", () => {

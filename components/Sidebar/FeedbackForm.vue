@@ -1,11 +1,12 @@
 <script setup>
-import SideStepFirst from "./SideStepFirst.vue";
-import SideStepFirstStaff from "./SideStepFirstStaff.vue";
-import SideStepSecond from "./SideStepSecond.vue";
-import SideStepThird from "./SideStepThird.vue";
 import { useFeedbackFormModel } from "../models/feedback";
 import { useFeedbackFormModelStaff } from "../models/feedbackStaff";
 import { useSidebarModel } from "../models/sidebar";
+
+import SideStepFirst from "./SideStepFirst.vue";
+import SideStepThird from "./SideStepThird.vue";
+import SideStepSecond from "./SideStepSecond.vue";
+import SideStepFirstStaff from "./SideStepFirstStaff.vue";
 
 const { isActiveStaff, isActive } = useSidebarModel();
 const { activeFormStepStaff } = useFeedbackFormModelStaff();

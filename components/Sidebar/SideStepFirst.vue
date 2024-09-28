@@ -1,10 +1,11 @@
 <script setup>
+import { useFeedbackFormModel } from "../models/feedback";
+
+import Textarea from "primevue/textarea";
+import InputText from "primevue/inputtext";
 import GradientButton from "../UI-kit/GradientButton.vue";
 import FileUploadCustom from "../UI-kit/FileUploadCustom.vue";
-import InputText from "primevue/inputtext";
-import Textarea from "primevue/textarea";
 
-import { useFeedbackFormModel } from "../models/feedback";
 const { fields, errors, submit } = useFeedbackFormModel();
 const uploadError = ref(null);
 </script>

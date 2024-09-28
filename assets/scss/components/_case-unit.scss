@@ -30,7 +30,7 @@
     }
 
     &__table-item {
-      width: 834px;
+      width: 836px;
     }
 
     .wide {
@@ -49,10 +49,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
   overflow: hidden;
   background: var(--color-grey-light);
   border-radius: var(--border-radius-case);
+  cursor: pointer;
 
   &__inner {
     position: relative;
