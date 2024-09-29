@@ -62,6 +62,10 @@
     justify-content: center;
     overflow: hidden;
     border-radius: var(--border-radius-case);
+
+    a {
+      display: flex;
+    }
   }
 
   .right {
