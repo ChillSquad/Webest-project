@@ -1,8 +1,12 @@
 <script setup>
-import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
-import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
-import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
+import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
+import Breadcrumbs from "~/components/UI-kit/Breadcrumbs.vue";
+import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
+import GradientButton from "~/components/UI-kit/GradientButton.vue";
+import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
+
+const breadcrumbItems = [{ label: "Назад ко всем кейсам", route: "/case" }];
 
 const images = [
   { src: "/images/imageCaseArticle6.png" },
@@ -11,6 +15,22 @@ const images = [
   { src: "/images/imageCaseArticle6.png" },
   { src: "/images/imageCaseArticle6.png" },
 ];
+
+const { data: items } = await useAsyncData("article", () => {
+  return $fetch("/api/plate/", { method: "GET" });
+});
+
+import { useSidebarModel } from "~/components/models/sidebar";
+import { useCustomCursor } from "~/components/models/useCustomCursor";
+
+const { toggleSidebarForm, isActive } = useSidebarModel();
+const {
+  isCursorVisible,
+  circleStyle,
+  textStyle,
+  handleMouseEnter,
+  handleMouseLeave,
+} = useCustomCursor(isActive);
 </script>
 
 <template>
@@ -18,9 +38,10 @@ const images = [
     <div class="container">
       <div class="case-article__heading">
         <div class="article-container">
+          <Breadcrumbs :items="breadcrumbItems" />
+
           <div class="case-article__title">
-            Редизайн <br />
-            интернет-магазина Kamatyres
+            Редизайн интернет-магазина Kamatyres
           </div>
 
           <div class="case-article__subtitle">
@@ -28,14 +49,56 @@ const images = [
             Kamatyres
           </div>
         </div>
+        <GradientButton title="Заказать разработку сайта" />
+      </div>
+    </div>
 
+    <div class="case-article__heading-review">
+      <div
+        class="custom-component"
+        @mouseenter="handleMouseEnter"
+        @mouseleave="handleMouseLeave"
+      >
         <img
-          class="case-article__heading-image margin-bottom-120"
+          @click="toggleSidebarForm"
+          class="case-article__heading-image-review"
           src="public/images/imageCaseArticle1.png"
           alt="Заголовок статьи"
         />
+        <div
+          class="custom-cursor"
+          :class="{ visible: isCursorVisible && !isActive }"
+        >
+          <div class="custom-cursor__circle" :style="circleStyle">
+            <span class="custom-cursor__circle-span" :style="textStyle"
+              >Оставить <span>заявку</span></span
+            >
+          </div>
+        </div>
       </div>
 
+      <div class="case-article-plate">
+        <div class="case-article-plate__inner">
+          <div
+            v-for="(item, index) in items"
+            :key="item.id"
+            class="case-article-plate__box"
+          >
+            <span class="case-article-plate__percent"
+              >{{ item.sign }}{{ item.percent }}%</span
+            >
+            <span class="case-article-plate__text">{{ item.text }}</span>
+
+            <hr
+              class="case-article-plate__line"
+              v-if="index === 0 || index === 1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
       <ol class="case-article__content">
         <li class="case-article__chapter">
           <div class="article-container">
@@ -161,6 +224,7 @@ const images = [
             </div>
           </div>
           <img
+            id="large-image"
             class="case-article__heading-image margin-bottom-40"
             src="public/images/imageCaseArticle5.png"
             alt="Заголовок статьи"
@@ -306,7 +370,7 @@ const images = [
             </div>
           </div>
           <img
-            class="case-article__chapter-image"
+            class="case-article__heading-image"
             src="public/images/imageCaseArticle10.png"
             alt="Изображение раздела"
           />
@@ -328,7 +392,7 @@ const images = [
             </div>
           </div>
           <img
-            class="case-article__chapter-image"
+            class="case-article__chapter-image margin-top"
             src="public/images/imageCaseArticle11.png"
             alt="Изображение раздела"
           />
@@ -435,6 +499,7 @@ const images = [
                   />
                   <div>Tagline Awards <span>Золото</span></div>
                   <img
+                    id="right"
                     class="wreath-right"
                     src="public/images/wreath-right.png"
                     alt="Изображение раздела"
@@ -449,6 +514,7 @@ const images = [
                   />
                   <div>Tagline Awards <span>Бронза</span></div>
                   <img
+                    id="right"
                     class="wreath-right"
                     src="public/images/wreath-right.png"
                     alt="Изображение раздела"
@@ -488,6 +554,6 @@ const images = [
       titleRight="Хочу к вам в команду делать классные решения"
     />
 
-    <BlogUnit :article="true" title="еще кейсы" route="/case" />
+    <BlogUnit article="case" title="еще кейсы" route="/case" />
   </div>
 </template>

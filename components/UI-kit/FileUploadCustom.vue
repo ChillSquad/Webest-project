@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+
 import FileUpload from "primevue/fileupload";
 
 defineProps({
@@ -89,7 +90,7 @@ const handleFileSelect = (event) => {
 </template>
 
 <style lang="scss">
-@import "../../assets/scss/helpers/fonts-mixin";
+@import "~/assets/scss/helpers/fonts-mixin";
 
 .file-size {
   @include font-link-1;

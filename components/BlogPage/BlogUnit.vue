@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from "vue";
-import TitleButton from "../UI-kit/TitleButton.vue";
-import Button from "primevue/button";
-import BlogUnitCard from "./BlogUnitCard.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper-bundle.css";
 import { Navigation } from "swiper/modules";
+
+import "swiper/swiper-bundle.css";
+import Button from "primevue/button";
+import TitleButton from "../UI-kit/TitleButton.vue";
+import BlogUnitCard from "./BlogUnitCard.vue";
 import CaseUnitCard from "../CasePage/CaseUnitCard.vue";
 
 const { data: items } = await useAsyncData("blog", () => {
@@ -54,8 +55,8 @@ defineProps({
     default: "/blog",
   },
   article: {
-    type: Boolean,
-    default: false,
+    type: String,
+    default: "blog",
   },
 });
 </script>
@@ -96,7 +97,7 @@ defineProps({
         }"
       >
         <swiper-slide
-          v-if="!article"
+          v-if="article === 'blog'"
           v-for="(item, index) in items"
           :key="index"
         >
@@ -109,7 +110,7 @@ defineProps({
         </swiper-slide>
 
         <swiper-slide
-          v-if="article"
+          v-if="article === 'case'"
           v-for="(caseItem, index) in casesData"
           :key="index"
         >
@@ -124,6 +125,23 @@ defineProps({
           />
         </swiper-slide>
       </swiper>
+
+      <!-- <swiper
+        @swiper="onSwiperInit"
+        :loop="false"
+        direction="horizontal"
+        :modules="[Navigation]"
+        :breakpoints="{
+          400: { slidesPerView: 5.2, spaceBetween: 8 },
+          0: { slidesPerView: 1.1, spaceBetween: 8 },
+        }"
+      >
+        <swiper-slide v-for="(image, index) in images" :key="index">
+          <div class="award-slid">
+            <img class="award-slid__image" :src="image" :alt="image" />
+          </div>
+        </swiper-slide>
+      </swiper> -->
     </div>
   </div>
 </template>

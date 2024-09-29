@@ -12,7 +12,7 @@ const { data: items } = await useAsyncData("expertise", async () => {
     <div class="container">
       <div class="expertise-unit__inner">
         <div class="expertise-unit__heading">
-          <TitleButton title="экспертиза" />
+          <TitleButton title="экспертиза" route="/expertise" />
           <div class="expertise-unit__heading-subtitle">
             Топ-10 России по eCommerce по версии рейтинга рунета 2022 года.
             <span class="custom-standing-pink">Помогаем</span> клиентам
@@ -24,14 +24,14 @@ const { data: items } = await useAsyncData("expertise", async () => {
         <div class="expertise-unit__table">
           <ul class="expertise-unit__table-list">
             <li
-              v-for="(item, index) in items"
+              v-for="(item, index) in items.slice(0, 6)"
               :key="index"
               :class="['expertise-unit__table-item', { tall: item.tall }]"
             >
               <ExpertiseUnitCard
                 :title="item.title"
                 :subtitle="item.subtitle"
-                :link="item.link"
+                :route="item.route"
                 :icon="item.icon"
               />
             </li>

@@ -26,6 +26,10 @@ const {
             E-commerce проекты, B2B- и B2C-сервисы, мобильные приложения,
             корпоративные сайты для компаний в сфере услуг и производства
           </p>
+          <button class="first-page__mobile-button">
+            Оставить <br />
+            заявку
+          </button>
         </div>
       </div>
     </div>

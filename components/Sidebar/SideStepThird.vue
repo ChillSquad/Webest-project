@@ -1,6 +1,6 @@
 <script setup>
-import GradientButton from "../UI-kit/GradientButton.vue";
 import { useSidebarModel } from "../models/sidebar";
+import GradientButton from "../UI-kit/GradientButton.vue";
 
 const { isActive, isActiveStaff } = useSidebarModel();
 

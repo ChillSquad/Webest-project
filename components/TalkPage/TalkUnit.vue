@@ -1,7 +1,8 @@
 <script setup>
+import { useSidebarModel } from "../models/sidebar";
+
 import TalkUnitCard from "./TalkUnitCard.vue";
 
-import { useSidebarModel } from "../models/sidebar";
 const { toggleSidebarForm, toggleSidebarFormStaff } = useSidebarModel();
 
 defineProps({

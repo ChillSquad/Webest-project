@@ -1,10 +1,11 @@
 <script setup>
-import { defineProps, ref, computed } from "vue";
+import { ref, computed } from "vue";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation } from "swiper/modules";
 
 const props = defineProps({
   images: {

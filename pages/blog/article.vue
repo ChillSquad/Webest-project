@@ -1,7 +1,11 @@
 <script setup>
-import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
-import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
+import Breadcrumbs from "~/components/UI-kit/Breadcrumbs.vue";
+import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
+import GradientButton from "~/components/UI-kit/GradientButton.vue";
+import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
+
+const breadcrumbItems = [{ label: "Назад ко всем статьям", route: "/blog" }];
 
 const images = [
   { src: "/images/imageBlogArticle5.png" },
@@ -14,8 +18,10 @@ const images = [
 
 <template>
   <div class="blog-article">
-    <div class="article-container">
-      <div class="blog-article__heading">
+    <div class="blog-article__heading">
+      <div class="article-container">
+        <Breadcrumbs :items="breadcrumbItems" />
+
         <div class="blog-article__title">
           Когда компании нужен оптовый портал для поставщиков: 6 причин создания
           торговой площадки
@@ -26,14 +32,19 @@ const images = [
           поставщиками и покупателями будут происходить в цифровом формате. Как
           определить, что торговой компании нужен B2B-портал?
         </div>
+      </div>
 
+      <GradientButton title="Заказать разработку сайта" />
+      <div class="blog-article__image-review-container">
         <img
-          class="blog-article__heading-image"
+          class="blog-article__heading-image-review"
           src="public/images/imageBlog1.png"
           alt="Заголовок статьи"
         />
       </div>
+    </div>
 
+    <div class="article-container">
       <div class="blog-article__intro">
         <p class="blog-article__intro-heading">
           Основные инструменты для анализа позиций сайта
@@ -135,9 +146,9 @@ const images = [
         <li class="blog-article__chapter">
           SEOlib
 
-          <ArticleSliderMobile :images="images" />
-
           <ArticleSlider :images="images" />
+
+          <ArticleSliderMobile :images="images" />
 
           <div class="blog-article__chapter-content margin-bottom">
             <p>

@@ -1,7 +1,7 @@
 <script setup>
 import SortingBar from "~/components/UI-kit/SortingBar.vue";
-import BlogUnitCard from "~/components/BlogPage/BlogUnitCard.vue";
 import Pagination from "~/components/UI-kit/Pagination.vue";
+import BlogUnitCard from "~/components/BlogPage/BlogUnitCard.vue";
 
 const { data: items } = await useAsyncData("blog", () => {
   return $fetch("/api/blog/", { method: "GET" });
@@ -39,8 +39,10 @@ const sortingBarItems = [
           <span class="custom-standing-purple">Полезный контент</span> для наших
           клиентов, партнёров и коллег
         </div>
+
         <SortingBar :items="sortingBarItems" />
       </div>
+
       <ul class="blog-page__table-list">
         <li v-for="(item, index) in items" :key="index">
           <BlogUnitCard
@@ -51,6 +53,7 @@ const sortingBarItems = [
           />
         </li>
       </ul>
+
       <Pagination />
     </div>
   </div>

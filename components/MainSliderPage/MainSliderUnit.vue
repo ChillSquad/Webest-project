@@ -1,8 +1,8 @@
 <script setup>
-import MainSliderUnitCard from "./MainSliderUnitCard";
-import { Swiper, SwiperSlide } from "swiper/vue";
 import { ref } from "vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
 import { useSliderCursor } from "../models/useSliderCursor";
+
 import "swiper/swiper-bundle.css";
 
 const isActive = ref(false);
@@ -32,7 +32,17 @@ const { data: items } = await useAsyncData("slider", () => {
           }"
         >
           <swiper-slide v-for="(item, index) in items" :key="index">
-            <MainSliderUnitCard :title="item.title" :urlImage="item.urlImage" />
+            <div class="main-slider-card">
+              <img
+                class="main-slider-card__story-image"
+                :src="item.urlImage"
+                alt="story image"
+              />
+
+              <p class="main-slider-card__story-heading">
+                {{ item.title }}
+              </p>
+            </div>
           </swiper-slide>
         </swiper>
       </div>

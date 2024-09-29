@@ -1,9 +1,10 @@
 <script setup>
-import Sidebar from "primevue/sidebar";
+import { useSidebarModel } from "../models/sidebar";
 import { ref, watch, onMounted, onUnmounted } from "vue";
 import { useFeedbackFormModel } from "../models/feedback";
 import { useFeedbackFormModelStaff } from "../models/feedbackStaff";
-import { useSidebarModel } from "../models/sidebar";
+
+import Sidebar from "primevue/sidebar";
 import FeedbackForm from "./FeedbackForm.vue";
 
 const { isActiveStaff, isActive } = useSidebarModel();

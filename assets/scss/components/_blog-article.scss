@@ -1,10 +1,45 @@
 .blog-article {
   padding-top: var(--page-padding);
 
-  &__heading {
+  &__heading,
+  &__intro,
+  &__intro-content,
+  &__content,
+  &__chapter-content,
+  &__plate,
+  &__footer {
     display: flex;
     flex-direction: column;
+  }
+
+  &__heading,
+  &__footer,
+  &__tag,
+  &__date {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__heading-image,
+  &__heading-image-review,
+  &__chapter-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-blog);
+  }
+
+  &__subtitle,
+  &__intro-heading,
+  &__chapter {
+    @include font-h5;
+  }
+
+  &__heading {
     text-align: center;
+  }
+
+  button.gradient-button {
+    display: none;
   }
 
   &__title {
@@ -12,48 +47,38 @@
   }
 
   &__subtitle {
-    @include font-h5;
-
     margin: 24px 0 40px 0;
   }
 
-  &__heading-image {
+  &__image-review-container {
+    max-width: 1150px;
+    margin: 0 auto;
     width: 100%;
-    border-radius: var(--border-radius-blog);
   }
 
   &__intro {
-    display: flex;
-    flex-direction: column;
     margin: 120px 0;
     gap: 40px;
   }
 
   &__intro-heading {
-    @include font-h5;
-
     text-transform: uppercase;
     font-family: var(--ff-montserrat-bold);
   }
 
-  &__intro-content {
+  &__intro-content,
+  &__chapter-content {
     @include font-text-1;
 
-    display: flex;
-    flex-direction: column;
     gap: 20px;
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
     gap: 120px;
     list-style-position: inside;
   }
 
   &__chapter {
-    @include font-h5;
-
     text-transform: uppercase;
     font-family: var(--ff-montserrat-bold);
 
@@ -64,11 +89,6 @@
   }
 
   &__chapter-content {
-    @include font-text-1;
-
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
     text-transform: initial;
     margin: 40px 0;
 
@@ -83,11 +103,6 @@
         transform: translateY(7px);
       }
     }
-  }
-
-  &__chapter-image {
-    width: 100%;
-    height: auto;
   }
 
   &__split {
@@ -110,8 +125,6 @@
   }
 
   &__plate {
-    display: flex;
-    flex-direction: column;
     gap: 16px;
     padding: 20px;
     border-radius: 20px;
@@ -119,10 +132,6 @@
   }
 
   &__footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 40px;
     margin-bottom: var(--unit-margin-y);
   }
@@ -149,8 +158,7 @@
 
   &__tag {
     display: flex;
-    justify-content: center;
-    align-items: center;
+
     border-radius: 16px;
     border: 1px solid var(--color-black);
     color: var(--color-black);
@@ -161,8 +169,6 @@
   &__date {
     height: 40px;
     display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   &__social {
@@ -177,50 +183,45 @@
       align-items: center;
       border-radius: 16px;
       background-color: var(--color-blue);
-      transition: background-color 0.3s ease-in-out;
 
       &:hover {
-        background-color: var(--color-white);
+        background: var(--color-button-gradient-hover);
 
         &:hover:after {
-          color: var(--color-blue);
+          color: var(--color-white);
         }
       }
     }
 
     .icon-link {
       &:after {
+        @include article-icon;
+
         content: "\0047";
-        font-size: 20px;
-        color: var(--color-white);
-        transition: color 0.2s ease-in-out;
       }
     }
 
     .icon-vkontakte {
       &:after {
+        @include article-icon;
+
         content: "\004F";
-        font-size: 20px;
-        color: var(--color-white);
-        transition: color 0.2s ease-in-out;
       }
     }
 
     .icon-telegram {
       &:after {
+        @include article-icon;
+
         content: "\0050";
-        font-size: 20px;
-        color: var(--color-white);
-        transition: color 0.2s ease-in-out;
       }
     }
 
     .icon-whatsapp {
       &:after {
+        @include article-icon;
+
         content: "\0054";
-        font-size: 20px;
-        color: var(--color-white);
-        transition: color 0.2s ease-in-out;
       }
     }
   }
@@ -247,8 +248,21 @@
   @media (max-width: 360px) {
     overflow-x: hidden;
 
+    button.gradient-button {
+      display: block;
+
+      margin-bottom: 40px;
+    }
+
     &__title {
       @include font-h3-menu;
+    }
+
+    &__heading-image-review {
+      object-fit: cover;
+      width: 100dvw;
+      height: 264px;
+      border-radius: 0px;
     }
 
     &__subtitle {

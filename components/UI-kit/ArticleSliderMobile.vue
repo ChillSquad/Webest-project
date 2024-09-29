@@ -1,6 +1,7 @@
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
 import { ref, computed } from "vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+
 import "swiper/swiper-bundle.css";
 
 const props = defineProps({
@@ -31,21 +32,21 @@ const updateCurrentIndex = (swiper) => {
       >
         <swiper-slide v-for="(image, index) in images" :key="index">
           <img
-            class="main-slider-card__story-image"
+            class="article-slider-mobile__image"
             :src="image.src"
             alt="story image"
           />
         </swiper-slide>
       </swiper>
 
-      <div class="article-slider-mobile-bar">
+      <div class="article-slider-mobile__bar">
         <div
-          class="article-slider-mobile-progress"
+          class="article-slider-mobile__progress"
           :style="{ width: ((currentIndex + 1) / count) * 100 + '%' }"
         ></div>
       </div>
 
-      <div class="article-slider-pagination">
+      <div class="article-slider-mobile__pagination">
         0{{ currentIndex + 1 }}-0{{ count }}
       </div>
     </div>
@@ -55,27 +56,34 @@ const updateCurrentIndex = (swiper) => {
 <style lang="scss" scoped>
 .article-slider-mobile {
   margin-top: 40px;
-}
 
-.article-slider-mobile-bar {
-  width: 100%;
-  height: 2px;
-  background-color: #e0e0e0;
-}
+  &__bar {
+    width: 100%;
+    height: 2px;
+    background-color: #e0e0e0;
+  }
 
-.article-slider-mobile-progress {
-  height: 100%;
-  background-color: var(--color-blue);
-  transition: width 0.3s ease;
-}
+  &__progress {
+    height: 100%;
+    background-color: var(--color-blue);
+    transition: width 0.3s ease;
+  }
 
-.article-slider-pagination {
-  margin-top: 8px;
-  font-size: 14px;
-}
+  &__pagination {
+    margin-top: 8px;
+    font-size: 14px;
+  }
 
-@media (min-width: 361px) {
-  .article-slider-mobile {
+  @media (max-width: 360px) {
+    &__image {
+      width: 272px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--border-radius-blog);
+    }
+  }
+
+  @media (min-width: 361px) {
     display: none;
   }
 }

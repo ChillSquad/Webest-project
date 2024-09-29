@@ -1,8 +1,9 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useRouter } from "vue-router";
-import ButtonMenu from "./ButtonMenu.vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+
 import Contacts from "./Contacts.vue";
+import ButtonMenu from "./ButtonMenu.vue";
 import Navigation from "./Navigation.vue";
 
 const isAdaptiveActive = ref(false);

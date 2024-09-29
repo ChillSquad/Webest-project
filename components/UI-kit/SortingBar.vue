@@ -27,7 +27,7 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-@import "../../assets/scss/helpers/fonts-mixin";
+@import "~/assets/scss/helpers/fonts-mixin";
 
 .sort-radio {
   display: flex;

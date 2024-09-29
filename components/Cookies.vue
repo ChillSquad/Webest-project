@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+
 import GradientButton from "./UI-kit/GradientButton.vue";
 
 const isVisible = ref(false);
