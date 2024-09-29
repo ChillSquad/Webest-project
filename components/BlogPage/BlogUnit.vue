@@ -55,8 +55,8 @@ defineProps({
     default: "/blog",
   },
   article: {
-    type: Boolean,
-    default: false,
+    type: String,
+    default: "blog",
   },
 });
 </script>
@@ -97,7 +97,7 @@ defineProps({
         }"
       >
         <swiper-slide
-          v-if="!article"
+          v-if="article === 'blog'"
           v-for="(item, index) in items"
           :key="index"
         >
@@ -110,7 +110,7 @@ defineProps({
         </swiper-slide>
 
         <swiper-slide
-          v-if="article"
+          v-if="article === 'case'"
           v-for="(caseItem, index) in casesData"
           :key="index"
         >
@@ -125,6 +125,23 @@ defineProps({
           />
         </swiper-slide>
       </swiper>
+
+      <!-- <swiper
+        @swiper="onSwiperInit"
+        :loop="false"
+        direction="horizontal"
+        :modules="[Navigation]"
+        :breakpoints="{
+          400: { slidesPerView: 5.2, spaceBetween: 8 },
+          0: { slidesPerView: 1.1, spaceBetween: 8 },
+        }"
+      >
+        <swiper-slide v-for="(image, index) in images" :key="index">
+          <div class="award-slid">
+            <img class="award-slid__image" :src="image" :alt="image" />
+          </div>
+        </swiper-slide>
+      </swiper> -->
     </div>
   </div>
 </template>

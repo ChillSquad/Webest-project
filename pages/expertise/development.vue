@@ -3,6 +3,9 @@ import DevelopmentSlider from "~/components/ExpertisePage/DevelopmentSlider.vue"
 import Technologies from "~/components/ExpertisePage/Technologies.vue";
 import ExpertiseHeading from "~/components/ExpertisePage/ExpertiseHeading.vue";
 import Priority from "~/components/ExpertisePage/Priority.vue";
+import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
+import CustomersUnit from "~/components/CustomersPage/CustomersUnit.vue";
+import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
@@ -69,7 +72,13 @@ const imageCaption =
 
     <Priority :subtitle="true" title="Почему мы" :prioritys="priorityItems" />
 
-    Далее
+    <BlogUnit title="Награды и сертификаты" />
+
+    <BlogUnit title="Наши кейсы" article="case" />
+
+    <CustomersUnit />
+
+    <TalkUnit />
   </div>
 </template>
 

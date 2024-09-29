@@ -554,6 +554,6 @@ const {
       titleRight="Хочу к вам в команду делать классные решения"
     />
 
-    <BlogUnit :article="true" title="еще кейсы" route="/case" />
+    <BlogUnit article="case" title="еще кейсы" route="/case" />
   </div>
 </template>
