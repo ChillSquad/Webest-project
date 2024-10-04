@@ -55,6 +55,8 @@ const images = [
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .development-technologies {
+  margin-bottom: var(--unit-margin-y);
+
   &__heading {
     @include font-h2;
 
@@ -78,7 +80,6 @@ const images = [
     background-color: var(--color-grey-light);
     border-radius: 20px;
     gap: 22px;
-    user-select: none;
     transition: align-self 0.3s ease;
 
     &:nth-child(even) {

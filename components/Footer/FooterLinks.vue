@@ -8,9 +8,9 @@ const links = defineProps({
 
 <template>
   <section class="footer__services">
-    <h4 class="footer__services-caption">
+    <p class="footer__services-caption">
       <NuxtLink :to="route">{{ title }}</NuxtLink>
-    </h4>
+    </p>
     <ul class="footer__services-list">
       <li v-for="(item, index) in items" :key="index">
         <NuxtLink

@@ -16,7 +16,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="expertise-priority">
+  <section class="expertise-priority">
     <div class="container">
       <div class="expertise-priority__heading">
         <div class="expertise-priority__title">{{ title }}</div>
@@ -48,7 +48,7 @@ const props = defineProps({
         </li>
       </div>
     </ol>
-  </div>
+  </section>
 </template>
 
 <style lang="scss">
@@ -62,6 +62,7 @@ const props = defineProps({
   color: var(--color-white);
   gap: 100px;
   overflow-x: hidden;
+  margin-bottom: var(--unit-margin-y);
 
   &__heading {
     display: flex;

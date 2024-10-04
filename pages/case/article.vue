@@ -8,7 +8,7 @@ import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 
 const breadcrumbItems = [{ label: "Назад ко всем кейсам", route: "/case" }];
 
-const images = [
+const slides = [
   { src: "/images/imageCaseArticle6.png" },
   { src: "/images/imageCaseArticle6.png" },
   { src: "/images/imageCaseArticle6.png" },
@@ -275,9 +275,9 @@ const {
             </div>
           </div>
 
-          <ArticleSliderMobile :images="images" />
+          <ArticleSliderMobile :slides="slides" />
 
-          <ArticleSlider :images="images" />
+          <ArticleSlider :slides="slides" />
         </li>
 
         <li class="case-article__chapter">
@@ -554,6 +554,6 @@ const {
       titleRight="Хочу к вам в команду делать классные решения"
     />
 
-    <BlogUnit article="case" title="еще кейсы" route="/case" />
+    <BlogUnit article="case" title="еще кейсы" route="/case" :slider="true" />
   </div>
 </template>

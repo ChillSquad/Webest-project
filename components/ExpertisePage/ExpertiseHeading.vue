@@ -15,7 +15,7 @@ const props = defineProps({
 
 <template>
   <div class="container">
-    <div class="expertise-heading">
+    <section class="expertise-heading">
       <Breadcrumbs :items="breadcrumbItems" />
 
       <div class="expertise-heading__title">{{ title }}</div>
@@ -33,7 +33,7 @@ const props = defineProps({
           {{ imageCaption }}
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -46,6 +46,7 @@ const props = defineProps({
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-bottom: var(--unit-margin-y);
 
   &__title {
     @include font-h2-inner;
@@ -96,6 +97,7 @@ const props = defineProps({
     }
 
     &__subtitle {
+      width: 328px;
       font-size: 17px;
       line-height: 23.8px;
       margin: 16px 0 40px 0;

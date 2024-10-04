@@ -32,7 +32,7 @@ const customerChunks = [
           :autoFill="true"
         >
           <ul class="customers-unit__table-list">
-            <li v-for="(customer, idx) in customersChunk" :key="idx">
+            <li v-for="(customer, index) in customersChunk" :key="index">
               <div class="customers-unit-slide">
                 <img
                   class="customers-unit-slide__customer-logo"

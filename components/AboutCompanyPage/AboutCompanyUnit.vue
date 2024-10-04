@@ -25,12 +25,12 @@ const images = Array.from({ length: 9 }, (_, i) => ({
                 id="title-button-class-management"
                 class="title-button"
               >
-                <h2 class="title-button__heading icon-arrow-right">
+                <p class="title-button__heading icon-arrow-right">
                   <span class="title-button__span">
                     кратко <br />
                     о webest
                   </span>
-                </h2>
+                </p>
               </a>
 
               <div class="about-company-content__subtitle">

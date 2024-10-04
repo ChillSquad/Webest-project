@@ -19,7 +19,7 @@ const slideNext = () => {
 </script>
 
 <template>
-  <div class="pagination">
+  <section class="pagination">
     <div class="pages-wrapper">
       <InputNumber
         v-model="value1"
@@ -48,7 +48,7 @@ const slideNext = () => {
         :disabled="value1 >= value2"
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss">

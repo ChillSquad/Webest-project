@@ -7,7 +7,7 @@ import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 
 const breadcrumbItems = [{ label: "Назад ко всем статьям", route: "/blog" }];
 
-const images = [
+const slides = [
   { src: "/images/imageBlogArticle5.png" },
   { src: "/images/imageBlogArticle1.png" },
   { src: "/images/imageBlogArticle2.png" },
@@ -146,9 +146,9 @@ const images = [
         <li class="blog-article__chapter">
           SEOlib
 
-          <ArticleSlider :images="images" />
+          <ArticleSlider :slides="slides" />
 
-          <ArticleSliderMobile :images="images" />
+          <ArticleSliderMobile :slides="slides" />
 
           <div class="blog-article__chapter-content margin-bottom">
             <p>

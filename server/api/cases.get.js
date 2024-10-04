@@ -8,6 +8,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: false,
       category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 1,
@@ -62,6 +77,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: false,
       category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 4,
@@ -71,6 +101,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: false,
       category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 5,
@@ -79,6 +124,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: true,
       category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 6,
@@ -88,6 +148,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: false,
       category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 7,
@@ -119,6 +194,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: true,
       category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 9,
@@ -128,6 +218,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: false,
       category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 10,
@@ -183,6 +288,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: false,
       category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 13,
@@ -191,6 +311,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: false,
       category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 14,
@@ -200,6 +335,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: true,
       category: "CRM",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 15,
@@ -208,6 +358,21 @@ export default defineEventHandler((event) => {
       plate: false,
       wide: false,
       category: "Веб-разработка",
+      moreData: [
+        {
+          id: 0,
+          sign: "",
+          percent: 53,
+          text: "сокращено время оформления заказа",
+        },
+        {
+          id: 1,
+          sign: "+",
+          percent: 21,
+          text: "рост конверсии мобильной версии сайта",
+        },
+        { id: 2, sign: "+", percent: 42, text: "рост конверсии в покупку" },
+      ],
     },
     {
       id: 16,

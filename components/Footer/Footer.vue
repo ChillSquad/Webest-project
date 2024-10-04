@@ -51,9 +51,9 @@ const companyLinks = [
           <FooterLinks title="Компания" :items="companyLinks" />
 
           <address class="footer__contact">
-            <h4 class="footer__services-caption">
+            <p class="footer__services-caption">
               <NuxtLink to="/contacts">Контакты</NuxtLink>
-            </h4>
+            </p>
             <ul class="footer__services-list">
               <li>
                 <a

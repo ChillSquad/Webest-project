@@ -1,6 +1,9 @@
 <script setup>
 defineProps({
-  items: Array,
+  items: {
+    type: Array,
+    required: true,
+  },
   platePosition: {
     type: Boolean,
     default: false,
