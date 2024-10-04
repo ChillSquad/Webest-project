@@ -11,9 +11,8 @@
   &__heading-subtitle {
     @include font-h5;
 
-    margin-left: auto;
     width: 569px;
-    user-select: none;
+    margin-left: auto;
     color: var(--color-black-subtitle);
 
     .custom-standing-pink {
@@ -243,7 +242,8 @@
       }
 
       .expertise-card__subhead {
-        display: block;
+        position: static;
+        visibility: visible;
       }
     }
   }
@@ -251,13 +251,16 @@
   &__heading {
     @include font-h6;
 
-    margin-top: auto;
+    display: flex;
+    align-items: end;
+    flex-grow: 1;
   }
 
   &__subhead {
     @include font-text-4-1920;
 
-    display: none;
+    position: absolute;
+    visibility: hidden;
     margin-top: 8px;
   }
 
@@ -269,11 +272,12 @@
     &__subhead {
       @include font-text-4-360;
 
-      display: block;
+      position: static;
+      visibility: visible;
     }
 
     &__inner {
-      padding: 16px;
+      padding: 20px;
     }
   }
 }

@@ -13,6 +13,6 @@ const props = defineProps({
 
 <template>
   <NuxtLink :to="route" id="title-button-class-management" class="title-button">
-    <h2 class="title-button__heading icon-arrow-right">{{ title }}</h2>
+    <p class="title-button__heading icon-arrow-right">{{ title }}</p>
   </NuxtLink>
 </template>

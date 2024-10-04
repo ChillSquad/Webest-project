@@ -77,8 +77,10 @@ const sidebarPT = {
       <template v-slot:header>
         <Transition name="fade" mode="out-in">
           <div v-if="activeFormStepStaff === 0" class="sidebar-heading">
-            <h4 class="sidebar-heading__headline">Присоединиться к команде</h4>
+            <p class="sidebar-heading__headline">Присоединиться к команде</p>
+
             <span>Мы всегда в поиске скилловых и талантливых коллег!</span>
+
             <span>Заполняй скорее форму.</span>
           </div>
         </Transition>
@@ -96,10 +98,12 @@ const sidebarPT = {
       <template v-slot:header>
         <Transition name="fade" mode="out-in">
           <div v-if="activeFormStep === 0" class="sidebar-heading">
-            <h4 class="sidebar-heading__headline">Расскажите о своей задаче</h4>
+            <p class="sidebar-heading__headline">Расскажите о своей задаче</p>
+
             <span
-              >Чтобы мы могли начать работу, необходимо заполнить форму.</span
-            >
+              >Чтобы мы могли начать работу, необходимо заполнить форму.
+            </span>
+
             <span>Это займёт немного времени. Погнали!</span>
           </div>
         </Transition>

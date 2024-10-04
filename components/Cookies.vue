@@ -18,13 +18,13 @@ onMounted(() => {
 
 <template>
   <Transition name="slide-fade-left" mode="out-in">
-    <div v-if="isVisible" class="cookies">
+    <section v-if="isVisible" class="cookies">
       <div class="cookies__heading">
         Мы используем куки, чтобы пользоваться сайтом было удобно
       </div>
       <span>
         <GradientButton title="Отлично" @click="handleClick" />
       </span>
-    </div>
+    </section>
   </Transition>
 </template>

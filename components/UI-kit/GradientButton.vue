@@ -30,7 +30,6 @@ defineProps({
   gap: 12px;
   color: var(--color-white);
   background: var(--color-button-gradient);
-  user-select: none;
   cursor: pointer;
 
   .icon-arrow-right-up {

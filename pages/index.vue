@@ -10,12 +10,20 @@ import TalkUnit from "../components/TalkPage/TalkUnit.vue";
 </script>
 
 <template>
-  <FirstUnit />
-  <MainSliderUnit />
-  <ExpertiseUnit />
-  <CaseUnit />
-  <AboutCompanyUnit />
-  <BlogUnit />
-  <CustomersUnit />
-  <TalkUnit />
+  <div class="index-page">
+    <FirstUnit />
+    <MainSliderUnit />
+    <ExpertiseUnit />
+    <CaseUnit />
+    <AboutCompanyUnit />
+    <BlogUnit />
+    <CustomersUnit />
+    <TalkUnit />
+  </div>
 </template>
+\
+<style lang="css" scoped>
+.index-page {
+  overflow: hidden;
+}
+</style>

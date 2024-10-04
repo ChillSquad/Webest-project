@@ -4,6 +4,7 @@ import Technologies from "~/components/ExpertisePage/Technologies.vue";
 import ExpertiseHeading from "~/components/ExpertisePage/ExpertiseHeading.vue";
 import Priority from "~/components/ExpertisePage/Priority.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
+import Recruiting from "~/components/ExpertisePage/Recruiting.vue";
 import CustomersUnit from "~/components/CustomersPage/CustomersUnit.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 
@@ -44,6 +45,29 @@ const priorityItems = [
   },
 ];
 
+const images = [
+  {
+    src: "/images/imageCaseArticle5.png",
+    title: "Интернет-магазины",
+    subtitle: "Интернет-магазин «Kamatyres»",
+  },
+  {
+    src: "/images/imageBlogArticle1.png",
+    title: "Корпоративные порталы",
+    subtitle: "Портал «Личный кабинет застройщиков»",
+  },
+  {
+    src: "/images/imageCase7.png",
+    title: "B2B и B2C сервисы",
+    subtitle: "Приложение по управлению умным домом «TouchOn»",
+  },
+  {
+    src: "/images/imageCase8.png",
+    title: "Oбучающие платформы",
+    subtitle: "Образовательная онлайн-платформа «EnglishVeronika»",
+  },
+];
+
 const title = "Веб-разработка";
 const subtitle =
   "Создаём и развиваем интернет-магазины, B2B/B2C сервисы, обучающие платформы";
@@ -66,15 +90,17 @@ const imageCaption =
       :imageCaption="imageCaption"
     />
 
-    <DevelopmentSlider />
+    <DevelopmentSlider :images="images" />
 
     <Technologies />
 
     <Priority :subtitle="true" title="Почему мы" :prioritys="priorityItems" />
 
-    <BlogUnit title="Награды и сертификаты" />
+    <BlogUnit title="Награды и сертификаты" article="development" />
 
-    <BlogUnit title="Наши кейсы" article="case" />
+    <Recruiting />
+
+    <BlogUnit title="Наши кейсы" article="case" :slider="true" />
 
     <CustomersUnit />
 
@@ -87,7 +113,5 @@ const imageCaption =
   display: flex;
   flex-direction: column;
   padding-top: var(--page-padding);
-  gap: var(--unit-margin-y);
-  margin-bottom: var(--unit-margin-y);
 }
 </style>

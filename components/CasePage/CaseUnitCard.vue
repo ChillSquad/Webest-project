@@ -1,5 +1,8 @@
 <script setup>
 import CaseUnitPlate from "./CaseUnitPlate.vue";
+import { useSidebarModel } from "../models/sidebar";
+
+const { toggleSidebarFormCase } = useSidebarModel();
 
 defineProps({
   urlImage: {
@@ -10,8 +13,10 @@ defineProps({
     type: String,
     default: null,
   },
-  hasData: Boolean,
-  moreData: Array,
+  hasData: {
+    type: Boolean,
+    default: false,
+  },
   textColor: {
     type: String,
     default: "#000",
@@ -24,6 +29,14 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  slider: {
+    type: Boolean,
+    default: false,
+  },
+  moreData: {
+    type: Array,
+    required: true,
+  },
 });
 </script>
 
@@ -32,7 +45,7 @@ defineProps({
     <div :class="['case-unit-card__inner', { right: wide }]">
       <NuxtLink to="/case/article">
         <img
-          :class="['case-unit-card__case-image', { article: article }]"
+          :class="['case-unit-card__case-image', { sliding: slider }]"
           :src="urlImage"
           :alt="urlImage"
         />
@@ -41,6 +54,13 @@ defineProps({
           {{ title }}
         </p>
       </NuxtLink>
+
+      <button
+        @click="toggleSidebarFormCase"
+        class="case-unit-card__case-button"
+      >
+        <span>i</span>
+      </button>
 
       <CaseUnitPlate v-if="hasData" :items="moreData" :platePosition="wide" />
     </div>

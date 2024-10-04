@@ -2,7 +2,8 @@
   padding-top: var(--page-padding);
 
   .expertise-card__subhead {
-    display: block;
+    position: static;
+    visibility: visible;
   }
 
   &__heading {
@@ -116,6 +117,10 @@
   }
 
   @media (max-width: 360px) {
+    &__heading {
+      margin-bottom: 40px;
+    }
+
     &__title {
       margin: 16px 0 20px 0;
     }
@@ -123,7 +128,7 @@
     &__table-list {
       display: flex;
       flex-direction: column;
-      gap: 36px;
+      gap: 8px;
     }
 
     &__subtitle {

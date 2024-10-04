@@ -1,6 +1,5 @@
 <script setup>
 import TitleButton from "../UI-kit/TitleButton.vue";
-import ExpertiseUnitCard from "./ExpertiseUnitCard.vue";
 
 const { data: items } = await useAsyncData("expertise", async () => {
   return await $fetch("/api/expertise/", { method: "GET" });
@@ -8,7 +7,7 @@ const { data: items } = await useAsyncData("expertise", async () => {
 </script>
 
 <template>
-  <div class="expertise-unit">
+  <section class="expertise-unit">
     <div class="container">
       <div class="expertise-unit__inner">
         <div class="expertise-unit__heading">
@@ -28,16 +27,21 @@ const { data: items } = await useAsyncData("expertise", async () => {
               :key="index"
               :class="['expertise-unit__table-item', { tall: item.tall }]"
             >
-              <ExpertiseUnitCard
-                :title="item.title"
-                :subtitle="item.subtitle"
-                :route="item.route"
-                :icon="item.icon"
-              />
+              <NuxtLink :to="item.route" class="expertise-card">
+                <div class="expertise-card__inner">
+                  <span :class="item.icon"></span>
+
+                  <p class="expertise-card__heading">
+                    {{ item.title }}
+                  </p>
+
+                  <p class="expertise-card__subhead">{{ item.subtitle }}</p>
+                </div>
+              </NuxtLink>
             </li>
           </ul>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>

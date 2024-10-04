@@ -3,32 +3,16 @@ import "swiper/swiper-bundle.css";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-const images = [
-  {
-    src: "/images/imageCaseArticle5.png",
-    title: "Интернет-магазины",
-    subtitle: "Интернет-магазин «Kamatyres»",
+const props = defineProps({
+  images: {
+    type: Array,
+    required: true,
   },
-  {
-    src: "/images/imageBlogArticle1.png",
-    title: "Корпоративные порталы",
-    subtitle: "Портал «Личный кабинет застройщиков»",
-  },
-  {
-    src: "/images/imageCase7.png",
-    title: "B2B и B2C сервисы",
-    subtitle: "Приложение по управлению умным домом «TouchOn»",
-  },
-  {
-    src: "/images/imageCase8.png",
-    title: "Oбучающие платформы",
-    subtitle: "Образовательная онлайн-платформа «EnglishVeronika»",
-  },
-];
+});
 </script>
 
 <template>
-  <div class="development-slider">
+  <section class="development-slider">
     <div class="development-slider__heading">Разрабатываем и развиваем</div>
 
     <swiper
@@ -54,13 +38,15 @@ const images = [
         </p>
       </swiper-slide>
     </swiper>
-  </div>
+  </section>
 </template>
 
 <style lang="scss">
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .development-slider {
+  margin-bottom: var(--unit-margin-y);
+
   &__heading {
     @include font-h2;
 

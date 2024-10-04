@@ -8,14 +8,18 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const props = defineProps({
-  images: {
+  slides: {
     type: Array,
     required: true,
+  },
+  review: {
+    type: Boolean,
+    default: false,
   },
 });
 
 const currentIndex = ref(0);
-const count = computed(() => props.images.length);
+const count = computed(() => props.slides.length);
 
 const updateCurrentIndex = (swiper) => {
   currentIndex.value = swiper.activeIndex;
@@ -35,7 +39,7 @@ const addCustomClasses = (swiper) => {
 </script>
 
 <template>
-  <div class="article-slider">
+  <section class="article-slider">
     <div class="article-slider__inner">
       <swiper
         :navigation="true"
@@ -49,32 +53,124 @@ const addCustomClasses = (swiper) => {
         @slideChange="updateCurrentIndex"
         @init="addCustomClasses"
       >
-        <swiper-slide v-for="(image, index) in props.images" :key="index">
+        <swiper-slide
+          v-if="!review"
+          v-for="(slide, index) in props.slides"
+          :key="index"
+        >
           <img
-            class="main-slider-card__story-image"
-            :src="image.src"
+            class="article-slider__card-image"
+            :src="slide.src"
             alt="story image"
           />
         </swiper-slide>
+
+        <swiper-slide
+          v-if="review"
+          v-for="(slide, index) in props.slides"
+          :key="index"
+        >
+          <p class="article-slider__card-heading">{{ slide.heading }}</p>
+
+          <p class="article-slider__card-content">
+            {{ slide.content }}
+          </p>
+
+          <img
+            class="article-slider__card-avatar"
+            :src="slide.src"
+            alt="story image"
+          />
+          <p class="article-slider__card-username">
+            {{ slide.username }} <span>{{ slide.occupation }}</span>
+          </p>
+        </swiper-slide>
       </swiper>
 
-      <div class="article-slider-bar">
+      <div class="article-slider__bar">
         <div
-          class="article-slider-progress"
+          class="article-slider__progress"
           :style="{ width: ((currentIndex + 1) / count) * 100 + '%' }"
         ></div>
       </div>
 
-      <div class="article-slider-pagination">
+      <div class="article-slider__pagination">
         0{{ currentIndex + 1 }}-0{{ count }}
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/fonts-mixin";
+
 .article-slider {
   margin-top: 40px;
+
+  &__bar {
+    width: 100%;
+    height: 2px;
+    background-color: #e0e0e0;
+    margin-top: 18px;
+  }
+
+  &__progress {
+    height: 100%;
+    background-color: var(--color-blue);
+    transition: width 0.3s ease;
+  }
+
+  &__pagination {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  &__card-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide,
+  &__card-username {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__card-heading {
+    @include font-h2;
+
+    margin-bottom: 100px;
+  }
+
+  &__card-content {
+    @include font-h5;
+
+    max-width: 67%;
+    margin-bottom: 40px;
+  }
+
+  &__card-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  &__card-username {
+    @include font-text-1;
+
+    margin-bottom: 40px;
+
+    span {
+      color: var(--color-dark-blue);
+    }
+  }
+
+  @media (max-width: 360px) {
+    display: none;
+  }
 }
 
 .swiper-button-prev,
@@ -99,35 +195,6 @@ const addCustomClasses = (swiper) => {
 
   &:hover {
     border: 1px solid var(--color-blue);
-  }
-}
-
-.article-slider-bar {
-  width: 100%;
-  height: 2px;
-  background-color: #e0e0e0;
-  margin-top: 18px;
-}
-
-.article-slider-progress {
-  height: 100%;
-  background-color: var(--color-blue);
-  transition: width 0.3s ease;
-}
-
-.article-slider-pagination {
-  margin-top: 8px;
-  font-size: 14px;
-}
-
-.main-slider-card__story-image {
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 360px) {
-  .article-slider {
-    display: none;
   }
 }
 </style>

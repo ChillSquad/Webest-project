@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="sort-radio">
+  <section class="sort-radio">
     <div
       class="sort-radio__group-item"
       v-for="(item, index) in items"
@@ -23,7 +23,7 @@ const props = defineProps({
       />
       <label :for="'radio-' + index">{{ item.title }}</label>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
@@ -33,6 +33,8 @@ const props = defineProps({
   display: flex;
   gap: 4px;
   margin: 100px 0 60px 0;
+  overflow-x: auto;
+  white-space: nowrap;
 
   &__group-item {
     display: inline-block;
@@ -55,7 +57,6 @@ const props = defineProps({
       border-radius: 16px;
       color: var(--color-dark-blue);
       cursor: pointer;
-      user-select: none;
 
       &:hover {
         border: 1px solid var(--color-blue);
@@ -63,7 +64,8 @@ const props = defineProps({
     }
   }
 
-  @media (max-width: 360px) {
+  ::-webkit-scrollbar {
+    display: none;
   }
 }
 </style>

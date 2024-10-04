@@ -27,7 +27,7 @@ export default defineEventHandler((event) => {
       tall: true,
       wide: false,
       icon: "icon-marketplace",
-      route: "/expertise/marketplace",
+      route: "/expertise/marketing",
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ export default defineEventHandler((event) => {
       tall: false,
       wide: true,
       icon: "icon-marketing",
-      route: "/expertise/marketing",
+      route: "/expertise/promotion",
     },
     {
       id: 5,
@@ -65,7 +65,7 @@ export default defineEventHandler((event) => {
       tall: false,
       wide: false,
       icon: "icon-promotion ",
-      route: "/expertise/promotion",
+      route: "/expertise/marketplace",
     },
     {
       id: 7,

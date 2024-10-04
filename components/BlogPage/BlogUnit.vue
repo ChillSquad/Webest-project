@@ -58,7 +58,23 @@ defineProps({
     type: String,
     default: "blog",
   },
+  slider: {
+    type: Boolean,
+    default: false,
+  },
 });
+
+const images = [
+  { src: "/images/imageAward1.png" },
+  { src: "/images/imageAward2.png" },
+  { src: "/images/imageAward3.png" },
+  { src: "/images/imageAward1.png" },
+  { src: "/images/imageAward2.png" },
+  { src: "/images/imageAward3.png" },
+  { src: "/images/imageAward1.png" },
+  { src: "/images/imageAward2.png" },
+  { src: "/images/imageAward3.png" },
+];
 </script>
 
 <template>
@@ -121,12 +137,13 @@ defineProps({
             :moreData="caseItem.moreData"
             :textColor="caseItem.textColor"
             :wide="caseItem.wide"
-            :article="article"
+            :slider="slider"
           />
         </swiper-slide>
       </swiper>
 
-      <!-- <swiper
+      <swiper
+        v-if="article === 'development'"
         @swiper="onSwiperInit"
         :loop="false"
         direction="horizontal"
@@ -138,10 +155,19 @@ defineProps({
       >
         <swiper-slide v-for="(image, index) in images" :key="index">
           <div class="award-slid">
-            <img class="award-slid__image" :src="image" :alt="image" />
+            <img class="award-slid__image" :src="image.src" :alt="image" />
           </div>
         </swiper-slide>
-      </swiper> -->
+      </swiper>
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.award-slid {
+  border: 1px solid var(--color-grey-light-span);
+  padding: 32px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+</style>

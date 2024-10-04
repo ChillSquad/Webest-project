@@ -1,6 +1,5 @@
 <script setup>
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
-import ExpertiseUnitCard from "~/components/ExpertisePage/ExpertiseUnitCard.vue";
 
 const { data: items } = await useAsyncData("expertise", async () => {
   return await $fetch("/api/expertise/", { method: "GET" });
@@ -28,12 +27,17 @@ const { data: items } = await useAsyncData("expertise", async () => {
             :key="index"
             :class="['expertise-page__table-item', { wide: item.wide }]"
           >
-            <ExpertiseUnitCard
-              :title="item.title"
-              :subtitle="item.subtitle"
-              :route="item.route"
-              :icon="item.icon"
-            />
+            <NuxtLink :to="item.route" class="expertise-card">
+              <div class="expertise-card__inner">
+                <span :class="item.icon"></span>
+
+                <p class="expertise-card__heading">
+                  {{ item.title }}
+                </p>
+
+                <p class="expertise-card__subhead">{{ item.subtitle }}</p>
+              </div>
+            </NuxtLink>
           </li>
         </ul>
       </div>
