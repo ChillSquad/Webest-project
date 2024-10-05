@@ -250,7 +250,7 @@ const imageCaption = "";
       Над вашим проектом будут работать
     </div>
     <div class="expertise-advertisement__table">
-      <NuxtMarquee :direction="left" :autoFill="true">
+      <NuxtMarquee :autoFill="true">
         <div
           class="expertise-advertisement__slide"
           v-for="(employee, index) in employees"
