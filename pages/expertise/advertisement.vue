@@ -8,6 +8,7 @@ import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 import Advantages from "~/components/ExpertisePage/Advantages.vue";
 import ExpertiseMenu from "~/components/ExpertisePage/ExpertiseMenu.vue";
 import MarketplaceServices from "~/components/ExpertisePage/MarketplaceServices.vue";
+import Reporting from "~/components/ExpertisePage/Reporting.vue";
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
@@ -146,6 +147,29 @@ const services = [
   },
 ];
 
+const reports = [
+  {
+    heading: "Аналитика",
+    content: [],
+  },
+  {
+    heading: "Подготовка к запуску",
+    content: [
+      "Сбор материалов",
+      "Регистрация кабинета, маркировка",
+      "Подключение систем аналитики",
+      "Проверка отработки целей",
+      "Сбор семантического ядра",
+      "Настройка рекламных кампаний",
+    ],
+  },
+
+  {
+    heading: "Ведение рекламных кампаний",
+    content: [],
+  },
+];
+
 const title = "Контекстная реклама Яндекс Директ и Google Ads";
 const subtitle =
   "Текстовые, графические и видеообъявления, которые показываются горячей аудитории. В основе контекстной рекламы заложена аукционная система сервисов Яндекс Директ и Google Ads, которая подразумевает оплату за клик";
@@ -204,6 +228,8 @@ const imageCaption = "";
     <MarketplaceServices title="наши услуги" :services="services" />
 
     <BlogUnit title="Награды и сертификаты" article="development" />
+
+    <Reporting :reports="reports" title="Этапы работы" />
 
     <CustomersUnit />
 
@@ -289,6 +315,16 @@ const imageCaption = "";
     object-fit: cover;
     width: 100%;
     height: 100%;
+  }
+
+  .expertise-development-reporting__item {
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  .expertise-development-reporting__item-heading {
+    @include font-h6;
   }
 }
 </style>

@@ -69,6 +69,18 @@ const cards = [
   },
 ];
 
+const reports = [
+  {
+    heading:
+      "Мы ведем свой учет времени по задачам на проекте специалиста, который можем предоставить в любой момент",
+  },
+  { heading: "Вы можете обратиться к специалисту напрямую" },
+  {
+    heading:
+      "При необходимости можем выделить руководителя проекта и тестировщиков",
+  },
+];
+
 const firstCard = [
   {
     developer: "PHP Laravel",
@@ -246,7 +258,7 @@ const imageAlt = "Заголовок статьи";
 
     <Recruiting />
 
-    <Reporting />
+    <Reporting :reports="reports" title="Отчетность" />
 
     <BlogUnit title="Статьи аутстаф" />
 
