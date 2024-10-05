@@ -56,6 +56,7 @@ defineProps({
     flex-direction: column;
     text-align: center;
     align-self: flex-start;
+    animation: moveUp 5s infinite ease-in-out;
     padding: 34px 55px;
     background-color: var(--color-grey-light);
     border-radius: 20px;
@@ -63,7 +64,7 @@ defineProps({
     transition: align-self 0.3s ease;
 
     &:nth-child(even) {
-      align-self: flex-end;
+      animation: moveDown 5s infinite ease-in-out;
     }
 
     &:hover {
@@ -83,6 +84,34 @@ defineProps({
     @include font-subscribe;
 
     color: var(--color-black);
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(-40px);
+  }
+
+  50% {
+    transform: translateY(40px);
+  }
+
+  100% {
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(40px);
+  }
+
+  50% {
+    transform: translateY(-40px);
+  }
+
+  100% {
+    transform: translateY(40px);
   }
 }
 </style>
