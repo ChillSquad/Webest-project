@@ -51,7 +51,7 @@ const images = [
   },
 ];
 
-const plates = [
+const services = [
   {
     title: "Комплексный анализ магазина",
     subtitle: "от 30 000 руб (до 200 SKU), выше 200 SKU - по запросу",
@@ -149,7 +149,7 @@ const imageCaption = "";
 
     <DevelopmentSlider :images="images" />
 
-    <MarketplaceServices title="наши услуги" :plates="plates" />
+    <MarketplaceServices title="наши услуги" :services="services" />
 
     <Recruiting />
 

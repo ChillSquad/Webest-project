@@ -7,6 +7,7 @@ import CustomersUnit from "~/components/CustomersPage/CustomersUnit.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 import Advantages from "~/components/ExpertisePage/Advantages.vue";
 import ExpertiseMenu from "~/components/ExpertisePage/ExpertiseMenu.vue";
+import MarketplaceServices from "~/components/ExpertisePage/MarketplaceServices.vue";
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
@@ -78,19 +79,70 @@ const employees = [
 const technologies = [
   {
     src: "/images/imageAdvertisement11.png",
-    title: "Flutter",
+    title: "Яндекс Директ",
   },
   {
     src: "/images/imageAdvertisement12.png",
-    title: "Java",
+    title: "Google Ads",
   },
   {
     src: "/images/imageAdvertisement13.png",
-    title: "Vue",
+    title: "Яндекс Навигатор",
   },
   {
     src: "/images/imageAdvertisement14.png",
-    title: "Laravel",
+    title: "Яндекс Бизнес",
+  },
+];
+
+const services = [
+  {
+    title: "Яндекс Директ",
+    subtitle: "от 40 000 ₽",
+    points: [
+      "Настраиваем карточку компании в Яндекс",
+      "Заполняем данные организации, товары и услуги, акции",
+      "Настраиваем сайт Яндекс Бизнес для компании",
+      "Запускаем рекламную подписку",
+      "Контролируем показ объявлений",
+      "Готовим отчетность",
+    ],
+  },
+  {
+    title: "Яндекс Бизнес",
+    subtitle: "от 30 000 ₽",
+    points: [
+      "Настраиваем карточку компании в Яндекс",
+      "Заполняем данные организации, товары и услуги, акции",
+      "Настраиваем сайт Яндекс Бизнес для компании",
+      "Запускаем рекламную подписку",
+      "Контролируем показ объявлений",
+      "Готовим отчетность",
+    ],
+  },
+  {
+    title: "Яндекс Навигатор",
+    subtitle: "от 50 000 ₽",
+    points: [
+      "Настраиваем карточку компании в Яндекс",
+      "Заполняем данные организации, товары и услуги, акции",
+      "Настраиваем сайт Яндекс Бизнес для компании",
+      "Запускаем рекламную подписку",
+      "Контролируем показ объявлений",
+      "Готовим отчетность",
+    ],
+  },
+  {
+    title: "Google Ads",
+    subtitle: "от 40 000 ₽",
+    points: [
+      "Настраиваем карточку компании в Яндекс",
+      "Заполняем данные организации, товары и услуги, акции",
+      "Настраиваем сайт Яндекс Бизнес для компании",
+      "Запускаем рекламную подписку",
+      "Контролируем показ объявлений",
+      "Готовим отчетность",
+    ],
   },
 ];
 
@@ -148,6 +200,8 @@ const imageCaption = "";
     </div>
 
     <Technologies :technologies="technologies" />
+
+    <MarketplaceServices title="наши услуги" :services="services" />
 
     <BlogUnit title="Награды и сертификаты" article="development" />
 

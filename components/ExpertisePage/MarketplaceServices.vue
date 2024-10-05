@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  plates: {
+  services: {
     type: Array,
     required: true,
   },
@@ -19,20 +19,20 @@ defineProps({
 
         <ul class="expertise-marketplace__list">
           <li
-            v-for="(plate, index) in plates"
+            v-for="(service, index) in services"
             class="expertise-marketplace__item"
           >
             <p class="expertise-marketplace__item-title icon-arrow-right-up">
-              {{ plate.title }}
+              {{ service.title }}
             </p>
 
             <p class="expertise-marketplace__item-subtitle">
-              {{ plate.subtitle }}
+              {{ service.subtitle }}
             </p>
 
             <p
               class="expertise-marketplace__item-points icon-marker"
-              v-for="(point, pointIndex) in plate.points"
+              v-for="(point, pointIndex) in service.points"
               :key="pointIndex"
             >
               {{ point }}

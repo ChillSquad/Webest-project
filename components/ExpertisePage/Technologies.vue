@@ -52,16 +52,18 @@ defineProps({
   }
 
   &__card {
+    width: 200px;
+    height: 200px;
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-self: flex-start;
-    animation: moveUp 5s infinite ease-in-out;
-    padding: 34px 55px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
     background-color: var(--color-grey-light);
     border-radius: 20px;
     gap: 22px;
-    transition: align-self 0.3s ease;
+    animation: moveUp 5s infinite ease-in-out;
 
     &:nth-child(even) {
       animation: moveDown 5s infinite ease-in-out;
@@ -75,7 +77,7 @@ defineProps({
   }
 
   &__image {
-    width: 100%;
+    max-width: 90px;
     height: auto;
     transition: transform 0.2s ease-in-out;
   }
