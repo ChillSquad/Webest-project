@@ -2,7 +2,7 @@
 import Breadcrumbs from "~/components/UI-kit/Breadcrumbs.vue";
 import GradientButton from "~/components/UI-kit/GradientButton.vue";
 
-const props = defineProps({
+defineProps({
   breadcrumbItems: Array,
   title: String,
   subtitle: String,

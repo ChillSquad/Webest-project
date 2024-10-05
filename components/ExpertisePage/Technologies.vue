@@ -1,30 +1,10 @@
 <script setup>
-const images = [
-  {
-    src: "/images/imageTechnologies1.png",
-    title: "Flutter",
+defineProps({
+  technologies: {
+    type: Array,
+    required: true,
   },
-  {
-    src: "/images/imageTechnologies2.png",
-    title: "Java",
-  },
-  {
-    src: "/images/imageTechnologies3.png",
-    title: "Vue",
-  },
-  {
-    src: "/images/imageTechnologies4.png",
-    title: "Laravel",
-  },
-  {
-    src: "/images/imageTechnologies5.png",
-    title: "1C-Bitrix",
-  },
-  {
-    src: "/images/imageTechnologies6.png",
-    title: "PWA",
-  },
-];
+});
 </script>
 
 <template>
@@ -34,17 +14,17 @@ const images = [
     <div class="development-technologies__wrapper">
       <div
         class="development-technologies__card"
-        v-for="(image, index) in images"
+        v-for="(technology, index) in technologies"
         :key="index"
       >
         <img
           class="development-technologies__image"
-          :src="image.src"
+          :src="technology.src"
           alt="story image"
         />
 
         <p class="development-technologies__image-title">
-          {{ image.title }}
+          {{ technology.title }}
         </p>
       </div>
     </div>

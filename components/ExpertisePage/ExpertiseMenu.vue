@@ -1,7 +1,7 @@
 <script setup>
 const title = "Битрикс24 помогает бизнесу работать";
 
-const props = defineProps({
+defineProps({
   marks: {
     type: Array,
     required: false,

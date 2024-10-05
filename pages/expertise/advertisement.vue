@@ -75,6 +75,33 @@ const employees = [
   },
 ];
 
+const technologies = [
+  {
+    src: "/images/imageTechnologies1.png",
+    title: "Flutter",
+  },
+  {
+    src: "/images/imageTechnologies2.png",
+    title: "Java",
+  },
+  {
+    src: "/images/imageTechnologies3.png",
+    title: "Vue",
+  },
+  {
+    src: "/images/imageTechnologies4.png",
+    title: "Laravel",
+  },
+  {
+    src: "/images/imageTechnologies5.png",
+    title: "1C-Bitrix",
+  },
+  {
+    src: "/images/imageTechnologies6.png",
+    title: "PWA",
+  },
+];
+
 const title = "Контекстная реклама Яндекс Директ и Google Ads";
 const subtitle =
   "Текстовые, графические и видеообъявления, которые показываются горячей аудитории. В основе контекстной рекламы заложена аукционная система сервисов Яндекс Директ и Google Ads, которая подразумевает оплату за клик";
@@ -128,7 +155,7 @@ const imageCaption = "";
       </NuxtMarquee>
     </div>
 
-    <Technologies />
+    <Technologies :technologies="technologies" />
 
     <BlogUnit title="Награды и сертификаты" article="development" />
 

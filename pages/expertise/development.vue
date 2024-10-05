@@ -68,6 +68,33 @@ const images = [
   },
 ];
 
+const technologies = [
+  {
+    src: "/images/imageTechnologies1.png",
+    title: "Flutter",
+  },
+  {
+    src: "/images/imageTechnologies2.png",
+    title: "Java",
+  },
+  {
+    src: "/images/imageTechnologies3.png",
+    title: "Vue",
+  },
+  {
+    src: "/images/imageTechnologies4.png",
+    title: "Laravel",
+  },
+  {
+    src: "/images/imageTechnologies5.png",
+    title: "1C-Bitrix",
+  },
+  {
+    src: "/images/imageTechnologies6.png",
+    title: "PWA",
+  },
+];
+
 const title = "Веб-разработка";
 const subtitle =
   "Создаём и развиваем интернет-магазины, B2B/B2C сервисы, обучающие платформы";
@@ -92,7 +119,7 @@ const imageCaption =
 
     <DevelopmentSlider :images="images" />
 
-    <Technologies />
+    <Technologies :technologies="technologies" />
 
     <Priority :subtitle="true" title="Почему мы" :prioritys="priorityItems" />
 

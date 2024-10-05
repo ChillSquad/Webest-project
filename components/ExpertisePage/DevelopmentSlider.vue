@@ -3,7 +3,7 @@ import "swiper/swiper-bundle.css";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-const props = defineProps({
+defineProps({
   images: {
     type: Array,
     required: true,

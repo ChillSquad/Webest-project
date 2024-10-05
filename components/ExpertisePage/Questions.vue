@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+defineProps({
   questions: {
     type: Array,
     required: true,
