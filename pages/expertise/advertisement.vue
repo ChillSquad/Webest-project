@@ -11,6 +11,7 @@ import MarketplaceServices from "~/components/ExpertisePage/MarketplaceServices.
 import Reporting from "~/components/ExpertisePage/Reporting.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
+import SimilarServices from "~/components/ExpertisePage/SimilarServices.vue";
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
@@ -289,6 +290,8 @@ const imageCaption = "";
     </div>
 
     <ArticleSliderMobile :slides="slides" :review="true" />
+
+    <SimilarServices />
 
     <TalkUnit />
   </div>
