@@ -107,6 +107,14 @@ const technologies = [
   },
 ];
 
+const sub = [
+  {
+    purple: "SMM-продвижение ",
+    content:
+      "– это универсальное средство для компаний любого масштаба и любой сферы деятельности",
+  },
+];
+
 const title = "SMM продвижение и таргетированная реклама";
 const subtitle =
   "Инструмент интернет-маркетинга, помогающий привлечь потребителей через социальные сети";
@@ -130,7 +138,11 @@ const imageCaption = "";
 
     <Advantages :cards="cards" />
 
-    <DevelopmentSlider :images="images" title="Кому подойдут наши услуги?" />
+    <DevelopmentSlider
+      :images="images"
+      title="Кому подойдут наши услуги?"
+      :subtitle="sub"
+    />
 
     <Recruiting />
 
