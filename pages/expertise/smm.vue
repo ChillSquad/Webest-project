@@ -2,46 +2,50 @@
 import DevelopmentSlider from "~/components/ExpertisePage/DevelopmentSlider.vue";
 import Technologies from "~/components/ExpertisePage/Technologies.vue";
 import ExpertiseHeading from "~/components/ExpertisePage/ExpertiseHeading.vue";
-import Priority from "~/components/ExpertisePage/Priority.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import Recruiting from "~/components/ExpertisePage/Recruiting.vue";
 import CustomersUnit from "~/components/CustomersPage/CustomersUnit.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
+import Advantages from "~/components/ExpertisePage/Advantages.vue";
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
 ];
 
-const priorityItems = [
+const cards = [
   {
-    heading: "Гибкий форматы работы",
-    content:
-      "Мы предлагаем как классический аутсорсинг и аутстаффинг, так и различные комбинации, оптимальные для вашего бизнеса",
+    src: "/images/imageSMM2.png",
+    title: "Широкий спектр возможностей для продвижения товаров и услуг",
   },
   {
-    heading: "Эффективные методы разработки",
-    content:
-      "Вы можете выбрать для себя наиболее подходящую методологию - Scrum или Waterfall",
+    src: "/images/imageSMM3.png",
+    title:
+      "Накопительный рекламный эффект (появление органического трафика и лидов) и формирование сарафанного радио",
   },
   {
-    heading: "Современные технологии",
-    content:
-      "Мы используем новейшие технологии, такие как Bitrix, VueJs и Laravel",
+    src: "/images/imageAdvertisement5.png",
+    title: "Повышает узнаваемость бренда",
   },
   {
-    heading: "Собственный отдел аналитики и дизайна",
-    content:
-      "Мы делаем продукты, которые соответствуют нуждам наших клиентов и максимально легко используются конечным пользователем",
+    src: "/images/imageSMM4.png",
+    title: "Возможность построение многоэтапной воронки продаж",
   },
   {
-    heading: "Тестирование на всех этапах разработки",
-    content:
-      "Улучшение качества конечного продукта за счёт более эффективной работы и использования ресурсов",
+    src: "/images/imageAdvertisement3.png",
+    title: "Увеличение заявок и обращений",
   },
   {
-    heading: "Сертификация крупных корпоративных внедрений",
-    content:
-      "Мы делаем продукты, которые соответствуют нуждам наших клиентов и максимально легко используются конечным пользователем",
+    src: "/images/imageSMM5.png",
+    title:
+      "Инструментарий прогрева аудитории до целевых действий (покупки, посещения точки продаж)",
+  },
+  {
+    src: "/images/imageSMM6.png",
+    title: "Использование нативных видов рекламы",
+  },
+  {
+    src: "/images/imageSMM7.png",
+    title: "Дополнительные точки касания с брендом на пути к продаже",
   },
 ];
 
@@ -116,11 +120,11 @@ const imageCaption = "";
       :imageCaption="imageCaption"
     />
 
+    <Advantages :cards="cards" />
+
     <DevelopmentSlider :images="images" />
 
     <Technologies :technologies="technologies" />
-
-    <Priority :subtitle="true" title="Почему мы" :prioritys="priorityItems" />
 
     <BlogUnit title="Награды и сертификаты" article="development" />
 
@@ -134,10 +138,20 @@ const imageCaption = "";
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .expertise-development {
   display: flex;
   flex-direction: column;
   padding-top: var(--page-padding);
+
+  .outstaff-advantages__list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .outstaff-advantages__item {
+    max-height: 414px;
+    width: auto;
+  }
 }
 </style>
