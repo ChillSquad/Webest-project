@@ -147,7 +147,7 @@ const imageCaption = "";
 
     <Priority :subtitle="false" title="почему мы" :prioritys="priorityItems" />
 
-    <DevelopmentSlider :images="images" />
+    <DevelopmentSlider :images="images" title="Кому подойдут наши услуги?" />
 
     <MarketplaceServices title="наши услуги" :services="services" />
 

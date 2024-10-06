@@ -8,12 +8,16 @@ defineProps({
     type: Array,
     required: true,
   },
+  title: {
+    type: String,
+    default: null,
+  },
 });
 </script>
 
 <template>
   <section class="development-slider">
-    <div class="development-slider__heading">Разрабатываем и развиваем</div>
+    <div class="development-slider__heading">{{ title }}</div>
 
     <swiper
       :loop="false"

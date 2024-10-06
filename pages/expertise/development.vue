@@ -117,7 +117,7 @@ const imageCaption =
       :imageCaption="imageCaption"
     />
 
-    <DevelopmentSlider :images="images" />
+    <DevelopmentSlider :images="images" title="Разрабатываем и развиваем" />
 
     <Technologies :technologies="technologies" />
 
