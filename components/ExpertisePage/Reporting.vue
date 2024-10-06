@@ -1,28 +1,44 @@
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    default: null,
+  },
+  reports: {
+    type: Array,
+    required: true,
+  },
+});
+</script>
+
 <template>
   <div class="container">
     <section class="expertise-development-reporting">
-      <div class="expertise-development-reporting__title">Отчетность</div>
+      <div class="expertise-development-reporting__title">{{ title }}</div>
 
       <ul class="expertise-development-reporting__list">
-        <li class="expertise-development-reporting__item">
-          <p>
-            Мы ведем свой учет времени по задачам на проекте специалиста,
-            который можем предоставить в любой момент
+        <li
+          class="expertise-development-reporting__item"
+          v-for="(report, index) in reports"
+        >
+          <p class="expertise-development-reporting__item-heading">
+            {{ report.heading }}
           </p>
-          <span class="expertise-development-reporting__item-first">1</span>
-        </li>
 
-        <li class="expertise-development-reporting__item">
-          <p>Вы можете обратиться к специалисту напрямую</p>
-          <span class="expertise-development-reporting__item-second">2</span>
-        </li>
+          <div class="expertise-development-reporting__item-list">
+            <p class="icon-marker" v-for="(content, index) in report.content">
+              {{ content }}
+            </p>
+          </div>
 
-        <li class="expertise-development-reporting__item">
-          <p>
-            При необходимости можем выделить руководителя проекта и
-            тестировщиков
-          </p>
-          <span class="expertise-development-reporting__item-third">3</span>
+          <span
+            :class="[
+              { 'item-first': index === 0 },
+              { 'item-second': index === 1 },
+              { 'item-third': index === 2 },
+            ]"
+            >{{ index + 1 }}</span
+          >
         </li>
       </ul>
     </section>
@@ -58,27 +74,54 @@
     position: relative;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
+    .icon-marker {
+      display: flex;
+      align-items: center;
+      z-index: 1;
+
+      &:before {
+        content: "\004E";
+        font-size: 12px;
+        color: var(--color-blue);
+        padding-right: 8px;
+        transition: color 0.3s ease-in-out;
+      }
+    }
+
     &:hover {
       background-color: var(--color-blue);
       color: var(--color-white);
 
-      .expertise-development-reporting__item-first,
-      .expertise-development-reporting__item-second,
-      .expertise-development-reporting__item-third {
+      .icon-marker {
+        &:before {
+          color: var(--color-white);
+        }
+      }
+
+      .item-first,
+      .item-second,
+      .item-third {
         opacity: 0.6;
       }
     }
-
-    p {
-      @include font-text-1;
-
-      width: 362px;
-    }
   }
 
-  &__item-first,
-  &__item-second,
-  &__item-third {
+  &__item-heading {
+    @include font-text-1;
+
+    width: 362px;
+    z-index: 1;
+  }
+
+  &__item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .item-first,
+  .item-second,
+  .item-third {
     font-weight: 900;
     font-size: 480px;
     position: absolute;
@@ -87,13 +130,13 @@
     user-select: none;
   }
 
-  &__item-first {
+  .item-first {
     right: 0;
     bottom: -120px;
   }
 
-  &__item-second,
-  &__item-third {
+  .item-second,
+  .item-third {
     right: -70px;
     bottom: -120px;
   }

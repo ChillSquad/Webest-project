@@ -3,17 +3,37 @@ import "swiper/swiper-bundle.css";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-const props = defineProps({
+defineProps({
   images: {
     type: Array,
     required: true,
+  },
+  title: {
+    type: String,
+    default: null,
+  },
+  subtitle: {
+    type: Array,
+    required: false,
   },
 });
 </script>
 
 <template>
   <section class="development-slider">
-    <div class="development-slider__heading">Разрабатываем и развиваем</div>
+    <div
+      :class="['development-slider__heading', 'container', { split: subtitle }]"
+    >
+      <p class="development-slider__title">{{ title }}</p>
+      <p
+        class="development-slider__subtitle"
+        v-for="(text, index) in subtitle"
+        :key="index"
+      >
+        <span class="custom-standing-purple">{{ text.purple }}</span>
+        {{ text.content }}
+      </p>
+    </div>
 
     <swiper
       :loop="false"
@@ -48,10 +68,39 @@ const props = defineProps({
   margin-bottom: var(--unit-margin-y);
 
   &__heading {
+    margin-bottom: 100px;
+  }
+
+  .split {
+    display: flex;
+
+    .development-slider__title {
+      max-width: 1030px;
+      text-align: start;
+    }
+
+    .development-slider__subtitle {
+      margin-left: auto;
+
+      .custom-standing-purple {
+        @include custom-standing;
+
+        background: var(--color-purple);
+        transform: rotate(1.01deg);
+      }
+    }
+  }
+
+  &__title {
     @include font-h2;
 
     text-align: center;
-    margin-bottom: 100px;
+  }
+
+  &__subtitle {
+    @include font-h5;
+
+    max-width: 556px;
   }
 
   .swiper {

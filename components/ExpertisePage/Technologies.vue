@@ -1,50 +1,34 @@
 <script setup>
-const images = [
-  {
-    src: "/images/imageTechnologies1.png",
-    title: "Flutter",
+defineProps({
+  technologies: {
+    type: Array,
+    required: true,
   },
-  {
-    src: "/images/imageTechnologies2.png",
-    title: "Java",
+  title: {
+    type: String,
+    default: "Используемые технологии",
   },
-  {
-    src: "/images/imageTechnologies3.png",
-    title: "Vue",
-  },
-  {
-    src: "/images/imageTechnologies4.png",
-    title: "Laravel",
-  },
-  {
-    src: "/images/imageTechnologies5.png",
-    title: "1C-Bitrix",
-  },
-  {
-    src: "/images/imageTechnologies6.png",
-    title: "PWA",
-  },
-];
+});
 </script>
 
 <template>
   <div class="development-technologies">
-    <div class="development-technologies__heading">Используемые технологии</div>
+    <div class="development-technologies__heading">{{ title }}</div>
 
     <div class="development-technologies__wrapper">
       <div
         class="development-technologies__card"
-        v-for="(image, index) in images"
+        v-for="(technology, index) in technologies"
         :key="index"
       >
         <img
           class="development-technologies__image"
-          :src="image.src"
+          :src="technology.src"
           alt="story image"
         />
 
         <p class="development-technologies__image-title">
-          {{ image.title }}
+          {{ technology.title }}
         </p>
       </div>
     </div>
@@ -72,18 +56,21 @@ const images = [
   }
 
   &__card {
+    width: 200px;
+    height: 200px;
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-self: flex-start;
-    padding: 34px 55px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
     background-color: var(--color-grey-light);
     border-radius: 20px;
     gap: 22px;
-    transition: align-self 0.3s ease;
+    animation: moveUp 5s infinite ease-in-out;
 
     &:nth-child(even) {
-      align-self: flex-end;
+      animation: moveDown 5s infinite ease-in-out;
     }
 
     &:hover {
@@ -94,7 +81,7 @@ const images = [
   }
 
   &__image {
-    width: 100%;
+    max-width: 90px;
     height: auto;
     transition: transform 0.2s ease-in-out;
   }
@@ -103,6 +90,34 @@ const images = [
     @include font-subscribe;
 
     color: var(--color-black);
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(-40px);
+  }
+
+  50% {
+    transform: translateY(40px);
+  }
+
+  100% {
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(40px);
+  }
+
+  50% {
+    transform: translateY(-40px);
+  }
+
+  100% {
+    transform: translateY(40px);
   }
 }
 </style>

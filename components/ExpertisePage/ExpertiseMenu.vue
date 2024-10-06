@@ -1,7 +1,9 @@
 <script setup>
-const title = "Битрикс24 помогает бизнесу работать";
+import { ref } from "vue";
 
-const props = defineProps({
+const activeIndex = ref(0);
+
+defineProps({
   marks: {
     type: Array,
     required: false,
@@ -19,6 +21,10 @@ const props = defineProps({
     default: null,
   },
 });
+
+const setActiveItem = (index) => {
+  activeIndex.value = index;
+};
 </script>
 
 <template>
@@ -28,7 +34,12 @@ const props = defineProps({
 
       <div class="expertise-menu__content">
         <ul class="expertise-menu__list">
-          <li v-for="(plate, index) in plates" class="expertise-menu__item">
+          <li
+            v-for="(plate, index) in plates"
+            :key="index"
+            :class="['expertise-menu__item', { active: activeIndex === index }]"
+            @click="setActiveItem(index)"
+          >
             <p class="expertise-menu__item-title icon-arrow-right-up">
               {{ plate.title }}
             </p>
@@ -40,7 +51,7 @@ const props = defineProps({
         </ul>
 
         <div class="expertise-menu__item-aside">
-          <p v-for="(mark, index) in marks" class="icon-marker">
+          <p v-for="(mark, index) in marks" :key="index" class="icon-marker">
             {{ mark.content }}
           </p>
           <img
@@ -109,6 +120,10 @@ const props = defineProps({
     }
 
     &:hover {
+      color: var(--color-blue);
+    }
+
+    &.active {
       max-height: 252px;
       color: var(--color-white);
       background: var(--color-blue);
