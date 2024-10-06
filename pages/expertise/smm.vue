@@ -51,24 +51,32 @@ const cards = [
 
 const images = [
   {
-    src: "/images/imageCaseArticle5.png",
-    title: "Интернет-магазины",
-    subtitle: "Интернет-магазин «Kamatyres»",
+    src: "/images/imageMarketplace3.png",
+    title: "Владельцам бизнеса",
+    subtitle: "",
   },
   {
-    src: "/images/imageBlogArticle1.png",
-    title: "Корпоративные порталы",
-    subtitle: "Портал «Личный кабинет застройщиков»",
+    src: "/images/imageSMM8.png",
+    title: "Маркетологам компаний",
+    subtitle: "",
+  },
+];
+
+const employees = [
+  {
+    image: "/images/imageSMM9.png",
+    name: "Ильиных Максим",
+    occupation: "Руководитель направления SMM",
   },
   {
-    src: "/images/imageCase7.png",
-    title: "B2B и B2C сервисы",
-    subtitle: "Приложение по управлению умным домом «TouchOn»",
+    image: "/images/imageAdvertisement9.png",
+    name: "Коренев Василий",
+    occupation: "Графический дизайнер",
   },
   {
-    src: "/images/imageCase8.png",
-    title: "Oбучающие платформы",
-    subtitle: "Образовательная онлайн-платформа «EnglishVeronika»",
+    image: "/images/imageSMM10.png",
+    name: "Маргарита Рассадина",
+    occupation: "Таргетолог",
   },
 ];
 
@@ -109,7 +117,7 @@ const imageCaption = "";
 </script>
 
 <template>
-  <div class="expertise-development">
+  <div class="expertise-smm">
     <ExpertiseHeading
       :breadcrumbItems="breadcrumbItems"
       :title="title"
@@ -122,13 +130,33 @@ const imageCaption = "";
 
     <Advantages :cards="cards" />
 
-    <DevelopmentSlider :images="images" />
+    <DevelopmentSlider :images="images" title="Кому подойдут наши услуги?" />
 
-    <Technologies :technologies="technologies" />
+    <Recruiting />
+
+    <div class="container">
+      <div class="expertise-smm__heading">
+        Над вашим проектом будут работать
+      </div>
+
+      <div class="expertise-smm__table">
+        <div class="expertise-smm__card" v-for="(employee, index) in employees">
+          <img
+            :key="index"
+            class="expertise-smm__card-image"
+            :src="employee.image"
+            alt="Фото сотрудника"
+          />
+          <p class="expertise-smm__card-employee">
+            {{ employee.name }} <span>{{ employee.occupation }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
 
     <BlogUnit title="Награды и сертификаты" article="development" />
 
-    <Recruiting />
+    <Technologies :technologies="technologies" />
 
     <BlogUnit title="Наши кейсы" article="case" :slider="true" />
 
@@ -139,7 +167,9 @@ const imageCaption = "";
 </template>
 
 <style lang="scss">
-.expertise-development {
+@import "~/assets/scss/helpers/fonts-mixin";
+
+.expertise-smm {
   display: flex;
   flex-direction: column;
   padding-top: var(--page-padding);
@@ -152,6 +182,58 @@ const imageCaption = "";
   .outstaff-advantages__item {
     max-height: 414px;
     width: auto;
+  }
+
+  .development-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__heading {
+    @include font-h2;
+
+    text-align: center;
+    margin-bottom: 100px;
+  }
+
+  &__table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--unit-margin-y);
+  }
+
+  &__card {
+    height: 630px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 24px;
+    margin-left: 8px;
+  }
+
+  &__card-image {
+    max-width: 414px;
+    height: auto;
+    border-radius: 40px;
+  }
+
+  &__card-employee {
+    @include font-h6;
+
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+
+    span {
+      @include font-text-4-1920;
+
+      color: var(--color-dark-blue);
+    }
   }
 }
 </style>
