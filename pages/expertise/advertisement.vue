@@ -357,13 +357,13 @@ const imageCaption = "";
   }
 
   .expertise-menu__content {
-    height: 525px;
+    max-height: 525px;
   }
 
   .expertise-menu__item {
     max-height: 128px;
 
-    &:hover {
+    &.active {
       max-height: 252px;
     }
   }
