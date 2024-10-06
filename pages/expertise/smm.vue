@@ -82,28 +82,28 @@ const employees = [
 
 const technologies = [
   {
-    src: "/images/imageTechnologies1.png",
-    title: "Flutter",
+    src: "/images/imageSMM11.png",
+    title: "Яндекс Дзен",
   },
   {
-    src: "/images/imageTechnologies2.png",
-    title: "Java",
+    src: "/images/imageSMM12.png",
+    title: "Telegram",
   },
   {
-    src: "/images/imageTechnologies3.png",
-    title: "Vue",
+    src: "/images/imageSMM13.png",
+    title: "Одноклассники",
   },
   {
-    src: "/images/imageTechnologies4.png",
-    title: "Laravel",
+    src: "/images/imageSMM14.png",
+    title: "Вконтакте",
   },
   {
-    src: "/images/imageTechnologies5.png",
-    title: "1C-Bitrix",
+    src: "/images/imageSMM15.png",
+    title: "Instagram",
   },
   {
-    src: "/images/imageTechnologies6.png",
-    title: "PWA",
+    src: "/images/imageSMM16.png",
+    title: "Facebook",
   },
 ];
 
@@ -168,7 +168,7 @@ const imageCaption = "";
 
     <BlogUnit title="Награды и сертификаты" article="development" />
 
-    <Technologies :technologies="technologies" />
+    <Technologies :technologies="technologies" title="Площадки" />
 
     <BlogUnit title="Наши кейсы" article="case" :slider="true" />
 

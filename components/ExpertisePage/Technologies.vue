@@ -4,12 +4,16 @@ defineProps({
     type: Array,
     required: true,
   },
+  title: {
+    type: String,
+    default: "Используемые технологии",
+  },
 });
 </script>
 
 <template>
   <div class="development-technologies">
-    <div class="development-technologies__heading">Используемые технологии</div>
+    <div class="development-technologies__heading">{{ title }}</div>
 
     <div class="development-technologies__wrapper">
       <div
