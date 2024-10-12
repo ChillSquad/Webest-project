@@ -216,7 +216,7 @@ const slides = [
     &:after {
       content: "\004C";
       font-size: 18px;
-      color: var(--color-white);
+      color: #fff;
     }
   }
 

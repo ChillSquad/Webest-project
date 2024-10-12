@@ -132,7 +132,7 @@ defineProps({
   &__image-title {
     @include font-h6;
 
-    color: var(--color-white);
+    color: #fff;
     position: absolute;
     top: 32px;
     left: 32px;
@@ -141,7 +141,7 @@ defineProps({
   &__image-subtitle {
     @include font-text-4;
 
-    color: var(--color-white);
+    color: #fff;
     position: absolute;
     bottom: 32px;
     left: 32px;

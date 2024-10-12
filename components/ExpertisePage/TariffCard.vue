@@ -121,7 +121,7 @@ defineProps({
     background: transparent;
     border: 1px solid var(--color-white);
     border-radius: 20px;
-    color: var(--color-white);
+    color: #fff;
     font-size: 20px;
     line-height: 20px;
     font-family: var(--ff-gilroy-semi-bold);
@@ -145,7 +145,7 @@ defineProps({
       &:before {
         content: "\004E";
         font-size: 12px;
-        color: var(--color-white);
+        color: #fff;
         padding-right: 8px;
       }
     }

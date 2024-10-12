@@ -13,7 +13,7 @@
 
     width: 569px;
     margin-left: auto;
-    color: var(--color-black-subtitle);
+    color: var(--color-black);
 
     .custom-standing-pink {
       @include custom-standing;
@@ -199,7 +199,7 @@
     }
 
     &:hover {
-      color: var(--color-white);
+      color: #fff;
 
       .icon-development {
         @include expertise-icon-hover;

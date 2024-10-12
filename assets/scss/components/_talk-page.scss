@@ -23,7 +23,7 @@
       @include font-text-2;
 
       font-style: normal;
-      color: var(--color-black-subtitle);
+      color: var(--color-black);
     }
   }
 
@@ -67,7 +67,7 @@
         background: var(--color-button-gradient-hover);
 
         &:hover:after {
-          color: var(--color-white);
+          color: #fff;
         }
       }
     }
@@ -76,7 +76,7 @@
       &:after {
         content: "\004F";
         font-size: 20px;
-        color: var(--color-white);
+        color: #fff;
         transition: color 0.2s ease-in-out;
       }
     }
@@ -85,7 +85,7 @@
       &:after {
         content: "\0050";
         font-size: 20px;
-        color: var(--color-white);
+        color: #fff;
         transition: color 0.2s ease-in-out;
       }
     }
@@ -94,7 +94,7 @@
       &:after {
         content: "\0052";
         font-size: 20px;
-        color: var(--color-white);
+        color: #fff;
         transition: color 0.2s ease-in-out;
       }
     }
@@ -103,7 +103,7 @@
       &:after {
         content: "\0051";
         font-size: 20px;
-        color: var(--color-white);
+        color: #fff;
         transition: color 0.2s ease-in-out;
       }
     }
@@ -112,7 +112,7 @@
       &:after {
         content: "\0053";
         font-size: 20px;
-        color: var(--color-white);
+        color: #fff;
         transition: color 0.2s ease-in-out;
       }
     }

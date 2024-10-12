@@ -218,7 +218,7 @@
   display: inline-block;
   padding: 0 8px;
   border-radius: var(--border-radius-custom-standing);
-  color: var(--color-white);
+  color: #fff;
 }
 
 @mixin icon-arrow-right-hover {
@@ -248,13 +248,13 @@
 
 @mixin footer-icon {
   font-size: var(--font-footer-icon);
-  color: var(--color-white);
+  color: #fff;
   transition: color 0.3s ease-in-out;
 }
 
 @mixin article-icon {
   font-size: 20px;
-  color: var(--color-white);
+  color: #fff;
   transition: color 0.2s ease-in-out;
 }
 

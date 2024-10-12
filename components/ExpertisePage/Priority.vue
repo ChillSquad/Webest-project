@@ -91,7 +91,7 @@ onMounted(() => {
   flex-direction: column;
   padding: var(--unit-margin-y) 0;
   background-color: var(--color-blue);
-  color: var(--color-white);
+  color: #fff;
   gap: 100px;
   overflow-x: hidden;
   margin-bottom: var(--unit-margin-y);
@@ -145,7 +145,7 @@ onMounted(() => {
       transform: translateX(-50%);
       width: 100dvw;
       height: 1px;
-      background-color: var(--color-white);
+      background-color: #fff;
     }
   }
 

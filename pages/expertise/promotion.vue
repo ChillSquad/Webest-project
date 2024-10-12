@@ -240,7 +240,7 @@ const imageCaption =
 
   .expertise-heading__image-caption {
     width: 764px;
-    color: var(--color-white);
+    color: #fff;
   }
 
   .outstaff-advantages__list {

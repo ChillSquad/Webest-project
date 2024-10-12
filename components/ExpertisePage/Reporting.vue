@@ -116,12 +116,12 @@ defineProps({
 
     &:hover {
       background-color: var(--color-blue);
-      color: var(--color-white);
+      color: #fff;
 
       .icon-marker {
         transform: translateY(0);
         &:before {
-          color: var(--color-white);
+          color: #fff;
         }
       }
 
@@ -152,7 +152,7 @@ defineProps({
     font-weight: 900;
     font-size: 480px;
     position: absolute;
-    color: var(--color-white);
+    color: #fff;
     pointer-events: none;
     user-select: none;
   }
@@ -204,7 +204,7 @@ defineProps({
       font-weight: 900;
       font-size: 320px;
       position: absolute;
-      color: var(--color-white);
+      color: #fff;
       pointer-events: none;
       user-select: none;
     }

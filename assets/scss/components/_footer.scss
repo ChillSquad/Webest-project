@@ -6,7 +6,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: var(--color-white);
+  color: #fff;
 
   .container {
     display: flex;
@@ -51,7 +51,7 @@
         transition: color 0.2s ease-in-out;
 
         &:hover {
-          color: var(--color-white);
+          color: #fff;
           text-decoration: underline;
 
           &:after {
@@ -78,7 +78,7 @@
       transition: background-color 0.3s ease-in-out;
 
       &:hover {
-        background-color: var(--color-white);
+        background-color: #fff;
 
         &:hover:after {
           color: var(--color-blue);
@@ -100,7 +100,7 @@
       transition: color 0.2s ease-in-out;
 
       &:hover {
-        color: var(--color-white);
+        color: #fff;
         text-decoration: underline;
 
         &:after {
@@ -146,7 +146,7 @@
       transition: color 0.2s ease-in-out;
 
       &:hover {
-        color: var(--color-white);
+        color: #fff;
         text-decoration: underline;
       }
     }

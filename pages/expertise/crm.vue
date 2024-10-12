@@ -356,7 +356,7 @@ const selectedVersion = ref("Облачная версия");
     height: auto;
     border-radius: 40px;
     padding: 32px;
-    color: var(--color-white);
+    color: #fff;
     border: 1px solid white;
 
     background-image: url("public/images/first-page-background.png");

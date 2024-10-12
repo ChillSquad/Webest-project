@@ -44,7 +44,7 @@ defineProps({
 
       &:checked + label {
         background-color: var(--color-blue);
-        color: var(--color-white);
+        color: #fff;
       }
     }
 

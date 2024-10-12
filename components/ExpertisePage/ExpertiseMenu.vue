@@ -133,7 +133,7 @@ const setActiveItem = (index) => {
     }
 
     &.active {
-      color: var(--color-white);
+      color: #fff;
       background: var(--color-blue);
 
       .expertise-menu__item-subtitle {

@@ -42,7 +42,7 @@ if (!props.modelValue) {
   width: fit-content;
   display: flex;
   border-radius: 20px;
-  background-color: var(--color-white);
+  background-color: #fff;
   border: 1px solid var(--color-grey-light-span);
   padding: 4px;
   gap: 8px;
@@ -59,14 +59,14 @@ if (!props.modelValue) {
 
     &.p-highlight {
       background-color: var(--color-blue);
-      color: var(--color-white);
+      color: #fff;
     }
 
     &:hover {
       transform: scale(1.02);
 
       background-color: var(--color-blue);
-      color: var(--color-white);
+      color: #fff;
     }
   }
 

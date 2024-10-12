@@ -70,7 +70,7 @@ defineProps({
 
   &__left {
     width: 50%;
-    color: var(--color-white);
+    color: #fff;
 
     .gradient-button {
       color: var(--color-blue);
@@ -109,7 +109,7 @@ defineProps({
     width: 100%;
     height: auto;
     margin-bottom: 32px;
-    background-color: var(--color-white);
+    background-color: #fff;
     border-radius: 16px;
     padding: 32px;
   }

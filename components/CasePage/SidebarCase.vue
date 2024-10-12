@@ -81,7 +81,7 @@ defineProps({
   flex-direction: column;
   height: 40%;
   width: 100dvw;
-  background-color: var(--color-white);
+  background-color: #fff;
   position: fixed;
 }
 

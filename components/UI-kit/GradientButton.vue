@@ -37,7 +37,7 @@ defineProps({
   font-family: var(--ff-gilroy-semi-bold);
   font-size: 18px;
   gap: 12px;
-  color: var(--color-white);
+  color: #fff;
   background: var(--color-button-gradient);
   cursor: pointer;
 

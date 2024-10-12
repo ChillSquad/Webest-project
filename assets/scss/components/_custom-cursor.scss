@@ -45,7 +45,7 @@ $ease: cubic-bezier(0.23, 1, 0.32, 1);
     line-height: 20px;
     display: flex;
     flex-direction: column;
-    color: var(--color-white);
+    color: #fff;
     text-align: center;
     z-index: 1;
     transition: transform 0.6s $ease;

@@ -19,7 +19,7 @@
   flex-direction: column;
   height: 100dvh;
   width: 745px;
-  background-color: var(--color-white);
+  background-color: #fff;
   border-radius: 40px 0 0 40px;
   position: fixed;
 }
@@ -164,7 +164,7 @@
     label {
       @include font-text-4;
 
-      color: var(--color-black-subtitle);
+      color: var(--color-black);
     }
   }
 
@@ -214,7 +214,7 @@
       gap: 8px;
 
       label {
-        color: var(--color-black-subtitle);
+        color: var(--color-black);
       }
     }
   }

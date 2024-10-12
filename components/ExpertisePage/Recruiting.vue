@@ -90,7 +90,7 @@ defineProps({
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: var(--color-white);
+  color: #fff;
   width: 100%;
   height: auto;
   align-self: center;

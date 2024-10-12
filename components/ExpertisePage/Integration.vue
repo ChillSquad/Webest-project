@@ -93,7 +93,7 @@ defineProps({
     &:before {
       content: "\004E";
       font-size: 12px;
-      color: var(--color-white);
+      color: #fff;
       padding-right: 8px;
     }
   }
@@ -120,7 +120,7 @@ defineProps({
     }
 
     .individual-development__right {
-      color: var(--color-white);
+      color: #fff;
       background-color: var(--color-blue);
     }
   }
