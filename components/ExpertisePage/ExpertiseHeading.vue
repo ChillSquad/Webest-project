@@ -108,8 +108,6 @@ defineProps({
 
     &__subtitle {
       width: 328px;
-      font-size: 17px;
-      line-height: 23.8px;
       margin: 16px 0 40px 0;
     }
   }

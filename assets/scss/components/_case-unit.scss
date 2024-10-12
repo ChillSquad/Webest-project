@@ -160,8 +160,6 @@
 
   @media (max-width: 600px) {
     &__case-heading {
-      line-height: 19.6px;
-      font-size: 20px;
       width: 400px;
       margin: 20px;
       font-family: var(--ff-montserrat-semi-bold);
@@ -170,7 +168,6 @@
 
   @media (max-width: 500px) {
     &__case-heading {
-      font-size: 16px;
       width: 300px;
     }
   }
@@ -206,9 +203,8 @@
   @media (max-width: 350px) {
     &__case-heading {
       width: 200px;
-      font-size: 12px;
+
       padding: 5px;
-      line-height: normal;
     }
   }
 }
@@ -231,9 +227,9 @@
   }
 
   &__box {
+    @include font-text-3;
+
     display: flex;
-    font-family: var(--ff-gilroy-regular);
-    font-size: 16px;
   }
 
   &__content {

@@ -159,9 +159,9 @@
   &__tag {
     width: min-content;
     border-radius: 16px;
-    border: 1px solid var(--color-black);
     color: var(--color-black);
-    font-size: var(--ff-gilroy-medium);
+    border: 1px solid var(--color-black);
+    font-family: var(--ff-gilroy-medium);
     padding: 9px 16px;
   }
 
@@ -261,8 +261,6 @@
     }
 
     &__subtitle {
-      font-size: 17px;
-      line-height: 23.8px;
       margin: 16px 0 40px 0;
     }
 

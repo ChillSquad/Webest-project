@@ -410,8 +410,6 @@ const imageAlt = "Заголовок статьи";
     }
 
     &__item {
-      font-size: 17px;
-      line-height: 23.8px;
       gap: 20px;
 
       img {

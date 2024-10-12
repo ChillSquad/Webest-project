@@ -75,53 +75,41 @@
     .icon-vkontakte {
       &:after {
         content: "\004F";
-        font-size: 20px;
-        color: #fff;
-        transition: color 0.2s ease-in-out;
+        @include talk-icon;
       }
     }
 
     .icon-telegram {
       &:after {
         content: "\0050";
-        font-size: 20px;
-        color: #fff;
-        transition: color 0.2s ease-in-out;
+        @include talk-icon;
       }
     }
 
     .icon-vcru {
       &:after {
         content: "\0052";
-        font-size: 20px;
-        color: #fff;
-        transition: color 0.2s ease-in-out;
+        @include talk-icon;
       }
     }
 
     .icon-behance {
       &:after {
         content: "\0051";
-        font-size: 20px;
-        color: #fff;
-        transition: color 0.2s ease-in-out;
+        @include talk-icon;
       }
     }
 
     .icon-dprofile {
       &:after {
         content: "\0053";
-        font-size: 20px;
-        color: #fff;
-        transition: color 0.2s ease-in-out;
+        @include talk-icon;
       }
     }
   }
 
   @media (max-width: 360px) {
     &__title {
-      font-size: 38px;
-      line-height: 44.32px;
       margin-bottom: 40px;
     }
 

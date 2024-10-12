@@ -202,11 +202,6 @@ defineProps({
         align-items: first baseline;
       }
     }
-
-    &__item-title {
-      font-size: 20px;
-      line-height: 25.8px;
-    }
   }
 }
 </style>

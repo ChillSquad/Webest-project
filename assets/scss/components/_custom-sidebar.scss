@@ -97,13 +97,6 @@
     gap: 16px;
   }
 
-  .sidebar-heading {
-    &__headline {
-      font-size: 20px;
-      line-height: 35.8px;
-    }
-  }
-
   .sidebar-close-button {
     width: 48px;
     height: 48px;
@@ -142,9 +135,8 @@
   }
 
   &__field {
-    font-family: var(--ff-gilroy-regular);
-    font-size: 18px;
-    line-height: 27.57px;
+    @include font-text-2;
+
     height: 68px;
     background-color: var(--color-grey-light);
     border: none;
@@ -249,8 +241,7 @@
   }
 
   &__span {
-    font-size: 18px;
-    line-height: 27.54px;
+    @include font-text-2;
   }
 
   &__plug {
@@ -260,8 +251,7 @@
 
   @media (max-width: 500px) {
     &__uppercase {
-      font-size: 24px;
-      line-height: 30.96px;
+      @include font-text-1;
     }
   }
 }
@@ -288,8 +278,7 @@
   }
 
   &__span {
-    font-size: 18px;
-    line-height: 27.54px;
+    @include font-text-2;
   }
 
   &__plug {
@@ -299,8 +288,7 @@
 
   @media (max-width: 500px) {
     &__uppercase {
-      font-size: 24px;
-      line-height: 30.96px;
+      @include font-text-1;
     }
   }
 }

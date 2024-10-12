@@ -200,11 +200,6 @@ onMounted(() => {
     &__list-item-content {
       max-width: 328px;
       gap: 12px;
-
-      span {
-        font-size: 18px;
-        line-height: 25.2px;
-      }
     }
   }
 }

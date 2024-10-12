@@ -26,7 +26,11 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/scss/helpers/fonts-mixin";
+
 .gradient-button {
+  @include font-button-2;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,8 +38,6 @@ defineProps({
   border-radius: 20px;
   border: none;
   outline: none;
-  font-family: var(--ff-gilroy-semi-bold);
-  font-size: 18px;
   gap: 12px;
   color: #fff;
   background: var(--color-button-gradient);

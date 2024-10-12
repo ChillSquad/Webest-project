@@ -116,15 +116,14 @@ defineProps({
   }
 
   &__item-button {
+    @include font-button-1;
+
     padding: 24px 0;
     width: 100%;
     background: transparent;
     border: 1px solid #fff;
     border-radius: 20px;
     color: #fff;
-    font-size: 20px;
-    line-height: 20px;
-    font-family: var(--ff-gilroy-semi-bold);
     cursor: pointer;
   }
 

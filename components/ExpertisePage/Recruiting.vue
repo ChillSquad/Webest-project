@@ -114,8 +114,6 @@ defineProps({
 
     p {
       width: 328px;
-      font-size: 32px;
-      line-height: 36.48px;
     }
 
     .custom-cursor {

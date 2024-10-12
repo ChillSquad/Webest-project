@@ -54,11 +54,6 @@ defineProps({
   }
 
   @media (max-width: 360px) {
-    &__item-heading {
-      font-size: 18px;
-      line-height: 25.2px;
-    }
-
     &__item-content {
       @include font-text-3;
 
