@@ -124,11 +124,11 @@ const cards = [
   }
 
   &__item-subtitle {
-    @include font-text-4-1920;
+    @include font-text-4;
   }
 
   .forbidden {
-    @include font-text-2;
+    @include font-text-6;
 
     margin-top: 8px;
   }

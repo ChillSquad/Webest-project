@@ -9,7 +9,7 @@
   }
 
   &__title {
-    @include font-h1-1920;
+    @include font-h1;
 
     margin-bottom: 100px;
   }
@@ -20,7 +20,7 @@
     gap: 5px;
 
     a {
-      @include font-text-1;
+      @include font-text-2;
 
       font-style: normal;
       color: var(--color-black-subtitle);
@@ -28,7 +28,7 @@
   }
 
   &__tags {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     color: var(--color-dark-blue);
     width: 100%;

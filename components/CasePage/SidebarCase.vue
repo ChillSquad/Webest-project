@@ -92,7 +92,7 @@ defineProps({
 }
 
 .sidebar-info-heading {
-  @include font-text-1;
+  @include font-text-2;
 
   display: flex;
   flex-direction: column;

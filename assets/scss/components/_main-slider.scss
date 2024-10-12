@@ -53,7 +53,7 @@
   }
 
   &__story-heading {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     font-family: var(--ff-gilroy-semi-bold);
     color: var(--color-white);

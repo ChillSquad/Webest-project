@@ -368,7 +368,7 @@ const imageAlt = "Заголовок статьи";
   }
 
   &__item {
-    @include font-text-1;
+    @include font-text-2;
 
     display: flex;
     align-items: center;

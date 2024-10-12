@@ -36,7 +36,7 @@ defineProps({
   }
 
   &__text {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     width: 100%;
   }

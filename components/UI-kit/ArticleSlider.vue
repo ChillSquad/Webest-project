@@ -148,7 +148,7 @@ const updateCurrentIndex = (swiper) => {
   }
 
   &__card-username {
-    @include font-text-1;
+    @include font-text-2;
 
     margin-bottom: 40px;
 

@@ -161,7 +161,7 @@ const updateCurrentIndex = (swiper) => {
       width: 272px;
       height: 200px;
       object-fit: cover;
-      border-radius: var(--border-radius-blog);
+      border-radius: var(--border-radius-40);
     }
   }
 

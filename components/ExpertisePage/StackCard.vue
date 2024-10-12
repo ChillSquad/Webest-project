@@ -42,7 +42,7 @@ defineProps({
   }
 
   &__item-content {
-    @include font-text-1;
+    @include font-text-2;
 
     display: flex;
     justify-content: space-between;

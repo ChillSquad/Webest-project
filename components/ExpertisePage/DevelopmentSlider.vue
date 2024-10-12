@@ -139,7 +139,7 @@ defineProps({
   }
 
   &__image-subtitle {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     color: var(--color-white);
     position: absolute;
@@ -169,8 +169,6 @@ defineProps({
     }
 
     &__image-subtitle {
-      @include font-text-4-360;
-
       bottom: 20px;
       left: 20px;
     }

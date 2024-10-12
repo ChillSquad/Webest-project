@@ -85,7 +85,7 @@ defineProps({
   }
 
   &__item-subtitle {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     margin-bottom: 48px;
     color: var(--color-white-transparent);
@@ -95,7 +95,7 @@ defineProps({
     @include font-h4;
 
     span {
-      @include font-text-1;
+      @include font-text-2;
 
       text-transform: lowercase;
       color: var(--color-white-transparent);
@@ -103,14 +103,14 @@ defineProps({
   }
 
   &__item-sale {
-    @include font-text-1;
+    @include font-text-2;
 
     text-decoration: line-through;
     color: var(--color-white-transparent);
   }
 
   .license {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     text-decoration: none;
   }
@@ -129,7 +129,7 @@ defineProps({
   }
 
   &__item-footer {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     display: flex;
     flex-direction: column;

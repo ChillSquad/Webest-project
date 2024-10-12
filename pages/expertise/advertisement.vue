@@ -346,7 +346,7 @@ const imageCaption = "";
     margin-left: 32px;
 
     span {
-      @include font-text-4-1920;
+      @include font-text-4;
 
       color: var(--color-dark-blue);
     }

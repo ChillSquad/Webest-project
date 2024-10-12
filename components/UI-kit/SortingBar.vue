@@ -49,7 +49,7 @@ defineProps({
     }
 
     label {
-      @include font-text-4-1920;
+      @include font-text-4;
 
       display: inline-block;
       padding: 11px 16px 9px 16px;

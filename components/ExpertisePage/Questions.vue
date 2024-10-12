@@ -124,7 +124,7 @@ defineProps({
   }
 
   &__item-numbering {
-    @include font-text-2;
+    @include font-text-6;
 
     color: var(--color-blue);
     font-family: var(--ff-gilroy-medium);
@@ -142,11 +142,11 @@ defineProps({
   }
 
   &__item-subtitle {
-    @include font-text-1;
+    @include font-text-2;
   }
 
   .icon-marker {
-    @include font-text-1;
+    @include font-text-2;
 
     display: flex;
     align-items: first baseline;
@@ -197,7 +197,7 @@ defineProps({
     }
 
     &__item-title {
-      @include font-text-1;
+      @include font-text-2;
 
       font-family: var(--ff-montserrat-bold);
     }

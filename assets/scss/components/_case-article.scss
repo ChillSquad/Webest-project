@@ -39,7 +39,7 @@
   &__chapter-image {
     width: 100%;
     height: auto;
-    border-radius: var(--border-radius-blog);
+    border-radius: var(--border-radius-40);
   }
 
   &__heading-image-review {
@@ -51,7 +51,7 @@
   }
 
   &__title {
-    @include font-h2-inner;
+    @include font-h1-inner;
   }
 
   &__subtitle {
@@ -78,7 +78,7 @@
   }
 
   &__chapter-content {
-    @include font-text-1;
+    @include font-text-2;
 
     gap: 20px;
     text-transform: initial;
@@ -144,7 +144,7 @@
       gap: 4px;
 
       span {
-        @include font-text-4-1920;
+        @include font-text-4;
 
         color: var(--color-dark-blue);
       }
@@ -177,7 +177,7 @@
       gap: 4px;
 
       span {
-        @include font-text-4-1920;
+        @include font-text-4;
 
         color: var(--color-dark-blue);
       }
@@ -191,7 +191,7 @@
   }
 
   &__tags {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     width: 100%;
     color: var(--color-dark-blue);
@@ -308,7 +308,7 @@
     }
 
     &__title {
-      @include font-h3-menu;
+      @include font-text-2;
     }
 
     &__subtitle {
@@ -367,7 +367,7 @@
         width: 328px;
         height: 411px;
         object-fit: cover;
-        border-radius: var(--border-radius-blog);
+        border-radius: var(--border-radius-40);
       }
     }
 
@@ -426,7 +426,7 @@
   bottom: 23px;
   max-width: max-content;
   background: var(--color-white);
-  border-radius: calc(var(--border-radius-case) - 6px);
+  border-radius: calc(var(--border-radius-40) - 6px);
 
   &__inner {
     display: flex;
@@ -443,7 +443,7 @@
   }
 
   &__text {
-    @include font-text-4-1920;
+    @include font-text-4;
     text-align: start;
     width: 200px;
   }

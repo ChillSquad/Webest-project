@@ -169,7 +169,7 @@ onMounted(() => {
     }
 
     p {
-      @include font-text-1;
+      @include font-text-2;
     }
   }
 

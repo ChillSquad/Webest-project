@@ -134,7 +134,7 @@ defineProps({
   }
 
   &__item-heading {
-    @include font-text-1;
+    @include font-text-2;
 
     width: 362px;
     z-index: 1;

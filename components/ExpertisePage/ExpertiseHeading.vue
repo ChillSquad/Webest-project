@@ -49,7 +49,7 @@ defineProps({
   margin-bottom: var(--unit-margin-y);
 
   &__title {
-    @include font-h2-inner;
+    @include font-h1-inner;
   }
 
   &__subtitle {
@@ -69,11 +69,11 @@ defineProps({
   &__image {
     width: 100%;
     height: auto;
-    border-radius: var(--border-radius-blog);
+    border-radius: var(--border-radius-40);
   }
 
   &__image-caption {
-    @include font-text-1;
+    @include font-text-2;
 
     width: 388px;
     text-align: center;
@@ -109,7 +109,7 @@ defineProps({
     }
 
     &__title {
-      @include font-h3-menu;
+      @include font-text-2;
     }
 
     &__subtitle {

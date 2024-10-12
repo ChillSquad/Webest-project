@@ -148,11 +148,11 @@ defineProps({
   }
 
   &__item-subtitle {
-    @include font-text-1;
+    @include font-text-2;
   }
 
   &__item-points {
-    @include font-text-1;
+    @include font-text-2;
 
     transition: opacity 0.3s ease-in-out, transform 0.6s ease-in-out;
     opacity: 0;

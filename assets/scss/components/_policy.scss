@@ -2,7 +2,7 @@
   padding-top: var(--page-padding);
 
   &__title {
-    @include font-h1-1920;
+    @include font-h1;
 
     text-align: center;
     margin-bottom: 100px;
@@ -27,7 +27,7 @@
   }
 
   &__chapter-intro {
-    @include font-text-1;
+    @include font-text-2;
 
     text-transform: initial;
   }
@@ -39,7 +39,7 @@
   }
 
   &__chapter-list {
-    @include font-text-1;
+    @include font-text-2;
 
     text-transform: initial;
     display: flex;
@@ -51,7 +51,7 @@
   }
 
   .icon-marker {
-    @include font-text-1;
+    @include font-text-2;
 
     margin-left: 36px;
     display: flex;

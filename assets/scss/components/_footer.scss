@@ -45,7 +45,7 @@
       padding: 3px 0;
 
       a {
-        @include font-text-1;
+        @include font-text-2;
 
         color: var(--color-white-transparent);
         transition: color 0.2s ease-in-out;
@@ -94,7 +94,7 @@
     gap: 5px;
 
     a {
-      @include font-text-1;
+      @include font-text-2;
 
       color: var(--color-white-transparent);
       transition: color 0.2s ease-in-out;
@@ -128,7 +128,7 @@
   }
 
   &__copyright-logo {
-    @include font-text-2;
+    @include font-text-6;
 
     color: var(--color-white-transparent);
     user-select: none;
@@ -139,7 +139,7 @@
     gap: 20px;
 
     a {
-      @include font-text-2;
+      @include font-text-6;
 
       color: var(--color-white-transparent);
 

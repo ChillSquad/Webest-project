@@ -9,7 +9,7 @@
   }
 
   &__title {
-    @include font-h1-1920;
+    @include font-h1;
 
     margin-bottom: 24px;
   }
@@ -51,8 +51,6 @@
     }
 
     &__subtitle {
-      @include font-text-4-360;
-
       width: 328px;
     }
   }

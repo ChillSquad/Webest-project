@@ -25,7 +25,7 @@
   &__chapter-image {
     width: 100%;
     height: auto;
-    border-radius: var(--border-radius-blog);
+    border-radius: var(--border-radius-40);
   }
 
   &__subtitle,
@@ -43,7 +43,7 @@
   }
 
   &__title {
-    @include font-h2-inner;
+    @include font-h1-inner;
   }
 
   &__subtitle {
@@ -68,7 +68,7 @@
 
   &__intro-content,
   &__chapter-content {
-    @include font-text-1;
+    @include font-text-2;
 
     gap: 20px;
   }
@@ -142,7 +142,7 @@
   }
 
   &__tags {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     width: 100%;
     color: var(--color-dark-blue);
@@ -254,7 +254,7 @@
     }
 
     &__title {
-      @include font-h3-menu;
+      @include font-text-2;
     }
 
     &__heading-image-review {
