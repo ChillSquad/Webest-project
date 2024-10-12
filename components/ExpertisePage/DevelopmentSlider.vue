@@ -162,8 +162,6 @@ defineProps({
     }
 
     &__image-title {
-      @include font-text-3;
-
       top: 20px;
       left: 20px;
     }

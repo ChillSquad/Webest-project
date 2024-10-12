@@ -183,8 +183,6 @@ onMounted(() => {
     }
 
     &__subtitle {
-      @include font-h5;
-
       max-width: 328px;
     }
 
@@ -196,8 +194,6 @@ onMounted(() => {
     }
 
     &__list-item-number {
-      @include font-text-3;
-
       margin-right: 0;
     }
 
@@ -208,10 +204,6 @@ onMounted(() => {
       span {
         font-size: 18px;
         line-height: 25.2px;
-      }
-
-      p {
-        @include font-text-3;
       }
     }
   }

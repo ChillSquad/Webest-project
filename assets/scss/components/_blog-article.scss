@@ -253,10 +253,6 @@
       margin-bottom: 40px;
     }
 
-    &__title {
-      @include font-text-2;
-    }
-
     &__heading-image-review {
       object-fit: cover;
       width: 100dvw;
@@ -276,14 +272,6 @@
 
     &__content {
       gap: 60px;
-    }
-
-    &__intro-content {
-      @include font-text-3;
-    }
-
-    &__chapter-content {
-      @include font-text-3;
     }
 
     &__split {

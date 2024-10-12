@@ -207,14 +207,6 @@ defineProps({
       font-size: 20px;
       line-height: 25.8px;
     }
-
-    &__item-subtitle {
-      @include font-text-3;
-    }
-
-    &__item-points {
-      @include font-text-3;
-    }
   }
 }
 </style>

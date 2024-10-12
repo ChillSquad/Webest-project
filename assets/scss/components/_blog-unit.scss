@@ -75,7 +75,7 @@
     @include font-h6;
 
     width: 75%;
-    color: var(--color-black);
+    color: var(--color-black-subtitle);
     transition: color 0.3s ease-in-out;
   }
 
@@ -103,8 +103,6 @@
     }
 
     &__story-heading {
-      @include font-text-3;
-
       width: 100%;
       font-family: var(--ff-montserrat-semi-bold);
     }

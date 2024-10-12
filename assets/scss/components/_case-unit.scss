@@ -185,8 +185,6 @@
     }
 
     &__case-heading {
-      @include font-text-3;
-
       font-family: var(--ff-montserrat-semi-bold);
       width: 300px;
       margin: 16px;

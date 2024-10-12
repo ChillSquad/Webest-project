@@ -95,8 +95,6 @@ defineProps({
       }
 
       &__image-caption {
-        @include font-text-3;
-
         max-width: 328px;
         bottom: 16px;
       }
@@ -106,10 +104,6 @@ defineProps({
       display: block;
 
       margin-bottom: 40px;
-    }
-
-    &__title {
-      @include font-text-2;
     }
 
     &__subtitle {

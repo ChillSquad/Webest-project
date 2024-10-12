@@ -155,12 +155,6 @@ defineProps({
         transform: translateY(0);
       }
     }
-
-    &__item-title {
-      @include font-text-3;
-
-      font-family: var(--ff-montserrat-bold);
-    }
   }
 }
 </style>

@@ -98,8 +98,6 @@
   }
 
   .sidebar-heading {
-    @include font-text-3;
-
     &__headline {
       font-size: 20px;
       line-height: 35.8px;
@@ -203,8 +201,6 @@
 
   .sidebar-input {
     &__field {
-      @include font-text-3;
-
       height: 57px;
     }
 
@@ -267,10 +263,6 @@
       font-size: 24px;
       line-height: 30.96px;
     }
-
-    &__span {
-      @include font-text-3;
-    }
   }
 }
 
@@ -309,10 +301,6 @@
     &__uppercase {
       font-size: 24px;
       line-height: 30.96px;
-    }
-
-    &__span {
-      @include font-text-3;
     }
   }
 }
