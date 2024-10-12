@@ -97,10 +97,9 @@
     display: flex;
     justify-content: center;
     border: none;
+    outline: none;
     cursor: pointer;
-  }
 
-  &__menu-button {
     &::before,
     &::after {
       height: 3px;
