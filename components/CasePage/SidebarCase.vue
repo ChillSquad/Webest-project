@@ -1,5 +1,5 @@
 <script setup>
-import CaseUnitPlate from "./CaseUnitPlate.vue";
+import CaseUnitInfo from "./CaseUnitInfo.vue";
 import { useSidebarModel } from "../models/sidebar";
 import { ref, watch } from "vue";
 
@@ -41,19 +41,19 @@ const sidebarPT = {
     return { name: transitionName.value };
   },
 };
+
+defineProps({
+  items: {
+    type: Array,
+    required: true,
+  },
+});
 </script>
 
 <template>
   <aside>
-    <Sidebar
-      v-model:visible="isActiveCase"
-      :pt="sidebarPT"
-      header=""
-      position="bottom"
-    >
-      <template>
-        <CaseUnitPlate />
-      </template>
+    <Sidebar v-model:visible="isActiveCase" :pt="sidebarPT" position="bottom">
+      <CaseUnitInfo :items="items" />
     </Sidebar>
   </aside>
 </template>

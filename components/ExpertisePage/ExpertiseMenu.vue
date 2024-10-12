@@ -1,22 +1,15 @@
 <script setup>
+import GradientButton from "~/components/UI-kit/GradientButton.vue";
 import { ref } from "vue";
 
 const activeIndex = ref(0);
 
 defineProps({
-  marks: {
-    type: Array,
-    required: false,
-  },
   plates: {
     type: Array,
     required: true,
   },
   title: {
-    type: String,
-    default: null,
-  },
-  image: {
     type: String,
     default: null,
   },
@@ -28,9 +21,11 @@ const setActiveItem = (index) => {
 </script>
 
 <template>
-  <section class="expertise-menu">
-    <div class="container">
+  <div class="container">
+    <section class="expertise-menu">
       <div class="expertise-menu__heading">{{ title }}</div>
+
+      <GradientButton title="Сайт партнера" />
 
       <div class="expertise-menu__content">
         <ul class="expertise-menu__list">
@@ -51,18 +46,29 @@ const setActiveItem = (index) => {
         </ul>
 
         <div class="expertise-menu__item-aside">
-          <p v-for="(mark, index) in marks" :key="index" class="icon-marker">
-            {{ mark.content }}
-          </p>
-          <img
-            class="expertise-menu__item-image"
-            :src="image"
-            alt="Изображение компонента"
-          />
+          <div class="expertise-menu__item-marks">
+            <p
+              v-for="(mark, index) in plates[activeIndex].marks"
+              :key="index"
+              class="icon-marker"
+            >
+              {{ mark }}
+            </p>
+          </div>
+
+          <transition name="list" mode="out-in">
+            <img
+              v-if="plates[activeIndex].image"
+              :key="plates[activeIndex].image"
+              class="expertise-menu__item-image"
+              :src="plates[activeIndex].image"
+              alt="Изображение компонента"
+            />
+          </transition>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <style lang="scss">
@@ -70,6 +76,10 @@ const setActiveItem = (index) => {
 
 .expertise-menu {
   margin-bottom: var(--unit-margin-y);
+
+  button.gradient-button {
+    display: none;
+  }
 
   &__heading {
     @include font-h2;
@@ -79,23 +89,22 @@ const setActiveItem = (index) => {
   }
 
   &__content {
-    height: 665px;
+    height: max-content;
+    display: flex;
     box-shadow: 0 0 50px 5px var(--shadow-card);
     background-color: rgba(235, 238, 242, 0.5);
     border-radius: 32px;
-    display: flex;
     gap: 8px;
   }
 
   &__list {
-    width: 50%;
+    width: 796px;
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
 
   &__item {
-    max-height: 96px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -124,7 +133,6 @@ const setActiveItem = (index) => {
     }
 
     &.active {
-      max-height: 252px;
       color: var(--color-white);
       background: var(--color-blue);
 
@@ -159,15 +167,21 @@ const setActiveItem = (index) => {
   }
 
   &__item-aside {
-    width: 50%;
-
+    height: max-content;
     position: relative;
-    background: var(--color-white);
     border-radius: 32px;
     display: flex;
     flex-direction: column;
     justify-content: end;
-    padding: 32px;
+
+    position: sticky;
+    top: 5%;
+  }
+
+  &__item-marks {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
 
     .icon-marker {
       display: flex;
@@ -184,9 +198,16 @@ const setActiveItem = (index) => {
   }
 
   &__item-image {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    border-radius: 32px;
+  }
+
+  @media (max-width: 360px) {
+    button.gradient-button {
+      display: block;
+
+      margin-bottom: 40px;
+      margin: 0 auto 40px;
+    }
   }
 }
 </style>

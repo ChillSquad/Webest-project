@@ -12,27 +12,30 @@ defineProps({
 </script>
 
 <template>
-  <div class="development-technologies">
-    <div class="development-technologies__heading">{{ title }}</div>
+  <section class="development-technologies">
+    <div class="container">
+      <div class="development-technologies__heading">{{ title }}</div>
 
-    <div class="development-technologies__wrapper">
-      <div
-        class="development-technologies__card"
-        v-for="(technology, index) in technologies"
-        :key="index"
-      >
-        <img
-          class="development-technologies__image"
-          :src="technology.src"
-          alt="story image"
-        />
+      <div class="development-technologies__wrapper">
+        <div
+          class="development-technologies__card"
+          v-if="technologies"
+          v-for="(technology, index) in technologies"
+          :key="index"
+        >
+          <img
+            class="development-technologies__image"
+            :src="technology.src"
+            alt="story image"
+          />
 
-        <p class="development-technologies__image-title">
-          {{ technology.title }}
-        </p>
+          <p class="development-technologies__image-title">
+            {{ technology.title }}
+          </p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss">
@@ -53,6 +56,7 @@ defineProps({
     display: flex;
     justify-content: center;
     gap: 14px;
+    flex-wrap: wrap;
   }
 
   &__card {
@@ -89,7 +93,29 @@ defineProps({
   &__image-title {
     @include font-subscribe;
 
+    font-family: var(--ff-gilroy-medium);
     color: var(--color-black);
+  }
+
+  @media (max-width: 360px) {
+    &__wrapper {
+      height: fit-content;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    &__card {
+      width: 160px;
+      height: 160px;
+      animation: moveUp 5s infinite ease-in-out;
+      transform: translateY(-40px);
+
+      &:nth-child(even) {
+        animation: moveDown 5s infinite ease-in-out;
+        transform: translateY(40px);
+      }
+    }
   }
 }
 

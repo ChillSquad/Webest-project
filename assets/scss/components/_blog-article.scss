@@ -94,7 +94,7 @@
 
     .icon-marker {
       display: flex;
-      align-items: center;
+      align-items: first baseline;
 
       &:before {
         content: "\004E";
@@ -144,8 +144,8 @@
   &__tags {
     @include font-text-4-1920;
 
-    color: var(--color-dark-blue);
     width: 100%;
+    color: var(--color-dark-blue);
     display: flex;
     justify-content: space-between;
 
@@ -157,8 +157,7 @@
   }
 
   &__tag {
-    display: flex;
-
+    width: min-content;
     border-radius: 16px;
     border: 1px solid var(--color-black);
     color: var(--color-black);
@@ -298,6 +297,10 @@
     &__tags {
       flex-direction: column;
       gap: 24px;
+
+      > div {
+        gap: 12px;
+      }
     }
 
     &__date {

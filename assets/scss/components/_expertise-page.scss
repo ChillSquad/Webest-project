@@ -56,9 +56,13 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     height: 100%;
 
+    .tall {
+      grid-row: span 2;
+      height: 100%;
+    }
+
     .wide {
       grid-column: span 2;
-      height: 294px;
       width: 100%;
     }
   }
@@ -102,12 +106,6 @@
     &__heading-subtitle {
       width: 328px;
     }
-
-    .wide {
-      grid-column: span 1;
-      height: 210px;
-      width: 100%;
-    }
   }
 
   @media (max-width: 400px) {
@@ -129,6 +127,18 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+
+      .tall {
+        grid-row: span 1;
+        width: 328px;
+        height: 210px;
+      }
+
+      .wide {
+        grid-column: span 1;
+        width: 328px;
+        height: 210px;
+      }
     }
 
     &__subtitle {

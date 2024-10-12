@@ -6,11 +6,20 @@ defineProps({
     type: [String, null],
     default: null,
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
 <template>
-  <Button label="Submit" class="gradient-button" iconPos="right">
+  <Button
+    :disabled="disabled"
+    label="Submit"
+    class="gradient-button"
+    iconPos="right"
+  >
     <span>{{ title }}</span>
     <span class="gradient-button__arrow icon-arrow-right-up"></span>
   </Button>
@@ -31,6 +40,21 @@ defineProps({
   color: var(--color-white);
   background: var(--color-button-gradient);
   cursor: pointer;
+
+  &:disabled {
+    color: var(--color-grey-light-span);
+    background: transparent;
+    cursor: default;
+
+    &:hover {
+      background: initial;
+      .icon-arrow-right-up {
+        &:after {
+          transform: initial;
+        }
+      }
+    }
+  }
 
   .icon-arrow-right-up {
     &:after {

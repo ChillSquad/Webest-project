@@ -96,6 +96,7 @@ const slideNext = () => {
 @media (max-width: 360px) {
   .pagination {
     margin: 40px 0 var(--unit-margin-y) 0;
+    justify-content: space-between;
   }
 
   .pagination-root {

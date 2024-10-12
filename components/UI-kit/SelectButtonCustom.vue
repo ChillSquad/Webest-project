@@ -1,6 +1,6 @@
 <script setup>
 import SelectButton from "primevue/selectbutton";
-import { ref, defineEmits, defineProps } from "vue";
+import { ref } from "vue";
 
 const props = defineProps({
   modelValue: String,
@@ -75,6 +75,12 @@ if (!props.modelValue) {
 
     display: block;
     user-select: none;
+  }
+
+  @media (max-width: 360px) {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
   }
 }
 </style>

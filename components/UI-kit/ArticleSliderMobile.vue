@@ -99,6 +99,7 @@ const updateCurrentIndex = (swiper) => {
     width: 100%;
     height: 2px;
     background-color: #e0e0e0;
+    margin-top: 10px;
   }
 
   &__progress {
@@ -154,6 +155,8 @@ const updateCurrentIndex = (swiper) => {
   }
 
   @media (max-width: 360px) {
+    margin: 20px 0 0;
+
     &__image {
       width: 272px;
       height: 200px;

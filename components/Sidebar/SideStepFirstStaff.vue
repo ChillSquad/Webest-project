@@ -21,9 +21,9 @@ const uploadError = ref(null);
           id="username"
           v-model="fieldsStaff.name"
         />
-        <span v-if="errorsStaff.name" class="sidebar-input__error-message"
-          >Это поле обязательно</span
-        >
+        <span v-if="errorsStaff.name" class="sidebar-input__error-message">
+          Это поле обязательно
+        </span>
       </div>
 
       <div class="sidebar-input__item">
@@ -34,9 +34,9 @@ const uploadError = ref(null);
           id="mail"
           v-model="fieldsStaff.email"
         />
-        <span v-if="errorsStaff.email" class="sidebar-input__error-message"
-          >Это поле обязательно</span
-        >
+        <span v-if="errorsStaff.email" class="sidebar-input__error-message">
+          Это поле обязательно
+        </span>
       </div>
 
       <div class="sidebar-input__item">
@@ -49,9 +49,9 @@ const uploadError = ref(null);
           id="about"
           v-model="fieldsStaff.about"
         />
-        <span v-if="errorsStaff.about" class="sidebar-input__error-message"
-          >Это поле обязательно</span
-        >
+        <span v-if="errorsStaff.about" class="sidebar-input__error-message">
+          Это поле обязательно
+        </span>
       </div>
       <FileUploadCustom
         title="Прикрепить резюме"

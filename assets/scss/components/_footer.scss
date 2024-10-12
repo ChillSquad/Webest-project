@@ -48,8 +48,12 @@
         @include font-text-1;
 
         color: var(--color-white-transparent);
+        transition: color 0.2s ease-in-out;
 
         &:hover {
+          color: var(--color-white);
+          text-decoration: underline;
+
           &:after {
             transform: rotate(45deg);
           }
@@ -85,13 +89,24 @@
 
   &__presentation {
     margin-top: 37px;
-
-    @include icon-arrow-right-hover;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 
     a {
       @include font-text-1;
 
       color: var(--color-white-transparent);
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: var(--color-white);
+        text-decoration: underline;
+
+        &:after {
+          transform: rotate(45deg);
+        }
+      }
     }
   }
 
@@ -115,6 +130,7 @@
   &__copyright-logo {
     @include font-text-2;
 
+    color: var(--color-white-transparent);
     user-select: none;
   }
 
@@ -126,6 +142,13 @@
       @include font-text-2;
 
       color: var(--color-white-transparent);
+
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: var(--color-white);
+        text-decoration: underline;
+      }
     }
   }
 
@@ -205,6 +228,10 @@
     &__logo-footer {
       margin: 40px 0;
     }
+
+    &__presentation {
+      align-items: center;
+    }
   }
 
   @media (max-width: 900px) {
@@ -239,9 +266,22 @@
         gap: 9px;
       }
     }
+
+    &__copyright {
+      gap: 0;
+    }
+
+    &__copyright-links {
+      flex-direction: column;
+      text-align: center;
+      margin: 8px 0 16px;
+      gap: 8px;
+    }
   }
 
   .icon-arrow-right-up {
+    width: fit-content;
+
     &:after {
       content: "\0042";
       font-size: 12px;

@@ -1,15 +1,19 @@
 <script setup>
+import { useSidebarModel } from "../models/sidebar";
 import { useFeedbackFormModel } from "../models/feedback";
 import { useFeedbackFormModelStaff } from "../models/feedbackStaff";
-import { useSidebarModel } from "../models/sidebar";
+import { useFeedbackFormModelTariff } from "../models/feedbackTariff";
 
 import SideStepFirst from "./SideStepFirst.vue";
 import SideStepThird from "./SideStepThird.vue";
 import SideStepSecond from "./SideStepSecond.vue";
 import SideStepFirstStaff from "./SideStepFirstStaff.vue";
+import SideStepFirstTariff from "../ExpertisePage/SideStepFirstTariff.vue";
 
-const { isActiveStaff, isActive } = useSidebarModel();
+// Получаем isActiveTariff из useSidebarModel
+const { isActiveTariff, isActiveStaff, isActive } = useSidebarModel();
 const { activeFormStepStaff } = useFeedbackFormModelStaff();
+const { activeFormStepTariff } = useFeedbackFormModelTariff();
 const { activeFormStep } = useFeedbackFormModel();
 
 const getComponentForStep = (step) => {
@@ -33,6 +37,18 @@ const getComponentForStep = (step) => {
           activeFormStepStaff === 0
             ? SideStepFirstStaff
             : getComponentForStep(activeFormStepStaff)
+        "
+      />
+    </Transition>
+
+    <!-- Добавляем обработку для тарифной формы -->
+    <Transition name="fade" mode="out-in">
+      <component
+        v-if="isActiveTariff"
+        :is="
+          activeFormStepTariff === 0
+            ? SideStepFirstTariff
+            : getComponentForStep(activeFormStepTariff)
         "
       />
     </Transition>

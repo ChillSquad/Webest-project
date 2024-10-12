@@ -5,6 +5,10 @@ const useSidebarModel = () => {
 
   const isActiveCase = useState("case-modal-active", () => false);
 
+  const isActiveBlog = useState("blog-modal-active", () => false);
+
+  const isActiveTariff = useState("tariff-modal-active", () => false);
+
   const toggleSidebarForm = () => {
     isActive.value = !isActive.value;
   };
@@ -17,6 +21,14 @@ const useSidebarModel = () => {
     isActiveCase.value = !isActiveCase.value;
   };
 
+  const toggleSidebarFormBlog = () => {
+    isActiveBlog.value = !isActiveBlog.value;
+  };
+
+  const toggleSidebarFormTariff = () => {
+    isActiveTariff.value = !isActiveTariff.value;
+  };
+
   return {
     isActive,
     toggleSidebarForm,
@@ -24,6 +36,10 @@ const useSidebarModel = () => {
     toggleSidebarFormStaff,
     isActiveCase,
     toggleSidebarFormCase,
+    isActiveBlog,
+    toggleSidebarFormBlog,
+    isActiveTariff,
+    toggleSidebarFormTariff,
   };
 };
 

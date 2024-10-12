@@ -56,5 +56,9 @@ defineProps({
       font-weight: inherit;
     }
   }
+
+  @media (max-width: 360px) {
+    margin-bottom: 20px;
+  }
 }
 </style>

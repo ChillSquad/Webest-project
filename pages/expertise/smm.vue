@@ -217,10 +217,10 @@ const slides = [
   },
 ];
 
-const sub = [
+const subImages = [
   {
     purple: "SMM-продвижение ",
-    content:
+    content1:
       "– это универсальное средство для компаний любого масштаба и любой сферы деятельности",
   },
 ];
@@ -251,10 +251,13 @@ const imageCaption = "";
     <DevelopmentSlider
       :images="images"
       title="Кому подойдут наши услуги?"
-      :subtitle="sub"
+      :subtitle="subImages"
     />
 
-    <Recruiting />
+    <Recruiting
+      title="Бесплатный аудит"
+      subtitle="Оставьте заявку и мы проведем бесплатный аудит, после которого наглядно покажем подходит ли вашему бизнесу контекстная реклама и какой её потенциал в вашей нише"
+    />
 
     <div class="container">
       <div class="expertise-smm__heading">

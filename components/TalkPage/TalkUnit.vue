@@ -23,13 +23,11 @@ defineProps({
 
 <template>
   <div class="talk-unit">
-    <div class="container">
-      <div class="talk-unit__inner">
-        <div class="talk-unit__heading">{{ title }}</div>
-        <div class="talk-unit__table">
-          <TalkUnitCard @click="toggleSidebarForm" :title="titleLeft" />
-          <TalkUnitCard @click="toggleSidebarFormStaff" :title="titleRight" />
-        </div>
+    <div class="talk-unit__inner">
+      <div class="talk-unit__heading">{{ title }}</div>
+      <div class="talk-unit__table">
+        <TalkUnitCard @click="toggleSidebarForm" :title="titleLeft" />
+        <TalkUnitCard @click="toggleSidebarFormStaff" :title="titleRight" />
       </div>
     </div>
   </div>

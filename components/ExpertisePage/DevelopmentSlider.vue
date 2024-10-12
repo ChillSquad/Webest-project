@@ -31,7 +31,11 @@ defineProps({
         :key="index"
       >
         <span class="custom-standing-purple">{{ text.purple }}</span>
-        {{ text.content }}
+        {{ text.content1 }}
+        <span class="custom-standing-yellow">{{ text.yellow }}</span>
+        {{ text.content2 }}
+        <span class="custom-standing-pink">{{ text.pink }}</span>
+        {{ text.content3 }}
       </p>
     </div>
 
@@ -39,7 +43,7 @@ defineProps({
       :loop="false"
       :breakpoints="{
         400: { slidesPerView: 3, spaceBetween: 8 },
-        0: { slidesPerView: 1.3, spaceBetween: 4 },
+        0: { slidesPerView: 1.09, spaceBetween: 8 },
       }"
     >
       <swiper-slide v-for="(image, index) in images" :key="index">
@@ -88,6 +92,20 @@ defineProps({
         background: var(--color-purple);
         transform: rotate(1.01deg);
       }
+
+      .custom-standing-yellow {
+        @include custom-standing;
+
+        background: var(--color-yellow);
+        transform: rotate(-1.2deg);
+      }
+
+      .custom-standing-pink {
+        @include custom-standing;
+
+        background: var(--color-pink);
+        transform: rotate(-1.2deg);
+      }
     }
   }
 
@@ -103,18 +121,9 @@ defineProps({
     max-width: 556px;
   }
 
-  .swiper {
-    padding: var(--swiper-padding);
-  }
-
-  .swiper-slide {
-    width: 554px !important;
-    height: 680px;
-  }
-
   &__image {
-    width: 554px;
-    height: 680px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 40px;
     position: relative;
@@ -136,6 +145,40 @@ defineProps({
     position: absolute;
     bottom: 32px;
     left: 32px;
+  }
+
+  .swiper {
+    padding: var(--swiper-padding);
+  }
+
+  .swiper-slide {
+    width: 554px !important;
+    height: 680px;
+  }
+
+  @media (max-width: 360px) {
+    &__heading {
+      margin-bottom: 40px;
+    }
+
+    &__image-title {
+      @include font-text-3;
+
+      top: 20px;
+      left: 20px;
+    }
+
+    &__image-subtitle {
+      @include font-text-4-360;
+
+      bottom: 20px;
+      left: 20px;
+    }
+
+    .swiper-slide {
+      width: 300px !important;
+      height: 368px;
+    }
   }
 }
 </style>

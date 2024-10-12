@@ -18,7 +18,9 @@ import TalkUnit from "../components/TalkPage/TalkUnit.vue";
     <AboutCompanyUnit />
     <BlogUnit />
     <CustomersUnit />
-    <TalkUnit />
+    <div class="container">
+      <TalkUnit />
+    </div>
   </div>
 </template>
 \

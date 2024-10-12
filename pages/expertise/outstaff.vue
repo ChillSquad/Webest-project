@@ -8,6 +8,28 @@ import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import Recruiting from "~/components/ExpertisePage/Recruiting.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 
+import { ref, onMounted } from "vue";
+
+const listItems = ref([]);
+
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1,
+  });
+
+  listItems.value.forEach((item) => {
+    observer.observe(item);
+  });
+});
+
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
 ];
@@ -21,27 +43,27 @@ const priorityItems = [
   {
     heading: "Отсутствие проблем при увольнении сотрудника",
     content:
-      "Если заказчику нужно прекратить сотрудничество с аутстафф-партнером, это можно сделать без каких-либо юридических сложностей.",
+      "Если заказчику нужно прекратить сотрудничество с аутстафф-партнером, это можно сделать без юридических сложностей.",
   },
   {
     heading: "Привлечение персонала для временных проектов",
     content:
-      "Это особенно полезно для временных проектов или временной потребности в дополнительных рабочих ресурсах.",
+      "Это полезно для временных проектов или временной потребности в дополнительных ресурсах.",
   },
   {
     heading: "Сокращение затрат на отчисления от совокупного ФОТ",
     content:
-      "ФОТ (фонд оплаты труда) является значительной частью затрат компании при найме сотрудников.",
+      "ФОТ является значительной частью затрат компании при найме сотрудников.",
   },
   {
     heading: "Сертификация крупных корпоративных внедрений",
     content:
-      "Мы делаем продукты, которые соответствуют нуждам наших клиентов и максимально легко используются конечным пользователем",
+      "Мы делаем продукты, которые соответствуют нуждам клиентов и легко используются конечным пользователем.",
   },
   {
     heading: "Точечное закрытие позиций",
     content:
-      "Аутстаффинг позволяет компаниям быстро и эффективно заполнять вакансии на конкретные позиции.",
+      "Аутстаффинг позволяет компаниям быстро заполнять вакансии на конкретные позиции.",
   },
 ];
 
@@ -69,101 +91,61 @@ const cards = [
   },
 ];
 
+const stackCards = [
+  {
+    title: "Аутстаффинг Backend-разработчиков / middle",
+    cards: [
+      { developer: "PHP Laravel", price: "от 1500 ₽ / час" },
+      { developer: "PHP Bitrix", price: "от 1500 ₽ / час" },
+      { developer: "PHP Bitrix24", price: "от 2000 ₽ / час" },
+      { developer: "Java", price: "от 2300 ₽ / час" },
+      { developer: "Node.js", price: "от 2200 ₽ / час" },
+    ],
+  },
+  {
+    title: "Аутстаффинг Frontend-разработчиков / middle",
+    cards: [
+      { developer: "Vue.js", price: "от 1900 ₽ / час" },
+      { developer: "React", price: "от 1900 ₽ / час" },
+      { developer: "JavaScript", price: "от 2300 ₽ / час" },
+    ],
+  },
+  {
+    title: "Аутстаффинг мобильных разработчиков / middle",
+    cards: [
+      { developer: "Android Kotlin", price: "от 2200 ₽ / час" },
+      { developer: "Flutter", price: "от 2000 ₽ / час" },
+      { developer: "IOS Swift", price: "от 2200 ₽ / час" },
+      { developer: "React", price: "от 2200 ₽ / час" },
+    ],
+  },
+  {
+    title: "Другие специалисты / middle",
+    cards: [
+      { developer: "Верстальщик сайтов", price: "от 1500 ₽ / час" },
+      { developer: "UI/UX designer", price: "от 1500 ₽ / час" },
+      { developer: "QA Тестировщик", price: "от 1500 ₽ / час" },
+      { developer: "AQA Тестировщик", price: "от 1800 ₽ / час" },
+      { developer: "DevOps", price: "от 2000 ₽ / час" },
+    ],
+  },
+];
+
 const reports = [
   {
     heading:
-      "Мы ведем свой учет времени по задачам на проекте специалиста, который можем предоставить в любой момент",
+      "Мы ведем учет времени по задачам на проекте, который можем предоставить в любой момент.",
   },
-  { heading: "Вы можете обратиться к специалисту напрямую" },
+  { heading: "Вы можете обратиться к специалисту напрямую." },
   {
     heading:
-      "При необходимости можем выделить руководителя проекта и тестировщиков",
-  },
-];
-
-const firstCard = [
-  {
-    developer: "PHP Laravel",
-    price: "от 1500 ₽ / час",
-  },
-  {
-    developer: "PHP Bitrix",
-    price: "от 1500 ₽ / час",
-  },
-  {
-    developer: "PHP Bitrix24",
-    price: "от 2000 ₽ / час",
-  },
-  {
-    developer: "Java",
-    price: "от 2300 ₽ / час",
-  },
-  {
-    developer: "Node.js",
-    price: "от 2200 ₽ / час",
-  },
-];
-
-const secondCard = [
-  {
-    developer: "Vue.js",
-    price: "от 1900 ₽ / час",
-  },
-  {
-    developer: "React",
-    price: "от 1900 ₽ / час",
-  },
-  {
-    developer: "JavaScript",
-    price: "от 2300 ₽ / час",
-  },
-];
-
-const thirdCard = [
-  {
-    developer: "Android Kotlin",
-    price: "от 2200 ₽ / час",
-  },
-  {
-    developer: "Flutter",
-    price: "от 2000 ₽ / час",
-  },
-  {
-    developer: "IOS Swift",
-    price: "от 2200 ₽ / час",
-  },
-  {
-    developer: "React",
-    price: "от 2200 ₽ / час",
-  },
-];
-
-const fourthCard = [
-  {
-    developer: "Верстальщик сайтов",
-    price: "от 1500 ₽ / час",
-  },
-  {
-    developer: "UI/UX designer",
-    price: "от 1500 ₽ / час",
-  },
-  {
-    developer: "QA Тестировщик",
-    price: "от 1500 ₽ / час",
-  },
-  {
-    developer: "AQA Тестировщик",
-    price: "от 1800 ₽ / час",
-  },
-  {
-    developer: "DevOps",
-    price: "от 2000 ₽ / час",
+      "При необходимости можем выделить руководителя проекта и тестировщиков.",
   },
 ];
 
 const title = "Аутстаф разработчиков, дизайнеров, аналитиков, тестировщиков";
 const subtitle =
-  "Помогаем быстро усилить команду и расширить штата за счет квалифицированных специалистов";
+  "Помогаем быстро усилить команду и расширить штат за счет квалифицированных специалистов";
 const buttonTitle = "Оставить заявку";
 const imageSrc = "/images/imageExpertiseOutstaff1.png";
 const imageAlt = "Заголовок статьи";
@@ -197,32 +179,13 @@ const imageAlt = "Заголовок статьи";
         </div>
 
         <ul class="expertise-outstaff-stack__list">
-          <li class="expertise-outstaff-stack__item">
-            <StackCard
-              title="Аутстаффинг Backend-разработчиков / middle"
-              :cards="firstCard"
-            />
-          </li>
-
-          <li class="expertise-outstaff-stack__item">
-            <StackCard
-              title="Аутстаффинг Frontend-разработчиков / middle"
-              :cards="secondCard"
-            />
-          </li>
-
-          <li class="expertise-outstaff-stack__item">
-            <StackCard
-              title="Аутстаффинг мобильных разработчиков / middle"
-              :cards="thirdCard"
-            />
-          </li>
-
-          <li class="expertise-outstaff-stack__item">
-            <StackCard
-              title="Другие специалисты / middle"
-              :cards="fourthCard"
-            />
+          <li
+            v-for="(card, index) in stackCards"
+            :key="index"
+            class="expertise-outstaff-stack__item"
+            ref="listItems"
+          >
+            <StackCard :title="card.title" :cards="card.cards" />
           </li>
         </ul>
       </div>
@@ -239,30 +202,49 @@ const imageAlt = "Заголовок статьи";
               штата нашей компании, для реализации задач <br />
               на различных проектах
             </p>
+
             <img src="/images/imageExplanation1.png" alt="Изображение статьи" />
           </li>
+
           <li class="expertise-outstaff-explanation__item">
-            <img src="/images/imageExplanation2.png" alt="Изображение статьи" />
+            <img
+              class="expertise-outstaff-explanation__image"
+              src="/images/imageExplanation2.png"
+              alt="Изображение статьи"
+            />
+
             <p>
               Для того, чтобы предварительно ознакомиться с навыками каждого<br />
               специалиста, мы предоставляем полное CV со списком проектов, а<br />
               также ссылки на Git. Все специалисты готовы оперативно<br />
               проходить собеседования. Мы поможем быстро закрыть позиции
             </p>
+
+            <img
+              class="expertise-outstaff-explanation__image"
+              src="/images/imageExplanation2.png"
+              alt="Изображение статьи"
+            />
           </li>
         </ul>
       </div>
     </div>
 
-    <Priority :subtitle="true" title="Почему мы" :prioritys="priorityItems" />
+    <Priority
+      :subtitle="false"
+      title="Выгоды аутстафа"
+      :prioritys="priorityItems"
+    />
 
     <Recruiting />
 
     <Reporting :reports="reports" title="Отчетность" />
 
-    <BlogUnit title="Статьи аутстаф" />
+    <BlogUnit title="Статьи аутстаф" :arrow="false" />
 
-    <TalkUnit />
+    <div class="container">
+      <TalkUnit />
+    </div>
   </div>
 </template>
 
@@ -281,6 +263,14 @@ const imageAlt = "Заголовок статьи";
 
   .outstaff-advantages__item-subtitle {
     margin-bottom: 44px;
+  }
+
+  @media (max-width: 360px) {
+    overflow-x: hidden;
+
+    .outstaff-advantages__item {
+      height: 300px;
+    }
   }
 }
 
@@ -331,6 +321,32 @@ const imageAlt = "Заголовок статьи";
     padding: 32px;
     border-radius: 40px;
   }
+
+  @media (max-width: 360px) {
+    &__heading {
+      flex-direction: column;
+      margin-bottom: 40px;
+      gap: 24px;
+    }
+
+    &__list {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, min-content);
+    }
+
+    &__item {
+      padding: 16px;
+      border-radius: 24px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
 }
 
 .expertise-outstaff-explanation {
@@ -364,6 +380,58 @@ const imageAlt = "Заголовок статьи";
       @include font-h5;
 
       align-items: end;
+    }
+
+    img {
+      border-radius: 32px;
+    }
+  }
+
+  &__image {
+    &:first-child {
+      display: block;
+    }
+
+    &:last-child {
+      display: none;
+    }
+  }
+
+  @media (max-width: 360px) {
+    &__title {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__item {
+      font-size: 17px;
+      line-height: 23.8px;
+      gap: 20px;
+
+      img {
+        max-width: 328px;
+        height: 219px;
+      }
+
+      br {
+        display: none;
+      }
+    }
+
+    &__image {
+      &:first-child {
+        display: none;
+      }
+
+      &:last-child {
+        display: block;
+      }
     }
   }
 }

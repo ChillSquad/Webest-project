@@ -129,6 +129,15 @@ const slides = [
   },
 ];
 
+const prioritySub = [
+  {
+    content1: "В нашем штате",
+    pink: "специалисты всех уровней",
+    content2:
+      " под каждый этап маркетинга: от аналитики текущей ситуации, прогнозирования и составления плана работ до реализации на всех доступных рекламных платформах страны и мира.",
+  },
+];
+
 const title = "Интернет-маркетинг";
 const subtitle =
   "Доверьте нам маркетинг вашего бизнеса от медиа и performance-кампаний до полноценного brandformance";
@@ -152,11 +161,19 @@ const imageCaption = "";
 
     <Advantages :cards="cards" title="Наши компетенции" :forbidden="true" />
 
-    <Priority :subtitle="false" title="Почему мы" :prioritys="priorityItems" />
+    <Priority
+      :subtitle="true"
+      title="Почему мы"
+      :prioritys="priorityItems"
+      :content="prioritySub"
+    />
 
     <BlogUnit title="Награды и сертификаты" article="development" />
 
-    <Recruiting />
+    <Recruiting
+      title="Доверьте нам маркетинг вашего бизнеса"
+      subtitle="Оставьте заявку и мы свяжемся с вами в течение рабочего дня"
+    />
 
     <BlogUnit title="Наши кейсы" article="case" :slider="true" />
 
@@ -172,7 +189,9 @@ const imageCaption = "";
 
     <ArticleSliderMobile :slides="slides" :review="true" />
 
-    <TalkUnit />
+    <div class="container">
+      <TalkUnit />
+    </div>
   </div>
 </template>
 
@@ -189,6 +208,21 @@ const imageCaption = "";
 
   .outstaff-advantages__item-image {
     max-width: 350px;
+  }
+
+  @media (max-width: 360px) {
+    .outstaff-advantages__item {
+      height: 320px;
+    }
+
+    .outstaff-advantages__item-image {
+      max-height: 200px;
+      object-fit: cover;
+    }
+
+    .article-slider-mobile {
+      margin-bottom: 120px;
+    }
   }
 }
 </style>

@@ -86,6 +86,22 @@ defineProps({
   }
 
   @media (max-width: 360px) {
+    .expertise-heading {
+      &__image {
+        object-fit: cover;
+        width: 100dvw;
+        height: 360px;
+        border-radius: 0;
+      }
+
+      &__image-caption {
+        @include font-text-3;
+
+        max-width: 328px;
+        bottom: 16px;
+      }
+    }
+
     button.gradient-button {
       display: block;
 

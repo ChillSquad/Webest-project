@@ -151,11 +151,16 @@ const imageCaption = "";
 
     <MarketplaceServices title="наши услуги" :services="services" />
 
-    <Recruiting />
+    <Recruiting
+      title="Расскажите о своем бизнесе на маркетплейсах"
+      subtitle="Оставьте заявку и мы проведем бесплатный аудит, после которого наглядно покажем подходит ли вашему бизнесу таргетированная реклама и какой её потенциал в вашей нише."
+    />
 
-    <Questions title="вопросы? ответы →" :questions="questions" />
+    <Questions :questions="questions" />
 
-    <TalkUnit />
+    <div class="container">
+      <TalkUnit />
+    </div>
   </div>
 </template>
 

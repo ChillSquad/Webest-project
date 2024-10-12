@@ -7,6 +7,7 @@ import Advantages from "~/components/ExpertisePage/Advantages.vue";
 import ExpertiseMenu from "~/components/ExpertisePage/ExpertiseMenu.vue";
 import SelectButtonCustom from "~/components/UI-kit/SelectButtonCustom.vue";
 import TariffCard from "~/components/ExpertisePage/TariffCard.vue";
+import TariffSidebar from "~/components/ExpertisePage/TariffSidebar.vue";
 
 import { ref } from "vue";
 
@@ -48,42 +49,86 @@ const achievements = [
   { src: "/images/imageCRMAchievements4.png" },
 ];
 
-const marks = [
-  { content: "Чаты и Видеозвонки" },
-  { content: "Соцсеть компании" },
-  { content: "CoРilot" },
-  { content: "Календари" },
-  { content: "Документы онлайн" },
-  { content: "Диск" },
-  { content: "Почта" },
-  { content: "HR" },
-];
-
 const plates = [
   {
     title: "Совместная работа",
     content:
       "Помогает работать вместе. Полноценный корпоративный портал компании, который объединяет и упрощает коммуникацию внутри вашей компании. Корпоративный портал содержит всё необходимое для организации совместной работы: чат, диск, календарь, группы, рабочие отчеты, бизнес-процессы и другие инструменты.",
+    image: "/images/imageCRM8.png",
+    marks: [
+      "Чаты и Видеозвонки",
+      "Соцсеть компании",
+      "CoРilot",
+      "Календари",
+      "Документы онлайн",
+      "Диск",
+      "Почта",
+      "HR",
+    ],
   },
   {
     title: "Задачи и проекты",
     content:
-      "Помогает работать вместе. Полноценный корпоративный портал компании, который объединяет и упрощает коммуникацию внутри вашей компании. Корпоративный портал содержит всё необходимое для организации совместной работы: чат, диск, календарь, группы, рабочие отчеты, бизнес-процессы и другие инструменты.",
+      "В Битрикс24 задачи ставят как коллегам, так и самому себе. Смена ответственных, изменение сроков фиксируются в истории задачи. Счетчики помогают не забыть о сроках, а при нарушении сроков руководитель сразу получит сообщение об этом.",
+    image: "/images/imageCRM9.png",
+    marks: [
+      "Задачи",
+      "Проекты",
+      "Диаграмма Ганта",
+      "Канбан",
+      "Учет времени",
+      "Обсуждения в задачах",
+      "Фокусировка внимания",
+      "Интегрировано с CRM",
+    ],
   },
   {
     title: "CRM",
     content:
-      "Помогает работать вместе. Полноценный корпоративный портал компании, который объединяет и упрощает коммуникацию внутри вашей компании. Корпоративный портал содержит всё необходимое для организации совместной работы: чат, диск, календарь, группы, рабочие отчеты, бизнес-процессы и другие инструменты.",
+      "CRM — система управления продажами и коммуникациями с клиентами. Ни одно обращение клиента не останется незамеченным. CRM сама ведет клиента по воронке: от холодного контакта до успешной сделки.",
+    image: "/images/imageCRM10.png",
+    marks: [
+      "Счета, Компреды",
+      "Оплата и доставка",
+      "Автоматизация продаж",
+      "Роботы и триггеры",
+      "Контакт-центр",
+      "Маркетинг",
+      "Сквозная аналитика",
+      "Лиды, Сделки, Контакты, Компании",
+    ],
   },
   {
     title: "Автоматизация",
     content:
-      "Помогает работать вместе. Полноценный корпоративный портал компании, который объединяет и упрощает коммуникацию внутри вашей компании. Корпоративный портал содержит всё необходимое для организации совместной работы: чат, диск, календарь, группы, рабочие отчеты, бизнес-процессы и другие инструменты.",
+      "Автоматизируйте всё, что мешает двигаться вперед — рутинные задачи, работу со сделками, согласование договоров, оплату счетов, отчетность. В Битрикс24 есть инструменты и для простых триггерных рассылок, и для полной автоматизации рабочего места. И всё это запускается без программирования.",
+    image: "/images/imageCRM11.png",
+    marks: [
+      "Бизнес-процессы",
+      "Смарт-процессы",
+      "Роботизация бизнеса RPA",
+      "Роботы и триггеры",
+      "Автоматизация продаж и CRM",
+      "Автоматизация задач",
+      "Цифровые рабочие места",
+      "Простые процессы",
+    ],
   },
   {
     title: "Сайты и магазины",
     content:
-      "Помогает работать вместе. Полноценный корпоративный портал компании, который объединяет и упрощает коммуникацию внутри вашей компании. Корпоративный портал содержит всё необходимое для организации совместной работы: чат, диск, календарь, группы, рабочие отчеты, бизнес-процессы и другие инструменты.",
+      "Сайты и лендинги должны быть не просто красивыми, которые легко создать самому и бесплатно. Главная задача сайта — приводить клиентов. Сайты в Битрикс24 создаются, чтобы продавать! Интернет-магазин легко создать самим в простом конструкторе. Каждый заказ, каждый контакт клиента тут же окажется в CRM.",
+    image: "/images/imageCRM12.png",
+    marks: [
+      "Бесплатно и просто",
+      "Конструктор сайтов",
+      "Интернет-магазин",
+      "Формы",
+      "Виджеты",
+      "CRM в подарок",
+      "Интеграция с 1С",
+      "1500+ шаблонов",
+    ],
   },
 ];
 
@@ -93,6 +138,8 @@ const subtitle =
 const buttonTitle = "Оставить заявку";
 const imageSrc = "/images/imageCRM1.png";
 const imageAlt = "Заголовок статьи";
+const imageCaption =
+  "Топ 15 CRM интегераторов по версии Рейтинга рунета за 2022 год";
 
 const { data: tariffsBox } = await useAsyncData("tariffbox", () => {
   return $fetch("/api/tariffbox/", { method: "GET" });
@@ -114,6 +161,7 @@ const selectedVersion = ref("Облачная версия");
       :buttonTitle="buttonTitle"
       :imageSrc="imageSrc"
       :imageAlt="imageAlt"
+      :imageCaption="imageCaption"
     />
 
     <div class="container">
@@ -135,8 +183,6 @@ const selectedVersion = ref("Облачная версия");
 
     <ExpertiseMenu
       title="Битрикс24 помогает бизнесу работать"
-      image="/images/imageCRM8.png"
-      :marks="marks"
       :plates="plates"
     />
 
@@ -157,7 +203,6 @@ const selectedVersion = ref("Облачная версия");
         <SelectButtonCustom v-model="selectedVersion" />
 
         <ul
-          class="expertise-crm__tariff-list"
           :class="[
             'expertise-crm__tariff-list',
             { packaged: selectedVersion === 'Коробочная версия' },
@@ -194,6 +239,8 @@ const selectedVersion = ref("Облачная версия");
             />
           </li>
         </ul>
+
+        <TariffSidebar />
       </section>
     </div>
 
@@ -203,7 +250,9 @@ const selectedVersion = ref("Облачная версия");
 
     <CustomersUnit />
 
-    <TalkUnit />
+    <div class="container">
+      <TalkUnit />
+    </div>
   </div>
 </template>
 
@@ -234,6 +283,7 @@ const selectedVersion = ref("Облачная версия");
 
   &__achievements-title {
     margin-bottom: 100px;
+    text-align: center;
   }
 
   &__achievements-list {
@@ -245,7 +295,9 @@ const selectedVersion = ref("Облачная версия");
   }
 
   &__achievements-item {
+    display: flex;
     transition: transform 0.2s ease-in-out;
+
     &:hover {
       transform: scale(1.1);
     }
@@ -311,6 +363,62 @@ const selectedVersion = ref("Облачная версия");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .expertise-menu__item {
+    max-height: 97px;
+
+    &.active {
+      max-height: 252px;
+    }
+  }
+
+  .expertise-menu__item-aside {
+    width: 872px;
+    height: 668px;
+    background: var(--color-white);
+  }
+
+  .expertise-menu__item-image {
+    max-width: 664px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  @media (max-width: 360px) {
+    &__achievements-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 16px;
+      gap: 4px;
+    }
+
+    &__achievements-title {
+      margin-bottom: 40px;
+    }
+
+    &__achievements-item {
+      img {
+        max-width: 144px;
+        max-height: 43px;
+        border-radius: 16px;
+      }
+    }
+
+    &__tariff-header {
+      flex-direction: column;
+      gap: 20px;
+      align-items: start;
+    }
+
+    &__tariff-subtitle {
+      max-width: 328px;
+    }
+
+    .outstaff-advantages__item {
+      height: 200px;
+    }
   }
 }
 </style>

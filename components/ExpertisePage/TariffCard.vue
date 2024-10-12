@@ -1,4 +1,8 @@
 <script setup>
+import { useSidebarModel } from "../models/sidebar";
+
+const { toggleSidebarFormTariff } = useSidebarModel();
+
 defineProps({
   title: {
     type: String,
@@ -43,7 +47,12 @@ defineProps({
       {{ sale }} <span v-if="!box">/ мес</span>
     </p>
 
-    <button class="expertise-crm-tariff__item-button">Купить</button>
+    <button
+      class="expertise-crm-tariff__item-button"
+      @click="toggleSidebarFormTariff"
+    >
+      Купить
+    </button>
 
     <div class="expertise-crm-tariff__item-footer">
       <p

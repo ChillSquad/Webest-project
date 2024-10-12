@@ -24,18 +24,6 @@ const count = computed(() => props.slides.length);
 const updateCurrentIndex = (swiper) => {
   currentIndex.value = swiper.activeIndex;
 };
-
-const addCustomClasses = (swiper) => {
-  const prevButton = swiper.navigation.prevEl;
-  const nextButton = swiper.navigation.nextEl;
-
-  if (prevButton) {
-    prevButton.classList.add("icon-slide-to-left");
-  }
-  if (nextButton) {
-    nextButton.classList.add("icon-slide-to-right");
-  }
-};
 </script>
 
 <template>
@@ -51,7 +39,6 @@ const addCustomClasses = (swiper) => {
           0: { slidesPerView: 1 },
         }"
         @slideChange="updateCurrentIndex"
-        @init="addCustomClasses"
       >
         <swiper-slide
           v-if="!review"
@@ -87,15 +74,17 @@ const addCustomClasses = (swiper) => {
         </swiper-slide>
       </swiper>
 
-      <div class="article-slider__bar">
-        <div
-          class="article-slider__progress"
-          :style="{ width: ((currentIndex + 1) / count) * 100 + '%' }"
-        ></div>
-      </div>
+      <div class="article-slider__swiper">
+        <div class="article-slider__bar">
+          <div
+            class="article-slider__progress"
+            :style="{ width: ((currentIndex + 1) / count) * 100 + '%' }"
+          ></div>
+        </div>
 
-      <div class="article-slider__pagination">
-        0{{ currentIndex + 1 }}-0{{ count }}
+        <div class="article-slider__pagination">
+          0{{ currentIndex + 1 }}-0{{ count }}
+        </div>
       </div>
     </div>
   </section>
