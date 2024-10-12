@@ -69,6 +69,15 @@ const cards = [
   },
 ];
 
+const prioritySub = [
+  {
+    content1: "Все процессы",
+    pink: "прозрачны и известны",
+    content2:
+      " заказчику – держим в курсе каждого этапа работы над приложением",
+  },
+];
+
 const title = "Разработка приложений на Flutter";
 const subtitle =
   "Мы создаем кроссплатформенные приложения для мобильных и веб-платформ";
@@ -90,7 +99,12 @@ const imageAlt = "Заголовок статьи";
 
     <Advantages :cards="cards" />
 
-    <Priority :subtitle="true" title="Почему мы" :prioritys="priorityItems" />
+    <Priority
+      :subtitle="true"
+      title="Почему мы"
+      :prioritys="priorityItems"
+      :content="prioritySub"
+    />
 
     <Recruiting />
 
@@ -98,7 +112,9 @@ const imageAlt = "Заголовок статьи";
 
     <CustomersUnit />
 
-    <TalkUnit />
+    <div class="container">
+      <TalkUnit />
+    </div>
   </div>
 </template>
 
@@ -115,6 +131,18 @@ const imageAlt = "Заголовок статьи";
 
   .outstaff-advantages__item-subtitle {
     margin: 12px 0 57px;
+  }
+
+  @media (max-width: 360px) {
+    overflow-x: hidden;
+
+    .outstaff-advantages__item {
+      height: 320px;
+    }
+
+    .outstaff-advantages__item-subtitle {
+      margin: 0;
+    }
   }
 }
 </style>

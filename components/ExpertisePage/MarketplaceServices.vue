@@ -1,4 +1,26 @@
 <script setup>
+import { ref, onMounted } from "vue";
+
+const listItems = ref([]);
+
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1,
+  });
+
+  listItems.value.forEach((item) => {
+    observer.observe(item);
+  });
+});
+
 defineProps({
   services: {
     type: Array,
@@ -12,26 +34,29 @@ defineProps({
 </script>
 
 <template>
-  <section class="expertise-marketplace">
+  <section class="expertise-marketplace-services">
     <div class="container">
-      <div class="expertise-marketplace__content">
-        <div class="expertise-marketplace__heading">{{ title }}</div>
+      <div class="expertise-marketplace-services__content">
+        <div class="expertise-marketplace-services__heading">{{ title }}</div>
 
-        <ul class="expertise-marketplace__list">
+        <ul class="expertise-marketplace-services__list">
           <li
             v-for="(service, index) in services"
-            class="expertise-marketplace__item"
+            class="expertise-marketplace-services__item"
+            ref="listItems"
           >
-            <p class="expertise-marketplace__item-title icon-arrow-right-up">
+            <p
+              class="expertise-marketplace-services__item-title icon-arrow-right-up"
+            >
               {{ service.title }}
             </p>
 
-            <p class="expertise-marketplace__item-subtitle">
+            <p class="expertise-marketplace-services__item-subtitle">
               {{ service.subtitle }}
             </p>
 
             <p
-              class="expertise-marketplace__item-points icon-marker"
+              class="expertise-marketplace-services__item-points icon-marker"
               v-for="(point, pointIndex) in service.points"
               :key="pointIndex"
             >
@@ -47,7 +72,7 @@ defineProps({
 <style lang="scss">
 @import "~/assets/scss/helpers/fonts-mixin";
 
-.expertise-marketplace {
+.expertise-marketplace-services {
   margin-bottom: var(--unit-margin-y);
 
   &__heading {
@@ -75,7 +100,7 @@ defineProps({
     flex-direction: column;
     gap: 8px;
     padding: 0 5px 32px 0;
-    background: var(--color-white);
+    background: #fff;
     border-bottom: 1px solid var(--color-grey-light-span);
     transition: background 0.3s ease-in-out, max-height 0.6s ease-in-out;
     overflow: hidden;
@@ -96,11 +121,11 @@ defineProps({
     &:hover {
       max-height: 808px;
 
-      .expertise-marketplace__item-title {
+      .expertise-marketplace-services__item-title {
         color: var(--color-blue);
       }
 
-      .expertise-marketplace__item-points {
+      .expertise-marketplace-services__item-points {
         transform: translateY(0);
         opacity: 1;
       }
@@ -123,11 +148,11 @@ defineProps({
   }
 
   &__item-subtitle {
-    @include font-text-1;
+    @include font-text-2;
   }
 
   &__item-points {
-    @include font-text-1;
+    @include font-text-2;
 
     transition: opacity 0.3s ease-in-out, transform 0.6s ease-in-out;
     opacity: 0;
@@ -136,13 +161,46 @@ defineProps({
 
   .icon-marker {
     display: flex;
-    align-items: center;
+    align-items: first baseline;
 
     &:before {
       content: "\004E";
       font-size: 12px;
       color: var(--color-blue);
       padding-right: 8px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    &__content {
+      flex-direction: column;
+    }
+
+    &__heading {
+      width: 100%;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    &__list {
+      width: 100%;
+    }
+
+    &__item {
+      max-height: 110px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .icon-arrow-right-up {
+        display: flex;
+        align-items: first baseline;
+      }
     }
   }
 }

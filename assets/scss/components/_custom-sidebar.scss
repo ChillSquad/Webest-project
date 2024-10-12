@@ -19,7 +19,7 @@
   flex-direction: column;
   height: 100dvh;
   width: 745px;
-  background-color: var(--color-white);
+  background-color: #fff;
   border-radius: 40px 0 0 40px;
   position: fixed;
 }
@@ -31,7 +31,7 @@
 }
 
 .sidebar-heading {
-  @include font-text-1;
+  @include font-text-2;
 
   display: flex;
   flex-direction: column;
@@ -97,15 +97,6 @@
     gap: 16px;
   }
 
-  .sidebar-heading {
-    @include font-text-3;
-
-    &__headline {
-      font-size: 20px;
-      line-height: 35.8px;
-    }
-  }
-
   .sidebar-close-button {
     width: 48px;
     height: 48px;
@@ -144,9 +135,8 @@
   }
 
   &__field {
-    font-family: var(--ff-gilroy-regular);
-    font-size: 18px;
-    line-height: 27.57px;
+    @include font-text-2;
+
     height: 68px;
     background-color: var(--color-grey-light);
     border: none;
@@ -162,9 +152,9 @@
     gap: 8px;
 
     label {
-      @include font-text-4-1920;
+      @include font-text-4;
 
-      color: var(--color-black-subtitle);
+      color: var(--color-black);
     }
   }
 
@@ -174,7 +164,7 @@
 }
 
 .sidebar-footer {
-  @include font-text-4-1920;
+  @include font-text-4;
 
   padding: 32px 40px 40px 40px;
   display: flex;
@@ -196,8 +186,6 @@
 
 @media (max-width: 800px) {
   .sidebar-footer {
-    @include font-text-4-360;
-
     padding: 20px 40px;
     flex-direction: column;
     align-items: start;
@@ -205,8 +193,6 @@
 
   .sidebar-input {
     &__field {
-      @include font-text-3;
-
       height: 57px;
     }
 
@@ -216,9 +202,7 @@
       gap: 8px;
 
       label {
-        @include font-text-4-360;
-
-        color: var(--color-black-subtitle);
+        color: var(--color-black);
       }
     }
   }
@@ -257,8 +241,7 @@
   }
 
   &__span {
-    font-size: 18px;
-    line-height: 27.54px;
+    @include font-text-2;
   }
 
   &__plug {
@@ -268,12 +251,7 @@
 
   @media (max-width: 500px) {
     &__uppercase {
-      font-size: 24px;
-      line-height: 30.96px;
-    }
-
-    &__span {
-      @include font-text-3;
+      @include font-text-1;
     }
   }
 }
@@ -300,8 +278,7 @@
   }
 
   &__span {
-    font-size: 18px;
-    line-height: 27.54px;
+    @include font-text-2;
   }
 
   &__plug {
@@ -311,12 +288,7 @@
 
   @media (max-width: 500px) {
     &__uppercase {
-      font-size: 24px;
-      line-height: 30.96px;
-    }
-
-    &__span {
-      @include font-text-3;
+      @include font-text-1;
     }
   }
 }

@@ -1,4 +1,26 @@
 <script setup>
+import { ref, onMounted } from "vue";
+
+const listItems = ref([]);
+
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1,
+  });
+
+  listItems.value.forEach((item) => {
+    observer.observe(item);
+  });
+});
+
 defineProps({
   cards: {
     type: Array,
@@ -22,14 +44,19 @@ defineProps({
 
       <ul class="outstaff-advantages__list">
         <li
-          :class="['outstaff-advantages__item', { tall: card.tall }]"
+          :class="[
+            'outstaff-advantages__item',
+            { tall: card.tall },
+            { wide: card.wide },
+          ]"
           v-for="(card, index) in cards"
           :key="index"
+          ref="listItems"
         >
           <div class="outstaff-advantages__item-heading">
             <p class="outstaff-advantages__item-title">{{ card.title }}</p>
 
-            <p class="outstaff-advantages__item-subtitle">
+            <p v-if="card.subtitle" class="outstaff-advantages__item-subtitle">
               {{ card.subtitle }}
             </p>
           </div>
@@ -67,6 +94,11 @@ defineProps({
     gap: 8px;
   }
 
+  .wide {
+    grid-column: span 2;
+    width: 100%;
+  }
+
   .tall {
     grid-row: span 2;
     height: 100%;
@@ -93,19 +125,35 @@ defineProps({
   }
 
   &__item-subtitle {
-    @include font-text-4-1920;
+    @include font-text-4;
   }
 
   .forbidden {
-    @include font-text-2;
+    @include font-text-6;
 
     margin-top: 8px;
   }
 
   @media (max-width: 360px) {
+    &__heading {
+      margin-bottom: 40px;
+    }
+
     &__list {
       display: flex;
       flex-direction: column;
+    }
+
+    &__item {
+      padding: 16px 16px 0;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
 }

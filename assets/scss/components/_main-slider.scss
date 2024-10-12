@@ -53,10 +53,10 @@
   }
 
   &__story-heading {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     font-family: var(--ff-gilroy-semi-bold);
-    color: var(--color-white);
+    color: #fff;
     width: 234px;
     position: absolute;
     margin: 16px;
@@ -75,8 +75,6 @@
     &__story-heading {
       width: 123px;
       margin: 8px;
-      font-size: 13px;
-      line-height: 14.76px;
     }
   }
 }

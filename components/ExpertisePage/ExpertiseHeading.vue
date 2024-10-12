@@ -49,7 +49,7 @@ defineProps({
   margin-bottom: var(--unit-margin-y);
 
   &__title {
-    @include font-h2-inner;
+    @include font-h1-inner;
   }
 
   &__subtitle {
@@ -69,11 +69,11 @@ defineProps({
   &__image {
     width: 100%;
     height: auto;
-    border-radius: var(--border-radius-blog);
+    border-radius: var(--border-radius-40);
   }
 
   &__image-caption {
-    @include font-text-1;
+    @include font-text-2;
 
     width: 388px;
     text-align: center;
@@ -86,20 +86,28 @@ defineProps({
   }
 
   @media (max-width: 360px) {
+    .expertise-heading {
+      &__image {
+        object-fit: cover;
+        width: 100dvw;
+        height: 360px;
+        border-radius: 0;
+      }
+
+      &__image-caption {
+        max-width: 328px;
+        bottom: 16px;
+      }
+    }
+
     button.gradient-button {
       display: block;
 
       margin-bottom: 40px;
     }
 
-    &__title {
-      @include font-h3-menu;
-    }
-
     &__subtitle {
       width: 328px;
-      font-size: 17px;
-      line-height: 23.8px;
       margin: 16px 0 40px 0;
     }
   }

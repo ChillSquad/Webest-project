@@ -41,15 +41,15 @@
   }
 
   &__story-category {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     position: absolute;
     top: 32px;
     left: 32px;
-    border: 1px solid var(--color-white);
+    border: 1px solid #fff;
     padding: 9px 16px 7px 16px;
     border-radius: 16px;
-    color: var(--color-white);
+    color: #fff;
   }
 
   &__story-image {
@@ -66,7 +66,7 @@
   }
 
   &__story-date {
-    @include font-text-2;
+    @include font-text-6;
 
     color: var(--color-dark-blue);
   }
@@ -97,21 +97,12 @@
       margin: 12px 16px 0 16px;
     }
 
-    &__story-date {
-      font-size: 11px;
-      line-height: 13.53px;
-    }
-
     &__story-heading {
-      @include font-text-3;
-
       width: 100%;
       font-family: var(--ff-montserrat-semi-bold);
     }
 
     &__story-category {
-      @include font-text-4-360;
-
       top: 16px;
       left: 16px;
       padding: 5px 12px;

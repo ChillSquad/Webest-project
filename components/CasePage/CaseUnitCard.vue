@@ -1,8 +1,17 @@
 <script setup>
+import { ref } from "vue";
 import CaseUnitPlate from "./CaseUnitPlate.vue";
+import SidebarCase from "./SidebarCase.vue";
 import { useSidebarModel } from "../models/sidebar";
 
-const { toggleSidebarFormCase } = useSidebarModel();
+const { isActiveCase } = useSidebarModel();
+
+const activeCase = ref(null);
+
+const openSidebarWithCase = (caseItem) => {
+  activeCase.value = caseItem;
+  isActiveCase.value = true;
+};
 
 defineProps({
   urlImage: {
@@ -49,14 +58,14 @@ defineProps({
           :src="urlImage"
           :alt="urlImage"
         />
-
         <p :style="{ color: textColor }" class="case-unit-card__case-heading">
           {{ title }}
         </p>
       </NuxtLink>
 
       <button
-        @click="toggleSidebarFormCase"
+        v-if="hasData"
+        @click="openSidebarWithCase({ title, moreData })"
         class="case-unit-card__case-button"
       >
         <span>i</span>
@@ -64,5 +73,7 @@ defineProps({
 
       <CaseUnitPlate v-if="hasData" :items="moreData" :platePosition="wide" />
     </div>
+
+    <SidebarCase v-if="activeCase" :items="activeCase.moreData" />
   </div>
 </template>

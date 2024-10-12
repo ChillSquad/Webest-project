@@ -45,6 +45,15 @@ const priorityItems = [
   },
 ];
 
+const prioritySub = [
+  {
+    content1: "Выбрав нашу компанию, вы получаете все преимущества работы с",
+    pink: " опытной командой ",
+    content2:
+      ", которая изо всех сил старается обеспечить ваш бизнес максимальным успехом",
+  },
+];
+
 const images = [
   {
     src: "/images/imageCaseArticle5.png",
@@ -121,7 +130,12 @@ const imageCaption =
 
     <Technologies :technologies="technologies" />
 
-    <Priority :subtitle="true" title="Почему мы" :prioritys="priorityItems" />
+    <Priority
+      :subtitle="true"
+      title="Почему мы"
+      :prioritys="priorityItems"
+      :content="prioritySub"
+    />
 
     <BlogUnit title="Награды и сертификаты" article="development" />
 
@@ -131,7 +145,9 @@ const imageCaption =
 
     <CustomersUnit />
 
-    <TalkUnit />
+    <div class="container">
+      <TalkUnit />
+    </div>
   </div>
 </template>
 

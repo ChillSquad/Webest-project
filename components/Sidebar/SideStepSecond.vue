@@ -2,11 +2,12 @@
 import { useSidebarModel } from "../models/sidebar";
 import GradientButton from "../UI-kit/GradientButton.vue";
 
-const { isActive, isActiveStaff } = useSidebarModel();
+const { isActive, isActiveStaff, isActiveTariff } = useSidebarModel();
 
 const closeSidebar = () => {
   isActive.value = false;
   isActiveStaff.value = false;
+  isActiveTariff.value = false;
 };
 </script>
 

@@ -139,7 +139,7 @@ const handleFileSelect = (event) => {
   background: transparent;
   border: none;
   padding: 14px 0;
-  color: var(--color-black-subtitle);
+  color: var(--color-black);
 
   &:focus {
     outline: none;
@@ -151,7 +151,7 @@ const handleFileSelect = (event) => {
   &:after {
     content: "\0048";
     font-size: 15px;
-    color: var(--color-black-subtitle);
+    color: var(--color-black);
     font-weight: inherit;
   }
 }
@@ -169,7 +169,7 @@ const handleFileSelect = (event) => {
   &:after {
     content: "\004A";
     font-size: 12px;
-    color: var(--color-black-subtitle);
+    color: var(--color-black);
     font-weight: inherit;
   }
 }

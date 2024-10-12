@@ -12,6 +12,14 @@
 
   &__photo-collage > img {
     position: absolute;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   &__photo-collage {

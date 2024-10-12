@@ -1,8 +1,8 @@
 <script setup>
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 
-const { data: items } = await useAsyncData("expertise", async () => {
-  return await $fetch("/api/expertise/", { method: "GET" });
+const { data: items } = await useAsyncData("expertisepage", async () => {
+  return await $fetch("/api/expertisepage/", { method: "GET" });
 });
 </script>
 
@@ -25,7 +25,11 @@ const { data: items } = await useAsyncData("expertise", async () => {
           <li
             v-for="(item, index) in items"
             :key="index"
-            :class="['expertise-page__table-item', { wide: item.wide }]"
+            :class="[
+              'expertise-page__table-item',
+              { wide: item.wide },
+              { tall: item.tall },
+            ]"
           >
             <NuxtLink :to="item.route" class="expertise-card">
               <div class="expertise-card__inner">

@@ -18,6 +18,8 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/scss/helpers/fonts-mixin";
+
 .breadcrumbs-custom {
   display: flex;
   justify-content: center;
@@ -36,9 +38,8 @@ defineProps({
   }
 
   .breadcrumbs-custom-lable {
-    font-family: var(--ff-gilroy-semi-bold);
-    font-size: 20px;
-    line-height: 20px;
+    @include font-button-1;
+
     color: var(--color-black);
     transition: color 0.2s ease-in-out;
   }
@@ -55,6 +56,10 @@ defineProps({
       transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
       font-weight: inherit;
     }
+  }
+
+  @media (max-width: 360px) {
+    margin-bottom: 20px;
   }
 }
 </style>

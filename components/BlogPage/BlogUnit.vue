@@ -2,13 +2,16 @@
 import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation } from "swiper/modules";
+import { useSidebarModel } from "../models/sidebar";
 
 import "swiper/swiper-bundle.css";
 import Button from "primevue/button";
 import TitleButton from "../UI-kit/TitleButton.vue";
 import BlogUnitCard from "./BlogUnitCard.vue";
 import CaseUnitCard from "../CasePage/CaseUnitCard.vue";
+import BlogSidebar from "./BlogSidebar.vue";
 
+const { toggleSidebarFormBlog } = useSidebarModel();
 const { data: items } = await useAsyncData("blog", () => {
   return $fetch("/api/blog/", { method: "GET" });
 });
@@ -38,11 +41,11 @@ const onSwiperInit = (swiperInstance) => {
 
   isBeginning.value = swiperInstance.isBeginning;
   isEnd.value = swiperInstance.isEnd;
+};
 
-  swiperInstance.on("slideChange", () => {
-    isBeginning.value = swiperInstance.isBeginning;
-    isEnd.value = swiperInstance.isEnd;
-  });
+const onSlideChange = (swiper) => {
+  isBeginning.value = swiper.isBeginning;
+  isEnd.value = swiper.isEnd;
 };
 
 defineProps({
@@ -62,9 +65,13 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  arrow: {
+    type: Boolean,
+    default: true,
+  },
 });
 
-const images = [
+const slides = [
   { src: "/images/imageAward1.png" },
   { src: "/images/imageAward2.png" },
   { src: "/images/imageAward3.png" },
@@ -82,7 +89,7 @@ const images = [
     <div class="blog-unit__inner">
       <div class="container">
         <div class="blog-unit__heading">
-          <TitleButton :title="title" :route="route" />
+          <TitleButton :title="title" :route="route" :arrow="arrow" />
 
           <div class="blog-unit__slider">
             <Button
@@ -104,6 +111,7 @@ const images = [
 
       <swiper
         @swiper="onSwiperInit"
+        @slide-change="onSlideChange"
         :loop="false"
         direction="horizontal"
         :modules="[Navigation]"
@@ -145,6 +153,7 @@ const images = [
       <swiper
         v-if="article === 'development'"
         @swiper="onSwiperInit"
+        @slide-change="onSlideChange"
         :loop="false"
         direction="horizontal"
         :modules="[Navigation]"
@@ -153,21 +162,72 @@ const images = [
           0: { slidesPerView: 1.1, spaceBetween: 8 },
         }"
       >
-        <swiper-slide v-for="(image, index) in images" :key="index">
-          <div class="award-slid">
-            <img class="award-slid__image" :src="image.src" :alt="image" />
+        <swiper-slide v-for="(slide, index) in slides" :key="index">
+          <div class="award-slid" @click="toggleSidebarFormBlog">
+            <img
+              class="award-slid__image"
+              :src="slide.src"
+              alt="Изображение награды"
+            />
+            <span class="icon-loupe"></span>
           </div>
         </swiper-slide>
+
+        <BlogSidebar :slides="slides" />
       </swiper>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .award-slid {
+  max-width: 326px;
+  height: 326px;
+  position: relative;
   border: 1px solid var(--color-grey-light-span);
   padding: 32px;
   border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+
+  .award-slid__image {
+    max-width: 262px;
+    max-height: 262px;
+    transition: filter 0.3s ease-in-out;
+  }
+
+  .icon-loupe {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-blue);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    &:after {
+      content: "\004C";
+      font-size: 18px;
+      color: #fff;
+    }
+  }
+
+  &:hover {
+    .icon-loupe {
+      opacity: 1;
+    }
+
+    .award-slid__image {
+      filter: blur(10px);
+    }
+  }
 }
 </style>

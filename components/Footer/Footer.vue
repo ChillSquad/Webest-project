@@ -82,9 +82,11 @@ const companyLinks = [
             </div>
 
             <div class="footer__presentation">
-              <a href="#" class="icon-arrow-right-up"
-                >Скачать презентацию <span>- pdf, 3mb</span></a
-              >
+              <a href="#" class="icon-arrow-right-up">
+                Презентацию <span>- pdf, 3mb</span>
+              </a>
+
+              <a href="#" class="icon-arrow-right-up">Реквизиты </a>
             </div>
           </address>
         </div>
@@ -96,8 +98,10 @@ const companyLinks = [
         <section class="footer__copyright">
           <p class="footer__copyright-logo">© 2024, Webest</p>
           <div class="footer__copyright-links">
-            <NuxtLink to="/policy">Политика конфиденциальности</NuxtLink>
-            <a href="#">Реквизиты</a>
+            <a href="#">Согласие на обработку персональных данных</a>
+            <NuxtLink to="/policy"
+              >Политика в отношении обработки персональных данных</NuxtLink
+            >
           </div>
 
           <FooterIcons />

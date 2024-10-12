@@ -1,81 +1,124 @@
 :root {
-  --index: calc(1vw + 1vh);
   --ff-gilroy-regular: "Gilroy-Regular", Arial, sans-serif;
   --ff-gilroy-medium: "Gilroy-Medium", Arial, sans-serif;
   --ff-gilroy-semi-bold: "Gilroy-SemiBold", Arial, sans-serif;
+  --ff-gilroy-bold: "Gilroy-Bold", Arial, sans-serif;
   --ff-montserrat-semi-bold: "Montserrat-SemiBold", Arial, sans-serif;
   --ff-montserrat-bold: "Montserrat-Bold", Arial, sans-serif;
 
-  --fs-h1-1920: calc(var(--index) * 4.8);
+  --fs-h1: 140px;
+  --lh-h1: 168px;
+  --font-h1: normal 700 var(--fs-h1) / var(--lh-h1) var(--ff-montserrat-bold);
+
+  --fs-h1-inner: 64px;
+  --lh-h1-inner: 76.8px;
+  --font-h1-inner: normal 700 var(--fs-h1-inner) / var(--lh-h1-inner)
+    var(--ff-montserrat-bold);
+
   --fs-h2: 80px;
   --lh-h2: 96px;
   --font-h2: normal 700 var(--fs-h2) / var(--lh-h2) var(--ff-montserrat-bold);
-  --fs-h2-inner: 64px;
-  --lh-h2-inner: 76.8px;
-  --font-h2-inner: normal 700 var(--fs-h2-inner) / var(--lh-h2-inner)
-    var(--ff-montserrat-bold);
+
   --fs-h3: 44px;
   --lh-h3: 54.12px;
   --font-h3: normal 700 var(--fs-h3) / var(--lh-h3) var(--ff-montserrat-bold);
-  --fs-h3-menu: 24px;
-  --lh-h3-menu: 27.36px;
-  --font-h3-menu: normal 700 var(--fs-h3-menu) / var(--lh-h3-menu)
-    var(--ff-montserrat-bold);
+
   --fs-h4: 28px;
   --lh-h4: 36.12px;
   --font-h4: normal 700 var(--fs-h4) / var(--lh-h4) var(--ff-montserrat-bold);
+
   --fs-h5: 24px;
   --lh-h5: 33.6px;
   --font-h5: normal 500 var(--fs-h5) / var(--lh-h5) var(--ff-gilroy-medium);
+
   --fs-h6: 22px;
   --lh-h6: 32.12px;
   --font-h6: normal 600 var(--fs-h6) / var(--lh-h6) var(--ff-gilroy-semi-bold);
-  --fs-text-1: 18px;
-  --lh-text-1: 27.54px;
+
+  --fs-h7: 20px;
+  --lh-h7: 29.2px;
+  --font-h7: normal 600 var(--fs-h7) / var(--lh-h7)
+    var(--ff-montserrat-semi-bold);
+
+  --fs-text-1: 24px;
+  --lh-text-1: 33.6px;
   --font-text-1: normal 500 var(--fs-text-1) / var(--lh-text-1)
     var(--ff-gilroy-medium);
-  --fs-text-2: 14px;
-  --lh-text-2: 18.2px;
+
+  --fs-text-2: 18px;
+  --lh-text-2: 27.54px;
   --font-text-2: normal 500 var(--fs-text-2) / var(--lh-text-2)
-    var(--ff-gilroy-regular);
-  --fs-text-3: 15px;
-  --lh-text-3: 21px;
-  --font-text-3: normal 500 var(--fs-text-3) / var(--lh-text-3)
     var(--ff-gilroy-medium);
-  --fs-text-4-1920: 16px;
-  --lh-text-4-1920: 22.4px;
-  --font-text-4-1920: normal 400 var(--fs-text-4-1920) / var(--lh-text-4-1920)
+  --font-text-2-bold: normal 500 var(--fs-text-2) / var(--lh-text-2)
+    var(--ff-gilroy-bold);
+
+  --fs-text-3: 16px;
+  --lh-text-3: 22.4px;
+  --font-text-3: normal 400 var(--fs-text-3) / var(--lh-text-3)
     var(--ff-gilroy-regular);
-  --fs-text-4-360: 13px;
-  --lh-text-4-360: 18.98px;
-  --font-text-4-360: normal 400 var(--fs-text-4-360) / var(--lh-text-4-360)
-    var(--ff-gilroy-regular);
+
+  --fs-text-4: 16px;
+  --lh-text-4: 24px;
+  --font-text-4: normal 500 var(--fs-text-4) / var(--lh-text-4)
+    var(--ff-gilroy-medium);
+
+  --fs-text-5: 14px;
+  --lh-text-5: 18.2px;
+  --font-text-5: normal 600 var(--fs-text-5) / var(--lh-text-5)
+    var(--ff-gilroy-semi-bold);
+
+  --fs-text-6: 14px;
+  --lh-text-6: 18.2px;
+  --font-text-6: normal 500 var(--fs-text-6) / var(--lh-text-6)
+    var(--ff-gilroy-medium);
+
+  --fs-button-1: 20px;
+  --lh-button-1: 20px;
+  --font-button-1: normal 600 var(--fs-button-1) / var(--lh-button-1)
+    var(--ff-gilroy-semi-bold);
+
+  --fs-button-2: 18px;
+  --lh-button-2: 18px;
+  --font-button-2: normal 500 var(--fs-button-2) / var(--lh-button-2)
+    var(--ff-gilroy-medium);
+
   --fs-link-1: 18px;
   --lh-link-1: 18px;
   --font-link-1: normal 500 var(--fs-link-1) / var(--lh-link-1)
     var(--ff-gilroy-medium);
+
+  --fs-link-2: 14px;
+  --lh-link-2: 18.2px;
+  --font-link-2: normal 400 var(--fs-link-2) / var(--lh-link-2)
+    var(--ff-gilroy-regular);
+
   --fs-subscribe: 16px;
   --lh-subscribe: 19.2px;
   --font-subscribe: normal 400 var(--fs-subscribe) / var(--lh-subscribe)
     var(--ff-gilroy-regular);
+
+  --fs-strikethrought: 18px;
+  --lh-strikethrought: 27.54px;
+  --font-strikethrought: normal 500 var(--fs-strikethrought) /
+    var(--lh-strikethrought) var(--ff-gilroy-medium);
+
   --fs-logo-text: 17px;
   --lh-logo-text: 17px;
   --font-logo-text: normal 500 var(--fs-logo-text) / var(--lh-logo-text)
     var(--ff-gilroy-medium);
+
   --font-expertise-icon: 45px;
   --font-footer-icon: 20px;
 
-  --color-white: #fff;
   --color-white-transparent: rgba(255, 255, 255, 0.8);
-  --color-black: #000;
-  --color-black-transparent: #00030905;
-  --color-black-subtitle: #000309;
-  --color-blue: #075bf7;
-  --color-blue-line: #075bf733;
-  --color-dark-blue: #5d6d89;
-  --color-grey-transparent: #ffffff26;
-  --color-grey-light: #eff0f3;
-  --color-grey-light-span: #d8dce9;
+  --color-black: rgba(0, 3, 9, 1);
+  --color-black-transparent: rgba(0, 3, 9, 0.2);
+  --color-blue: rgba(7, 91, 247, 1);
+  --color-blue-line: rgba(7, 91, 247, 0.2);
+  --color-dark-blue: rgba(93, 109, 137, 1);
+  --color-grey-transparent: rgba(255, 255, 255, 0.149);
+  --color-grey-light: rgb(239, 240, 243);
+  --color-grey-light-span: rgb(216, 220, 233);
   --color-pink: rgba(255, 85, 159, 1);
   --color-red-subscribe: rgba(247, 7, 11, 1);
   --color-purple: rgba(127, 7, 247, 1);
@@ -104,8 +147,6 @@
 
   --container-max-width: 1676px;
 
-  --border-radius-expertise: 40px;
-  --border-radius-case: 40px;
-  --border-radius-blog: 40px;
+  --border-radius-40: 40px;
   --border-radius-custom-standing: 8px;
 }

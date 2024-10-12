@@ -2,8 +2,8 @@
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import Breadcrumbs from "~/components/UI-kit/Breadcrumbs.vue";
-import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import GradientButton from "~/components/UI-kit/GradientButton.vue";
+import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 
 const breadcrumbItems = [{ label: "Назад ко всем кейсам", route: "/case" }];
@@ -49,6 +49,7 @@ const {
             Kamatyres
           </div>
         </div>
+
         <GradientButton title="Заказать разработку сайта" />
       </div>
     </div>
@@ -548,11 +549,13 @@ const {
       </div>
     </div>
 
-    <TalkUnit
-      title="Хотите так же?"
-      titleLeft="У меня есть задача. Хочу крутое решение"
-      titleRight="Хочу к вам в команду делать классные решения"
-    />
+    <div class="container">
+      <TalkUnit
+        title="Хотите так же?"
+        titleLeft="У меня есть задача. Хочу крутое решение"
+        titleRight="Хочу к вам в команду делать классные решения"
+      />
+    </div>
 
     <BlogUnit article="case" title="еще кейсы" route="/case" :slider="true" />
   </div>

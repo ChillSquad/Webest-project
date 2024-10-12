@@ -53,6 +53,7 @@ const slideNext = () => {
 
 <style lang="scss">
 @import "~/assets/scss/helpers/fonts-mixin";
+
 .pagination {
   margin: 60px 0 var(--unit-margin-y) 0;
   display: flex;
@@ -96,21 +97,17 @@ const slideNext = () => {
 @media (max-width: 360px) {
   .pagination {
     margin: 40px 0 var(--unit-margin-y) 0;
+    justify-content: space-between;
   }
 
   .pagination-root {
     input {
-      font-size: 16px;
-      line-height: 16px;
-
       width: 60px;
       height: 50px;
     }
   }
 
   .pages-wrapper {
-    font-size: 16px;
-    line-height: 16px;
     gap: 12px;
   }
 }

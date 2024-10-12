@@ -6,7 +6,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: var(--color-white);
+  color: #fff;
 
   .container {
     display: flex;
@@ -45,11 +45,15 @@
       padding: 3px 0;
 
       a {
-        @include font-text-1;
+        @include font-text-2;
 
         color: var(--color-white-transparent);
+        transition: color 0.2s ease-in-out;
 
         &:hover {
+          color: #fff;
+          text-decoration: underline;
+
           &:after {
             transform: rotate(45deg);
           }
@@ -74,7 +78,7 @@
       transition: background-color 0.3s ease-in-out;
 
       &:hover {
-        background-color: var(--color-white);
+        background-color: #fff;
 
         &:hover:after {
           color: var(--color-blue);
@@ -85,13 +89,24 @@
 
   &__presentation {
     margin-top: 37px;
-
-    @include icon-arrow-right-hover;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 
     a {
-      @include font-text-1;
+      @include font-text-2;
 
       color: var(--color-white-transparent);
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: #fff;
+        text-decoration: underline;
+
+        &:after {
+          transform: rotate(45deg);
+        }
+      }
     }
   }
 
@@ -113,8 +128,9 @@
   }
 
   &__copyright-logo {
-    @include font-text-2;
+    @include font-text-6;
 
+    color: var(--color-white-transparent);
     user-select: none;
   }
 
@@ -123,9 +139,16 @@
     gap: 20px;
 
     a {
-      @include font-text-2;
+      @include font-text-6;
 
       color: var(--color-white-transparent);
+
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
     }
   }
 
@@ -205,6 +228,10 @@
     &__logo-footer {
       margin: 40px 0;
     }
+
+    &__presentation {
+      align-items: center;
+    }
   }
 
   @media (max-width: 900px) {
@@ -239,9 +266,22 @@
         gap: 9px;
       }
     }
+
+    &__copyright {
+      gap: 0;
+    }
+
+    &__copyright-links {
+      flex-direction: column;
+      text-align: center;
+      margin: 8px 0 16px;
+      gap: 8px;
+    }
   }
 
   .icon-arrow-right-up {
+    width: fit-content;
+
     &:after {
       content: "\0042";
       font-size: 12px;

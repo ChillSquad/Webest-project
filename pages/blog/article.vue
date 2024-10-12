@@ -1,8 +1,8 @@
 <script setup>
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import Breadcrumbs from "~/components/UI-kit/Breadcrumbs.vue";
-import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import GradientButton from "~/components/UI-kit/GradientButton.vue";
+import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 
 const breadcrumbItems = [{ label: "Назад ко всем статьям", route: "/blog" }];

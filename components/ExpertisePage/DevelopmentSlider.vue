@@ -31,7 +31,11 @@ defineProps({
         :key="index"
       >
         <span class="custom-standing-purple">{{ text.purple }}</span>
-        {{ text.content }}
+        {{ text.content1 }}
+        <span class="custom-standing-yellow">{{ text.yellow }}</span>
+        {{ text.content2 }}
+        <span class="custom-standing-pink">{{ text.pink }}</span>
+        {{ text.content3 }}
       </p>
     </div>
 
@@ -39,7 +43,7 @@ defineProps({
       :loop="false"
       :breakpoints="{
         400: { slidesPerView: 3, spaceBetween: 8 },
-        0: { slidesPerView: 1.3, spaceBetween: 4 },
+        0: { slidesPerView: 1.09, spaceBetween: 8 },
       }"
     >
       <swiper-slide v-for="(image, index) in images" :key="index">
@@ -88,6 +92,20 @@ defineProps({
         background: var(--color-purple);
         transform: rotate(1.01deg);
       }
+
+      .custom-standing-yellow {
+        @include custom-standing;
+
+        background: var(--color-yellow);
+        transform: rotate(-1.2deg);
+      }
+
+      .custom-standing-pink {
+        @include custom-standing;
+
+        background: var(--color-pink);
+        transform: rotate(-1.2deg);
+      }
     }
   }
 
@@ -103,6 +121,32 @@ defineProps({
     max-width: 556px;
   }
 
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 40px;
+    position: relative;
+  }
+
+  &__image-title {
+    @include font-h6;
+
+    color: #fff;
+    position: absolute;
+    top: 32px;
+    left: 32px;
+  }
+
+  &__image-subtitle {
+    @include font-text-4;
+
+    color: #fff;
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+  }
+
   .swiper {
     padding: var(--swiper-padding);
   }
@@ -112,30 +156,25 @@ defineProps({
     height: 680px;
   }
 
-  &__image {
-    width: 554px;
-    height: 680px;
-    object-fit: cover;
-    border-radius: 40px;
-    position: relative;
-  }
+  @media (max-width: 360px) {
+    &__heading {
+      margin-bottom: 40px;
+    }
 
-  &__image-title {
-    @include font-h6;
+    &__image-title {
+      top: 20px;
+      left: 20px;
+    }
 
-    color: var(--color-white);
-    position: absolute;
-    top: 32px;
-    left: 32px;
-  }
+    &__image-subtitle {
+      bottom: 20px;
+      left: 20px;
+    }
 
-  &__image-subtitle {
-    @include font-text-4-1920;
-
-    color: var(--color-white);
-    position: absolute;
-    bottom: 32px;
-    left: 32px;
+    .swiper-slide {
+      width: 300px !important;
+      height: 368px;
+    }
   }
 }
 </style>

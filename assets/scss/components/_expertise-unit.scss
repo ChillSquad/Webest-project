@@ -13,7 +13,7 @@
 
     width: 569px;
     margin-left: auto;
-    color: var(--color-black-subtitle);
+    color: var(--color-black);
 
     .custom-standing-pink {
       @include custom-standing;
@@ -40,7 +40,7 @@
   &__table {
     width: 100%;
     height: max-content;
-    border-radius: var(--border-radius-expertise);
+    border-radius: var(--border-radius-40);
     box-shadow: 0 0 50px 5px var(--shadow-card);
     background-color: rgba(235, 238, 242, 0.5);
   }
@@ -58,8 +58,8 @@
   }
 
   &__table-item {
-    background: var(--color-white);
-    border-radius: var(--border-radius-expertise);
+    background: #fff;
+    border-radius: var(--border-radius-40);
     height: 340px;
 
     &:hover {
@@ -199,7 +199,7 @@
     }
 
     &:hover {
-      color: var(--color-white);
+      color: #fff;
 
       .icon-development {
         @include expertise-icon-hover;
@@ -257,7 +257,7 @@
   }
 
   &__subhead {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     position: absolute;
     visibility: hidden;
@@ -265,13 +265,7 @@
   }
 
   @media (max-width: 1000px) {
-    &__heading {
-      @include font-text-3;
-    }
-
     &__subhead {
-      @include font-text-4-360;
-
       position: static;
       visibility: visible;
     }

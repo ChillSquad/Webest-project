@@ -21,7 +21,7 @@
     transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
 
     &:hover {
-      background: var(--color-white);
+      background: #fff;
       color: var(--color-blue);
     }
   }
@@ -97,17 +97,16 @@
     display: flex;
     justify-content: center;
     border: none;
+    outline: none;
     cursor: pointer;
-  }
 
-  &__menu-button {
     &::before,
     &::after {
       height: 3px;
       width: 17px;
       display: flex;
       justify-content: center;
-      background-color: var(--color-white);
+      background-color: #fff;
       position: absolute;
       transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
     }

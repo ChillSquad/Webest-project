@@ -1,4 +1,8 @@
 <script setup>
+import { useSidebarModel } from "../models/sidebar";
+
+const { toggleSidebarFormTariff } = useSidebarModel();
+
 defineProps({
   title: {
     type: String,
@@ -43,7 +47,12 @@ defineProps({
       {{ sale }} <span v-if="!box">/ мес</span>
     </p>
 
-    <button class="expertise-crm-tariff__item-button">Купить</button>
+    <button
+      class="expertise-crm-tariff__item-button"
+      @click="toggleSidebarFormTariff"
+    >
+      Купить
+    </button>
 
     <div class="expertise-crm-tariff__item-footer">
       <p
@@ -76,7 +85,7 @@ defineProps({
   }
 
   &__item-subtitle {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     margin-bottom: 48px;
     color: var(--color-white-transparent);
@@ -86,7 +95,7 @@ defineProps({
     @include font-h4;
 
     span {
-      @include font-text-1;
+      @include font-text-2;
 
       text-transform: lowercase;
       color: var(--color-white-transparent);
@@ -94,33 +103,32 @@ defineProps({
   }
 
   &__item-sale {
-    @include font-text-1;
+    @include font-text-2;
 
     text-decoration: line-through;
     color: var(--color-white-transparent);
   }
 
   .license {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     text-decoration: none;
   }
 
   &__item-button {
+    @include font-button-1;
+
     padding: 24px 0;
     width: 100%;
     background: transparent;
-    border: 1px solid var(--color-white);
+    border: 1px solid #fff;
     border-radius: 20px;
-    color: var(--color-white);
-    font-size: 20px;
-    line-height: 20px;
-    font-family: var(--ff-gilroy-semi-bold);
+    color: #fff;
     cursor: pointer;
   }
 
   &__item-footer {
-    @include font-text-4-1920;
+    @include font-text-4;
 
     display: flex;
     flex-direction: column;
@@ -136,7 +144,7 @@ defineProps({
       &:before {
         content: "\004E";
         font-size: 12px;
-        color: var(--color-white);
+        color: #fff;
         padding-right: 8px;
       }
     }
