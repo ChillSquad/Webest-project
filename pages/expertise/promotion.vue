@@ -222,11 +222,13 @@ const imageCaption =
 
     <BlogUnit title="Награды и сертификаты" article="development" />
 
-    <TalkUnit
-      title="Остались вопросы?"
-      titleLeft="обсудить Готовое решение"
-      titleRight="обсудить Индивидуальную разработку"
-    />
+    <div class="container">
+      <TalkUnit
+        title="Остались вопросы?"
+        titleLeft="обсудить Готовое решение"
+        titleRight="обсудить Индивидуальную разработку"
+      />
+    </div>
   </div>
 </template>
 

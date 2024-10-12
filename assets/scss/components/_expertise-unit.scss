@@ -265,10 +265,6 @@
   }
 
   @media (max-width: 1000px) {
-    &__heading {
-      @include font-text-3;
-    }
-
     &__subhead {
       position: static;
       visibility: visible;
