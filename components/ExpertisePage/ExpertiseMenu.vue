@@ -109,7 +109,7 @@ const setActiveItem = (index) => {
     flex-direction: column;
     gap: 16px;
     padding: 32px;
-    background: var(--color-white);
+    background: #fff;
     border-radius: 32px;
     transition: color 0.2s ease-in-out, background 0.3s ease-in-out,
       max-height 0.4s ease-in-out;

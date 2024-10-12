@@ -119,8 +119,8 @@ onMounted(() => {
   }
 
   &__list {
-    border-top: 1px solid var(--color-white);
-    border-bottom: 1px solid var(--color-white);
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
   }
 
   &__list-item {

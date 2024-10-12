@@ -317,7 +317,7 @@ const imageAlt = "Заголовок статьи";
   }
 
   &__item {
-    background: var(--color-white);
+    background: #fff;
     padding: 32px;
     border-radius: 40px;
   }

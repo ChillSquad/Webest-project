@@ -50,18 +50,14 @@ router.afterEach(() => {
               to="/"
               class="header__logo-title icon-header-logo"
               :style="{
-                color: isAdaptiveActive
-                  ? 'var(--color-blue)'
-                  : 'var(--color-white)',
+                color: isAdaptiveActive ? 'var(--color-blue)' : '#fff',
               }"
             ></NuxtLink>
 
             <div
               class="header__logo-subtitle"
               :style="{
-                color: isAdaptiveActive
-                  ? 'var(--color-blue)'
-                  : 'var(--color-white)',
+                color: isAdaptiveActive ? 'var(--color-blue)' : '#fff',
               }"
             >
               <span
@@ -69,7 +65,7 @@ router.afterEach(() => {
                 :style="{
                   backgroundColor: isAdaptiveActive
                     ? 'var(--color-blue-line)'
-                    : 'var(--color-white)',
+                    : '#fff',
                 }"
               ></span>
               <p class="header__logo-text">цифровое <br />решение</p>

@@ -47,7 +47,7 @@ router.afterEach(() => {
       :class="{ active: isActive }"
       type="button"
       :style="{
-        backgroundColor: isActive ? 'transparent' : 'var(--color-white)',
+        backgroundColor: isActive ? 'transparent' : '#fff',
       }"
     ></button>
   </div>

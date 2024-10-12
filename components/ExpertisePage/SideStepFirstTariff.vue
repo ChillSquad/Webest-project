@@ -116,7 +116,7 @@ const checked = ref(false);
     top: 2px;
     width: 6px;
     height: 14px;
-    border: solid white;
+    border: solid #fff;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
   }

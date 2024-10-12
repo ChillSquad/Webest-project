@@ -357,7 +357,7 @@ const selectedVersion = ref("Облачная версия");
     border-radius: 40px;
     padding: 32px;
     color: #fff;
-    border: 1px solid white;
+    border: 1px solid #fff;
 
     background-image: url("public/images/first-page-background.png");
     background-size: cover;
@@ -376,7 +376,7 @@ const selectedVersion = ref("Облачная версия");
   .expertise-menu__item-aside {
     width: 872px;
     height: 668px;
-    background: var(--color-white);
+    background: #fff;
   }
 
   .expertise-menu__item-image {

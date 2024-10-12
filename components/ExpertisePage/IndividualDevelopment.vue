@@ -74,10 +74,10 @@ defineProps({
 
     .gradient-button {
       color: var(--color-blue);
-      background: var(--color-white);
+      background: #fff;
 
       &:hover {
-        background: var(--color-white);
+        background: #fff;
         .icon-arrow-right-up {
           &:after {
             transform: rotate(45deg);

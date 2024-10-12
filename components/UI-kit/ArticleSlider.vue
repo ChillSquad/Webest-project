@@ -170,7 +170,7 @@ const updateCurrentIndex = (swiper) => {
   padding: 25px 30px;
   border: 1px solid var(--color-grey-light-span);
   border-radius: 20px;
-  background: var(--color-white);
+  background: #fff;
   font-weight: 900;
   text-align: center;
   outline: none;

@@ -113,7 +113,7 @@ const props = defineProps({
   outline: none;
   margin-left: auto;
   transition: color 0.1s ease-in-out;
-  background: var(--color-white);
+  background: #fff;
   cursor: pointer;
 
   &:hover {
@@ -170,7 +170,7 @@ const props = defineProps({
 
   .article-slider__bar {
     margin-top: 28px;
-    background: var(--color-white);
+    background: #fff;
     width: 612px;
   }
 

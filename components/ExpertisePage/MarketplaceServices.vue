@@ -100,7 +100,7 @@ defineProps({
     flex-direction: column;
     gap: 8px;
     padding: 0 5px 32px 0;
-    background: var(--color-white);
+    background: #fff;
     border-bottom: 1px solid var(--color-grey-light-span);
     transition: background 0.3s ease-in-out, max-height 0.6s ease-in-out;
     overflow: hidden;

@@ -80,7 +80,7 @@
     position: absolute;
     bottom: 8px;
     right: 8px;
-    background: var(--color-white);
+    background: #fff;
     z-index: 2;
     cursor: pointer;
 
@@ -222,7 +222,7 @@
   bottom: 8px;
   right: 8px;
   left: 8px;
-  background: var(--color-white);
+  background: #fff;
   border-radius: calc(var(--border-radius-40) - 6px);
   padding: 12px 16px;
 

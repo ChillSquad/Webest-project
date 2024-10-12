@@ -119,7 +119,7 @@ defineProps({
     padding: 24px 0;
     width: 100%;
     background: transparent;
-    border: 1px solid var(--color-white);
+    border: 1px solid #fff;
     border-radius: 20px;
     color: #fff;
     font-size: 20px;
