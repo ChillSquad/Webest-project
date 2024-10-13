@@ -28,7 +28,7 @@ const companyLinks = [
   { name: "Услуги", route: "/expertise" },
   { name: "Кейсы", route: "/case" },
   { name: "Блог", route: "/blog" },
-  { name: "Компания", route: "/" },
+  { name: "Компания", route: "/team" },
   { name: "Контакты", route: "/contacts" },
   { name: "Академия", route: "/" },
   { name: "Партнерам", route: "/" },
@@ -98,7 +98,9 @@ const companyLinks = [
         <section class="footer__copyright">
           <p class="footer__copyright-logo">© 2024, Webest</p>
           <div class="footer__copyright-links">
-            <a href="#">Согласие на обработку персональных данных</a>
+            <NuxtLink to="/policy/agreement"
+              >Согласие на обработку персональных данных</NuxtLink
+            >
             <NuxtLink to="/policy"
               >Политика в отношении обработки персональных данных</NuxtLink
             >

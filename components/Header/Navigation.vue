@@ -12,25 +12,33 @@ const isActive = (basePath) => {
   <nav>
     <ul class="header-navigation-list">
       <li>
-        <NuxtLink to="/expertise" :class="{ selected: isActive('/expertise') }"
-          >Услуги</NuxtLink
-        >
+        <NuxtLink to="/expertise" :class="{ selected: isActive('/expertise') }">
+          Услуги
+        </NuxtLink>
       </li>
+
       <li>
-        <NuxtLink to="/case" :class="{ selected: isActive('/case') }"
-          >Кейсы</NuxtLink
-        >
+        <NuxtLink to="/case" :class="{ selected: isActive('/case') }">
+          Кейсы
+        </NuxtLink>
       </li>
+
       <li>
-        <NuxtLink to="/blog" :class="{ selected: isActive('/blog') }"
-          >Блог</NuxtLink
-        >
+        <NuxtLink to="/blog" :class="{ selected: isActive('/blog') }">
+          Блог
+        </NuxtLink>
       </li>
-      <li><a href="#">Компания</a></li>
+
       <li>
-        <NuxtLink to="/contacts" :class="{ selected: isActive('/contacts') }"
-          >Контакты</NuxtLink
-        >
+        <NuxtLink to="/team" :class="{ selected: isActive('/contacts') }">
+          Компания
+        </NuxtLink>
+      </li>
+
+      <li>
+        <NuxtLink to="/contacts" :class="{ selected: isActive('/contacts') }">
+          Контакты
+        </NuxtLink>
       </li>
     </ul>
   </nav>

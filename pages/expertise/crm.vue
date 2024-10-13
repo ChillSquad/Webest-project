@@ -419,6 +419,27 @@ const selectedVersion = ref("Облачная версия");
     .outstaff-advantages__item {
       height: 200px;
     }
+    /*  */
+    .expertise-menu__item {
+      max-height: 52px;
+
+      &.active {
+        max-height: 258px;
+      }
+    }
+
+    .expertise-menu__item-aside {
+      width: 100%;
+      height: 490px;
+      background: #fff;
+    }
+
+    .expertise-menu__item-image {
+      max-width: 95%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
   }
 }
 </style>
