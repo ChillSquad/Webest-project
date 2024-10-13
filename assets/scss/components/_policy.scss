@@ -1,11 +1,11 @@
 .policy-page {
-  padding-top: var(--page-padding);
+  padding-top: 164px;
 
   &__title {
-    @include font-h1;
+    @include font-h1-inner;
 
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
   }
 
   &__content {

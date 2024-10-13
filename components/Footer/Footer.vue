@@ -98,7 +98,9 @@ const companyLinks = [
         <section class="footer__copyright">
           <p class="footer__copyright-logo">© 2024, Webest</p>
           <div class="footer__copyright-links">
-            <a href="#">Согласие на обработку персональных данных</a>
+            <NuxtLink to="/policy/agreement"
+              >Согласие на обработку персональных данных</NuxtLink
+            >
             <NuxtLink to="/policy"
               >Политика в отношении обработки персональных данных</NuxtLink
             >
