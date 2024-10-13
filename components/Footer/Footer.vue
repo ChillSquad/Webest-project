@@ -28,7 +28,7 @@ const companyLinks = [
   { name: "Услуги", route: "/expertise" },
   { name: "Кейсы", route: "/case" },
   { name: "Блог", route: "/blog" },
-  { name: "Компания", route: "/" },
+  { name: "Компания", route: "/team" },
   { name: "Контакты", route: "/contacts" },
   { name: "Академия", route: "/" },
   { name: "Партнерам", route: "/" },
