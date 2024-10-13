@@ -173,7 +173,6 @@ const setActiveItem = (index) => {
     display: flex;
     flex-direction: column;
     justify-content: end;
-
     position: sticky;
     top: 5%;
   }
@@ -186,7 +185,10 @@ const setActiveItem = (index) => {
     .icon-marker {
       display: flex;
       align-items: center;
-      margin-top: 8px;
+
+      &:not(:first-child) {
+        margin-top: 8px;
+      }
 
       &:before {
         content: "\004E";
@@ -207,6 +209,38 @@ const setActiveItem = (index) => {
 
       margin-bottom: 40px;
       margin: 0 auto 40px;
+    }
+
+    &__content {
+      flex-direction: column;
+    }
+
+    &__list {
+      width: 100%;
+    }
+
+    &__item {
+      padding: 16px;
+      border-radius: 20px;
+    }
+
+    &__item-title {
+      font-family: var(--ff-montserrat-semi-bold);
+    }
+
+    &__item-marks {
+      top: 16px;
+      left: 16px;
+
+      .icon-marker {
+        &:not(:first-child) {
+          margin-top: 4px;
+        }
+      }
+    }
+
+    &__item-aside {
+      border-radius: 20px;
     }
   }
 }
