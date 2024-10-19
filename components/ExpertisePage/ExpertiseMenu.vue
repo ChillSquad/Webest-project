@@ -25,8 +25,6 @@ const setActiveItem = (index) => {
     <section class="expertise-menu">
       <div class="expertise-menu__heading">{{ title }}</div>
 
-      <GradientButton title="Сайт партнера" />
-
       <div class="expertise-menu__content">
         <ul class="expertise-menu__list">
           <li
@@ -76,10 +74,6 @@ const setActiveItem = (index) => {
 
 .expertise-menu {
   margin-bottom: var(--unit-margin-y);
-
-  button.gradient-button {
-    display: none;
-  }
 
   &__heading {
     @include font-h2;
@@ -204,13 +198,6 @@ const setActiveItem = (index) => {
   }
 
   @media (max-width: 475px) {
-    button.gradient-button {
-      display: block;
-
-      margin-bottom: 40px;
-      margin: 0 auto 40px;
-    }
-
     &__content {
       flex-direction: column;
     }

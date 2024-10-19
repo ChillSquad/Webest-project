@@ -21,7 +21,7 @@ defineProps({
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .breadcrumbs-custom {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   margin-bottom: 42px;
@@ -59,6 +59,7 @@ defineProps({
   }
 
   @media (max-width: 475px) {
+    display: flex;
     margin-bottom: 20px;
   }
 }
