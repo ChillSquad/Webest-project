@@ -39,31 +39,37 @@ const priorityItems = [
     heading: "Поиск и найм специалистов",
     content:
       "Отсутствие необходимости поиска специалистов, мы сделаем это за вас.",
+    icon: "twelve",
   },
   {
     heading: "Отсутствие проблем при увольнении сотрудника",
     content:
       "Если заказчику нужно прекратить сотрудничество с аутстафф-партнером, это можно сделать без юридических сложностей.",
+    icon: "thirteen",
   },
   {
     heading: "Привлечение персонала для временных проектов",
     content:
       "Это полезно для временных проектов или временной потребности в дополнительных ресурсах.",
+    icon: "fourteen",
   },
   {
     heading: "Сокращение затрат на отчисления от совокупного ФОТ",
     content:
       "ФОТ является значительной частью затрат компании при найме сотрудников.",
+    icon: "fifteen",
   },
   {
     heading: "Сертификация крупных корпоративных внедрений",
     content:
       "Мы делаем продукты, которые соответствуют нуждам клиентов и легко используются конечным пользователем.",
+    icon: "sixteen",
   },
   {
     heading: "Точечное закрытие позиций",
     content:
       "Аутстаффинг позволяет компаниям быстро заполнять вакансии на конкретные позиции.",
+    icon: "seventeen",
   },
 ];
 
@@ -203,12 +209,16 @@ const imageAlt = "Заголовок статьи";
               на различных проектах
             </p>
 
-            <img src="/images/imageExplanation1.png" alt="Изображение статьи" />
+            <img
+              class="up"
+              src="/images/imageExplanation1.png"
+              alt="Изображение статьи"
+            />
           </li>
 
           <li class="expertise-outstaff-explanation__item">
             <img
-              class="expertise-outstaff-explanation__image"
+              class="expertise-outstaff-explanation__image down"
               src="/images/imageExplanation2.png"
               alt="Изображение статьи"
             />
@@ -265,7 +275,7 @@ const imageAlt = "Заголовок статьи";
     margin-bottom: 44px;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     overflow-x: hidden;
 
     .outstaff-advantages__item {
@@ -290,20 +300,6 @@ const imageAlt = "Заголовок статьи";
 
   &__subtitle {
     @include font-h5;
-
-    .custom-standing-purple {
-      @include custom-standing;
-
-      background: var(--color-purple);
-      transform: rotate(2deg);
-    }
-
-    .custom-standing-yellow {
-      @include custom-standing;
-
-      background: var(--color-yellow);
-      transform: rotate(-1.91deg);
-    }
   }
 
   &__list {
@@ -312,17 +308,17 @@ const imageAlt = "Заголовок статьи";
     grid-template-rows: 1fr 1fr;
     box-shadow: 0 0 50px 5px var(--shadow-card);
     background-color: rgba(235, 238, 242, 0.5);
-    border-radius: 40px;
+    border-radius: var(--border-radius-40);
     gap: 8px;
   }
 
   &__item {
     background: #fff;
-    padding: 32px;
-    border-radius: 40px;
+    padding: var(--padding-card);
+    border-radius: var(--border-radius-40);
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__heading {
       flex-direction: column;
       margin-bottom: 40px;
@@ -385,6 +381,14 @@ const imageAlt = "Заголовок статьи";
     img {
       border-radius: 32px;
     }
+
+    .up {
+      animation: moveUpIMG 10s infinite ease-in-out;
+    }
+
+    .down {
+      animation: moveDownIMG 10s infinite ease-in-out;
+    }
   }
 
   &__image {
@@ -397,7 +401,35 @@ const imageAlt = "Заголовок статьи";
     }
   }
 
-  @media (max-width: 360px) {
+  @keyframes moveUpIMG {
+    0% {
+      transform: translateY(-20px);
+    }
+
+    50% {
+      transform: translateY(20px);
+    }
+
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes moveDownIMG {
+    0% {
+      transform: translateY(20px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+
+    100% {
+      transform: translateY(20px);
+    }
+  }
+
+  @media (max-width: 475px) {
     &__title {
       margin-bottom: 40px;
       text-align: center;

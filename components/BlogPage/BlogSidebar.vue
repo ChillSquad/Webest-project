@@ -1,6 +1,5 @@
 <script setup>
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
-import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 import { useSidebarModel } from "../models/sidebar";
 import { ref, watch } from "vue";
 
@@ -58,9 +57,7 @@ const props = defineProps({
 <template>
   <aside>
     <Sidebar v-model:visible="isActiveBlog" :pt="sidebarPT" position="full">
-      <ArticleSlider :slides="slides" />
-
-      <ArticleSliderMobile :slides="slides" />
+      <ArticleSlider :slides="slides" :view="true" />
     </Sidebar>
   </aside>
 </template>
@@ -96,14 +93,14 @@ const props = defineProps({
 
 .sidebar-award-header {
   position: absolute;
-  top: 45px;
-  right: 45px;
+  top: 24px;
+  right: 24px;
   z-index: 2;
 }
 
 .sidebar-award-close-button {
-  min-width: 48px;
-  height: 48px;
+  min-width: 70px;
+  height: 70px;
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -122,8 +119,8 @@ const props = defineProps({
 }
 
 .sidebar-award-close-icon {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
 }
 
 .sidebar-award-content {
@@ -183,6 +180,29 @@ const props = defineProps({
 
   .article-slider__pagination {
     width: 612px;
+  }
+
+  .article-slider-mobile {
+    .article-slider-mobile__image {
+      height: max-content;
+      border-radius: 0;
+    }
+
+    .article-slider-mobile__bar {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .sidebar-award-close-button {
+    min-width: 48px;
+    height: 48px;
+  }
+
+  .sidebar-award-close-icon {
+    width: 12px;
+    height: 12px;
   }
 }
 </style>

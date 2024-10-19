@@ -30,7 +30,7 @@ const isActive = (basePath) => {
       </li>
 
       <li>
-        <NuxtLink to="/team" :class="{ selected: isActive('/contacts') }">
+        <NuxtLink to="/team" :class="{ selected: isActive('/team') }">
           Компания
         </NuxtLink>
       </li>

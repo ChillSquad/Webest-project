@@ -58,7 +58,7 @@ defineProps({
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     margin-bottom: 20px;
   }
 }

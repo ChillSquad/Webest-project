@@ -7,7 +7,6 @@ import Recruiting from "~/components/ExpertisePage/Recruiting.vue";
 import CustomersUnit from "~/components/CustomersPage/CustomersUnit.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
-import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
@@ -55,34 +54,32 @@ const cards = [
 
 const priorityItems = [
   {
-    heading: "Гибкий форматы работы",
+    heading: "Сертифицированная команда",
     content:
-      "Мы предлагаем как классический аутсорсинг и аутстаффинг, так и различные комбинации, оптимальные для вашего бизнеса",
+      "Все сотрудники имеют сертификаты, с опытом от 3 лет и ведением не менее 30 рекламных кампаний в совокупности.",
+    icon: "seven",
   },
   {
-    heading: "Эффективные методы разработки",
+    heading: "Ежедневный контроль",
     content:
-      "Вы можете выбрать для себя наиболее подходящую методологию - Scrum или Waterfall",
+      "Вы можете выбрать для себя наиболее подходящую методологию - Scrum или Waterfall",
+    icon: "eight",
   },
   {
-    heading: "Современные технологии",
+    heading: "Быстрый запуск",
     content:
-      "Мы используем новейшие технологии, такие как Bitrix, VueJs и Laravel",
+      "В штате всегда есть специалист, который готов запустить проект в течении 5 рабочих дней.",
+    icon: "nine",
   },
   {
-    heading: "Собственный отдел аналитики и дизайна",
-    content:
-      "Мы делаем продукты, которые соответствуют нуждам наших клиентов и максимально легко используются конечным пользователем",
+    heading: "Отсрочка платежей",
+    content: "Работаем с отсрочкой по бюджетам и услугам. Выделяем НДС.",
+    icon: "ten",
   },
   {
-    heading: "Тестирование на всех этапах разработки",
-    content:
-      "Улучшение качества конечного продукта за счёт более эффективной работы и использования ресурсов",
-  },
-  {
-    heading: "Сертификация крупных корпоративных внедрений",
-    content:
-      "Мы делаем продукты, которые соответствуют нуждам наших клиентов и максимально легко используются конечным пользователем",
+    heading: "Понятный медиаплан",
+    content: " Глубокая аналитика тематики бизнеса, расчёт основных KPI.",
+    icon: "eleven",
   },
 ];
 
@@ -168,14 +165,18 @@ const imageCaption = "";
       :content="prioritySub"
     />
 
-    <BlogUnit title="Награды и сертификаты" article="development" />
+    <BlogUnit
+      title="Награды и сертификаты"
+      article="development"
+      :arrow="false"
+    />
 
     <Recruiting
       title="Доверьте нам маркетинг вашего бизнеса"
       subtitle="Оставьте заявку и мы свяжемся с вами в течение рабочего дня"
     />
 
-    <BlogUnit title="Наши кейсы" article="case" :slider="true" />
+    <BlogUnit title="Наши кейсы" article="case" :slider="true" route="/case" />
 
     <CustomersUnit />
 
@@ -186,8 +187,6 @@ const imageCaption = "";
         style="margin-bottom: 220px"
       />
     </div>
-
-    <ArticleSliderMobile :slides="slides" :review="true" />
 
     <div class="container">
       <TalkUnit />
@@ -210,7 +209,7 @@ const imageCaption = "";
     max-width: 350px;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     .outstaff-advantages__item {
       height: 320px;
     }

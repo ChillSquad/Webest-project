@@ -1,4 +1,26 @@
 <script setup>
+import { ref, onMounted } from "vue";
+
+const listItems = ref([]);
+
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1,
+  });
+
+  listItems.value.forEach((item) => {
+    observer.observe(item);
+  });
+});
+
 defineProps({
   title: {
     type: String,
@@ -54,6 +76,7 @@ const cards = [
           :class="['similar-services__item', { tall: card.tall }]"
           v-for="(card, index) in cards"
           :key="index"
+          ref="listItems"
         >
           <div class="similar-services__item-heading">
             <p class="similar-services__item-title">{{ card.title }}</p>
@@ -88,7 +111,7 @@ const cards = [
     @include font-h2;
 
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: var(--heading-margin-bottom);
   }
 
   &__list {
@@ -133,10 +156,21 @@ const cards = [
     margin-top: 8px;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__list {
       display: flex;
       flex-direction: column;
+    }
+
+    &__item {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
 }

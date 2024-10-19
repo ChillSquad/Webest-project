@@ -1,7 +1,9 @@
 <script setup>
+import { ref, onMounted } from "vue";
 import FooterLinks from "./FooterLinks.vue";
 import FooterIcons from "./FooterIcons.vue";
 import FooterLogo from "../public/images/footer-logo.png";
+import FooterLogoMobile from "../public/images/footer-logo-mobile.png";
 
 const servicesLinks = [
   { name: "Веб-разработка", route: "/expertise/development" },
@@ -33,6 +35,25 @@ const companyLinks = [
   { name: "Академия", route: "/" },
   { name: "Партнерам", route: "/" },
 ];
+
+const logoSrc = ref(FooterLogo);
+
+const updateLogo = () => {
+  if (window.innerWidth <= 475) {
+    logoSrc.value = FooterLogoMobile;
+  } else {
+    logoSrc.value = FooterLogo;
+  }
+};
+
+onMounted(() => {
+  updateLogo();
+  window.addEventListener("resize", updateLogo);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", updateLogo);
+});
 </script>
 
 <template>
@@ -48,7 +69,7 @@ const companyLinks = [
 
           <FooterLinks title="Блог" route="/blog" :items="blogLinks" />
 
-          <FooterLinks title="Компания" :items="companyLinks" />
+          <FooterLinks title="Компания" route="/team" :items="companyLinks" />
 
           <address class="footer__contact">
             <p class="footer__services-caption">
@@ -92,7 +113,7 @@ const companyLinks = [
         </div>
 
         <div class="footer__logo-footer">
-          <img :src="FooterLogo" alt="logo-footer" />
+          <img :src="logoSrc" alt="logo-footer" />
         </div>
 
         <section class="footer__copyright">

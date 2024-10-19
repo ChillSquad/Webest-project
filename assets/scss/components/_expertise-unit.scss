@@ -14,27 +14,6 @@
     width: 569px;
     margin-left: auto;
     color: var(--color-black);
-
-    .custom-standing-pink {
-      @include custom-standing;
-
-      background: var(--color-pink);
-      transform: rotate(-2.39deg);
-    }
-
-    .custom-standing-purple {
-      @include custom-standing;
-
-      background: var(--color-purple);
-      transform: rotate(0.91deg);
-    }
-
-    .custom-standing-yellow {
-      @include custom-standing;
-
-      background: var(--color-yellow);
-      transform: rotate(-2.39deg);
-    }
   }
 
   &__table {
@@ -61,9 +40,10 @@
     background: #fff;
     border-radius: var(--border-radius-40);
     height: 340px;
+    transition: background 0.3s ease-in-out;
 
     &:hover {
-      background-color: var(--color-blue);
+      background: var(--color-blue);
     }
   }
 
@@ -103,7 +83,7 @@
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 475px) {
     &__heading-subtitle {
       width: 100%;
     }
@@ -114,138 +94,144 @@
   &__inner {
     display: flex;
     flex-direction: column;
-    padding: 32px;
+    justify-content: space-between;
+    padding: var(--padding-card);
     height: 100%;
     color: var(--color-black);
+    overflow-y: hidden;
+    transition: color 0.3s ease-in-out;
+
+    .icon-development,
+    .icon-crm,
+    .icon-marketing,
+    .icon-marketplace,
+    .icon-mobile,
+    .icon-outstaff,
+    .icon-promotion,
+    .icon-advertisemen,
+    .icon-smm,
+    .icon-seo,
+    .icon-advertisement,
+    .icon-cup,
+    .icon-heart-empty,
+    .icon-star {
+      &:after {
+        @include expertise-icon;
+      }
+    }
 
     .icon-development {
       &:after {
-        @include expertise-icon;
-
         content: "\0057";
       }
     }
 
     .icon-crm {
       &:after {
-        @include expertise-icon;
-
         content: "\0058";
       }
     }
 
     .icon-marketing {
       &:after {
-        @include expertise-icon;
-
         content: "\0063";
       }
     }
 
     .icon-marketplace {
       &:after {
-        @include expertise-icon;
-
         content: "\005A";
       }
     }
 
     .icon-mobile {
       &:after {
-        @include expertise-icon;
-
         content: "\006A";
       }
     }
 
     .icon-outstaff {
       &:after {
-        @include expertise-icon;
-
         content: "\0065";
       }
     }
 
     .icon-promotion {
       &:after {
-        @include expertise-icon;
-
         content: "\0068";
       }
     }
 
     .icon-advertisement {
       &:after {
-        @include expertise-icon;
-
         content: "\0061";
       }
     }
 
     .icon-smm {
       &:after {
-        @include expertise-icon;
-
         content: "\0059";
       }
     }
 
     .icon-seo {
       &:after {
-        @include expertise-icon;
-
         content: "\0064";
+      }
+    }
+
+    .icon-cup {
+      &:after {
+        content: "\0062";
+      }
+    }
+
+    .icon-heart-empty {
+      &:after {
+        content: "\0055";
+      }
+    }
+
+    .icon-star {
+      &:after {
+        content: "\006B";
       }
     }
 
     &:hover {
       color: #fff;
 
-      .icon-development {
-        @include expertise-icon-hover;
-      }
-
-      .icon-crm {
-        @include expertise-icon-hover;
-      }
-
-      .icon-marketing {
-        @include expertise-icon-hover;
-      }
-
-      .icon-marketplace {
-        @include expertise-icon-hover;
-      }
-
-      .icon-mobile {
-        @include expertise-icon-hover;
-      }
-
-      .icon-outstaff {
-        @include expertise-icon-hover;
-      }
-
-      .icon-promotion {
-        @include expertise-icon-hover;
-      }
-
-      .icon-advertisement {
-        @include expertise-icon-hover;
-      }
-
-      .icon-smm {
-        @include expertise-icon-hover;
-      }
-
-      .icon-seo {
+      .icon-development,
+      .icon-crm,
+      .icon-marketing,
+      .icon-marketplace,
+      .icon-mobile,
+      .icon-outstaff,
+      .icon-promotion,
+      .icon-advertisemen,
+      .icon-smm,
+      .icon-seo,
+      .icon-advertisement,
+      .icon-cup,
+      .icon-heart-empty,
+      .icon-star {
         @include expertise-icon-hover;
       }
 
       .expertise-card__subhead {
-        position: static;
-        visibility: visible;
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .expertise-card__wrapper {
+        transform: translateY(0);
       }
     }
+  }
+
+  &__wrapper {
+    transform: translateY(calc(100% + -25px));
+    transition: transform 0.3s ease-in-out;
   }
 
   &__heading {
@@ -259,19 +245,20 @@
   &__subhead {
     @include font-text-4;
 
-    position: absolute;
-    visibility: hidden;
     margin-top: 8px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
   }
 
   @media (max-width: 1000px) {
-    &__subhead {
-      position: static;
-      visibility: visible;
+    .expertise-card__subhead {
+      transform: translateY(0);
+      opacity: 1;
     }
 
-    &__inner {
-      padding: 20px;
+    .expertise-card__wrapper {
+      transform: translateY(0);
     }
   }
 }

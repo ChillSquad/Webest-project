@@ -97,7 +97,7 @@ defineProps({
     color: var(--color-black);
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__wrapper {
       height: fit-content;
       display: grid;

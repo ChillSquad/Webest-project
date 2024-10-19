@@ -86,7 +86,7 @@ defineProps({
     @include font-h2;
 
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: var(--heading-margin-bottom);
   }
 
   &__list {
@@ -134,11 +134,7 @@ defineProps({
     margin-top: 8px;
   }
 
-  @media (max-width: 360px) {
-    &__heading {
-      margin-bottom: 40px;
-    }
-
+  @media (max-width: 475px) {
     &__list {
       display: flex;
       flex-direction: column;

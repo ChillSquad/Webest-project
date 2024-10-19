@@ -11,22 +11,6 @@ const { isActiveStaff, isActive } = useSidebarModel();
 const { activeFormStep } = useFeedbackFormModel();
 const { activeFormStepStaff } = useFeedbackFormModelStaff();
 
-const transitionName = ref("slide-fade-left");
-
-const updateTransitionName = () => {
-  transitionName.value =
-    window.innerWidth <= 1220 ? "slide-fade-bottom" : "slide-fade-left";
-};
-
-onMounted(() => {
-  updateTransitionName();
-  window.addEventListener("resize", updateTransitionName);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("resize", updateTransitionName);
-});
-
 const toggleScrollbar = (isActive) => {
   document.body.style.overflow = isActive ? "hidden" : "";
 };
@@ -61,7 +45,7 @@ const sidebarPT = {
     return { class: "sidebar-mask" };
   },
   transition() {
-    return { name: transitionName.value };
+    return { name: "slide-fade-left" };
   },
 };
 </script>

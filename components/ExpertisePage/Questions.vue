@@ -108,11 +108,11 @@ defineProps({
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 32px;
+    padding: var(--padding-card);
     background: var(--color-grey-light);
     transition: background 0.3s ease-in-out, max-height 0.6s ease-in-out;
     overflow: hidden;
-    border-radius: 40px;
+    border-radius: var(--border-radius-40);
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -160,7 +160,7 @@ defineProps({
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__content {
       flex-direction: column;
     }
@@ -187,7 +187,6 @@ defineProps({
     }
 
     &__item {
-      padding: 16px;
       border-radius: 24px;
     }
 

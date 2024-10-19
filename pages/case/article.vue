@@ -4,7 +4,6 @@ import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import Breadcrumbs from "~/components/UI-kit/Breadcrumbs.vue";
 import GradientButton from "~/components/UI-kit/GradientButton.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
-import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 
 const breadcrumbItems = [{ label: "Назад ко всем кейсам", route: "/case" }];
 
@@ -31,6 +30,27 @@ const {
   handleMouseEnter,
   handleMouseLeave,
 } = useCustomCursor(isActive);
+
+const isScreenSmall = ref(false);
+
+const checkScreenSize = () => {
+  isScreenSmall.value = window.innerWidth <= 360;
+};
+
+onMounted(() => {
+  checkScreenSize();
+  window.addEventListener("resize", checkScreenSize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkScreenSize);
+});
+
+const handleSectionClick = () => {
+  if (!isScreenSmall.value) {
+    toggleSidebarForm();
+  }
+};
 </script>
 
 <template>
@@ -50,7 +70,10 @@ const {
           </div>
         </div>
 
-        <GradientButton title="Заказать разработку сайта" />
+        <GradientButton
+          @click="toggleSidebarForm"
+          title="Заказать разработку сайта"
+        />
       </div>
     </div>
 
@@ -61,7 +84,7 @@ const {
         @mouseleave="handleMouseLeave"
       >
         <img
-          @click="toggleSidebarForm"
+          @click="handleSectionClick"
           class="case-article__heading-image-review"
           src="public/images/imageCaseArticle1.png"
           alt="Заголовок статьи"
@@ -275,8 +298,6 @@ const {
               </div>
             </div>
           </div>
-
-          <ArticleSliderMobile :slides="slides" />
 
           <ArticleSlider :slides="slides" />
         </li>

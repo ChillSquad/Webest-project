@@ -62,7 +62,6 @@ const technologies = [
     src: "/images/imagePromotion20.png",
     title: "Ci/Cd",
   },
-
   {
     src: "/images/imagePromotion15.png",
     title: "Restful API",
@@ -220,13 +219,17 @@ const imageCaption =
 
     <CustomersUnit />
 
-    <BlogUnit title="Награды и сертификаты" article="development" />
+    <BlogUnit
+      title="Награды и сертификаты"
+      article="development"
+      :arrow="false"
+    />
 
     <div class="container">
       <TalkUnit
         title="Остались вопросы?"
-        titleLeft="обсудить Готовое решение"
-        titleRight="обсудить Индивидуальную разработку"
+        titleLeft="обсудить готовое решение"
+        titleRight="обсудить индивидуальную разработку"
       />
     </div>
   </div>
@@ -259,6 +262,22 @@ const imageCaption =
 
   .development-technologies__card:last-child {
     grid-column: 3;
+  }
+
+  @media (max-width: 475px) {
+    .outstaff-advantages__item {
+      height: 320px;
+
+      .outstaff-advantages__item-image {
+        max-width: 296px;
+        height: 180px;
+        object-fit: contain;
+      }
+    }
+    .development-technologies__wrapper {
+      display: flex;
+      justify-content: start;
+    }
   }
 }
 </style>

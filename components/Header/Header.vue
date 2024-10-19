@@ -41,34 +41,19 @@ router.afterEach(() => {
           class="header__inner"
           :style="{
             backgroundColor: isAdaptiveActive
-              ? 'var(--color-black-transparent)'
-              : 'var(--color-black)',
+              ? 'var(--color-blue)'
+              : 'var(--color-white-header)',
           }"
         >
           <div class="header__logo">
             <NuxtLink
               to="/"
               class="header__logo-title icon-header-logo"
-              :style="{
-                color: isAdaptiveActive ? 'var(--color-blue)' : '#fff',
-              }"
             ></NuxtLink>
 
-            <div
-              class="header__logo-subtitle"
-              :style="{
-                color: isAdaptiveActive ? 'var(--color-blue)' : '#fff',
-              }"
-            >
-              <span
-                class="header__logo-line"
-                :style="{
-                  backgroundColor: isAdaptiveActive
-                    ? 'var(--color-blue-line)'
-                    : '#fff',
-                }"
-              ></span>
-              <p class="header__logo-text">цифровое <br />решение</p>
+            <div class="header__logo-subtitle">
+              <span class="header__logo-line"></span>
+              <p class="header__logo-text">цифровые <br />решения</p>
             </div>
           </div>
 

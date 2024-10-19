@@ -19,7 +19,7 @@ const slideNext = () => {
 </script>
 
 <template>
-  <section class="pagination">
+  <article class="pagination">
     <div class="pages-wrapper">
       <InputNumber
         v-model="value1"
@@ -48,10 +48,11 @@ const slideNext = () => {
         :disabled="value1 >= value2"
       />
     </div>
-  </section>
+  </article>
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .pagination {
@@ -63,12 +64,10 @@ const slideNext = () => {
 .pagination-root {
   input {
     @include font-h6;
+    @include flex-center;
 
     width: 80px;
     height: 68px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 1px solid var(--color-grey-light-span);
     border-radius: 20px;
     cursor: pointer;
@@ -94,7 +93,7 @@ const slideNext = () => {
   gap: 12px;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   .pagination {
     margin: 40px 0 var(--unit-margin-y) 0;
     justify-content: space-between;

@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <section class="sort-radio">
+  <article class="sort-radio">
     <div
       class="sort-radio__group-item"
       v-for="(item, index) in items"
@@ -23,7 +23,7 @@ defineProps({
       />
       <label :for="'radio-' + index">{{ item.title }}</label>
     </div>
-  </section>
+  </article>
 </template>
 
 <style lang="scss" scoped>
@@ -32,9 +32,10 @@ defineProps({
 .sort-radio {
   display: flex;
   gap: 4px;
-  margin: 100px 0 60px 0;
+  margin: 100px 0 60px;
   overflow-x: auto;
   white-space: nowrap;
+  padding: var(--swiper-padding);
 
   &__group-item {
     display: inline-block;
@@ -64,7 +65,7 @@ defineProps({
     }
   }
 
-  ::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
   }
 }

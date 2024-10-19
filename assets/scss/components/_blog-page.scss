@@ -1,5 +1,8 @@
 .blog-page {
   padding-top: var(--page-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__heading {
     display: flex;
@@ -19,13 +22,6 @@
 
     width: 554px;
     text-align: center;
-
-    .custom-standing-purple {
-      @include custom-standing;
-
-      background: var(--color-purple);
-      transform: rotate(-1.61deg);
-    }
   }
 
   &__table-list {
@@ -34,7 +30,9 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
+    align-items: initial;
+
     .blog-unit-card__inner {
       width: 328px;
       height: min-content;
@@ -48,6 +46,17 @@
       display: flex;
       flex-direction: column;
       gap: 36px;
+    }
+
+    &__table-item {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     &__subtitle {

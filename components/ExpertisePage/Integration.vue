@@ -124,5 +124,16 @@ defineProps({
       background-color: var(--color-blue);
     }
   }
+
+  @media (max-width: 475px) {
+    &__list {
+      flex-direction: column;
+    }
+
+    &__item-image {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
 }
 </style>

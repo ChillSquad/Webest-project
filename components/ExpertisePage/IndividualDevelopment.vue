@@ -1,6 +1,10 @@
 <script setup>
 import GradientButton from "../UI-kit/GradientButton.vue";
 
+import { useSidebarModel } from "../models/sidebar";
+
+const { toggleSidebarForm } = useSidebarModel();
+
 defineProps({
   individual: {
     type: Array,
@@ -26,7 +30,7 @@ defineProps({
           {{ individual.content }}
         </p>
 
-        <GradientButton title="Оставить заявку" />
+        <GradientButton title="Оставить заявку" @click="toggleSidebarForm" />
 
         <img
           :src="individual.image"
@@ -64,7 +68,7 @@ defineProps({
   &__body {
     display: flex;
     background-color: var(--color-blue);
-    border-radius: 40px;
+    border-radius: var(--border-radius-40);
     padding: 32px 32px 0;
   }
 
@@ -88,7 +92,7 @@ defineProps({
   }
 
   &__left-title {
-    @include font-h5;
+    @include font-h4;
 
     text-transform: uppercase;
     margin-bottom: 16px;
@@ -111,7 +115,7 @@ defineProps({
     margin-bottom: 32px;
     background-color: #fff;
     border-radius: 16px;
-    padding: 32px;
+    padding: var(--padding-card);
   }
 
   &__right-title {
@@ -130,6 +134,35 @@ defineProps({
       font-size: 12px;
       color: var(--color-blue);
       padding-right: 8px;
+    }
+  }
+
+  @media (max-width: 475px) {
+    &__header {
+      max-width: 328px;
+    }
+
+    &__body {
+      flex-direction: column;
+      padding: 20px 20px 0;
+      position: relative;
+    }
+
+    &__left {
+      width: 100%;
+    }
+
+    &__right {
+      margin: 20px 0 180px;
+    }
+
+    &__left-image {
+      width: 350px;
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%);
     }
   }
 }

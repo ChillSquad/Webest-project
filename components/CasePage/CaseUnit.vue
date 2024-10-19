@@ -1,6 +1,27 @@
 <script setup>
 import CaseUnitCard from "./CaseUnitCard.vue";
 import TitleButton from "../UI-kit/TitleButton.vue";
+import { ref, onMounted } from "vue";
+
+const listItems = ref([]);
+
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1,
+  });
+
+  listItems.value.forEach((item) => {
+    observer.observe(item);
+  });
+});
 
 const { data: casesData } = await useAsyncData("cases", () => {
   return $fetch("/api/cases/", { method: "GET" });
@@ -29,6 +50,7 @@ defineProps({
           v-for="(caseItem, index) in casesData.slice(0, slice)"
           :key="index"
           :class="['case-unit__table-item', { wide: caseItem.wide }]"
+          ref="listItems"
         >
           <CaseUnitCard
             :urlImage="`images/imageCase${index + 1}.png`"

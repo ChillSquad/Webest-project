@@ -77,7 +77,7 @@ if (!props.modelValue) {
     user-select: none;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     flex-direction: column;
     width: 100%;
     text-align: center;

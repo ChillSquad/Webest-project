@@ -10,6 +10,7 @@
 }
 
 .header {
+  color: #fff;
   position: relative;
   z-index: 2;
 
@@ -38,11 +39,10 @@
   }
 
   &__logo {
+    @include flex-center;
+
     width: max-content;
     height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     margin-left: 16px;
 
@@ -71,6 +71,7 @@
     height: 28px;
     margin: 0 16px;
     opacity: 20%;
+    background-color: #fff;
   }
 
   &__nav {
@@ -98,6 +99,7 @@
     justify-content: center;
     border: none;
     outline: none;
+    background-color: #fff;
     cursor: pointer;
 
     &::before,
@@ -144,7 +146,7 @@
     &.active {
       &::before,
       &::after {
-        background-color: var(--color-black);
+        background-color: #fff;
         height: 2px;
         width: 17px;
       }

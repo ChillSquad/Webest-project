@@ -11,7 +11,6 @@ import Advantages from "~/components/ExpertisePage/Advantages.vue";
 import MarketplaceServices from "~/components/ExpertisePage/MarketplaceServices.vue";
 import ExpertiseMenu from "~/components/ExpertisePage/ExpertiseMenu.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
-import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 import SimilarServices from "~/components/ExpertisePage/SimilarServices.vue";
 import Questions from "~/components/ExpertisePage/Questions.vue";
 
@@ -51,32 +50,38 @@ const priorityItems = [
     heading: "Продуктовый подход",
     content:
       "Подразумевает погружение в специфику бизнеса: анализ конкурентов, рекомендации по ассортименту и ценам, рекомендации на основе коммерческого аудита сайта.",
+    icon: "twelve",
   },
   {
     heading: "Прогнозирование результата на начальном этапе",
     content:
       "Рассчитываем прогноз органического трафика на сайт на основе имеющихся данных, выстраиваем и корректируем стратегию продвижения на основе прогноза трафика.",
+    icon: "thirteen",
   },
   {
     heading: "5 специалистов для 1 сайта",
     content:
       "С вашим сайтом будут работать как минимум 5 специалистов: seo-специалисты, программисты, копирайтер, дизайнер.",
+    icon: "fourteen",
   },
   {
     heading: "Стабильность результата и долгосрочный эффект",
     content:
       "Регулярные работы и мониторинг, оперативное реагирование на проблемы позволяют сохранить позиции сайта и дают планомерный рост трафика.",
+    icon: "fifteen",
   },
   {
     heading: "Поиск точек роста и внедрение необходимых доработок",
     content:
       "Эффективно распределяем ресурсы. Выделяем перспективные направления продвижения. Усиливаем работы по проседающим сегментам.",
+    icon: "sixteen",
   },
   {
     heading:
       "Ежемесячный контроль и составление рекомендаций по увеличению эффективности",
     content:
       "Улучшение качества конечного продукта за счёт более эффективной аналитики, мы предложем решения на основе проведенных аудитов.",
+    icon: "seventeen",
   },
 ];
 
@@ -350,11 +355,13 @@ const imageCaption = "";
       />
     </div>
 
-    <ArticleSliderMobile :slides="slides" :review="true" />
+    <BlogUnit title="Наши кейсы" article="case" :slider="true" route="/case" />
 
-    <BlogUnit title="Наши кейсы" article="case" :slider="true" />
-
-    <BlogUnit title="Награды и сертификаты" article="development" />
+    <BlogUnit
+      title="Награды и сертификаты"
+      article="development"
+      :arrow="false"
+    />
 
     <Questions :questions="questions" />
 
@@ -389,6 +396,28 @@ const imageCaption = "";
 
     &.active {
       max-height: 252px;
+    }
+  }
+
+  @media (max-width: 475px) {
+    .article-slider-mobile {
+      margin-bottom: var(--unit-margin-y);
+    }
+
+    .expertise-menu {
+      margin-bottom: var(--unit-margin-y);
+
+      button.gradient-button {
+        display: none;
+      }
+
+      .expertise-menu__item {
+        max-height: 80px;
+
+        &.active {
+          max-height: 290px;
+        }
+      }
     }
   }
 }

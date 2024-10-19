@@ -13,10 +13,15 @@ const {
 } = useCustomCursor(isActive);
 
 const isMobile = ref(false);
+const isScreenSmall = ref(false);
+
+const checkScreenSize = () => {
+  isScreenSmall.value = window.innerWidth <= 475;
+};
 
 const handleResize = () => {
   if (typeof window !== "undefined") {
-    isMobile.value = window.innerWidth <= 360;
+    isMobile.value = window.innerWidth <= 475;
   }
 };
 
@@ -25,13 +30,24 @@ onMounted(() => {
   if (typeof window !== "undefined") {
     window.addEventListener("resize", handleResize);
   }
+
+  checkScreenSize();
+  window.addEventListener("resize", checkScreenSize);
 });
 
 onBeforeUnmount(() => {
   if (typeof window !== "undefined") {
     window.removeEventListener("resize", handleResize);
   }
+
+  window.removeEventListener("resize", checkScreenSize);
 });
+
+const handleSectionClick = () => {
+  if (!isScreenSmall.value) {
+    toggleSidebarForm();
+  }
+};
 
 defineProps({
   title: {
@@ -52,14 +68,14 @@ defineProps({
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
     >
-      <section @click="toggleSidebarForm" class="recruiting">
+      <section @click="handleSectionClick" class="recruiting">
         <p>
           {{ title }}
         </p>
 
         {{ subtitle }}
 
-        <button class="first-page__mobile-button">
+        <button class="first-page__mobile-button" @click="toggleSidebarForm">
           Оставить <br />
           заявку
         </button>
@@ -108,7 +124,7 @@ defineProps({
     margin-top: 40px;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     height: max-content;
     padding: 80px 16px;
 
@@ -124,7 +140,7 @@ defineProps({
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   .custom-cursor {
     &__circle {
       display: none;

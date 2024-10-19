@@ -14,7 +14,7 @@ defineProps({
         <p class="talk-card__heading">
           {{ title }}
         </p>
-        <div class="icon-arrow-right"></div>
+        <span class="icon-arrow-right"></span>
       </div>
     </div>
   </div>

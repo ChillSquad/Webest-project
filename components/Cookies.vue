@@ -19,11 +19,17 @@ onMounted(() => {
 <template>
   <Transition name="slide-fade-left" mode="out-in">
     <section v-if="isVisible" class="cookies">
-      <div class="cookies__heading">
-        Мы используем куки, чтобы пользоваться сайтом было удобно
+      <div class="cookies__content">
+        Этот сайт использует сервис веб-аналитики Яндекс Метрика,
+        предоставляемый компанией ООО «ЯНДЕКС», 119021, Россия, Москва, ул. Л.
+        Толстого, 16 (далее — Яндекс), счетчик «top.mail.ru» и cookie файлы.
       </div>
+
       <span>
         <GradientButton title="Отлично" @click="handleClick" />
+        <NuxtLink to="/policy/cookie" @click="handleClick">
+          Подробнее
+        </NuxtLink>
       </span>
     </section>
   </Transition>

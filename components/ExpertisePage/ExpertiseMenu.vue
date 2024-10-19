@@ -85,7 +85,7 @@ const setActiveItem = (index) => {
     @include font-h2;
 
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: var(--heading-margin-bottom);
   }
 
   &__content {
@@ -108,7 +108,7 @@ const setActiveItem = (index) => {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 32px;
+    padding: var(--padding-card);
     background: #fff;
     border-radius: 32px;
     transition: color 0.2s ease-in-out, background 0.3s ease-in-out,
@@ -203,7 +203,7 @@ const setActiveItem = (index) => {
     border-radius: 32px;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     button.gradient-button {
       display: block;
 
@@ -220,7 +220,6 @@ const setActiveItem = (index) => {
     }
 
     &__item {
-      padding: 16px;
       border-radius: 20px;
     }
 

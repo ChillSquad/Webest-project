@@ -116,7 +116,7 @@ const slides = [
         direction="horizontal"
         :modules="[Navigation]"
         :breakpoints="{
-          400: { slidesPerView: 2, spaceBetween: 8 },
+          480: { slidesPerView: 2, spaceBetween: 8 },
           0: { slidesPerView: 1.1, spaceBetween: 8 },
         }"
       >
@@ -158,7 +158,9 @@ const slides = [
         direction="horizontal"
         :modules="[Navigation]"
         :breakpoints="{
-          400: { slidesPerView: 5.2, spaceBetween: 8 },
+          1700: { slidesPerView: 5.2, spaceBetween: 8 },
+          1000: { slidesPerView: 3.2, spaceBetween: 8 },
+          400: { slidesPerView: 1.5, spaceBetween: 8 },
           0: { slidesPerView: 1.1, spaceBetween: 8 },
         }"
       >
@@ -180,12 +182,14 @@ const slides = [
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
+
 .award-slid {
   max-width: 326px;
   height: 326px;
   position: relative;
   border: 1px solid var(--color-grey-light-span);
-  padding: 32px;
+  padding: var(--padding-card);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -199,11 +203,10 @@ const slides = [
   }
 
   .icon-loupe {
+    @include flex-center;
+
     width: 68px;
     height: 68px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     top: 50%;
     left: 50%;

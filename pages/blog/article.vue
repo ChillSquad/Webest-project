@@ -3,7 +3,6 @@ import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import Breadcrumbs from "~/components/UI-kit/Breadcrumbs.vue";
 import GradientButton from "~/components/UI-kit/GradientButton.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
-import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 
 const breadcrumbItems = [{ label: "Назад ко всем статьям", route: "/blog" }];
 
@@ -14,6 +13,39 @@ const slides = [
   { src: "/images/imageBlogArticle5.png" },
   { src: "/images/imageBlogArticle1.png" },
 ];
+
+import { useSidebarModel } from "~/components/models/sidebar";
+import { useCustomCursor } from "~/components/models/useCustomCursor";
+
+const { toggleSidebarForm, isActive } = useSidebarModel();
+const {
+  isCursorVisible,
+  circleStyle,
+  textStyle,
+  handleMouseEnter,
+  handleMouseLeave,
+} = useCustomCursor(isActive);
+
+const isScreenSmall = ref(false);
+
+const checkScreenSize = () => {
+  isScreenSmall.value = window.innerWidth <= 360;
+};
+
+onMounted(() => {
+  checkScreenSize();
+  window.addEventListener("resize", checkScreenSize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkScreenSize);
+});
+
+const handleSectionClick = () => {
+  if (!isScreenSmall.value) {
+    toggleSidebarForm();
+  }
+};
 </script>
 
 <template>
@@ -34,13 +66,34 @@ const slides = [
         </div>
       </div>
 
-      <GradientButton title="Заказать разработку сайта" />
+      <GradientButton
+        title="Заказать разработку сайта"
+        @click="toggleSidebarForm"
+      />
+
       <div class="blog-article__image-review-container">
-        <img
-          class="blog-article__heading-image-review"
-          src="public/images/imageBlog1.png"
-          alt="Заголовок статьи"
-        />
+        <div
+          class="custom-component"
+          @mouseenter="handleMouseEnter"
+          @mouseleave="handleMouseLeave"
+        >
+          <img
+            @click="handleSectionClick"
+            class="blog-article__heading-image-review"
+            src="public/images/imageBlog1.png"
+            alt="Заголовок статьи"
+          />
+          <div
+            class="custom-cursor"
+            :class="{ visible: isCursorVisible && !isActive }"
+          >
+            <div class="custom-cursor__circle" :style="circleStyle">
+              <span class="custom-cursor__circle-span" :style="textStyle"
+                >Оставить <span>заявку</span></span
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -147,8 +200,6 @@ const slides = [
           SEOlib
 
           <ArticleSlider :slides="slides" />
-
-          <ArticleSliderMobile :slides="slides" />
 
           <div class="blog-article__chapter-content margin-bottom">
             <p>
