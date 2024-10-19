@@ -1,6 +1,39 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import Breadcrumbs from "~/components/UI-kit/Breadcrumbs.vue";
 import GradientButton from "~/components/UI-kit/GradientButton.vue";
+import { useSidebarModel } from "../models/sidebar";
+import { useCustomCursor } from "../models/useCustomCursor";
+
+const { toggleSidebarForm, isActive } = useSidebarModel();
+const {
+  isCursorVisible,
+  circleStyle,
+  textStyle,
+  handleMouseEnter,
+  handleMouseLeave,
+} = useCustomCursor(isActive);
+
+const isScreenSmall = ref(false);
+
+const checkScreenSize = () => {
+  isScreenSmall.value = window.innerWidth <= 475;
+};
+
+onMounted(() => {
+  checkScreenSize();
+  window.addEventListener("resize", checkScreenSize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkScreenSize);
+});
+
+const handleSectionClick = () => {
+  if (!isScreenSmall.value) {
+    toggleSidebarForm();
+  }
+};
 
 defineProps({
   breadcrumbItems: Array,
@@ -24,13 +57,34 @@ defineProps({
         {{ subtitle }}
       </div>
 
-      <GradientButton :title="buttonTitle" />
+      <GradientButton :title="buttonTitle" @click="toggleSidebarForm" />
 
       <div class="expertise-heading__review">
-        <img class="expertise-heading__image" :src="imageSrc" :alt="imageAlt" />
+        <div
+          class="custom-component"
+          @mouseenter="handleMouseEnter"
+          @mouseleave="handleMouseLeave"
+        >
+          <img
+            @click="handleSectionClick"
+            class="expertise-heading__image"
+            :src="imageSrc"
+            :alt="imageAlt"
+          />
 
-        <div class="expertise-heading__image-caption">
-          {{ imageCaption }}
+          <div class="expertise-heading__image-caption">
+            {{ imageCaption }}
+          </div>
+        </div>
+        <div
+          class="custom-cursor"
+          :class="{ visible: isCursorVisible && !isActive }"
+        >
+          <div class="custom-cursor__circle" :style="circleStyle">
+            <span class="custom-cursor__circle-span" :style="textStyle"
+              >Оставить <span>заявку</span></span
+            >
+          </div>
         </div>
       </div>
     </section>
@@ -38,6 +92,7 @@ defineProps({
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .expertise-heading {
@@ -47,6 +102,15 @@ defineProps({
   align-items: center;
   text-align: center;
   margin-bottom: var(--unit-margin-y);
+
+  .custom-component,
+  &__review {
+    @include flex-center;
+  }
+
+  .custom-component {
+    cursor: pointer;
+  }
 
   &__title {
     @include font-h1-inner;
@@ -60,9 +124,6 @@ defineProps({
   }
 
   &__review {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     position: relative;
   }
 
@@ -85,7 +146,7 @@ defineProps({
     display: none;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     .expertise-heading {
       &__image {
         object-fit: cover;
@@ -101,7 +162,7 @@ defineProps({
     }
 
     button.gradient-button {
-      display: block;
+      display: flex;
 
       margin-bottom: 40px;
     }

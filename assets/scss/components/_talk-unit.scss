@@ -10,7 +10,7 @@
   &__table {
     box-shadow: 0 0 50px 5px var(--shadow-card);
     background-color: rgba(235, 238, 242, 0.5);
-    border-radius: 40px;
+    border-radius: var(--border-radius-40);
     display: flex;
     gap: 8px;
   }
@@ -35,7 +35,7 @@
 
   &__inner {
     height: 374px;
-    border-radius: 40px;
+    border-radius: var(--border-radius-40);
     background: #fff;
     padding: 36px 38px;
 
@@ -53,7 +53,7 @@
 
   &__content {
     display: flex;
-    align-items: center;
+    align-items: first baseline;
     justify-content: space-between;
   }
 
@@ -72,7 +72,7 @@
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__inner {
       height: 200px;
       padding: 24px;

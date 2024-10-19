@@ -25,8 +25,6 @@ const setActiveItem = (index) => {
     <section class="expertise-menu">
       <div class="expertise-menu__heading">{{ title }}</div>
 
-      <GradientButton title="Сайт партнера" />
-
       <div class="expertise-menu__content">
         <ul class="expertise-menu__list">
           <li
@@ -77,15 +75,11 @@ const setActiveItem = (index) => {
 .expertise-menu {
   margin-bottom: var(--unit-margin-y);
 
-  button.gradient-button {
-    display: none;
-  }
-
   &__heading {
     @include font-h2;
 
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: var(--heading-margin-bottom);
   }
 
   &__content {
@@ -108,12 +102,13 @@ const setActiveItem = (index) => {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 32px;
+    padding: var(--padding-card);
     background: #fff;
     border-radius: 32px;
     transition: color 0.2s ease-in-out, background 0.3s ease-in-out,
       max-height 0.4s ease-in-out;
     overflow: hidden;
+    cursor: pointer;
 
     .icon-arrow-right-up {
       display: flex;
@@ -203,14 +198,7 @@ const setActiveItem = (index) => {
     border-radius: 32px;
   }
 
-  @media (max-width: 360px) {
-    button.gradient-button {
-      display: block;
-
-      margin-bottom: 40px;
-      margin: 0 auto 40px;
-    }
-
+  @media (max-width: 475px) {
     &__content {
       flex-direction: column;
     }
@@ -220,7 +208,6 @@ const setActiveItem = (index) => {
     }
 
     &__item {
-      padding: 16px;
       border-radius: 20px;
     }
 

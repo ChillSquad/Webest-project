@@ -149,5 +149,13 @@ defineProps({
       }
     }
   }
+
+  @media (max-width: 475px) {
+    &__item-button {
+      @include font-button-1;
+
+      padding: 17px 0;
+    }
+  }
 }
 </style>

@@ -13,10 +13,15 @@ const {
 } = useCustomCursor(isActive);
 
 const isMobile = ref(false);
+const isScreenSmall = ref(false);
+
+const checkScreenSize = () => {
+  isScreenSmall.value = window.innerWidth <= 475;
+};
 
 const handleResize = () => {
   if (typeof window !== "undefined") {
-    isMobile.value = window.innerWidth <= 360;
+    isMobile.value = window.innerWidth <= 475;
   }
 };
 
@@ -25,13 +30,24 @@ onMounted(() => {
   if (typeof window !== "undefined") {
     window.addEventListener("resize", handleResize);
   }
+
+  checkScreenSize();
+  window.addEventListener("resize", checkScreenSize);
 });
 
 onBeforeUnmount(() => {
   if (typeof window !== "undefined") {
     window.removeEventListener("resize", handleResize);
   }
+
+  window.removeEventListener("resize", checkScreenSize);
 });
+
+const handleSectionClick = () => {
+  if (!isScreenSmall.value) {
+    toggleSidebarForm();
+  }
+};
 
 defineProps({
   title: {
@@ -52,14 +68,18 @@ defineProps({
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
     >
-      <section @click="toggleSidebarForm" class="recruiting">
-        <p>
-          {{ title }}
-        </p>
+      <section @click="handleSectionClick" class="recruiting">
+        <div class="recruiting-content">
+          <p class="recruiting-title">
+            {{ title }}
+          </p>
 
-        {{ subtitle }}
+          <p class="recruiting-subtitle">
+            {{ subtitle }}
+          </p>
+        </div>
 
-        <button class="first-page__mobile-button">
+        <button class="first-page__mobile-button" @click="toggleSidebarForm">
           Оставить <br />
           заявку
         </button>
@@ -84,50 +104,46 @@ defineProps({
 .recruiting {
   @include font-h5;
 
-  text-align: center;
+  width: 100%;
+  height: auto;
   padding: 140px 100px;
   background-image: url("public/images/footer-background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: #fff;
-  width: 100%;
-  height: auto;
-  align-self: center;
   border-radius: 24px;
   margin-bottom: var(--unit-margin-y);
   cursor: pointer;
 
-  p {
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &-title {
     @include font-h2;
 
     margin-bottom: 24px;
+  }
+
+  &-subtitle {
+    max-width: 836px;
   }
 
   .first-page__mobile-button {
     margin-top: 40px;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     height: max-content;
     padding: 80px 16px;
 
     p {
       width: 328px;
-    }
-
-    .custom-cursor {
-      &__circle {
-        display: none;
-      }
-    }
-  }
-}
-
-@media (max-width: 360px) {
-  .custom-cursor {
-    &__circle {
-      display: none;
     }
   }
 }

@@ -124,4 +124,8 @@ a {
 .alpha {
   margin-left: 30px;
 }
+
+.policy-page__chapter-list {
+  word-break: break-all;
+}
 </style>

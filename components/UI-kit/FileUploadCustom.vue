@@ -63,7 +63,7 @@ const handleFileSelect = (event) => {
     }"
   >
     <template #header="{ files, uploadedFiles, chooseCallback, clearCallback }">
-      <div :class="[{ 'file-upload-selected': files.length > 0 }]">
+      <article :class="[{ 'file-upload-selected': files.length > 0 }]">
         <button
           :class="[
             'file-upload-button',
@@ -84,7 +84,7 @@ const handleFileSelect = (event) => {
           @click="clearCallback"
           class="close-button icon-close"
         ></button>
-      </div>
+      </article>
     </template>
   </FileUpload>
 </template>

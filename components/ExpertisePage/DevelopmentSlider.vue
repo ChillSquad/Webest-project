@@ -40,6 +40,7 @@ defineProps({
     </div>
 
     <swiper
+      class="development-slider__swiper"
       :loop="false"
       :breakpoints="{
         400: { slidesPerView: 3, spaceBetween: 8 },
@@ -85,27 +86,6 @@ defineProps({
 
     .development-slider__subtitle {
       margin-left: auto;
-
-      .custom-standing-purple {
-        @include custom-standing;
-
-        background: var(--color-purple);
-        transform: rotate(1.01deg);
-      }
-
-      .custom-standing-yellow {
-        @include custom-standing;
-
-        background: var(--color-yellow);
-        transform: rotate(-1.2deg);
-      }
-
-      .custom-standing-pink {
-        @include custom-standing;
-
-        background: var(--color-pink);
-        transform: rotate(-1.2deg);
-      }
     }
   }
 
@@ -125,7 +105,7 @@ defineProps({
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 40px;
+    border-radius: var(--border-radius-40);
     position: relative;
   }
 
@@ -156,7 +136,7 @@ defineProps({
     height: 680px;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__heading {
       margin-bottom: 40px;
     }
@@ -174,6 +154,15 @@ defineProps({
     .swiper-slide {
       width: 300px !important;
       height: 368px;
+    }
+
+    .split {
+      flex-direction: column;
+      gap: 20px;
+
+      .development-slider__title {
+        max-width: 328px;
+      }
     }
   }
 }

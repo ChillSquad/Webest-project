@@ -21,13 +21,6 @@
     margin-left: auto;
     width: 576px;
     color: var(--color-black);
-
-    .custom-standing-blue {
-      @include custom-standing;
-
-      background: var(--color-blue);
-      transform: rotate(0.91deg);
-    }
   }
 
   &__table {
@@ -37,10 +30,9 @@
   }
 
   &__table-list {
+    @include flex-center;
+
     height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     gap: 120px;
     margin-right: 120px;
@@ -62,13 +54,11 @@
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 475px) {
     &__heading-subtitle {
       width: 100%;
     }
-  }
 
-  @media (max-width: 360px) {
     &__table {
       gap: 24px;
     }
@@ -88,7 +78,7 @@
 
 .customers-unit-slide {
   width: 70%;
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__customer-logo {
       width: 100%;
       height: auto;

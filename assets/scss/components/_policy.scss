@@ -65,4 +65,12 @@
       padding-right: 8px;
     }
   }
+
+  @media (max-width: 475px) {
+    padding-top: 98px;
+
+    &__content {
+      gap: 60px;
+    }
+  }
 }

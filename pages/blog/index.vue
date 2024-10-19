@@ -2,6 +2,25 @@
 import SortingBar from "~/components/UI-kit/SortingBar.vue";
 import Pagination from "~/components/UI-kit/Pagination.vue";
 import BlogUnitCard from "~/components/BlogPage/BlogUnitCard.vue";
+const listItems = ref([]);
+
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1,
+  });
+
+  listItems.value.forEach((item) => {
+    observer.observe(item);
+  });
+});
 
 const { data: items } = await useAsyncData("blog", () => {
   return $fetch("/api/blog/", { method: "GET" });
@@ -39,12 +58,19 @@ const sortingBarItems = [
           <span class="custom-standing-purple">Полезный контент</span> для наших
           клиентов, партнёров и коллег
         </div>
-
-        <SortingBar :items="sortingBarItems" />
       </div>
+    </div>
 
+    <SortingBar :items="sortingBarItems" />
+
+    <div class="container">
       <ul class="blog-page__table-list">
-        <li v-for="(item, index) in items" :key="index">
+        <li
+          class="blog-page__table-item"
+          v-for="(item, index) in items"
+          :key="index"
+          ref="listItems"
+        >
           <BlogUnitCard
             :title="item.title"
             :urlImage="item.urlImage"

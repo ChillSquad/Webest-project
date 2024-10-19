@@ -15,31 +15,37 @@ const priorityItems = [
   {
     heading: "Планирование",
     content: "Составим поэтапный план разработки и развития приложения",
+    icon: "twelve",
   },
   {
     heading: "Дизайн",
     content:
       "Создадим UI/UX-дизайн для приложения на основе карты пути клиента (CJM)",
+    icon: "thirteen",
   },
   {
     heading: "Разработка",
     content:
       "Для кроссплатформенных приложений напишем единый код для iOS и Android",
+    icon: "fourteen",
   },
   {
     heading: "Сборка",
     content:
       "Каждые две недели вы будете получать сборку приложения на согласование",
+    icon: "fifteen",
   },
   {
     heading: "Тестирование",
     content:
       "Пишем понятную документацию для контроля качества и тестирования на всех этапах",
+    icon: "sixteen",
   },
   {
     heading: "запуск",
     content:
       "Выпустим ваше приложение в App Store и Google Play и будем его поддерживать",
+    icon: "seventeen",
   },
 ];
 
@@ -108,7 +114,7 @@ const imageAlt = "Заголовок статьи";
 
     <Recruiting />
 
-    <BlogUnit title="Наши кейсы" article="case" :slider="true" />
+    <BlogUnit title="Наши кейсы" article="case" :slider="true" route="/case" />
 
     <CustomersUnit />
 
@@ -133,7 +139,7 @@ const imageAlt = "Заголовок статьи";
     margin: 12px 0 57px;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     overflow-x: hidden;
 
     .outstaff-advantages__item {

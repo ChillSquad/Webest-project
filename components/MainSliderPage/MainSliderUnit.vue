@@ -27,7 +27,8 @@ const { data: items } = await useAsyncData("slider", () => {
           :loop="false"
           direction="horizontal"
           :breakpoints="{
-            400: { slidesPerView: 6, spaceBetween: 16 },
+            500: { slidesPerView: 6, spaceBetween: 16 },
+            400: { slidesPerView: 3.1, spaceBetween: 4 },
             0: { slidesPerView: 2.3, spaceBetween: 4 },
           }"
         >

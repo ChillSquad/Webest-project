@@ -13,7 +13,7 @@ router.afterEach(() => {
 </script>
 
 <template>
-  <Transition name="fade" mode="out-in">
+  <Transition name="slide-fade-left" mode="out-in">
     <div class="mobile-menu" v-if="isShowMobileMenu">
       <div class="container">
         <div class="mobile-menu__inner">

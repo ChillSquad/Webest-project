@@ -1,8 +1,7 @@
 .main-slider {
   &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
+
     overflow-x: scroll;
     margin: var(--unit-margin-y) 0;
     user-select: none;
@@ -26,7 +25,7 @@
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     .swiper {
       height: 150px;
     }
@@ -68,7 +67,7 @@
     flex-wrap: wrap;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     width: 140px;
     height: 140px;
 

@@ -4,14 +4,23 @@
 }
 
 .header-container {
-  max-width: var(--container-max-width);
+  padding: 0 120px;
   width: 100%;
   position: absolute;
 }
 
 .header {
+  color: #fff;
   position: relative;
   z-index: 2;
+
+  .first {
+    background-color: var(--color-white-header);
+  }
+
+  .second {
+    background-color: var(--color-blue);
+  }
 
   a:not(.header__logo-title) {
     @include font-link-1;
@@ -35,14 +44,15 @@
     margin-top: 18px;
     padding: 4px;
     border-radius: 20px;
+    background: var(--color-blue);
+    transition: background 0.6s ease-in-out;
   }
 
   &__logo {
+    @include flex-center;
+
     width: max-content;
     height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     margin-left: 16px;
 
@@ -71,6 +81,7 @@
     height: 28px;
     margin: 0 16px;
     opacity: 20%;
+    background-color: #fff;
   }
 
   &__nav {
@@ -98,6 +109,7 @@
     justify-content: center;
     border: none;
     outline: none;
+    background-color: #fff;
     cursor: pointer;
 
     &::before,
@@ -144,7 +156,7 @@
     &.active {
       &::before,
       &::after {
-        background-color: var(--color-black);
+        background-color: #fff;
         height: 2px;
         width: 17px;
       }

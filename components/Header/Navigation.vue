@@ -30,8 +30,8 @@ const isActive = (basePath) => {
       </li>
 
       <li>
-        <NuxtLink to="/team" :class="{ selected: isActive('/contacts') }">
-          Компания
+        <NuxtLink to="/team" :class="{ selected: isActive('/team') }">
+          Команда
         </NuxtLink>
       </li>
 
@@ -46,7 +46,7 @@ const isActive = (basePath) => {
 
 <style lang="scss" scoped>
 .selected {
-  background: var(--color-white-transparent);
+  background: var(--color-white-header);
   border-radius: 16px;
 }
 </style>

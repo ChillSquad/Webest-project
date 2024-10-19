@@ -1,0 +1,73 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin custom-standing {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: var(--border-radius-custom-standing);
+  color: #fff;
+  animation: slopes 3s infinite ease-in-out;
+}
+
+@mixin icon-arrow-right-hover {
+  &:hover {
+    .icon-arrow-right-up {
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+@mixin expertise-icon {
+  font-size: var(--font-expertise-icon);
+  color: var(--color-blue);
+  transition: color 0.3s ease-in-out;
+}
+@mixin expertise-icon-hover {
+  &:after {
+    color: #fff;
+  }
+}
+@media (max-width: 1000px) {
+  :root {
+    --font-expertise-icon: 32px;
+  }
+}
+
+@mixin footer-icon {
+  font-size: var(--font-footer-icon);
+  color: #fff;
+  transition: color 0.3s ease-in-out;
+}
+
+@mixin article-icon {
+  font-size: 20px;
+  color: #fff;
+  transition: color 0.2s ease-in-out;
+}
+
+@mixin talk-icon {
+  font-size: 20px;
+  color: #fff;
+  transition: color 0.2s ease-in-out;
+}
+
+@mixin priority-icon {
+  font-size: 30px;
+  color: var(--color-blue);
+}
+
+@media (max-width: 475px) {
+  :root {
+    --unit-margin-y: 120px;
+    --heading-margin-bottom: 40px;
+    --swiper-padding: 0 16px;
+    --border-radius-40: 24px;
+    --padding-card: 20px;
+    --page-padding: 98px;
+  }
+}

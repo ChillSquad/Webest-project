@@ -1,130 +1,252 @@
 <script setup>
-import DevelopmentSlider from "~/components/ExpertisePage/DevelopmentSlider.vue";
-import Technologies from "~/components/ExpertisePage/Technologies.vue";
-import ExpertiseHeading from "~/components/ExpertisePage/ExpertiseHeading.vue";
+import { ref, computed, onMounted } from "vue";
 import Priority from "~/components/ExpertisePage/Priority.vue";
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
-import Recruiting from "~/components/ExpertisePage/Recruiting.vue";
 import CustomersUnit from "~/components/CustomersPage/CustomersUnit.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
+import GradientButton from "~/components/UI-kit/GradientButton.vue";
+import TeamSidebar from "~/components/AboutCompanyPage/TeamSidebar.vue";
+import TeamSlider from "~/components/AboutCompanyPage/TeamSlider.vue";
+import { useSidebarModel } from "~/components/models/sidebar";
 
-const breadcrumbItems = [
-  { label: "Назад ко всем услугам", route: "/expertise" },
+const { toggleSidebarFormStaff, toggleSidebarFormTeam } = useSidebarModel();
+
+const list = [
+  { title: "10", content: "лет на рынке" },
+  { title: "150+", content: "реализованных проектов" },
+  { title: "72", content: "профессионала" },
+  { title: "10", content: "в ТОП десять разработчиков e-commerce в России" },
+  { title: "141", content: "наград Рейтинга рунета" },
+  { title: "9", content: "наград Tagline" },
+  { title: "4", content: "награды SEO глазами клиентов" },
 ];
 
 const priorityItems = [
   {
-    heading: "Гибкий форматы работы",
-    content:
-      "Мы предлагаем как классический аутсорсинг и аутстаффинг, так и различные комбинации, оптимальные для вашего бизнеса",
+    heading: "Bitrix разработчик",
+    tags: ["Senior", "Фултайм", "Офис или удаленно"],
+    button: true,
   },
   {
-    heading: "Эффективные методы разработки",
-    content:
-      "Вы можете выбрать для себя наиболее подходящую методологию - Scrum или Waterfall",
+    heading: "Front-end разработчик",
+    tags: ["Senior", "Фултайм", "Офис или удаленно"],
+    button: true,
   },
   {
-    heading: "Современные технологии",
-    content:
-      "Мы используем новейшие технологии, такие как Bitrix, VueJs и Laravel",
-  },
-  {
-    heading: "Собственный отдел аналитики и дизайна",
-    content:
-      "Мы делаем продукты, которые соответствуют нуждам наших клиентов и максимально легко используются конечным пользователем",
-  },
-  {
-    heading: "Тестирование на всех этапах разработки",
-    content:
-      "Улучшение качества конечного продукта за счёт более эффективной работы и использования ресурсов",
-  },
-  {
-    heading: "Сертификация крупных корпоративных внедрений",
-    content:
-      "Мы делаем продукты, которые соответствуют нуждам наших клиентов и максимально легко используются конечным пользователем",
+    heading: "SEO-специалист",
+    tags: ["Senior", "Фултайм", "Офис или удаленно"],
+    button: true,
   },
 ];
 
-const prioritySub = [
+const team = [
   {
-    content1: "Выбрав нашу компанию, вы получаете все преимущества работы с",
-    pink: " опытной командой ",
-    content2:
-      ", которая изо всех сил старается обеспечить ваш бизнес максимальным успехом",
+    color: "purple",
+    standing: "более 10 лет",
+    content: "на рынке",
+    tall: false,
+    wide: false,
+  },
+  { image: "/images/imageTeam3.png", tall: false, wide: true },
+  { image: "/images/imageTeam4.png", tall: false, wide: false },
+  {
+    content:
+      "Мы готовы постоянно инвестировать в развитие своих возможностей - сотрудников компании и наших заказчиков",
+    tall: false,
+    wide: true,
+    button: true,
+  },
+  { image: "/images/imageTeam5.png", tall: true, wide: false },
+  {
+    color: "pink",
+    standing: "успешно",
+    content: " реализовали более 150 крутых проектов",
+    tall: false,
+    wide: false,
+  },
+  { image: "/images/imageTeam7.png", tall: false, wide: false },
+  { image: "/images/imageTeam8.png", tall: true, wide: false },
+  { image: "/images/imageTeam2.png", tall: false, wide: false },
+  {
+    color: "blue",
+    standing: "аккредитованная",
+    content: "IT-компания",
+    tall: false,
+    wide: false,
+  },
+  { image: "/images/imageTeam7.png", tall: false, wide: false },
+  {
+    color: "yellow",
+    standing: "ТОП 10",
+    content: "разработчиков E-commerce России",
+    tall: false,
+    wide: false,
   },
 ];
 
-const images = [
-  {
-    src: "/images/imageCaseArticle5.png",
-    title: "Интернет-магазины",
-    subtitle: "Интернет-магазин «Kamatyres»",
-  },
-  {
-    src: "/images/imageBlogArticle1.png",
-    title: "Корпоративные порталы",
-    subtitle: "Портал «Личный кабинет застройщиков»",
-  },
-  {
-    src: "/images/imageCase7.png",
-    title: "B2B и B2C сервисы",
-    subtitle: "Приложение по управлению умным домом «TouchOn»",
-  },
-  {
-    src: "/images/imageCase8.png",
-    title: "Oбучающие платформы",
-    subtitle: "Образовательная онлайн-платформа «EnglishVeronika»",
-  },
+const items = [
+  { id: 0, title: "Реферальная программа", icon: "icon-cup" },
+  { id: 1, title: "Окружили поддержкой", icon: "icon-heart-empty" },
+  { id: 2, title: "Ввели поощрения для сотрудников", icon: "icon-star" },
 ];
 
-const technologies = [
-  {
-    src: "/images/imageTechnologies1.png",
-    title: "Flutter",
-  },
-  {
-    src: "/images/imageTechnologies2.png",
-    title: "Java",
-  },
-  {
-    src: "/images/imageTechnologies3.png",
-    title: "Vue",
-  },
-  {
-    src: "/images/imageTechnologies4.png",
-    title: "Laravel",
-  },
-  {
-    src: "/images/imageTechnologies5.png",
-    title: "1C-Bitrix",
-  },
-  {
-    src: "/images/imageTechnologies6.png",
-    title: "PWA",
-  },
-];
+const openDreamJobReviews = () => {
+  window.open("https://dreamjob.ru/employers/304740?utm_source=hh", "_blank");
+};
+
+const activeItemId = ref(null);
+
+const setActiveItem = (id) => {
+  activeItemId.value = id;
+  toggleSidebarFormTeam();
+};
+
+const teamImageSrc = ref("/images/imageTeam1.png");
+
+const updateImageSrc = () => {
+  teamImageSrc.value =
+    window.innerWidth <= 475
+      ? "/images/imageTeam1Mobile.png"
+      : "/images/imageTeam1.png";
+};
+
+onMounted(() => {
+  updateImageSrc();
+  window.addEventListener("resize", updateImageSrc);
+});
 </script>
 
 <template>
   <div class="company-team">
     <div class="company-team__heading">
-      <div class="company-team__title">Команда</div>
-      <div class="company-team__subtitle">
-        Мы Wébest — входим <span class="custom-standing-blue">в ТОП 10</span>
+      <div class="company-team__heading-title">Команда</div>
+      <div class="company-team__heading-subtitle">
+        Мы Wébest — входим <span class="custom-standing-blue">в ТОП 10</span>
         разработчиков E-commerce России. Комплексно
-        <span class="custom-standing-pink">улучшаем бизнес-процессы</span> наших
-        клиентов при помощи IT. Специализируемся на создании и развитии
-        e-commerce проектов, B2B- и B2C — сервисов, мобильных приложений,
-        корпоративных сайтов для компаний в сфере услуг и производства
+        <span class="custom-standing-pink desktop">
+          улучшаем бизнес-процессы
+        </span>
+        <span class="custom-standing-pink mobile"> улучшаем бизнес- </span>
+        <span class="custom-standing-pink mobile"> процессы </span>
+        наших клиентов при помощи IT. Специализируемся на создании и развитии
+        e-commerce проектов, B2B- и B2C — сервисов, мобильных приложений,
+        корпоративных сайтов для компаний в сфере услуг и производства
       </div>
     </div>
 
-    <Priority
-      :subtitle="true"
-      title="Почему мы"
-      :prioritys="priorityItems"
-      :content="prioritySub"
-    />
+    <section class="company-team__review">
+      <img
+        class="company-team__review-image"
+        :src="teamImageSrc"
+        alt="Изображение команды"
+      />
+
+      <ul class="company-team__review-list">
+        <li
+          v-for="(item, index) in list"
+          class="company-team__review-item"
+          :key="index"
+        >
+          {{ item.title }}
+          <p>{{ item.content }}</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="company-team__queue">
+      <div class="company-team__queue-title">
+        <p class="container">Wébest – это, в первую очередь, люди</p>
+      </div>
+
+      <NuxtMarquee :autoFill="true" :speed="70">
+        <div class="company-team__queue-table">
+          <div
+            v-for="(item, index) in team"
+            :key="index"
+            :class="[
+              'company-team__queue-item',
+              { wide: item.wide },
+              { tall: item.tall },
+              { advanced: item.button },
+            ]"
+          >
+            <span
+              v-bind:class="item.color ? `custom-standing-${item.color}` : ''"
+            >
+              {{ item.standing }}
+            </span>
+
+            <span>
+              {{ item.content }}
+            </span>
+
+            <GradientButton
+              v-if="item.button"
+              title="Стать частью команды"
+              @click="toggleSidebarFormStaff"
+            />
+
+            <img
+              v-if="item.image"
+              :src="item.image"
+              alt="Изображение команды"
+              class="company-team__queue-image"
+            />
+          </div>
+        </div>
+      </NuxtMarquee>
+    </section>
+
+    <div class="container">
+      <p class="company-team__queue-title">Ценим каждого сотрудника</p>
+
+      <section class="expertise-unit__table">
+        <div class="expertise-unit__table-list">
+          <article
+            v-for="(item, index) in items"
+            :key="item.id"
+            class="expertise-unit__table-item"
+            @click="setActiveItem(item.id)"
+          >
+            <div class="expertise-card">
+              <div class="expertise-card__inner">
+                <span :class="item.icon"></span>
+                <p class="expertise-card__heading">{{ item.title }}</p>
+              </div>
+            </div>
+          </article>
+
+          <TeamSidebar :activeItemId="activeItemId" />
+        </div>
+      </section>
+    </div>
+
+    <Priority title="Стать частью команды" :prioritys="priorityItems" />
+
+    <div class="container">
+      <section class="company-team__feedback">
+        <div class="company-team__feedback-left">
+          <p class="company-team__queue-title">
+            Отзывы <br />
+            сотрудников
+          </p>
+
+          <div class="company-team__feedback-left-footer">
+            <p><span>4,6</span>Оценка Dream Job</p>
+            <p><span>97%</span>Рекомендуют работодателя</p>
+          </div>
+
+          <GradientButton
+            @click="openDreamJobReviews"
+            title="Все 99 отзывов на Dream Job"
+          />
+        </div>
+
+        <div class="company-team__feedback-right">
+          <TeamSlider />
+        </div>
+      </section>
+    </div>
 
     <BlogUnit article="case" :slider="true" />
 

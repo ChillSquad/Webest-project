@@ -92,17 +92,19 @@ defineProps({
     display: flex;
     align-items: end;
     background-color: var(--color-grey-light);
-    border-radius: 40px;
-    padding: 32px;
+    border-radius: var(--border-radius-40);
+    padding: var(--padding-card);
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
     .icon-marker {
+      @include font-text-3;
+
       display: flex;
       align-items: first baseline;
       z-index: 1;
-      transform: translateY(200px);
+      transform: translateY(210px);
       transition: transform 0.3s ease-in-out;
 
       &:before {
@@ -168,7 +170,7 @@ defineProps({
     bottom: -120px;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__title {
       margin-bottom: 40px;
     }
@@ -180,10 +182,13 @@ defineProps({
       gap: 8px;
     }
 
+    &__item-list {
+      gap: 4px;
+    }
+
     &__item {
       height: 200px;
       border-radius: 24px;
-      padding: 16px;
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -192,10 +197,14 @@ defineProps({
         opacity: 1;
         transform: translateY(0);
       }
-    }
 
-    &__item-heading {
-      @include font-text-3;
+      .icon-marker {
+        transform: translateY(0);
+
+        &:before {
+          font-size: 12px;
+        }
+      }
     }
 
     .item-first,

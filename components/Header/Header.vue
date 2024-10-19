@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router";
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 
 import Contacts from "./Contacts.vue";
 import ButtonMenu from "./ButtonMenu.vue";
@@ -28,9 +28,7 @@ onBeforeUnmount(() => {
 });
 
 const router = useRouter();
-router.afterEach(() => {
-  isAdaptiveActive.value = false;
-});
+const isRootRoute = computed(() => router.currentRoute.value.path === "/");
 </script>
 
 <template>
@@ -38,37 +36,21 @@ router.afterEach(() => {
     <div class="header-container">
       <header class="header">
         <div
-          class="header__inner"
-          :style="{
-            backgroundColor: isAdaptiveActive
-              ? 'var(--color-black-transparent)'
-              : 'var(--color-black)',
-          }"
+          :class="[
+            'header__inner',
+            { first: isRootRoute },
+            { second: isAdaptiveActive },
+          ]"
         >
           <div class="header__logo">
             <NuxtLink
               to="/"
               class="header__logo-title icon-header-logo"
-              :style="{
-                color: isAdaptiveActive ? 'var(--color-blue)' : '#fff',
-              }"
             ></NuxtLink>
 
-            <div
-              class="header__logo-subtitle"
-              :style="{
-                color: isAdaptiveActive ? 'var(--color-blue)' : '#fff',
-              }"
-            >
-              <span
-                class="header__logo-line"
-                :style="{
-                  backgroundColor: isAdaptiveActive
-                    ? 'var(--color-blue-line)'
-                    : '#fff',
-                }"
-              ></span>
-              <p class="header__logo-text">цифровое <br />решение</p>
+            <div class="header__logo-subtitle">
+              <span class="header__logo-line"></span>
+              <p class="header__logo-text">цифровые <br />решения</p>
             </div>
           </div>
 

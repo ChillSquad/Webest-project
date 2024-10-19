@@ -21,8 +21,8 @@ const { data: items } = await useAsyncData("expertise", async () => {
           </div>
         </div>
         <div class="expertise-unit__table">
-          <ul class="expertise-unit__table-list">
-            <li
+          <div class="expertise-unit__table-list">
+            <article
               v-for="(item, index) in items.slice(0, 6)"
               :key="index"
               :class="['expertise-unit__table-item', { tall: item.tall }]"
@@ -31,15 +31,17 @@ const { data: items } = await useAsyncData("expertise", async () => {
                 <div class="expertise-card__inner">
                   <span :class="item.icon"></span>
 
-                  <p class="expertise-card__heading">
-                    {{ item.title }}
-                  </p>
+                  <div class="expertise-card__wrapper">
+                    <p class="expertise-card__heading">
+                      {{ item.title }}
+                    </p>
 
-                  <p class="expertise-card__subhead">{{ item.subtitle }}</p>
+                    <p class="expertise-card__subhead">{{ item.subtitle }}</p>
+                  </div>
                 </div>
               </NuxtLink>
-            </li>
-          </ul>
+            </article>
+          </div>
         </div>
       </div>
     </div>

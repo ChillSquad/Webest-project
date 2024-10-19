@@ -10,22 +10,6 @@ import Sidebar from "primevue/sidebar";
 const { isActiveTariff } = useSidebarModel();
 const { activeFormStepTariff } = useFeedbackFormModelTariff();
 
-const transitionName = ref("slide-fade-left");
-
-const updateTransitionName = () => {
-  transitionName.value =
-    window.innerWidth <= 1220 ? "slide-fade-bottom" : "slide-fade-left";
-};
-
-onMounted(() => {
-  updateTransitionName();
-  window.addEventListener("resize", updateTransitionName);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("resize", updateTransitionName);
-});
-
 const toggleScrollbar = (isActiveTariff) => {
   document.body.style.overflow = isActiveTariff ? "hidden" : "";
   document.body.style.overflowX = "hidden";
@@ -56,7 +40,7 @@ const sidebarPT = {
     return { class: "sidebar-mask" };
   },
   transition() {
-    return { name: transitionName.value };
+    return { name: "slide-fade-left" };
   },
 };
 </script>

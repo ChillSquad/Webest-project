@@ -17,31 +17,38 @@ const priorityItems = [
     heading: "Гибкий форматы работы",
     content:
       "Мы предлагаем как классический аутсорсинг и аутстаффинг, так и различные комбинации, оптимальные для вашего бизнеса",
+    icon: "one",
   },
   {
     heading: "Эффективные методы разработки",
     content:
       "Вы можете выбрать для себя наиболее подходящую методологию - Scrum или Waterfall",
+    icon: "two",
   },
   {
     heading: "Современные технологии",
     content:
       "Мы используем новейшие технологии, такие как Bitrix, VueJs и Laravel",
+    icon: "three",
   },
   {
     heading: "Собственный отдел аналитики и дизайна",
     content:
       "Мы делаем продукты, которые соответствуют нуждам наших клиентов и максимально легко используются конечным пользователем",
-  },
-  {
-    heading: "Тестирование на всех этапах разработки",
-    content:
-      "Улучшение качества конечного продукта за счёт более эффективной работы и использования ресурсов",
+    icon: "four",
   },
   {
     heading: "Сертификация крупных корпоративных внедрений",
     content:
       "Мы делаем продукты, которые соответствуют нуждам наших клиентов и максимально легко используются конечным пользователем",
+
+    icon: "five",
+  },
+  {
+    heading: "Тестирование на всех этапах разработки",
+    content:
+      "Улучшение качества конечного продукта за счёт более эффективной работы и использования ресурсов",
+    icon: "six",
   },
 ];
 
@@ -137,11 +144,15 @@ const imageCaption =
       :content="prioritySub"
     />
 
-    <BlogUnit title="Награды и сертификаты" article="development" />
+    <BlogUnit
+      title="Награды и сертификаты"
+      article="development"
+      :arrow="false"
+    />
 
     <Recruiting />
 
-    <BlogUnit title="Наши кейсы" article="case" :slider="true" />
+    <BlogUnit title="Наши кейсы" article="case" :slider="true" route="/case" />
 
     <CustomersUnit />
 
@@ -151,7 +162,7 @@ const imageCaption =
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .expertise-development {
   display: flex;
   flex-direction: column;

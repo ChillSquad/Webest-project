@@ -188,8 +188,8 @@ const selectedVersion = ref("Облачная версия");
 
     <Advantages title="Наши компетенции" :cards="cards" />
 
-    <div class="container">
-      <section class="expertise-crm__tariff">
+    <section class="expertise-crm__tariff">
+      <div class="container">
         <div class="expertise-crm__tariff-header">
           <div class="expertise-crm__tariff-title">Тарифы</div>
 
@@ -201,14 +201,21 @@ const selectedVersion = ref("Облачная версия");
         </div>
 
         <SelectButtonCustom v-model="selectedVersion" />
+      </div>
 
-        <ul
+      <section
+        :class="[
+          'expertise-crm__tariff-table',
+          { packaged: selectedVersion === 'Коробочная версия' },
+        ]"
+      >
+        <div
           :class="[
             'expertise-crm__tariff-list',
             { packaged: selectedVersion === 'Коробочная версия' },
           ]"
         >
-          <li
+          <article
             class="expertise-crm__tariff-item"
             v-if="selectedVersion === 'Облачная версия'"
             v-for="(tariff, index) in tariffsCloud"
@@ -221,9 +228,9 @@ const selectedVersion = ref("Облачная версия");
               :sale="tariff.sale"
               :configurations="tariff.configurations"
             />
-          </li>
+          </article>
 
-          <li
+          <article
             class="expertise-crm__tariff-item"
             v-if="selectedVersion === 'Коробочная версия'"
             v-for="(tariff, index) in tariffsBox"
@@ -237,16 +244,20 @@ const selectedVersion = ref("Облачная версия");
               :configurations="tariff.configurations"
               :box="true"
             />
-          </li>
-        </ul>
-
-        <TariffSidebar />
+          </article>
+        </div>
       </section>
-    </div>
 
-    <BlogUnit title="Награды и сертификаты" article="development" />
+      <TariffSidebar />
+    </section>
 
-    <BlogUnit title="Наши кейсы" article="case" :slider="true" />
+    <BlogUnit
+      title="Награды и сертификаты"
+      article="development"
+      :arrow="false"
+    />
+
+    <BlogUnit title="Наши кейсы" article="case" :slider="true" route="/case" />
 
     <CustomersUnit />
 
@@ -290,7 +301,7 @@ const selectedVersion = ref("Облачная версия");
     display: flex;
     gap: 8px;
     background: var(--color-grey-light);
-    padding: 32px;
+    padding: var(--padding-card);
     border-radius: 32px;
   }
 
@@ -307,6 +318,11 @@ const selectedVersion = ref("Облачная версия");
     display: flex;
     flex-direction: column;
     margin-bottom: var(--unit-margin-y);
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__tariff-header {
@@ -320,20 +336,10 @@ const selectedVersion = ref("Облачная версия");
     @include font-h5;
 
     width: 555px;
+  }
 
-    .custom-standing-purple {
-      @include custom-standing;
-
-      background: var(--color-purple);
-      transform: rotate(-0.91deg);
-    }
-
-    .custom-standing-yellow {
-      @include custom-standing;
-
-      background: var(--color-yellow);
-      transform: rotate(0.99deg);
-    }
+  &__tariff-table {
+    overflow: hidden;
   }
 
   &__tariff-list {
@@ -342,8 +348,8 @@ const selectedVersion = ref("Облачная версия");
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin-top: 100px;
-    border-radius: 40px;
     gap: 8px;
+    padding: var(--swiper-padding);
   }
 
   .packaged {
@@ -354,11 +360,10 @@ const selectedVersion = ref("Облачная версия");
   &__tariff-item {
     width: 414px;
     height: auto;
-    border-radius: 40px;
-    padding: 32px;
+    border-radius: var(--border-radius-40);
+    padding: var(--padding-card);
     color: #fff;
     border: 1px solid #fff;
-
     background-image: url("public/images/first-page-background.png");
     background-size: cover;
     background-position: center;
@@ -386,11 +391,10 @@ const selectedVersion = ref("Облачная версия");
     right: 0;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__achievements-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      padding: 16px;
       gap: 4px;
     }
 
@@ -416,15 +420,39 @@ const selectedVersion = ref("Облачная версия");
       max-width: 328px;
     }
 
+    &__tariff-table {
+      overflow-x: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__tariff-list {
+      display: flex;
+      margin-top: 40px;
+    }
+
+    &__tariff-item {
+      max-width: 300px;
+      height: auto;
+      border-radius: 32px;
+    }
+
+    .packaged {
+      align-self: initial;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     .outstaff-advantages__item {
       height: 200px;
     }
-    /*  */
+
     .expertise-menu__item {
-      max-height: 52px;
+      max-height: 60px;
 
       &.active {
-        max-height: 258px;
+        max-height: 280px;
       }
     }
 

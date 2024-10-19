@@ -9,7 +9,6 @@ import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 import Advantages from "~/components/ExpertisePage/Advantages.vue";
 import MarketplaceServices from "~/components/ExpertisePage/MarketplaceServices.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
-import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 import SimilarServices from "~/components/ExpertisePage/SimilarServices.vue";
 
 const breadcrumbItems = [
@@ -176,7 +175,6 @@ const services = [
 
 const slides = [
   {
-    heading: "Клиенты о нас",
     content:
       "ООО «Вэбест» является нашим партнёром в сфере рекламной деятельности. За время сотрудничества ООО «Вэбест» подтвердила свой высочайший профессиональный статус, активность и компетентность в выполнении поставленных задач. Все задачи выполняются вовремя, в строго обозначенные сроки и с отличным качеством. Сотрудники компании качественно справляются со своими обязанностями. Мы довольны работами ООО «Вэбест» и готовы рекомендовать эту компанию как ответственного и надёжного партнёра.",
     src: "/images/imageMarketing9.png",
@@ -184,7 +182,6 @@ const slides = [
     occupation: "Директор по Маркетингу, Olymp men",
   },
   {
-    heading: "Клиенты о нас",
     content:
       "ООО «Вэбест» является нашим партнёром в сфере рекламной деятельности. За время сотрудничества ООО «Вэбест» подтвердила свой высочайший профессиональный статус, активность и компетентность в выполнении поставленных задач. Все задачи выполняются вовремя, в строго обозначенные сроки и с отличным качеством. Сотрудники компании качественно справляются со своими обязанностями. Мы довольны работами ООО «Вэбест» и готовы рекомендовать эту компанию как ответственного и надёжного партнёра.",
     src: "/images/imageMarketing9.png",
@@ -192,7 +189,6 @@ const slides = [
     occupation: "Директор по Маркетингу, Olymp men",
   },
   {
-    heading: "Клиенты о нас",
     content:
       "ООО «Вэбест» является нашим партнёром в сфере рекламной деятельности. За время сотрудничества ООО «Вэбест» подтвердила свой высочайший профессиональный статус, активность и компетентность в выполнении поставленных задач. Все задачи выполняются вовремя, в строго обозначенные сроки и с отличным качеством. Сотрудники компании качественно справляются со своими обязанностями. Мы довольны работами ООО «Вэбест» и готовы рекомендовать эту компанию как ответственного и надёжного партнёра.",
     src: "/images/imageMarketing9.png",
@@ -200,7 +196,6 @@ const slides = [
     occupation: "Директор по Маркетингу, Olymp men",
   },
   {
-    heading: "Клиенты о нас",
     content:
       "ООО «Вэбест» является нашим партнёром в сфере рекламной деятельности. За время сотрудничества ООО «Вэбест» подтвердила свой высочайший профессиональный статус, активность и компетентность в выполнении поставленных задач. Все задачи выполняются вовремя, в строго обозначенные сроки и с отличным качеством. Сотрудники компании качественно справляются со своими обязанностями. Мы довольны работами ООО «Вэбест» и готовы рекомендовать эту компанию как ответственного и надёжного партнёра.",
     src: "/images/imageMarketing9.png",
@@ -208,7 +203,6 @@ const slides = [
     occupation: "Директор по Маркетингу, Olymp men",
   },
   {
-    heading: "Клиенты о нас",
     content:
       "ООО «Вэбест» является нашим партнёром в сфере рекламной деятельности. За время сотрудничества ООО «Вэбест» подтвердила свой высочайший профессиональный статус, активность и компетентность в выполнении поставленных задач. Все задачи выполняются вовремя, в строго обозначенные сроки и с отличным качеством. Сотрудники компании качественно справляются со своими обязанностями. Мы довольны работами ООО «Вэбест» и готовы рекомендовать эту компанию как ответственного и надёжного партнёра.",
     src: "/images/imageMarketing9.png",
@@ -254,13 +248,27 @@ const imageCaption = "";
       :subtitle="subImages"
     />
 
+    <div class="expertise-smm__table">
+      <div class="expertise-smm__card-slide" v-for="(image, index) in images">
+        <img
+          :key="index"
+          class="expertise-smm__card-slide-image"
+          :src="image.src"
+          alt="Фото сотрудника"
+        />
+        <p class="expertise-smm__card-slide-capture">
+          {{ image.title }}
+        </p>
+      </div>
+    </div>
+
     <Recruiting
       title="Бесплатный аудит"
       subtitle="Оставьте заявку и мы проведем бесплатный аудит, после которого наглядно покажем подходит ли вашему бизнесу контекстная реклама и какой её потенциал в вашей нише"
     />
 
-    <div class="container">
-      <div class="expertise-smm__heading">
+    <div class="expertise-smm__employees">
+      <div class="expertise-smm__heading container">
         Над вашим проектом будут работать
       </div>
 
@@ -279,7 +287,11 @@ const imageCaption = "";
       </div>
     </div>
 
-    <BlogUnit title="Награды и сертификаты" article="development" />
+    <BlogUnit
+      title="Награды и сертификаты"
+      article="development"
+      :arrow="false"
+    />
 
     <Technologies :technologies="technologies" title="Площадки" />
 
@@ -295,9 +307,7 @@ const imageCaption = "";
       />
     </div>
 
-    <ArticleSliderMobile :slides="slides" :review="true" />
-
-    <BlogUnit title="Наши кейсы" article="case" :slider="true" />
+    <BlogUnit title="Наши кейсы" article="case" :slider="true" route="/case" />
 
     <SimilarServices />
 
@@ -308,6 +318,7 @@ const imageCaption = "";
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .expertise-smm {
@@ -336,14 +347,15 @@ const imageCaption = "";
     @include font-h2;
 
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: var(--heading-margin-bottom);
   }
 
   &__table {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
+
+    padding: var(--swiper-padding);
     margin-bottom: var(--unit-margin-y);
+    gap: 8px;
   }
 
   &__card {
@@ -353,13 +365,13 @@ const imageCaption = "";
     justify-content: start;
     align-items: start;
     gap: 24px;
-    margin-left: 8px;
+    position: relative;
   }
 
   &__card-image {
     max-width: 414px;
     height: auto;
-    border-radius: 40px;
+    border-radius: var(--border-radius-40);
   }
 
   &__card-employee {
@@ -374,6 +386,84 @@ const imageCaption = "";
       @include font-text-4;
 
       color: var(--color-dark-blue);
+    }
+  }
+
+  &__card-slide {
+    max-height: 680px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    position: relative;
+  }
+
+  &__card-slide-image {
+    max-height: 680px;
+    width: auto;
+    border-radius: var(--border-radius-40);
+  }
+
+  &__card-slide-capture {
+    @include font-h6;
+
+    color: #fff;
+    position: absolute;
+    top: 32px;
+    left: 32px;
+  }
+
+  .development-slider__swiper {
+    display: none;
+  }
+
+  .development-slider {
+    margin: 0;
+  }
+
+  @media (max-width: 475px) {
+    &__table {
+      display: flex;
+      justify-content: initial;
+      margin-bottom: var(--unit-margin-y);
+      overflow-x: auto;
+      white-space: nowrap;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__card {
+      max-width: 300px;
+      max-height: 461px;
+    }
+
+    &__card-image {
+      max-width: 300px;
+      height: auto;
+    }
+
+    &__card-employee {
+      max-width: 268px;
+    }
+
+    &__card-slide {
+      max-height: 368px;
+    }
+
+    &__card-slide-image {
+      max-height: 368px;
+    }
+
+    &__card-capture {
+      top: 20px;
+      left: 20px;
+    }
+
+    .article-slider-mobile {
+      margin-bottom: var(--unit-margin-y);
     }
   }
 }

@@ -10,7 +10,6 @@ import ExpertiseMenu from "~/components/ExpertisePage/ExpertiseMenu.vue";
 import MarketplaceServices from "~/components/ExpertisePage/MarketplaceServices.vue";
 import Reporting from "~/components/ExpertisePage/Reporting.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
-import ArticleSliderMobile from "~/components/UI-kit/ArticleSliderMobile.vue";
 import SimilarServices from "~/components/ExpertisePage/SimilarServices.vue";
 
 const breadcrumbItems = [
@@ -156,7 +155,12 @@ const services = [
 const reports = [
   {
     heading: "Аналитика",
-    content: [],
+    content: [
+      "Брифинг",
+      "Предварительная аналитика или аудит текущих кампаний",
+      "Зум-встреча",
+      "Формирование коммерческого предложения",
+    ],
   },
   {
     heading: "Подготовка к запуску",
@@ -172,13 +176,17 @@ const reports = [
 
   {
     heading: "Ведение рекламных кампаний",
-    content: [],
+    content: [
+      "Корректировки настроек рекламных кампаний",
+      "Изменений акций/офферов в текстах",
+      "Расширение семантики",
+      "Отключение неэффективных площадок в РСЯ",
+    ],
   },
 ];
 
 const slides = [
   {
-    heading: "Клиенты о нас",
     content:
       "ООО «Вэбест» является нашим партнёром в сфере рекламной деятельности. За время сотрудничества ООО «Вэбест» подтвердила свой высочайший профессиональный статус, активность и компетентность в выполнении поставленных задач. Все задачи выполняются вовремя, в строго обозначенные сроки и с отличным качеством. Сотрудники компании качественно справляются со своими обязанностями. Мы довольны работами ООО «Вэбест» и готовы рекомендовать эту компанию как ответственного и надёжного партнёра.",
     src: "/images/imageMarketing9.png",
@@ -186,7 +194,6 @@ const slides = [
     occupation: "Директор по Маркетингу, Olymp men",
   },
   {
-    heading: "Клиенты о нас",
     content:
       "ООО «Вэбест» является нашим партнёром в сфере рекламной деятельности. За время сотрудничества ООО «Вэбест» подтвердила свой высочайший профессиональный статус, активность и компетентность в выполнении поставленных задач. Все задачи выполняются вовремя, в строго обозначенные сроки и с отличным качеством. Сотрудники компании качественно справляются со своими обязанностями. Мы довольны работами ООО «Вэбест» и готовы рекомендовать эту компанию как ответственного и надёжного партнёра.",
     src: "/images/imageMarketing9.png",
@@ -194,7 +201,6 @@ const slides = [
     occupation: "Директор по Маркетингу, Olymp men",
   },
   {
-    heading: "Клиенты о нас",
     content:
       "ООО «Вэбест» является нашим партнёром в сфере рекламной деятельности. За время сотрудничества ООО «Вэбест» подтвердила свой высочайший профессиональный статус, активность и компетентность в выполнении поставленных задач. Все задачи выполняются вовремя, в строго обозначенные сроки и с отличным качеством. Сотрудники компании качественно справляются со своими обязанностями. Мы довольны работами ООО «Вэбест» и готовы рекомендовать эту компанию как ответственного и надёжного партнёра.",
     src: "/images/imageMarketing9.png",
@@ -202,7 +208,6 @@ const slides = [
     occupation: "Директор по Маркетингу, Olymp men",
   },
   {
-    heading: "Клиенты о нас",
     content:
       "ООО «Вэбест» является нашим партнёром в сфере рекламной деятельности. За время сотрудничества ООО «Вэбест» подтвердила свой высочайший профессиональный статус, активность и компетентность в выполнении поставленных задач. Все задачи выполняются вовремя, в строго обозначенные сроки и с отличным качеством. Сотрудники компании качественно справляются со своими обязанностями. Мы довольны работами ООО «Вэбест» и готовы рекомендовать эту компанию как ответственного и надёжного партнёра.",
     src: "/images/imageMarketing9.png",
@@ -210,7 +215,6 @@ const slides = [
     occupation: "Директор по Маркетингу, Olymp men",
   },
   {
-    heading: "Клиенты о нас",
     content:
       "ООО «Вэбест» является нашим партнёром в сфере рекламной деятельности. За время сотрудничества ООО «Вэбест» подтвердила свой высочайший профессиональный статус, активность и компетентность в выполнении поставленных задач. Все задачи выполняются вовремя, в строго обозначенные сроки и с отличным качеством. Сотрудники компании качественно справляются со своими обязанностями. Мы довольны работами ООО «Вэбест» и готовы рекомендовать эту компанию как ответственного и надёжного партнёра.",
     src: "/images/imageMarketing9.png",
@@ -243,7 +247,7 @@ const imageCaption = "";
     <Advantages :cards="cards" />
 
     <ExpertiseMenu
-      title="Битрикс24 помогает бизнесу работать"
+      title="Кому подойдет настройка контекстной рекламы?"
       :plates="plates"
     />
 
@@ -278,13 +282,17 @@ const imageCaption = "";
 
     <MarketplaceServices title="наши услуги" :services="services" />
 
-    <BlogUnit title="Награды и сертификаты" article="development" />
+    <BlogUnit
+      title="Награды и сертификаты"
+      article="development"
+      :arrow="false"
+    />
 
     <Reporting :reports="reports" title="Этапы работы" />
 
     <CustomersUnit />
 
-    <BlogUnit title="Наши кейсы" article="case" :slider="true" />
+    <BlogUnit title="Наши кейсы" article="case" :slider="true" route="/case" />
 
     <div class="container">
       <ArticleSlider
@@ -293,8 +301,6 @@ const imageCaption = "";
         style="margin-bottom: 220px"
       />
     </div>
-
-    <ArticleSliderMobile :slides="slides" :review="true" />
 
     <SimilarServices />
 
@@ -316,7 +322,7 @@ const imageCaption = "";
     @include font-h2;
 
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: var(--heading-margin-bottom);
   }
 
   &__table {
@@ -336,7 +342,7 @@ const imageCaption = "";
   &__slide-image {
     max-width: 414px;
     height: auto;
-    border-radius: 40px;
+    border-radius: var(--border-radius-40);
   }
 
   &__slide-employee {
@@ -369,6 +375,10 @@ const imageCaption = "";
     &.active {
       max-height: 252px;
     }
+
+    .icon-arrow-right-up {
+      align-items: first baseline;
+    }
   }
 
   .expertise-development-reporting__item {
@@ -379,6 +389,46 @@ const imageCaption = "";
 
   .expertise-development-reporting__item-heading {
     @include font-h6;
+  }
+
+  @media (max-width: 475px) {
+    .article-slider-mobile {
+      margin-bottom: var(--unit-margin-y);
+    }
+
+    .outstaff-advantages__item {
+      height: 320px;
+    }
+
+    .expertise-menu {
+      margin-bottom: var(--unit-margin-y);
+
+      button.gradient-button {
+        display: none;
+      }
+
+      .expertise-menu__item {
+        max-height: 100px;
+
+        &.active {
+          max-height: 290px;
+        }
+      }
+    }
+
+    &__slide {
+      max-width: 300px;
+      max-height: 461px;
+    }
+
+    &__slide-image {
+      max-width: 300px;
+      height: auto;
+    }
+
+    &__slide-employee {
+      max-width: 268px;
+    }
   }
 }
 </style>

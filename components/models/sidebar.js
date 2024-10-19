@@ -9,6 +9,8 @@ const useSidebarModel = () => {
 
   const isActiveTariff = useState("tariff-modal-active", () => false);
 
+  const isActiveTeam = useState("team-modal-active", () => false);
+
   const toggleSidebarForm = () => {
     isActive.value = !isActive.value;
   };
@@ -29,6 +31,10 @@ const useSidebarModel = () => {
     isActiveTariff.value = !isActiveTariff.value;
   };
 
+  const toggleSidebarFormTeam = () => {
+    isActiveTeam.value = !isActiveTeam.value;
+  };
+
   return {
     isActive,
     toggleSidebarForm,
@@ -40,6 +46,8 @@ const useSidebarModel = () => {
     toggleSidebarFormBlog,
     isActiveTariff,
     toggleSidebarFormTariff,
+    isActiveTeam,
+    toggleSidebarFormTeam,
   };
 };
 

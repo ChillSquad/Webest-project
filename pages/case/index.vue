@@ -29,9 +29,10 @@ const sortingBarItems = [
           Более <span class="custom-standing-pink">150</span> реализованных
           проектов за 10 лет
         </div>
-        <SortingBar :items="sortingBarItems" />
       </div>
     </div>
+
+    <SortingBar :items="sortingBarItems" />
 
     <CaseUnit :title="false" :slice="17" />
 

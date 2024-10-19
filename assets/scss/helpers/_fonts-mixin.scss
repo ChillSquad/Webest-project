@@ -2,7 +2,7 @@
   font: var(--font-h1);
   text-transform: uppercase;
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-h1: 38px;
     --lh-h1: 43.32px;
@@ -12,7 +12,7 @@
 @mixin font-h1-inner {
   font: var(--font-h1-inner);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-h1-inner: 24px;
     --lh-h1-inner: 28.8px;
@@ -23,7 +23,7 @@
   font: var(--font-h2);
   text-transform: uppercase;
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-h2: 32px;
     --lh-h2: 36.48px;
@@ -34,7 +34,7 @@
   font: var(--font-h3);
   text-transform: uppercase;
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-h3: 24px;
     --lh-h3: 27.36px;
@@ -45,7 +45,7 @@
   font: var(--font-h4);
   text-transform: uppercase;
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-h4: 20px;
     --lh-h4: 25.8px;
@@ -55,7 +55,7 @@
 @mixin font-h5 {
   font: var(--font-h5);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-h5: 18px;
     --lh-h5: 25.2px;
@@ -65,7 +65,7 @@
 @mixin font-h6 {
   font: var(--font-h6);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-h6: 15px;
     --lh-h6: 21px;
@@ -75,7 +75,7 @@
 @mixin font-h7 {
   font: var(--font-h7);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-h7: 15px;
     --lh-h7: 21.9px;
@@ -85,7 +85,7 @@
 @mixin font-text-1 {
   font: var(--font-text-1);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-text-1: 17px;
     --lh-text-1: 23.8px;
@@ -102,7 +102,7 @@
 @mixin font-text-2-bold {
   font: var(--font-text-2-bold);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-text-2: 15px;
     --lh-text-2: 21px;
@@ -116,7 +116,7 @@
   font: var(--font-text-3);
   text-decoration: underline;
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-text-3: 13px;
     --lh-text-3: 18.98px;
@@ -126,7 +126,7 @@
 @mixin font-text-4 {
   font: var(--font-text-4);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-text-4: 13px;
     --lh-text-4: 18.33px;
@@ -136,7 +136,7 @@
 @mixin font-text-5 {
   font: var(--font-text-5);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-text-5: 11px;
     --lh-text-5: 12.76px;
@@ -146,7 +146,7 @@
 @mixin font-text-6 {
   font: var(--font-text-6);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-text-6: 11px;
     --lh-text-6: 13.53px;
@@ -156,20 +156,20 @@
 @mixin font-button-1 {
   font: var(--font-button-1);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
-    --fs-link-1: 16px;
-    --lh-link-1: 16px;
+    --fs-button-1: 16px;
+    --lh-button-1: 16px;
   }
 }
 
 @mixin font-button-2 {
   font: var(--font-button-2);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
-    --fs-link-1: 14px;
-    --lh-link-1: 14px;
+    --fs-button-2: 14px;
+    --lh-button-2: 14px;
   }
 }
 
@@ -185,7 +185,7 @@
   font: var(--font-subscribe);
   color: var(--color-red-subscribe);
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-subscribe: 13px;
     --lh-subscribe: 15.6px;
@@ -197,7 +197,7 @@
   color: var(--color-red-strikethrought);
   text-decoration: line-through;
 }
-@media (max-width: 360px) {
+@media (max-width: 475px) {
   :root {
     --fs-strikethrought: 15px;
     --lh-strikethrought: 21px;
@@ -211,66 +211,5 @@
   :root {
     --fs-logo-text: 8.5px;
     --lh-logo-text: 8.5px;
-  }
-}
-
-@mixin custom-standing {
-  display: inline-block;
-  padding: 0 8px;
-  border-radius: var(--border-radius-custom-standing);
-  color: #fff;
-}
-
-@mixin icon-arrow-right-hover {
-  &:hover {
-    .icon-arrow-right-up {
-      &:after {
-        transform: rotate(45deg);
-      }
-    }
-  }
-}
-
-@mixin expertise-icon {
-  font-size: var(--font-expertise-icon);
-  color: var(--color-blue);
-}
-@mixin expertise-icon-hover {
-  &:after {
-    color: inherit;
-  }
-}
-@media (max-width: 1000px) {
-  :root {
-    --font-expertise-icon: 32px;
-  }
-}
-
-@mixin footer-icon {
-  font-size: var(--font-footer-icon);
-  color: #fff;
-  transition: color 0.3s ease-in-out;
-}
-
-@mixin article-icon {
-  font-size: 20px;
-  color: #fff;
-  transition: color 0.2s ease-in-out;
-}
-
-@mixin talk-icon {
-  font-size: 20px;
-  color: #fff;
-  transition: color 0.2s ease-in-out;
-}
-
-@media (max-width: 360px) {
-  :root {
-    --unit-margin-y: 120px;
-    --heading-margin-bottom: 40px;
-    --swiper-padding: 0 16px;
-    --border-radius-40: 24px;
-    --border-radius-40: 24px;
-    --border-radius-40: 24px;
   }
 }

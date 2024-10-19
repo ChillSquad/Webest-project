@@ -2,6 +2,8 @@
 @import "./helpers/variables";
 @import "./helpers/transition";
 @import "./helpers/fonts-mixin";
+@import "./helpers/mixin";
+@import "../icons/font-icons";
 
 @import "./components/slider-cursor";
 @import "./components/cookies";
@@ -56,9 +58,11 @@ body {
 body::-webkit-scrollbar {
   width: 10px;
 }
+
 body::-webkit-scrollbar-track {
   background: transparent;
 }
+
 body::-webkit-scrollbar-thumb {
   background-color: var(--color-blue);
   border-radius: 20px;
@@ -66,14 +70,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
+  padding: 0 120px;
   width: 100%;
 }
 
 .article-container {
-  max-width: 1150px;
-  margin: 0 auto;
+  padding: 0 365px;
   width: 100%;
 }
 
@@ -163,7 +165,50 @@ label {
   }
 }
 
-@media (max-width: 360px) {
+.custom-standing-blue {
+  @include custom-standing;
+
+  background: var(--color-blue);
+}
+
+.custom-standing-pink {
+  @include custom-standing;
+
+  background: var(--color-pink);
+}
+
+.custom-standing-purple {
+  @include custom-standing;
+
+  background: var(--color-purple);
+}
+
+.custom-standing-yellow {
+  @include custom-standing;
+
+  background: var(--color-yellow);
+}
+
+@keyframes slopes {
+  0% {
+    transform: rotate(1.5deg);
+  }
+
+  50% {
+    transform: rotate(-1.5deg);
+  }
+
+  100% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@media (max-width: 475px) {
+  .custom-cursor,
+  .slider-cursor {
+    display: none;
+  }
+
   .slide-button {
     padding: 0px 19px;
 

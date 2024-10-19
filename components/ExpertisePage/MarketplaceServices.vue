@@ -171,7 +171,7 @@ defineProps({
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__content {
       flex-direction: column;
     }
