@@ -209,16 +209,12 @@ const imageAlt = "Заголовок статьи";
               на различных проектах
             </p>
 
-            <img
-              class="up"
-              src="/images/imageExplanation1.png"
-              alt="Изображение статьи"
-            />
+            <img src="/images/imageExplanation1.png" alt="Изображение статьи" />
           </li>
 
           <li class="expertise-outstaff-explanation__item">
             <img
-              class="expertise-outstaff-explanation__image down"
+              class="expertise-outstaff-explanation__image"
               src="/images/imageExplanation2.png"
               alt="Изображение статьи"
             />
@@ -381,14 +377,6 @@ const imageAlt = "Заголовок статьи";
     img {
       border-radius: 32px;
     }
-
-    .up {
-      animation: moveUpIMG 10s infinite ease-in-out;
-    }
-
-    .down {
-      animation: moveDownIMG 10s infinite ease-in-out;
-    }
   }
 
   &__image {
@@ -398,34 +386,6 @@ const imageAlt = "Заголовок статьи";
 
     &:last-child {
       display: none;
-    }
-  }
-
-  @keyframes moveUpIMG {
-    0% {
-      transform: translateY(-20px);
-    }
-
-    50% {
-      transform: translateY(20px);
-    }
-
-    100% {
-      transform: translateY(-20px);
-    }
-  }
-
-  @keyframes moveDownIMG {
-    0% {
-      transform: translateY(20px);
-    }
-
-    50% {
-      transform: translateY(-20px);
-    }
-
-    100% {
-      transform: translateY(20px);
     }
   }
 
