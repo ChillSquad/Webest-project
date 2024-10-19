@@ -280,7 +280,7 @@ const updateCurrentIndex = (swiper) => {
     @include font-text-2;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     &__card-heading {
       margin-bottom: 40px;
     }
