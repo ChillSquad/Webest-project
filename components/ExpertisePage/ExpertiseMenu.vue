@@ -108,6 +108,7 @@ const setActiveItem = (index) => {
     transition: color 0.2s ease-in-out, background 0.3s ease-in-out,
       max-height 0.4s ease-in-out;
     overflow: hidden;
+    cursor: pointer;
 
     .icon-arrow-right-up {
       display: flex;

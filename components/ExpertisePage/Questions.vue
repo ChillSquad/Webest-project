@@ -82,7 +82,7 @@ defineProps({
 
     width: 50%;
     position: sticky;
-    top: 5%;
+    top: 120px;
     align-self: flex-start;
 
     span {
