@@ -70,14 +70,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
+  padding: 0 120px;
   width: 100%;
 }
 
 .article-container {
-  max-width: 1150px;
-  margin: 0 auto;
+  padding: 0 365px;
   width: 100%;
 }
 
