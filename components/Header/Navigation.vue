@@ -46,7 +46,7 @@ const isActive = (basePath) => {
 
 <style lang="scss" scoped>
 .selected {
-  background: var(--color-white-transparent);
+  background: var(--color-white-header);
   border-radius: 16px;
 }
 </style>

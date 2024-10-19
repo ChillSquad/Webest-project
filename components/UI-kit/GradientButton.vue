@@ -45,18 +45,10 @@ defineProps({
   cursor: pointer;
 
   &:disabled {
-    color: var(--color-grey-light-span);
-    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    // background: transparent;
+    pointer-events: none;
     cursor: default;
-
-    &:hover {
-      background: initial;
-      .icon-arrow-right-up {
-        &:after {
-          transform: initial;
-        }
-      }
-    }
   }
 
   .icon-arrow-right-up {
