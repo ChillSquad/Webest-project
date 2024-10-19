@@ -78,7 +78,7 @@ defineProps({
   }
 
   @media (max-width: 475px) {
-    padding: 17px 17px;
+    padding: 17px 19px;
     border-radius: 16px;
     gap: 12px;
 

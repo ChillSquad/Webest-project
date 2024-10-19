@@ -162,7 +162,7 @@ defineProps({
     }
 
     button.gradient-button {
-      display: block;
+      display: flex;
 
       margin-bottom: 40px;
     }
