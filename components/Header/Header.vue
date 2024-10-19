@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router";
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 
 import Contacts from "./Contacts.vue";
 import ButtonMenu from "./ButtonMenu.vue";
@@ -28,9 +28,7 @@ onBeforeUnmount(() => {
 });
 
 const router = useRouter();
-router.afterEach(() => {
-  isAdaptiveActive.value = false;
-});
+const isRootRoute = computed(() => router.currentRoute.value.path === "/");
 </script>
 
 <template>
@@ -38,12 +36,11 @@ router.afterEach(() => {
     <div class="header-container">
       <header class="header">
         <div
-          class="header__inner"
-          :style="{
-            backgroundColor: isAdaptiveActive
-              ? 'var(--color-blue)'
-              : 'var(--color-white-header)',
-          }"
+          :class="[
+            'header__inner',
+            { first: isRootRoute },
+            { second: isAdaptiveActive },
+          ]"
         >
           <div class="header__logo">
             <NuxtLink
