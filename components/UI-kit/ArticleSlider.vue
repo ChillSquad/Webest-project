@@ -51,8 +51,13 @@ const updateCurrentIndex = (swiper) => {
 </script>
 
 <template>
-  <article>
-    <div v-if="isMobile" class="article-slider-mobile">
+  <article class="article-slider-unit">
+    <p v-if="review" class="article-slider__card-heading">Клиенты о нас</p>
+
+    <div
+      v-if="isMobile"
+      :class="['article-slider-mobile', { expertise: review }]"
+    >
       <swiper
         v-if="!review"
         :loop="false"
@@ -79,7 +84,6 @@ const updateCurrentIndex = (swiper) => {
         @slideChange="updateCurrentIndex"
       >
         <swiper-slide v-for="(slide, index) in props.slides" :key="index">
-          <p class="article-slider-mobile__card-heading">{{ slide.heading }}</p>
           <p class="article-slider-mobile__card-content">{{ slide.content }}</p>
           <img
             class="article-slider-mobile__card-avatar"
@@ -105,7 +109,7 @@ const updateCurrentIndex = (swiper) => {
       </div>
     </div>
 
-    <div v-else class="article-slider">
+    <div v-else :class="['article-slider', { expertise: review }]">
       <swiper
         v-if="isSliderReady"
         :navigation="{
@@ -136,7 +140,6 @@ const updateCurrentIndex = (swiper) => {
           v-for="(slide, index) in props.slides"
           :key="index"
         >
-          <p class="article-slider__card-heading">{{ slide.heading }}</p>
           <p class="article-slider__card-content">{{ slide.content }}</p>
           <img
             class="article-slider__card-avatar"
@@ -173,6 +176,15 @@ const updateCurrentIndex = (swiper) => {
 
 <style lang="scss">
 @import "~/assets/scss/helpers/fonts-mixin";
+
+.article-slider-unit {
+  display: flex;
+  flex-direction: column;
+}
+
+.expertise {
+  margin-top: 0 !important;
+}
 
 .article-slider,
 .article-slider-mobile {
@@ -234,6 +246,7 @@ const updateCurrentIndex = (swiper) => {
     @include font-h2;
 
     margin-bottom: 100px;
+    align-self: center;
   }
 
   &__card-content {
@@ -265,6 +278,12 @@ const updateCurrentIndex = (swiper) => {
 
   &__card-username {
     @include font-text-2;
+  }
+
+  @media (max-width: 360px) {
+    &__card-heading {
+      margin-bottom: 40px;
+    }
   }
 }
 

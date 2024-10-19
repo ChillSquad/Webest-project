@@ -60,13 +60,14 @@ if (!props.modelValue) {
     &.p-highlight {
       background-color: var(--color-blue);
       color: #fff;
+
+      &:hover {
+        color: #fff;
+      }
     }
 
     &:hover {
-      transform: scale(1.02);
-
-      background-color: var(--color-blue);
-      color: #fff;
+      color: var(--color-blue);
     }
   }
 
