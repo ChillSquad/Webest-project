@@ -123,7 +123,7 @@ const updateCurrentIndex = (swiper) => {
             </ol>
           </div>
 
-          <div class="team-slider__slide-review">
+          <div class="team-slider__slide-review mobile">
             <p class="team-slider__slide-review-title">{{ review.title2 }}</p>
             <ol class="team-slider__slide-review-list">
               <li
@@ -246,6 +246,10 @@ const updateCurrentIndex = (swiper) => {
     }
 
     &-footer {
+      position: absolute;
+      bottom: 32px;
+      right: 32px;
+      left: 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -276,7 +280,7 @@ const updateCurrentIndex = (swiper) => {
   }
 
   .swiper {
-    width: 554px !important;
+    width: 554px;
   }
 
   .swiper-slide {
@@ -311,8 +315,51 @@ const updateCurrentIndex = (swiper) => {
   }
 
   .article-slider-mobile__bar {
-    width: 554px;
-    margin-top: 30px;
+    max-width: 554px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 475px) {
+    &__slide {
+      height: 468px;
+      gap: 24px;
+    }
+
+    &__slide-footer {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      left: 20px;
+    }
+
+    &__slide-review-list {
+      gap: 8px;
+    }
+
+    .mobile {
+      display: none;
+    }
+
+    .swiper {
+      width: 300px;
+      height: 508px;
+    }
+
+    .pagination-wrapper {
+      width: 328px;
+    }
+
+    .article-slider-mobile__bar {
+      width: 328px;
+    }
+
+    .icon-slide-to-left {
+      display: none;
+    }
+
+    .icon-slide-to-right {
+      display: none;
+    }
   }
 }
 </style>
