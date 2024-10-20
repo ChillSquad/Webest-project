@@ -128,26 +128,22 @@ const questions = [
   },
 ];
 
-const title = "Продвижение на маркетплейсах";
-const subtitle =
-  "Управление бизнесом на маркетплейсах. Весь спектр работ от разработки продукта до развития магазина и увеличения продаж";
-const buttonTitle = "Оставить заявку";
-const imageSrc = "/images/imageMarketplace1.png";
-const imageAlt = "Заголовок статьи";
-const imageCaption = "";
+const heading = [
+  {
+    title: "Продвижение на маркетплейсах",
+    subtitle:
+      "Управление бизнесом на маркетплейсах. Весь спектр работ от разработки продукта до развития магазина и увеличения продаж",
+    buttonTitle: "Оставить заявку",
+    imageSrc: "/images/imageMarketplace1.png",
+    imageAlt: "Заголовок статьи",
+    imageCaption: "",
+  },
+];
 </script>
 
 <template>
   <div class="expertise-marketplace">
-    <ExpertiseHeading
-      :breadcrumbItems="breadcrumbItems"
-      :title="title"
-      :subtitle="subtitle"
-      :buttonTitle="buttonTitle"
-      :imageSrc="imageSrc"
-      :imageAlt="imageAlt"
-      :imageCaption="imageCaption"
-    />
+    <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
     <Priority :subtitle="false" title="почему мы" :prioritys="priorityItems" />
 

@@ -36,28 +36,33 @@ const handleSectionClick = () => {
 };
 
 defineProps({
-  breadcrumbItems: Array,
-  title: String,
-  subtitle: String,
-  buttonTitle: String,
-  imageSrc: String,
-  imageAlt: String,
-  imageCaption: String,
+  breadcrumbItems: {
+    type: Array,
+    required: true,
+  },
+  heading: {
+    type: Array,
+    required: true,
+  },
 });
 </script>
 
 <template>
   <div class="container">
-    <section class="expertise-heading">
+    <section
+      class="expertise-heading"
+      v-for="(item, index) in heading"
+      :key="index"
+    >
       <Breadcrumbs :items="breadcrumbItems" />
 
-      <div class="expertise-heading__title">{{ title }}</div>
+      <div class="expertise-heading__title">{{ item.title }}</div>
 
       <div class="expertise-heading__subtitle">
-        {{ subtitle }}
+        {{ item.subtitle }}
       </div>
 
-      <GradientButton :title="buttonTitle" @click="toggleSidebarForm" />
+      <GradientButton :title="item.buttonTitle" @click="toggleSidebarForm" />
 
       <div class="expertise-heading__review">
         <div
@@ -68,12 +73,12 @@ defineProps({
           <img
             @click="handleSectionClick"
             class="expertise-heading__image"
-            :src="imageSrc"
-            :alt="imageAlt"
+            :src="item.imageSrc"
+            :alt="item.imageAlt"
           />
 
           <div class="expertise-heading__image-caption">
-            {{ imageCaption }}
+            {{ item.imageCaption }}
           </div>
         </div>
         <div

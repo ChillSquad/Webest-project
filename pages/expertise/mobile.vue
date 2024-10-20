@@ -84,24 +84,22 @@ const prioritySub = [
   },
 ];
 
-const title = "Разработка приложений на Flutter";
-const subtitle =
-  "Мы создаем кроссплатформенные приложения для мобильных и веб-платформ";
-const buttonTitle = "Оставить заявку";
-const imageSrc = "/images/imageMobile1.png";
-const imageAlt = "Заголовок статьи";
+const heading = [
+  {
+    title: "Разработка приложений на Flutter",
+    subtitle:
+      "Мы создаем кроссплатформенные приложения для мобильных и веб-платформ",
+    buttonTitle: "Оставить заявку",
+    imageSrc: "/images/imageMobile1.png",
+    imageAlt: "Заголовок статьи",
+    imageCaption: "",
+  },
+];
 </script>
 
 <template>
   <div class="expertise-development">
-    <ExpertiseHeading
-      :breadcrumbItems="breadcrumbItems"
-      :title="title"
-      :subtitle="subtitle"
-      :buttonTitle="buttonTitle"
-      :imageSrc="imageSrc"
-      :imageAlt="imageAlt"
-    />
+    <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
     <Advantages :cards="cards" />
 

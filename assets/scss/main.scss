@@ -169,24 +169,28 @@ label {
   @include custom-standing;
 
   background: var(--color-blue);
+  animation: slopes 3s infinite ease-in-out;
 }
 
 .custom-standing-pink {
   @include custom-standing;
 
   background: var(--color-pink);
-}
-
-.custom-standing-purple {
-  @include custom-standing;
-
-  background: var(--color-purple);
+  animation: slopes-reverse 3s infinite ease-in-out;
 }
 
 .custom-standing-yellow {
   @include custom-standing;
 
   background: var(--color-yellow);
+  animation: slopes 3s infinite ease-in-out;
+}
+
+.custom-standing-purple {
+  @include custom-standing;
+
+  background: var(--color-purple);
+  animation: slopes-reverse 3s infinite ease-in-out;
 }
 
 @keyframes slopes {
@@ -200,6 +204,20 @@ label {
 
   100% {
     transform: rotate(1.5deg);
+  }
+}
+
+@keyframes slopes-reverse {
+  0% {
+    transform: rotate(-1.5deg);
+  }
+
+  50% {
+    transform: rotate(1.5deg);
+  }
+
+  100% {
+    transform: rotate(-1.5deg);
   }
 }
 

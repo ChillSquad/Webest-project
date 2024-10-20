@@ -178,27 +178,23 @@ const integration = [
   },
 ];
 
-const title = "Разрабатываем решения для B2B-портала с личным кабинетом";
-const subtitle =
-  "Реализуем оптовый интернет-магазин на базе надёжного отечественного ПО «1С-Битрикс» и интегрируем платформу с CRM-, ERP-, MDM-системами. B2B-портал автоматизирует рутинные операции и упрощает взаимодействие с оптовыми покупателями. ";
-const buttonTitle = "Оставить заявку";
-const imageSrc = "/images/imagePromotion1.png";
-const imageAlt = "Заголовок статьи";
-const imageCaption =
-  "Повышайте лояльность клиентов и улучшайте качество сервиса, ускоряя обработку заказов и сокращая количество ошибок при обслуживании.";
+const heading = [
+  {
+    title: "Разрабатываем решения для B2B-портала с личным кабинетом",
+    subtitle:
+      "Реализуем оптовый интернет-магазин на базе надёжного отечественного ПО «1С-Битрикс» и интегрируем платформу с CRM-, ERP-, MDM-системами. B2B-портал автоматизирует рутинные операции и упрощает взаимодействие с оптовыми покупателями.",
+    buttonTitle: "Оставить заявку",
+    imageSrc: "/images/imagePromotion1.png",
+    imageAlt: "Заголовок статьи",
+    imageCaption:
+      "Повышайте лояльность клиентов и улучшайте качество сервиса, ускоряя обработку заказов и сокращая количество ошибок при обслуживании.",
+  },
+];
 </script>
 
 <template>
   <div class="expertise-promotion">
-    <ExpertiseHeading
-      :breadcrumbItems="breadcrumbItems"
-      :title="title"
-      :subtitle="subtitle"
-      :buttonTitle="buttonTitle"
-      :imageSrc="imageSrc"
-      :imageAlt="imageAlt"
-      :imageCaption="imageCaption"
-    />
+    <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
     <Advantages :cards="cards" title="Преимущества внедрения B2B-портала" />
 

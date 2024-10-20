@@ -219,26 +219,22 @@ const subImages = [
   },
 ];
 
-const title = "SMM продвижение и таргетированная реклама";
-const subtitle =
-  "Инструмент интернет-маркетинга, помогающий привлечь потребителей через социальные сети";
-const buttonTitle = "Оставить заявку";
-const imageSrc = "/images/imageSMM1.png";
-const imageAlt = "Заголовок статьи";
-const imageCaption = "";
+const heading = [
+  {
+    title: "SMM продвижение и таргетированная реклама",
+    subtitle:
+      "Инструмент интернет-маркетинга, помогающий привлечь потребителей через социальные сети",
+    buttonTitle: "Оставить заявку",
+    imageSrc: "/images/imageSMM1.png",
+    imageAlt: "Заголовок статьи",
+    imageCaption: "",
+  },
+];
 </script>
 
 <template>
   <div class="expertise-smm">
-    <ExpertiseHeading
-      :breadcrumbItems="breadcrumbItems"
-      :title="title"
-      :subtitle="subtitle"
-      :buttonTitle="buttonTitle"
-      :imageSrc="imageSrc"
-      :imageAlt="imageAlt"
-      :imageCaption="imageCaption"
-    />
+    <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
     <Advantages :cards="cards" />
 

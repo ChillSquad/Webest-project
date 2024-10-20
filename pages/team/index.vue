@@ -50,8 +50,7 @@ const team = [
   { image: "/images/imageTeam3.png", tall: false, wide: true },
   { image: "/images/imageTeam4.png", tall: false, wide: false },
   {
-    content:
-      "Мы готовы постоянно инвестировать в развитие своих возможностей - сотрудников компании и наших заказчиков",
+    content: "Мы всегда в поиске скилловых и талантливых коллег!",
     tall: false,
     wide: true,
     button: true,
@@ -74,7 +73,7 @@ const team = [
     tall: false,
     wide: false,
   },
-  { image: "/images/imageTeam7.png", tall: false, wide: false },
+  { image: "/images/imageTeam6.png", tall: false, wide: false },
   {
     color: "yellow",
     standing: "ТОП 10",

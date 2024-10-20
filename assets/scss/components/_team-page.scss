@@ -148,7 +148,7 @@
   }
 
   .expertise-priority__list-item-content {
-    width: 800px;
+    flex: 1;
   }
 
   .mobile {
@@ -156,7 +156,7 @@
   }
 
   &__feedback {
-    height: 700px;
+    height: max-content;
     margin-bottom: var(--unit-margin-y);
     display: flex;
 
@@ -308,7 +308,6 @@
     }
 
     &__feedback {
-      height: 700px;
       margin-bottom: var(--unit-margin-y);
       display: flex;
       flex-direction: column;

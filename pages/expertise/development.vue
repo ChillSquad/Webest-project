@@ -111,27 +111,23 @@ const technologies = [
   },
 ];
 
-const title = "Веб-разработка";
-const subtitle =
-  "Создаём и развиваем интернет-магазины, B2B/B2C сервисы, обучающие платформы";
-const buttonTitle = "Заказать разработку сайта";
-const imageSrc = "/images/imageExpertiseDevelopment1.png";
-const imageAlt = "Заголовок статьи";
-const imageCaption =
-  "В Топ-10 разработчиков интернет-магазинов по версии Рейтинга рунета за 2022 год";
+const heading = [
+  {
+    title: "Веб-разработка",
+    subtitle:
+      "Создаём и развиваем интернет-магазины, B2B/B2C сервисы, обучающие платформы",
+    buttonTitle: "Заказать разработку сайта",
+    imageSrc: "/images/imageExpertiseDevelopment1.png",
+    imageAlt: "Заголовок статьи",
+    imageCaption:
+      "В Топ-10 разработчиков интернет-магазинов по версии Рейтинга рунета за 2022 год",
+  },
+];
 </script>
 
 <template>
   <div class="expertise-development">
-    <ExpertiseHeading
-      :breadcrumbItems="breadcrumbItems"
-      :title="title"
-      :subtitle="subtitle"
-      :buttonTitle="buttonTitle"
-      :imageSrc="imageSrc"
-      :imageAlt="imageAlt"
-      :imageCaption="imageCaption"
-    />
+    <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
     <DevelopmentSlider :images="images" title="Разрабатываем и развиваем" />
 
