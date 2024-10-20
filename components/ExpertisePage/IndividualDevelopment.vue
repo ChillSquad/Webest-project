@@ -14,10 +14,7 @@ defineProps({
 </script>
 
 <template>
-  <section
-    class="individual-development"
-    v-for="(individual, index) in individual"
-  >
+  <section class="individual-development" v-for="individual in individual">
     <p class="individual-development__header">
       {{ individual.head }}
     </p>
@@ -44,7 +41,7 @@ defineProps({
           {{ individual.title }}
         </p>
 
-        <p class="icon-marker" v-for="(mark, index) in individual.marks">
+        <p class="icon-marker" v-for="mark in individual.marks">
           {{ mark }}
         </p>
       </div>
@@ -125,6 +122,8 @@ defineProps({
   }
 
   .icon-marker {
+    @include font-text-2;
+
     display: flex;
     align-items: first baseline;
     margin-top: 12px;
