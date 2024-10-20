@@ -132,14 +132,18 @@ const plates = [
   },
 ];
 
-const title = "Поможем внедрить Битрикс24 CRM в ваш бизнес";
-const subtitle =
-  "Подбор и внедрение CRM-систем. Интеграция и кастомизация для облачных и коробочных решений на базе Битрикс24 и AmoCRM";
-const buttonTitle = "Оставить заявку";
-const imageSrc = "/images/imageCRM1.png";
-const imageAlt = "Заголовок статьи";
-const imageCaption =
-  "Топ 15 CRM интегераторов по версии Рейтинга рунета за 2022 год";
+const heading = [
+  {
+    title: "Поможем внедрить Битрикс24 CRM в ваш бизнес",
+    subtitle:
+      "Подбор и внедрение CRM-систем. Интеграция и кастомизация для облачных и коробочных решений на базе Битрикс24 и AmoCRM",
+    buttonTitle: "Оставить заявку",
+    imageSrc: "/images/imageCRM1.png",
+    imageAlt: "Заголовок статьи",
+    imageCaption:
+      "Топ 15 CRM интегераторов по версии Рейтинга рунета за 2022 год",
+  },
+];
 
 const { data: tariffsBox } = await useAsyncData("tariffbox", () => {
   return $fetch("/api/tariffbox/", { method: "GET" });
@@ -154,15 +158,7 @@ const selectedVersion = ref("Облачная версия");
 
 <template>
   <div class="expertise-crm">
-    <ExpertiseHeading
-      :breadcrumbItems="breadcrumbItems"
-      :title="title"
-      :subtitle="subtitle"
-      :buttonTitle="buttonTitle"
-      :imageSrc="imageSrc"
-      :imageAlt="imageAlt"
-      :imageCaption="imageCaption"
-    />
+    <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
     <div class="container">
       <section class="expertise-crm__achievements">

@@ -10,9 +10,9 @@ defineProps({
 <template>
   <nav class="breadcrumbs-custom" v-for="(item, index) in items" :key="index">
     <NuxtLink class="breadcrumbs-custom-link" :to="item.route">
-      <span class="breadcrumbs-custom-lable icon-separator">{{
-        item.label
-      }}</span>
+      <span class="breadcrumbs-custom-lable icon-separator">
+        {{ item.label }}
+      </span>
     </NuxtLink>
   </nav>
 </template>

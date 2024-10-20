@@ -149,24 +149,22 @@ const reports = [
   },
 ];
 
-const title = "Аутстаф разработчиков, дизайнеров, аналитиков, тестировщиков";
-const subtitle =
-  "Помогаем быстро усилить команду и расширить штат за счет квалифицированных специалистов";
-const buttonTitle = "Оставить заявку";
-const imageSrc = "/images/imageExpertiseOutstaff1.png";
-const imageAlt = "Заголовок статьи";
+const heading = [
+  {
+    title: "Аутстаф разработчиков, дизайнеров, аналитиков, тестировщиков",
+    subtitle:
+      "Помогаем быстро усилить команду и расширить штат за счет квалифицированных специалистов",
+    buttonTitle: "Оставить заявку",
+    imageSrc: "/images/imageExpertiseOutstaff1.png",
+    imageAlt: "Заголовок статьи",
+    imageCaption: "",
+  },
+];
 </script>
 
 <template>
   <div class="expertise-outstaff">
-    <ExpertiseHeading
-      :breadcrumbItems="breadcrumbItems"
-      :title="title"
-      :subtitle="subtitle"
-      :buttonTitle="buttonTitle"
-      :imageSrc="imageSrc"
-      :imageAlt="imageAlt"
-    />
+    <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
     <Advantages :cards="cards" />
 

@@ -223,26 +223,22 @@ const slides = [
   },
 ];
 
-const title = "Контекстная реклама Яндекс Директ и Google Ads";
-const subtitle =
-  "Текстовые, графические и видеообъявления, которые показываются горячей аудитории. В основе контекстной рекламы заложена аукционная система сервисов Яндекс Директ и Google Ads, которая подразумевает оплату за клик";
-const buttonTitle = "Заказать разработку сайта";
-const imageSrc = "/images/imageAdvertisement1.png";
-const imageAlt = "Заголовок статьи";
-const imageCaption = "";
+const heading = [
+  {
+    title: "Контекстная реклама Яндекс Директ и Google Ads",
+    subtitle:
+      "Текстовые, графические и видеообъявления, которые показываются горячей аудитории. В основе контекстной рекламы заложена аукционная система сервисов Яндекс Директ и Google Ads, которая подразумевает оплату за клик",
+    buttonTitle: "Заказать разработку сайта",
+    imageSrc: "/images/imageAdvertisement1.png",
+    imageAlt: "Заголовок статьи",
+    imageCaption: "",
+  },
+];
 </script>
 
 <template>
   <div class="expertise-advertisement">
-    <ExpertiseHeading
-      :breadcrumbItems="breadcrumbItems"
-      :title="title"
-      :subtitle="subtitle"
-      :buttonTitle="buttonTitle"
-      :imageSrc="imageSrc"
-      :imageAlt="imageAlt"
-      :imageCaption="imageCaption"
-    />
+    <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
     <Advantages :cards="cards" />
 

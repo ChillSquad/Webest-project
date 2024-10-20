@@ -130,26 +130,22 @@ const prioritySub = [
   },
 ];
 
-const title = "Интернет-маркетинг";
-const subtitle =
-  "Доверьте нам маркетинг вашего бизнеса от медиа и performance-кампаний до полноценного brandformance";
-const buttonTitle = "Оставить заявку";
-const imageSrc = "/images/imageMarketing1.png";
-const imageAlt = "Заголовок статьи";
-const imageCaption = "";
+const heading = [
+  {
+    title: "Интернет-маркетинг",
+    subtitle:
+      "Доверьте нам маркетинг вашего бизнеса от медиа и performance-кампаний до полноценного brandformance",
+    buttonTitle: "Оставить заявку",
+    imageSrc: "/images/imageMarketing1.png",
+    imageAlt: "Заголовок статьи",
+    imageCaption: "",
+  },
+];
 </script>
 
 <template>
   <div class="expertise-marketing">
-    <ExpertiseHeading
-      :breadcrumbItems="breadcrumbItems"
-      :title="title"
-      :subtitle="subtitle"
-      :buttonTitle="buttonTitle"
-      :imageSrc="imageSrc"
-      :imageAlt="imageAlt"
-      :imageCaption="imageCaption"
-    />
+    <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
     <Advantages :cards="cards" title="Наши компетенции" :forbidden="true" />
 

@@ -14,6 +14,10 @@ import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import SimilarServices from "~/components/ExpertisePage/SimilarServices.vue";
 import Questions from "~/components/ExpertisePage/Questions.vue";
 
+const breadcrumbItems = [
+  { label: "Назад ко всем услугам", route: "/expertise" },
+];
+
 const cards = [
   {
     src: "/images/imageSEO2.png",
@@ -39,10 +43,6 @@ const cards = [
     src: "/images/imageSEO7.png",
     title: "Увеличение продаж",
   },
-];
-
-const breadcrumbItems = [
-  { label: "Назад ко всем услугам", route: "/expertise" },
 ];
 
 const priorityItems = [
@@ -290,26 +290,22 @@ const prioritySub = [
   },
 ];
 
-const title = "SEO-продвижение сайтов в Яндекс и Google";
-const subtitle =
-  "Увеличение видимости сайта в поисковой выдаче, привлечение большего количества потенциальных клиентов и увеличение объема трафика на сайте";
-const buttonTitle = "Оставить заявку";
-const imageSrc = "/images/imageSEO1.png";
-const imageAlt = "Заголовок статьи";
-const imageCaption = "";
+const heading = [
+  {
+    title: "SEO-продвижение сайтов в Яндекс и Google",
+    subtitle:
+      "Увеличение видимости сайта в поисковой выдаче, привлечение большего количества потенциальных клиентов и увеличение объема трафика на сайте",
+    buttonTitle: "Оставить заявку",
+    imageSrc: "/images/imageSEO1.png",
+    imageAlt: "Заголовок статьи",
+    imageCaption: "",
+  },
+];
 </script>
 
 <template>
   <div class="expertise-seo">
-    <ExpertiseHeading
-      :breadcrumbItems="breadcrumbItems"
-      :title="title"
-      :subtitle="subtitle"
-      :buttonTitle="buttonTitle"
-      :imageSrc="imageSrc"
-      :imageAlt="imageAlt"
-      :imageCaption="imageCaption"
-    />
+    <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
     <Advantages title="Что дает поисковое продвижение сайта?" :cards="cards" />
 
