@@ -310,7 +310,7 @@ onMounted(() => {
 
     #gradient-button-control {
       width: 100%;
-      padding: 16px 16px;
+      padding: 17px 16px;
     }
 
     &__list-item-tags {
