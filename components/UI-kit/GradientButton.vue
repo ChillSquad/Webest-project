@@ -46,7 +46,6 @@ defineProps({
 
   &:disabled {
     color: rgba(255, 255, 255, 0.5);
-    // background: transparent;
     pointer-events: none;
     cursor: default;
   }

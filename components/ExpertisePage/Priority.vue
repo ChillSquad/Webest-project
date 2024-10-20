@@ -242,13 +242,12 @@ onMounted(() => {
   }
 
   &__list-item-button {
-    @include font-button-2;
+    @include font-button-1;
     @include flex-center;
 
     width: max-content;
-    height: 62px;
     border: 1px solid #fff;
-    padding: 22px 20px;
+    padding: 23px 20px;
     border-radius: 20px;
     transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
 
