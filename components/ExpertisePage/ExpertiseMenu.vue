@@ -91,7 +91,7 @@ const setActiveItem = (index) => {
   }
 
   &__list {
-    width: 790px;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -162,6 +162,7 @@ const setActiveItem = (index) => {
   }
 
   &__item-aside {
+    width: 50%;
     height: max-content;
     position: relative;
     border-radius: 32px;
@@ -204,6 +205,10 @@ const setActiveItem = (index) => {
     }
 
     &__list {
+      width: 100%;
+    }
+
+    &__item-aside {
       width: 100%;
     }
 

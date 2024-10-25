@@ -437,7 +437,7 @@ const selectedVersion = ref("Облачная версия");
   }
 
   .expertise-menu__item-aside {
-    width: 872px;
+    // width: 872px;
     height: 668px;
     background: #fff;
   }

@@ -389,6 +389,11 @@ const heading = [
     }
   }
 
+  .expertise-menu__item-image {
+    width: 100%;
+    object-fit: cover;
+  }
+
   .article-slider-unit {
     margin-bottom: var(--unit-margin-y);
   }

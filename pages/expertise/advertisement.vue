@@ -360,6 +360,10 @@ const heading = [
     grid-template-rows: 1fr;
   }
 
+  .expertise-menu__item-image {
+    width: 100%;
+  }
+
   .outstaff-advantages__item {
     min-width: 100%;
     min-height: 411px;
@@ -393,6 +397,10 @@ const heading = [
 
   @media (max-width: 475px) {
     @include article-mobile;
+
+    .expertise-menu__item-image {
+      width: 100%;
+    }
 
     .expertise-menu__content {
       height: 679px;
