@@ -68,5 +68,9 @@ defineProps({
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media (max-width: 475px) {
+    margin: 40px 0;
+  }
 }
 </style>

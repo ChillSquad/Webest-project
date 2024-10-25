@@ -145,6 +145,20 @@
     flex-wrap: wrap;
   }
 
+  @media (min-width: 1920px) {
+    &__case-image {
+      width: -webkit-fill-available;
+    }
+
+    &__inner {
+      width: -webkit-fill-available;
+
+      a {
+        width: -webkit-fill-available;
+      }
+    }
+  }
+
   @media (max-width: 1750px) {
     &__case-image {
       object-fit: cover;
@@ -189,7 +203,7 @@
     }
 
     &__case-image {
-      min-height: 320px;
+      min-height: 328px;
     }
 
     &__case-heading {

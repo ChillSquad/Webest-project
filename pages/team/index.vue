@@ -94,6 +94,7 @@ const openDreamJobReviews = () => {
 };
 
 const activeItemId = ref(null);
+const listItems = ref([]);
 
 const setActiveItem = (id) => {
   activeItemId.value = id;
@@ -109,9 +110,25 @@ const updateImageSrc = () => {
       : "/images/imageTeam1.png";
 };
 
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+};
+
 onMounted(() => {
   updateImageSrc();
   window.addEventListener("resize", updateImageSrc);
+
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1,
+  });
+
+  listItems.value.forEach((item) => {
+    observer.observe(item);
+  });
 });
 </script>
 
@@ -206,6 +223,7 @@ onMounted(() => {
             :key="item.id"
             class="expertise-unit__table-item"
             @click="setActiveItem(item.id)"
+            ref="listItems"
           >
             <div class="expertise-card">
               <div class="expertise-card__inner">
@@ -222,8 +240,8 @@ onMounted(() => {
 
     <Priority title="Стать частью команды" :prioritys="priorityItems" />
 
-    <div class="container">
-      <section class="company-team__feedback">
+    <section class="company-team__feedback">
+      <div class="container">
         <div class="company-team__feedback-left">
           <p class="company-team__queue-title">
             Отзывы <br />
@@ -242,10 +260,15 @@ onMounted(() => {
         </div>
 
         <div class="company-team__feedback-right">
+          <p class="company-team__queue-title">
+            Отзывы <br />
+            сотрудников
+          </p>
+
           <TeamSlider />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
     <BlogUnit article="case" :slider="true" />
 

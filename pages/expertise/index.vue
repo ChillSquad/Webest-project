@@ -25,11 +25,7 @@ const { data: items } = await useAsyncData("expertisepage", async () => {
           <li
             v-for="(item, index) in items"
             :key="index"
-            :class="[
-              'expertise-page__table-item',
-              { wide: item.wide },
-              { tall: item.tall },
-            ]"
+            class="expertise-page__table-item"
           >
             <NuxtLink :to="item.route" class="expertise-card">
               <div class="expertise-card__inner">

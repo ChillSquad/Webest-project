@@ -1,5 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import GradientButton from "~/components/UI-kit/GradientButton.vue";
+import { useSidebarModel } from "../models/sidebar";
+
+const { toggleSidebarForm } = useSidebarModel();
 
 const listItems = ref([]);
 
@@ -55,13 +59,20 @@ defineProps({
               {{ service.subtitle }}
             </p>
 
-            <p
-              class="expertise-marketplace-services__item-points icon-marker"
-              v-for="(point, pointIndex) in service.points"
-              :key="pointIndex"
-            >
-              {{ point }}
-            </p>
+            <div class="expertise-marketplace-services__item-points">
+              <p
+                class="icon-marker"
+                v-for="(point, pointIndex) in service.points"
+                :key="pointIndex"
+              >
+                {{ point }}
+              </p>
+            </div>
+
+            <GradientButton
+              @click="toggleSidebarForm"
+              title="Оставить заявку"
+            />
           </li>
         </ul>
       </div>
@@ -84,7 +95,6 @@ defineProps({
   &__content {
     height: max-content;
     display: flex;
-    gap: 8px;
   }
 
   &__list {
@@ -98,7 +108,6 @@ defineProps({
     max-height: 96px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     padding: 0 5px 32px 0;
     background: #fff;
     border-bottom: 1px solid var(--color-grey-light-span);
@@ -125,7 +134,8 @@ defineProps({
         color: var(--color-blue);
       }
 
-      .expertise-marketplace-services__item-points {
+      .expertise-marketplace-services__item-points,
+      #gradient-button-control {
         transform: translateY(0);
         opacity: 1;
       }
@@ -136,6 +146,12 @@ defineProps({
         }
       }
     }
+  }
+
+  &__item-points {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   &__item-title {
@@ -149,14 +165,19 @@ defineProps({
 
   &__item-subtitle {
     @include font-text-2;
+
+    margin: 16px 0 32px;
+  }
+
+  &__item-points,
+  #gradient-button-control {
+    transition: opacity 0.3s ease-in-out, transform 0.6s ease-in-out;
+    opacity: 0;
+    transform: translateY(200px);
   }
 
   &__item-points {
     @include font-text-2;
-
-    transition: opacity 0.3s ease-in-out, transform 0.6s ease-in-out;
-    opacity: 0;
-    transform: translateY(200px);
   }
 
   .icon-marker {
@@ -169,6 +190,11 @@ defineProps({
       color: var(--color-blue);
       padding-right: 8px;
     }
+  }
+
+  #gradient-button-control {
+    width: fit-content;
+    margin-top: 32px;
   }
 
   @media (max-width: 475px) {
@@ -190,7 +216,8 @@ defineProps({
       max-height: 110px;
       opacity: 0;
       transform: translateY(50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out,
+        max-height 0.6s ease-in-out;
 
       &.visible {
         opacity: 1;
@@ -200,6 +227,10 @@ defineProps({
       .icon-arrow-right-up {
         display: flex;
         align-items: first baseline;
+      }
+
+      &:hover {
+        max-height: 700px;
       }
     }
   }

@@ -62,10 +62,6 @@ const technologies = [
     src: "/images/imagePromotion20.png",
     title: "Ci/Cd",
   },
-  {
-    src: "/images/imagePromotion15.png",
-    title: "Restful API",
-  },
 ];
 
 const cards = [
@@ -178,7 +174,7 @@ const integration = [
   },
 ];
 
-const heading = [
+const heading = ref([
   {
     title: "Разрабатываем решения для B2B-портала с личным кабинетом",
     subtitle:
@@ -189,7 +185,26 @@ const heading = [
     imageCaption:
       "Повышайте лояльность клиентов и улучшайте качество сервиса, ускоряя обработку заказов и сокращая количество ошибок при обслуживании.",
   },
-];
+]);
+
+const updateImageSrc = () => {
+  if (heading.value.length > 0) {
+    if (window.innerWidth <= 475) {
+      heading.value[0].imageSrc = "/images/imagePromotion1Mobile.png";
+    } else {
+      heading.value[0].imageSrc = "/images/imagePromotion1.png";
+    }
+  }
+};
+
+onMounted(() => {
+  updateImageSrc();
+  window.addEventListener("resize", updateImageSrc);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", updateImageSrc);
+});
 </script>
 
 <template>
@@ -253,11 +268,12 @@ const heading = [
     height: max-content;
     display: grid;
     grid-template-columns: repeat(6, 200px);
-    grid-template-rows: repeat(3, 200px);
+    grid-template-rows: repeat(2, 200px);
   }
 
-  .development-technologies__card:last-child {
-    grid-column: 3;
+  .outstaff-advantages__item {
+    min-width: 100%;
+    min-height: 467px;
   }
 
   @media (max-width: 475px) {
@@ -270,9 +286,16 @@ const heading = [
         object-fit: contain;
       }
     }
+
     .development-technologies__wrapper {
       display: flex;
-      justify-content: start;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .talk-card__heading,
+    .individual-development__header {
+      overflow-wrap: anywhere;
     }
   }
 }

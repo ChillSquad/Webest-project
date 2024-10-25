@@ -1,7 +1,6 @@
 <script setup>
 import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import Breadcrumbs from "~/components/UI-kit/Breadcrumbs.vue";
-import GradientButton from "~/components/UI-kit/GradientButton.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 
 const breadcrumbItems = [{ label: "Назад ко всем статьям", route: "/blog" }];
@@ -14,38 +13,26 @@ const slides = [
   { src: "/images/imageBlogArticle1.png" },
 ];
 
-import { useSidebarModel } from "~/components/models/sidebar";
-import { useCustomCursor } from "~/components/models/useCustomCursor";
+const isLargeScreen = ref(true);
 
-const { toggleSidebarForm, isActive } = useSidebarModel();
-const {
-  isCursorVisible,
-  circleStyle,
-  textStyle,
-  handleMouseEnter,
-  handleMouseLeave,
-} = useCustomCursor(isActive);
-
-const isScreenSmall = ref(false);
-
-const checkScreenSize = () => {
-  isScreenSmall.value = window.innerWidth <= 360;
+const updateScreenSize = () => {
+  if (typeof window !== "undefined") {
+    isLargeScreen.value = window.innerWidth > 475;
+  }
 };
 
 onMounted(() => {
-  checkScreenSize();
-  window.addEventListener("resize", checkScreenSize);
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", updateScreenSize);
+    updateScreenSize();
+  }
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener("resize", checkScreenSize);
-});
-
-const handleSectionClick = () => {
-  if (!isScreenSmall.value) {
-    toggleSidebarForm();
+  if (typeof window !== "undefined") {
+    window.removeEventListener("resize", updateScreenSize);
   }
-};
+});
 </script>
 
 <template>
@@ -66,34 +53,12 @@ const handleSectionClick = () => {
         </div>
       </div>
 
-      <GradientButton
-        title="Заказать разработку сайта"
-        @click="toggleSidebarForm"
-      />
-
       <div class="blog-article__image-review-container">
-        <div
-          class="custom-component"
-          @mouseenter="handleMouseEnter"
-          @mouseleave="handleMouseLeave"
-        >
-          <img
-            @click="handleSectionClick"
-            class="blog-article__heading-image-review"
-            src="public/images/imageBlog1.png"
-            alt="Заголовок статьи"
-          />
-          <div
-            class="custom-cursor"
-            :class="{ visible: isCursorVisible && !isActive }"
-          >
-            <div class="custom-cursor__circle" :style="circleStyle">
-              <span class="custom-cursor__circle-span" :style="textStyle"
-                >Оставить <span>заявку</span></span
-              >
-            </div>
-          </div>
-        </div>
+        <img
+          class="blog-article__heading-image-review"
+          src="public/images/imageBlog1.png"
+          alt="Заголовок статьи"
+        />
       </div>
     </div>
 
@@ -123,252 +88,256 @@ const handleSectionClick = () => {
           </p>
         </div>
       </div>
+    </div>
 
-      <ol class="blog-article__content">
-        <li class="blog-article__chapter">
-          MegaIndex
+    <ol class="blog-article__content">
+      <li class="blog-article__chapter article-container">
+        1. MegaIndex
 
-          <div class="blog-article__chapter-content">
-            <div class="icon-marker">
-              <p>
-                Основные возможности: широкий набор инструментов для добавления
-                запросов, проведения кластеризации и отображения позиций
-                веб-сайта.
-              </p>
-            </div>
-
-            <div class="icon-marker">
-              <p>
-                Особенности: максимальная видимость в ПС до 100; при выходе за
-                пределы видимости – отображается 100+.
-              </p>
-            </div>
-
-            <div class="icon-marker">
-              <p>
-                Дополнительные преимущества <a href="#" target="_blank"
-                  >MegaIndex</a
-                >: рекомендации для улучшения работы молодых сайтов; возможность
-                сравнения своих показателей с конкурентами.
-              </p>
-            </div>
-          </div>
-
-          <img
-            class="blog-article__chapter-image"
-            src="public/images/imageBlogArticle1.png"
-            alt="Изображение раздела"
-          />
-        </li>
-
-        <li class="blog-article__chapter">
-          Serphunt
-
-          <img
-            class="blog-article__chapter-image margin-top-40"
-            src="public/images/imageBlogArticle2.png"
-            alt="Изображение раздела"
-          />
-
-          <div class="blog-article__chapter-content">
+        <div class="blog-article__chapter-content">
+          <div class="icon-marker">
             <p>
-              Сервис предлагает анализ позиций сайта в поисковиках и управление
-              проектами SEO. Каждый зарегистрированный пользователь получает
-              тариф "Старт", который предоставляет 500 бесплатных проверок
-              ежемесячно. Сервис
-              <a href="#" target="_blank">Serphunt</a>
-              позволяет добавлять проекты, указывать ключевые слова, выбирать
-              поисковики и отслеживать позиции в выдаче.
+              Основные возможности: широкий набор инструментов для добавления
+              запросов, проведения кластеризации и отображения позиций
+              веб-сайта.
             </p>
           </div>
 
-          <div class="blog-article__split">
-            <img
-              class="blog-article__chapter-image"
-              src="public/images/imageBlogArticle3.png"
-              alt="Изображение раздела"
-            />
-            <img
-              class="blog-article__chapter-image"
-              src="public/images/imageBlogArticle4.png"
-              alt="Изображение раздела"
-            />
-          </div>
-        </li>
-
-        <li class="blog-article__chapter">
-          SEOlib
-
-          <ArticleSlider :slides="slides" />
-
-          <div class="blog-article__chapter-content margin-bottom">
+          <div class="icon-marker">
             <p>
-              <a href="#" target="_blank">SEOlib</a> предлагает своим
-              пользователям широкий спектр функций, включая анализ сайта,
-              проверку позиций, индексацию, трафик и многое другое. Имеет
-              простой интерфейс и предлагает различные тарифные планы.
-            </p>
-
-            <p>Вот наш список плюсов и минусов данного сервиса:</p>
-
-            <p class="blog-article__headline">Плюсы:</p>
-
-            <div class="blog-article__list">
-              <p>1</p>
-              <p>
-                Основные возможности: широкий набор инструментов для добавления
-                запросов, проведения кластеризации и отображения позиций
-                веб-сайта.
-              </p>
-            </div>
-
-            <div class="blog-article__list">
-              <p>2</p>
-              <p>
-                Широкий набор инструментов для анализа и отслеживания позиций
-                сайта, включая анализ сайта, проверку позиций, индексаций,
-                трафика и другие.
-              </p>
-            </div>
-
-            <div class="blog-article__list">
-              <p>3</p>
-              <p>
-                Простой интерфейс, что делает использование сервиса удобным для
-                новых пользователей.
-              </p>
-            </div>
-
-            <div class="blog-article__list">
-              <p>4</p>
-              <p>
-                Сервис предлагает бонусы и скидки для зарегистрированных
-                пользователей, что позволяет сэкономить на услугах сервиса.
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <li class="blog-article__chapter">
-          RUSH ANALYTICS
-
-          <div class="blog-article__chapter-content margin-bottom">
-            <p>
-              <a href="#" target="_blank">RUSH ANALYTICS</a> — современный и
-              многофункциональный инструмент для анализа позиций сайта в
-              поисковых системах. Предоставляет широкий спектр возможностей для
-              мониторинга и оптимизации вашего веб-ресурса в поисковых системах.
-            </p>
-
-            <p class="blog-article__plate">
-              RUSH ANALYTICS также предлагает детализированные отчеты и
-              аналитику, которые помогут вам принимать обоснованные решения по
-              оптимизации веб-ресурса для поисковых систем.
-              <span>Дмитрий Чистяков, CEO Webest</span>
+              Особенности: максимальная видимость в ПС до 100; при выходе за
+              пределы видимости – отображается 100+.
             </p>
           </div>
-        </li>
 
-        <div class="blog-article__chapter">
-          Заголовок
-
-          <div class="blog-article__chapter-content">
+          <div class="icon-marker">
             <p>
-              Предпроектный анализ необходим для понимания, какой нужно сделать
-              продукт, чтобы он был конкурентоспособным, решал задачи бизнеса и
-              отвечал ожиданиям целевой аудитории.
+              Дополнительные преимущества <a href="#" target="_blank"
+                >MegaIndex</a
+              >: рекомендации для улучшения работы молодых сайтов; возможность
+              сравнения своих показателей с конкурентами.
             </p>
-
-            <p>
-              Системная предпроектная работа проводится в нашем агентстве, чтобы
-              понять наличие проблемы и найти лучшие варианты ее решения.
-              <a href="#" target="_blank">Разработку интернет-магазина</a>
-              начинаем с “прощупывания почвы” — тщательного анализа, чтобы
-              сформировать образ проекта и составить грамотное техническое
-              задание на его разработку.
-            </p>
-
-            <p class="margin-top-20">
-              Опыт создания более 100 проектов позволил нам сформировать
-              алгоритм, который мы используем для предпроектного анализа:
-            </p>
-
-            <div class="blog-article__list">
-              <p>1</p>
-              <p>Общение с клиентом</p>
-            </div>
-
-            <div class="blog-article__list">
-              <p>2</p>
-              <p>Образ проекта и дизайн-концепция</p>
-            </div>
-
-            <div class="margin-left-24">
-              <div class="icon-marker">
-                <p>Функционал и визуал проекта на основе референсов</p>
-              </div>
-            </div>
-
-            <div class="blog-article__list">
-              <p>3</p>
-              <p>Бенчмаркинг</p>
-            </div>
-
-            <div class="margin-left-24">
-              <div class="icon-marker">
-                <p>Исследование рынка</p>
-              </div>
-
-              <div class="icon-marker">
-                <p>Исследование ЦА</p>
-              </div>
-
-              <div class="icon-marker">
-                <p>Анализ клиента и конкурентов</p>
-              </div>
-
-              <div class="icon-marker">
-                <p>Формирование требований к проекту</p>
-              </div>
-            </div>
-
-            <div class="blog-article__list">
-              <p>4</p>
-              <p>Анализ поискового спроса</p>
-            </div>
-
-            <div class="blog-article__list">
-              <p>5</p>
-              <p>Анализ клиентского опыта</p>
-            </div>
-
-            <div class="blog-article__list">
-              <p>6</p>
-              <p>Выводы</p>
-            </div>
           </div>
         </div>
-      </ol>
 
-      <div class="blog-article__footer">
-        <hr class="blog-article__line" />
+        <img
+          class="blog-article__chapter-image"
+          src="public/images/imageBlogArticle1.png"
+          alt="Изображение раздела"
+        />
+      </li>
 
-        <div class="blog-article__tags">
-          <div>Теги <span class="blog-article__tag">SEO</span></div>
+      <li class="blog-article__chapter article-container">
+        2. Serphunt
 
-          <div>
-            Дата
-            <span class="blog-article__date">20 мая 2024</span>
+        <img
+          class="blog-article__chapter-image margin-top-40"
+          src="public/images/imageBlogArticle2.png"
+          alt="Изображение раздела"
+        />
+
+        <div class="blog-article__chapter-content">
+          <p>
+            Сервис предлагает анализ позиций сайта в поисковиках и управление
+            проектами SEO. Каждый зарегистрированный пользователь получает тариф
+            "Старт", который предоставляет 500 бесплатных проверок ежемесячно.
+            Сервис
+            <a href="#" target="_blank">Serphunt</a>
+            позволяет добавлять проекты, указывать ключевые слова, выбирать
+            поисковики и отслеживать позиции в выдаче.
+          </p>
+        </div>
+
+        <div class="blog-article__split">
+          <img
+            class="blog-article__chapter-image"
+            src="public/images/imageBlogArticle3.png"
+            alt="Изображение раздела"
+          />
+          <img
+            class="blog-article__chapter-image"
+            src="public/images/imageBlogArticle4.png"
+            alt="Изображение раздела"
+          />
+        </div>
+      </li>
+
+      <li class="blog-article__chapter">
+        <span class="article-container">3. SEOlib</span>
+
+        <div :class="{ 'article-container': isLargeScreen }">
+          <ArticleSlider :slides="slides" />
+        </div>
+
+        <div
+          class="blog-article__chapter-content article-container margin-bottom"
+        >
+          <p>
+            <a href="#" target="_blank">SEOlib</a> предлагает своим
+            пользователям широкий спектр функций, включая анализ сайта, проверку
+            позиций, индексацию, трафик и многое другое. Имеет простой интерфейс
+            и предлагает различные тарифные планы.
+          </p>
+
+          <p>Вот наш список плюсов и минусов данного сервиса:</p>
+
+          <p class="blog-article__headline">Плюсы:</p>
+
+          <div class="blog-article__list">
+            <p>1</p>
+            <p>
+              Основные возможности: широкий набор инструментов для добавления
+              запросов, проведения кластеризации и отображения позиций
+              веб-сайта.
+            </p>
           </div>
 
-          <div>
-            Поделиться
-            <div class="blog-article__social">
-              <a href="#" class="icon-link"></a>
-              <a href="#" class="icon-vkontakte"></a>
-              <a href="#" class="icon-telegram"></a>
-              <a href="#" class="icon-whatsapp"></a>
+          <div class="blog-article__list">
+            <p>2</p>
+            <p>
+              Широкий набор инструментов для анализа и отслеживания позиций
+              сайта, включая анализ сайта, проверку позиций, индексаций, трафика
+              и другие.
+            </p>
+          </div>
+
+          <div class="blog-article__list">
+            <p>3</p>
+            <p>
+              Простой интерфейс, что делает использование сервиса удобным для
+              новых пользователей.
+            </p>
+          </div>
+
+          <div class="blog-article__list">
+            <p>4</p>
+            <p>
+              Сервис предлагает бонусы и скидки для зарегистрированных
+              пользователей, что позволяет сэкономить на услугах сервиса.
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="blog-article__chapter article-container">
+        4. RUSH ANALYTICS
+
+        <div class="blog-article__chapter-content margin-bottom">
+          <p>
+            <a href="#" target="_blank">RUSH ANALYTICS</a> — современный и
+            многофункциональный инструмент для анализа позиций сайта в поисковых
+            системах. Предоставляет широкий спектр возможностей для мониторинга
+            и оптимизации вашего веб-ресурса в поисковых системах.
+          </p>
+
+          <p class="blog-article__plate">
+            RUSH ANALYTICS также предлагает детализированные отчеты и аналитику,
+            которые помогут вам принимать обоснованные решения по оптимизации
+            веб-ресурса для поисковых систем.
+            <span>Дмитрий Чистяков, CEO Webest</span>
+          </p>
+        </div>
+      </li>
+
+      <div class="blog-article__chapter article-container">
+        Заголовок
+
+        <div class="blog-article__chapter-content">
+          <p>
+            Предпроектный анализ необходим для понимания, какой нужно сделать
+            продукт, чтобы он был конкурентоспособным, решал задачи бизнеса и
+            отвечал ожиданиям целевой аудитории.
+          </p>
+
+          <p>
+            Системная предпроектная работа проводится в нашем агентстве, чтобы
+            понять наличие проблемы и найти лучшие варианты ее решения.
+            <a href="#" target="_blank">Разработку интернет-магазина</a>
+            начинаем с “прощупывания почвы” — тщательного анализа, чтобы
+            сформировать образ проекта и составить грамотное техническое задание
+            на его разработку.
+          </p>
+
+          <p class="margin-top-20">
+            Опыт создания более 100 проектов позволил нам сформировать алгоритм,
+            который мы используем для предпроектного анализа:
+          </p>
+
+          <div class="blog-article__list">
+            <p>1</p>
+            <p>Общение с клиентом</p>
+          </div>
+
+          <div class="blog-article__list">
+            <p>2</p>
+            <p>Образ проекта и дизайн-концепция</p>
+          </div>
+
+          <div class="margin-left-24">
+            <div class="icon-marker">
+              <p>Функционал и визуал проекта на основе референсов</p>
             </div>
+          </div>
+
+          <div class="blog-article__list">
+            <p>3</p>
+            <p>Бенчмаркинг</p>
+          </div>
+
+          <div class="margin-left-24">
+            <div class="icon-marker">
+              <p>Исследование рынка</p>
+            </div>
+
+            <div class="icon-marker">
+              <p>Исследование ЦА</p>
+            </div>
+
+            <div class="icon-marker">
+              <p>Анализ клиента и конкурентов</p>
+            </div>
+
+            <div class="icon-marker">
+              <p>Формирование требований к проекту</p>
+            </div>
+          </div>
+
+          <div class="blog-article__list">
+            <p>4</p>
+            <p>Анализ поискового спроса</p>
+          </div>
+
+          <div class="blog-article__list">
+            <p>5</p>
+            <p>Анализ клиентского опыта</p>
+          </div>
+
+          <div class="blog-article__list">
+            <p>6</p>
+            <p>Выводы</p>
+          </div>
+        </div>
+      </div>
+    </ol>
+
+    <div class="blog-article__footer article-container">
+      <hr class="blog-article__line" />
+
+      <div class="blog-article__tags">
+        <div>Теги <span class="blog-article__tag">SEO</span></div>
+
+        <div>
+          Дата
+          <span class="blog-article__date">20 мая 2024</span>
+        </div>
+
+        <div>
+          Поделиться
+          <div class="blog-article__social">
+            <a href="#" class="icon-link"></a>
+            <a href="#" class="icon-vkontakte"></a>
+            <a href="#" class="icon-telegram"></a>
+            <a href="#" class="icon-whatsapp"></a>
           </div>
         </div>
       </div>

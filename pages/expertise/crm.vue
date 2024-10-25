@@ -7,6 +7,7 @@ import Advantages from "~/components/ExpertisePage/Advantages.vue";
 import ExpertiseMenu from "~/components/ExpertisePage/ExpertiseMenu.vue";
 import SelectButtonCustom from "~/components/UI-kit/SelectButtonCustom.vue";
 import TariffCard from "~/components/ExpertisePage/TariffCard.vue";
+import GradientButton from "~/components/UI-kit/GradientButton.vue";
 import TariffSidebar from "~/components/ExpertisePage/TariffSidebar.vue";
 
 import { ref } from "vue";
@@ -132,7 +133,7 @@ const plates = [
   },
 ];
 
-const heading = [
+const heading = ref([
   {
     title: "Поможем внедрить Битрикс24 CRM в ваш бизнес",
     subtitle:
@@ -143,7 +144,41 @@ const heading = [
     imageCaption:
       "Топ 15 CRM интегераторов по версии Рейтинга рунета за 2022 год",
   },
+]);
+
+const backgroundImages = [
+  "/images/imageTariff1.png",
+  "/images/imageTariff2.png",
+  "/images/imageTariff3.png",
+  "/images/imageTariff4.png",
+  "/images/imageTariff5.png",
+  "/images/imageTariff6.png",
+  "/images/imageTariff7.png",
+  "/images/imageTariff8.png",
 ];
+
+const updateImageSrc = () => {
+  if (heading.value.length > 0) {
+    if (window.innerWidth <= 475) {
+      heading.value[0].imageSrc = "/images/imageCRM1Mobile.png";
+    } else {
+      heading.value[0].imageSrc = "/images/imageCRM1.png";
+    }
+  }
+};
+
+onMounted(() => {
+  updateImageSrc();
+  window.addEventListener("resize", updateImageSrc);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", updateImageSrc);
+});
+
+const openBitrix24 = () => {
+  window.open("https://www.bitrix24.ru/partners/partner/1420148/", "_blank");
+};
 
 const { data: tariffsBox } = await useAsyncData("tariffbox", () => {
   return $fetch("/api/tariffbox/", { method: "GET" });
@@ -163,8 +198,10 @@ const selectedVersion = ref("Облачная версия");
     <div class="container">
       <section class="expertise-crm__achievements">
         <div class="expertise-crm__achievements-title">
-          Наши очивки Битрикс24
+          Наши ачивки Битрикс24
         </div>
+
+        <GradientButton @click="openBitrix24" title="Карточка партнера" />
 
         <ul class="expertise-crm__achievements-list">
           <li
@@ -216,6 +253,11 @@ const selectedVersion = ref("Облачная версия");
             v-if="selectedVersion === 'Облачная версия'"
             v-for="(tariff, index) in tariffsCloud"
             :key="index"
+            :style="{
+              backgroundImage: `url(${
+                backgroundImages[index % backgroundImages.length]
+              })`,
+            }"
           >
             <TariffCard
               :title="tariff.title"
@@ -231,6 +273,11 @@ const selectedVersion = ref("Облачная версия");
             v-if="selectedVersion === 'Коробочная версия'"
             v-for="(tariff, index) in tariffsBox"
             :key="index"
+            :style="{
+              backgroundImage: `url(${
+                backgroundImages[index % backgroundImages.length]
+              })`,
+            }"
           >
             <TariffCard
               :title="tariff.title"
@@ -271,14 +318,10 @@ const selectedVersion = ref("Облачная версия");
   flex-direction: column;
   padding-top: var(--page-padding);
 
-  .outstaff-advantages__list {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-
   &__achievements {
     display: flex;
     flex-direction: column;
+    gap: 40px;
     align-items: center;
     margin-bottom: var(--unit-margin-y);
   }
@@ -289,7 +332,6 @@ const selectedVersion = ref("Облачная версия");
   }
 
   &__achievements-title {
-    margin-bottom: 100px;
     text-align: center;
   }
 
@@ -359,11 +401,18 @@ const selectedVersion = ref("Облачная версия");
     border-radius: var(--border-radius-40);
     padding: var(--padding-card);
     color: #fff;
-    border: 1px solid #fff;
-    background-image: url("public/images/first-page-background.png");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+  }
+
+  .outstaff-advantages__list {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .outstaff-advantages__item {
+    min-width: 100%;
+    min-height: 372px;
   }
 
   .expertise-menu__item {
@@ -392,10 +441,6 @@ const selectedVersion = ref("Облачная версия");
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4px;
-    }
-
-    &__achievements-title {
-      margin-bottom: 40px;
     }
 
     &__achievements-item {
@@ -440,10 +485,6 @@ const selectedVersion = ref("Облачная версия");
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .outstaff-advantages__item {
-      height: 200px;
-    }
-
     .expertise-menu__item {
       max-height: 60px;
 
@@ -459,7 +500,7 @@ const selectedVersion = ref("Облачная версия");
     }
 
     .expertise-menu__item-image {
-      max-width: 95%;
+      width: 315px;
       position: absolute;
       bottom: 0;
       right: 0;

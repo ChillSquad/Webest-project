@@ -13,6 +13,9 @@ import ExpertiseMenu from "~/components/ExpertisePage/ExpertiseMenu.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import SimilarServices from "~/components/ExpertisePage/SimilarServices.vue";
 import Questions from "~/components/ExpertisePage/Questions.vue";
+import { useScreenSize } from "~/components/models/useScreenSize";
+
+const { isLargeScreen } = useScreenSize();
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
@@ -338,12 +341,8 @@ const heading = [
 
     <CustomersUnit />
 
-    <div class="container">
-      <ArticleSlider
-        :slides="slides"
-        :review="true"
-        style="margin-bottom: 220px"
-      />
+    <div :class="{ container: isLargeScreen }">
+      <ArticleSlider :slides="slides" :review="true" />
     </div>
 
     <BlogUnit title="Наши кейсы" article="case" :slider="true" route="/case" />
@@ -365,6 +364,7 @@ const heading = [
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .expertise-seo {
@@ -373,26 +373,32 @@ const heading = [
   padding-top: var(--page-padding);
 
   .outstaff-advantages__list {
-    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
 
   .outstaff-advantages__item {
-    max-height: 554px;
-    width: auto;
+    min-width: 100%;
+    min-height: 372px;
   }
 
   .expertise-menu__item {
     max-height: 97px;
 
     &.active {
-      max-height: 252px;
+      max-height: 270px;
     }
   }
 
+  .article-slider-unit {
+    margin-bottom: var(--unit-margin-y);
+  }
+
   @media (max-width: 475px) {
-    .article-slider-mobile {
-      margin-bottom: var(--unit-margin-y);
+    @include article-mobile;
+
+    .expertise-menu__content {
+      height: 1314px;
     }
 
     .expertise-menu {

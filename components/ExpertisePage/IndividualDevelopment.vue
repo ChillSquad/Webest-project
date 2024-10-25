@@ -138,7 +138,7 @@ defineProps({
 
   @media (max-width: 475px) {
     &__header {
-      max-width: 328px;
+      max-width: 100%;
     }
 
     &__body {

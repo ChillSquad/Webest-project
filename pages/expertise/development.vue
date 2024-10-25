@@ -68,7 +68,7 @@ const images = [
     subtitle: "Интернет-магазин «Kamatyres»",
   },
   {
-    src: "/images/imageBlogArticle1.png",
+    src: "/images/imageDevelopmentSlider1.png",
     title: "Корпоративные порталы",
     subtitle: "Портал «Личный кабинет застройщиков»",
   },
@@ -78,7 +78,7 @@ const images = [
     subtitle: "Приложение по управлению умным домом «TouchOn»",
   },
   {
-    src: "/images/imageCase8.png",
+    src: "/images/imageDevelopmentSlider2.png",
     title: "Oбучающие платформы",
     subtitle: "Образовательная онлайн-платформа «EnglishVeronika»",
   },

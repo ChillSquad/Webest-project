@@ -7,6 +7,9 @@ import Recruiting from "~/components/ExpertisePage/Recruiting.vue";
 import CustomersUnit from "~/components/CustomersPage/CustomersUnit.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
+import { useScreenSize } from "~/components/models/useScreenSize";
+
+const { isLargeScreen } = useScreenSize();
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
@@ -22,7 +25,6 @@ const cards = [
     title: "Таргетированная реклама",
     subtitle:
       "ВК, MyTarget, Facebook/Instagram, МТС Маркетолог, СберТаргет, Билайн Таргет",
-    wide: true,
   },
   {
     src: "/images/imageMarketing4.png",
@@ -33,7 +35,6 @@ const cards = [
     title: "Продвижение в сервисах Яндекс",
     subtitle:
       "Яндекс.Бизнес, Яндекс.Геореклама (Яндекс.Навигатор, Яндекс.Карты)",
-    tall: true,
   },
   {
     src: "/images/imageMarketing6.png",
@@ -43,12 +44,6 @@ const cards = [
   {
     src: "/images/imageMarketing7.png",
     title: "Email-маркетинг",
-  },
-  {
-    src: "/images/imageMarketing8.png",
-    title: "Контент-маркетинг",
-    subtitle:
-      "Яндекс.Бизнес, Яндекс.Геореклама (Яндекс.Навигатор, Яндекс.Карты)",
   },
 ];
 
@@ -171,12 +166,8 @@ const heading = [
 
     <CustomersUnit />
 
-    <div class="container">
-      <ArticleSlider
-        :slides="slides"
-        :review="true"
-        style="margin-bottom: 220px"
-      />
+    <div :class="{ container: isLargeScreen }">
+      <ArticleSlider :slides="slides" :review="true" />
     </div>
 
     <div class="container">
@@ -186,33 +177,30 @@ const heading = [
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
+@import "~/assets/scss/helpers/fonts-mixin";
+
 .expertise-marketing {
   display: flex;
   flex-direction: column;
   padding-top: var(--page-padding);
 
   .outstaff-advantages__list {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
 
-  .outstaff-advantages__item-image {
-    max-width: 350px;
+  .outstaff-advantages__item {
+    min-width: 100%;
+    min-height: 541px;
+  }
+
+  .article-slider-unit {
+    margin-bottom: var(--unit-margin-y);
   }
 
   @media (max-width: 475px) {
-    .outstaff-advantages__item {
-      height: 320px;
-    }
-
-    .outstaff-advantages__item-image {
-      max-height: 200px;
-      object-fit: cover;
-    }
-
-    .article-slider-mobile {
-      margin-bottom: 120px;
-    }
+    @include article-mobile;
   }
 }
 </style>

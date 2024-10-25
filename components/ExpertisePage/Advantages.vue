@@ -141,10 +141,18 @@ defineProps({
     }
 
     &__item {
+      min-height: 320px !important;
       padding: 16px 16px 0;
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &-image {
+        width: 296px;
+        height: 160px;
+        object-fit: contain;
+        align-self: center;
+      }
 
       &.visible {
         opacity: 1;

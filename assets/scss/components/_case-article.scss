@@ -27,10 +27,10 @@
   }
 
   &__heading-review {
+    width: 100%;
     display: flex;
     align-self: center;
     position: relative;
-    max-width: 1676px;
     margin-bottom: 120px;
   }
 
@@ -152,36 +152,8 @@
   }
 
   .chapter-wreath {
-    margin-right: 60px;
-    position: relative;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-
-    .wreath-left {
-      position: absolute;
-      left: -40px;
-      top: -10px;
-    }
-
-    .wreath-right {
-      position: absolute;
-      left: 90px;
-      top: -10px;
-    }
-
-    div {
-      display: flex;
-      text-align: center;
-      flex-direction: column;
-      gap: 4px;
-
-      span {
-        @include font-text-4;
-
-        color: var(--color-dark-blue);
-      }
-    }
   }
 
   &__line {
@@ -301,8 +273,20 @@
   @media (max-width: 475px) {
     overflow-x: hidden;
 
+    .article-slider-mobile-swiper,
+    .article-slider-mobile__pagination {
+      padding: 0 16px;
+    }
+
+    .article-slider-mobile__bar-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 16px;
+    }
+
     button.gradient-button {
-      display: block;
+      display: flex;
 
       margin-bottom: 40px;
     }
@@ -313,21 +297,22 @@
 
     &__heading-image-review {
       object-fit: cover;
-      width: 360px;
-      height: 360px;
+      width: 100%;
+      height: auto;
       border-radius: 0;
     }
 
     &__heading-image {
-      width: 328px;
-      height: 219px;
+      width: 100%;
+      height: auto;
       margin-top: 20px;
       object-fit: cover;
+      border-radius: 20px;
     }
 
     #large-image {
-      width: 328px;
-      height: 384px;
+      width: 100%;
+      height: auto;
       object-fit: cover;
     }
 
@@ -352,8 +337,8 @@
       flex-direction: column;
 
       img {
-        width: 328px;
-        height: 411px;
+        width: 100%;
+        height: auto;
         object-fit: cover;
         border-radius: var(--border-radius-40);
       }
@@ -385,14 +370,14 @@
     }
 
     .chapter-wreath {
-      :not(:last-child) {
-        margin-bottom: 30px;
-      }
-    }
+      display: flex;
+      flex-direction: column;
 
-    #right {
-      left: 70px;
-      top: -10px;
+      img {
+        max-width: 200px;
+        height: auto;
+        object-fit: cover;
+      }
     }
 
     &__line {
@@ -401,6 +386,11 @@
 
     &__tag {
       width: fit-content;
+    }
+
+    #bordered,
+    #large-image {
+      border-radius: 0;
     }
   }
 }

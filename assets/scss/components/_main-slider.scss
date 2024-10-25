@@ -12,8 +12,8 @@
   }
 
   .swiper {
-    height: 276px;
     padding: var(--swiper-padding);
+    padding-bottom: 10px;
   }
 
   .swiper-slide {
@@ -41,8 +41,6 @@
 }
 
 .main-slider-card {
-  width: 266px;
-  height: 266px;
   position: relative;
 
   &__story-image {

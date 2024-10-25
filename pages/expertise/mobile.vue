@@ -133,20 +133,13 @@ const heading = [
     grid-template-rows: 1fr;
   }
 
-  .outstaff-advantages__item-subtitle {
-    margin: 12px 0 57px;
+  .outstaff-advantages__item {
+    min-width: 100%;
+    min-height: 411px;
   }
 
   @media (max-width: 475px) {
     overflow-x: hidden;
-
-    .outstaff-advantages__item {
-      height: 320px;
-    }
-
-    .outstaff-advantages__item-subtitle {
-      margin: 0;
-    }
   }
 }
 </style>

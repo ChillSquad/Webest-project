@@ -124,7 +124,14 @@ defineProps({
     border: 1px solid #fff;
     border-radius: 20px;
     color: #fff;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    outline: none;
     cursor: pointer;
+
+    &:hover {
+      background: #fff;
+      color: var(--color-blue);
+    }
   }
 
   &__item-footer {

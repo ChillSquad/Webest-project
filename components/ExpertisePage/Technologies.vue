@@ -100,8 +100,7 @@ defineProps({
   @media (max-width: 475px) {
     &__wrapper {
       height: fit-content;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       gap: 8px;
     }
 

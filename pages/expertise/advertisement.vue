@@ -11,6 +11,9 @@ import MarketplaceServices from "~/components/ExpertisePage/MarketplaceServices.
 import Reporting from "~/components/ExpertisePage/Reporting.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import SimilarServices from "~/components/ExpertisePage/SimilarServices.vue";
+import { useScreenSize } from "~/components/models/useScreenSize";
+
+const { isLargeScreen } = useScreenSize();
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
@@ -290,12 +293,8 @@ const heading = [
 
     <BlogUnit title="Наши кейсы" article="case" :slider="true" route="/case" />
 
-    <div class="container">
-      <ArticleSlider
-        :slides="slides"
-        :review="true"
-        style="margin-bottom: 220px"
-      />
+    <div :class="{ container: isLargeScreen }">
+      <ArticleSlider :slides="slides" :review="true" />
     </div>
 
     <SimilarServices />
@@ -307,6 +306,7 @@ const heading = [
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .expertise-advertisement {
@@ -362,7 +362,8 @@ const heading = [
   }
 
   .outstaff-advantages__item {
-    height: 414px;
+    min-width: 100%;
+    min-height: 411px;
   }
 
   .expertise-menu__item {
@@ -387,9 +388,19 @@ const heading = [
     @include font-h6;
   }
 
+  .article-slider-unit {
+    margin-bottom: var(--unit-margin-y);
+  }
+
   @media (max-width: 475px) {
-    .article-slider-mobile {
-      margin-bottom: var(--unit-margin-y);
+    @include article-mobile;
+
+    .expertise-menu__content {
+      height: 679px;
+    }
+
+    .expertise-menu__list {
+      width: 100%;
     }
 
     .outstaff-advantages__item {
