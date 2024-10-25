@@ -195,11 +195,17 @@ const selectedVersion = ref("Облачная версия");
 
     <div class="container">
       <section class="expertise-crm__achievements">
-        <div class="expertise-crm__achievements-title">
-          Наши ачивки Битрикс24
-        </div>
+        <div class="expertise-crm__achievements-header">
+          <p class="expertise-crm__achievements-title">Ачивки Битрикс24</p>
 
-        <GradientButton @click="openBitrix24" title="Карточка партнера" />
+          <p class="expertise-crm__achievements-subtitle">
+            <span class="custom-standing-purple">Топ 15</span> CRM интегераторов
+            по версии Рейтинга <br />
+            рунета за 2022 год
+
+            <GradientButton @click="openBitrix24" title="Карточка партнера" />
+          </p>
+        </div>
 
         <ul class="expertise-crm__achievements-list">
           <li
@@ -319,9 +325,21 @@ const selectedVersion = ref("Облачная версия");
   &__achievements {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    align-items: center;
+    gap: 73px;
     margin-bottom: var(--unit-margin-y);
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-subtitle {
+      @include font-text-1;
+
+      #gradient-button-control {
+        margin-top: 40px;
+      }
+    }
   }
 
   &__tariff-title,
@@ -329,12 +347,9 @@ const selectedVersion = ref("Облачная версия");
     @include font-h2;
   }
 
-  &__achievements-title {
-    text-align: center;
-  }
-
   &__achievements-list {
     display: flex;
+    align-self: center;
     gap: 8px;
     background: var(--color-grey-light);
     padding: var(--padding-card);
@@ -434,7 +449,20 @@ const selectedVersion = ref("Облачная версия");
     right: 0;
   }
 
+  @media (max-width: 850px) {
+    &__achievements {
+      &-header {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  }
+
   @media (max-width: 475px) {
+    &__achievements {
+      gap: 40px;
+    }
+
     &__achievements-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
