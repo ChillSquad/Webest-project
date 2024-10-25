@@ -234,7 +234,6 @@ const heading = [
     buttonTitle: "Заказать разработку сайта",
     imageSrc: "/images/imageAdvertisement1.png",
     imageAlt: "Заголовок статьи",
-    imageCaption: "",
   },
 ];
 </script>

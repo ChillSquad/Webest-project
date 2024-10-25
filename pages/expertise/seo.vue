@@ -301,7 +301,6 @@ const heading = [
     buttonTitle: "Оставить заявку",
     imageSrc: "/images/imageSEO1.png",
     imageAlt: "Заголовок статьи",
-    imageCaption: "",
   },
 ];
 </script>

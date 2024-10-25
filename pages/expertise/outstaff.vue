@@ -157,7 +157,6 @@ const heading = [
     buttonTitle: "Оставить заявку",
     imageSrc: "/images/imageExpertiseOutstaff1.png",
     imageAlt: "Заголовок статьи",
-    imageCaption: "",
   },
 ];
 </script>

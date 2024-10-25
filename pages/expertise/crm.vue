@@ -141,8 +141,6 @@ const heading = ref([
     buttonTitle: "Оставить заявку",
     imageSrc: "/images/imageCRM1.png",
     imageAlt: "Заголовок статьи",
-    imageCaption:
-      "Топ 15 CRM интегераторов по версии Рейтинга рунета за 2022 год",
   },
 ]);
 
