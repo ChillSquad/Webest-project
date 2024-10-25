@@ -60,8 +60,9 @@ defineProps({
               { 'item-second': index === 1 },
               { 'item-third': index === 2 },
             ]"
-            >{{ index + 1 }}</span
           >
+            {{ index + 1 }}
+          </span>
         </li>
       </ul>
     </section>

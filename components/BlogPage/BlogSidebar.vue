@@ -91,7 +91,7 @@ const containerClass = computed(() => ({
 <template>
   <aside>
     <Sidebar v-model:visible="isActiveBlog" :pt="sidebarPT" position="full">
-      <ArticleSlider :slides="slides" :view="true" />
+      <ArticleSlider v-if="!team" :slides="slides" :view="true" />
 
       <div v-if="team">
         <TeamModalSlider :reviews="reviews" />

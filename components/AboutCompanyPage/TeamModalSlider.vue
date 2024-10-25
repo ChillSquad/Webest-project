@@ -21,7 +21,21 @@ const count = computed(() => props.reviews.length);
 
 onMounted(() => {
   isSliderReady.value = true;
+
+  window.addEventListener("keydown", handleKeyPress);
 });
+
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeyPress);
+});
+
+const handleKeyPress = (event) => {
+  if (event.key === "ArrowLeft") {
+    buttonPrev.value?.click();
+  } else if (event.key === "ArrowRight") {
+    buttonNext.value?.click();
+  }
+};
 
 const updateCurrentIndex = (swiper) => {
   currentIndex.value = swiper.activeIndex;
@@ -40,7 +54,7 @@ const updateCurrentIndex = (swiper) => {
       :modules="[Navigation]"
       :loop="false"
       direction="horizontal"
-      :breakpoints="{ 0: { slidesPerView: 1 } }"
+      :breakpoints="{ 0: { slidesPerView: 1, spaceBetween: 16 } }"
       @slideChange="updateCurrentIndex"
     >
       <swiper-slide v-for="(review, index) in reviews" :key="index">
@@ -126,12 +140,15 @@ const updateCurrentIndex = (swiper) => {
     <button class="slide-button icon-slide-to-right" ref="buttonNext"></button>
 
     <div class="team-modal-slider__swiper">
-      <div class="team-modal-slider__bar">
-        <div
-          class="team-modal-slider__progress"
-          :style="{ width: ((currentIndex + 1) / count) * 100 + '%' }"
-        ></div>
+      <div class="team-modal-slider__bar-wrapper">
+        <div class="team-modal-slider__bar">
+          <div
+            class="team-modal-slider__progress"
+            :style="{ width: ((currentIndex + 1) / count) * 100 + '%' }"
+          ></div>
+        </div>
       </div>
+
       <div class="team-modal-slider__pagination">
         0{{ currentIndex + 1 }}-0{{ count }}
       </div>
@@ -233,12 +250,6 @@ const updateCurrentIndex = (swiper) => {
     }
   }
 
-  @media (max-width: 475px) {
-    &__card-heading {
-      margin-bottom: 40px;
-    }
-  }
-
   .team-slider__slide {
     width: 840px;
     height: 864px;
@@ -285,7 +296,7 @@ const updateCurrentIndex = (swiper) => {
 
         color: var(--color-dark-blue);
         background-color: var(--color-grey-light);
-        padding: 9px 16px;
+        padding: 8px 16px;
         border-radius: 16px;
       }
     }
@@ -385,6 +396,44 @@ const updateCurrentIndex = (swiper) => {
     .team-modal-slider__pagination {
       width: 840px;
       align-self: center;
+    }
+  }
+
+  @media (max-width: 475px) {
+    &__card-heading {
+      margin-bottom: 40px;
+    }
+
+    .slide-button {
+      display: none;
+    }
+
+    .swiper {
+      padding: 0 16px;
+    }
+
+    .team-slider__slide {
+      max-width: 100%;
+      height: 500px;
+      padding: 20px;
+    }
+
+    .team-modal-slider__swiper {
+      .team-modal-slider__bar-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 16px;
+      }
+
+      .team-modal-slider__bar {
+        width: 100%;
+      }
+
+      .team-modal-slider__pagination {
+        padding: 0 16px;
+        width: 100%;
+      }
     }
   }
 }
