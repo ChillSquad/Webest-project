@@ -71,7 +71,12 @@ defineProps({
         <span>i</span>
       </button>
 
-      <CaseUnitPlate v-if="hasData" :items="moreData" :platePosition="wide" />
+      <CaseUnitPlate
+        v-if="hasData"
+        :pateColor="textColor"
+        :items="moreData"
+        :platePosition="wide"
+      />
     </div>
 
     <SidebarCase v-if="activeCase" :items="activeCase.moreData" />
