@@ -123,6 +123,18 @@ const cards = [
   },
 ];
 
+const subtitle = [
+  {
+    purple: "Повышайте лояльность ",
+    content1: " клиентов и   ",
+    yellow1: "улучшайте",
+    yellow2: "качество",
+    yellow3: "улучшайте качество",
+    content2:
+      "сервиса, ускоряя обработку заказов и сокращая количество ошибок при обслуживании.",
+  },
+];
+
 const individual = [
   {
     head: "Индивидуальная разработка B2B-портала",
@@ -209,7 +221,11 @@ onBeforeUnmount(() => {
   <div class="expertise-promotion">
     <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
-    <Advantages :cards="cards" title="Преимущества внедрения B2B-портала" />
+    <Advantages
+      :cards="cards"
+      title="Преимущества B2B-портала"
+      :subtitle="subtitle"
+    />
 
     <div class="container">
       <IndividualDevelopment :individual="individual" />
@@ -252,6 +268,30 @@ onBeforeUnmount(() => {
   flex-direction: column;
   padding-top: var(--page-padding);
 
+  .outstaff-advantages {
+    &__heading {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__title {
+      max-width: 900px;
+      text-align: start;
+    }
+
+    &__subtitle {
+      max-width: 556px;
+
+      .custom-standing-yellow {
+        display: none;
+      }
+
+      .desktop {
+        display: inline-block;
+      }
+    }
+  }
+
   .expertise-heading__image-caption {
     width: 764px;
     color: #fff;
@@ -274,6 +314,33 @@ onBeforeUnmount(() => {
     min-height: 467px;
   }
 
+  @media (max-width: 1400px) {
+    .outstaff-advantages {
+      &__heading {
+        flex-direction: column;
+        margin-bottom: var(--heading-margin-bottom);
+      }
+
+      &__title {
+        margin: 0 0 20px;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .outstaff-advantages {
+      &__subtitle {
+        .custom-standing-yellow {
+          display: inline-block;
+        }
+
+        .desktop {
+          display: none;
+        }
+      }
+    }
+  }
+
   @media (max-width: 475px) {
     .outstaff-advantages__item {
       height: 320px;
@@ -290,7 +357,7 @@ onBeforeUnmount(() => {
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 430px) {
     .talk-card__heading,
     .individual-development__header {
       overflow-wrap: anywhere;
