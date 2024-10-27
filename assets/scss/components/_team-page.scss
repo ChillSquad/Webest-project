@@ -25,11 +25,22 @@
   &__review {
     position: relative;
     overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
     margin-bottom: var(--unit-margin-y);
+
+    #gradient-button-control {
+      width: max-content;
+      display: none;
+      align-self: center;
+      margin-bottom: 66px;
+    }
 
     &-image {
       width: 100%;
       display: flex;
+      filter: brightness(70%);
+      cursor: pointer;
     }
 
     &-list {
@@ -39,6 +50,7 @@
       position: absolute;
       top: 40%;
       right: 120px;
+      cursor: pointer;
     }
 
     &-item {
@@ -46,7 +58,7 @@
 
       width: 836px;
       color: #fff;
-      border-bottom: 1px solid var(--color-white-transparent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
       p {
         @include font-h5;
@@ -269,6 +281,10 @@
     }
 
     &__review {
+      #gradient-button-control {
+        display: flex;
+      }
+
       &-list {
         gap: 20px;
         top: 300px;

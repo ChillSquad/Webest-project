@@ -8,8 +8,14 @@ import GradientButton from "~/components/UI-kit/GradientButton.vue";
 import TeamSidebar from "~/components/AboutCompanyPage/TeamSidebar.vue";
 import TeamSlider from "~/components/AboutCompanyPage/TeamSlider.vue";
 import { useSidebarModel } from "~/components/models/sidebar";
+import { useCustomCursor } from "~/components/models/useCustomCursor";
 
-const { toggleSidebarFormStaff, toggleSidebarFormTeam } = useSidebarModel();
+const {
+  toggleSidebarFormStaff,
+  toggleSidebarFormTeam,
+  toggleSidebarForm,
+  isActive,
+} = useSidebarModel();
 
 const list = [
   { title: "10", content: "лет на рынке" },
@@ -118,7 +124,24 @@ const handleIntersection = (entries) => {
   });
 };
 
+const {
+  isCursorVisible,
+  circleStyle,
+  textStyle,
+  handleMouseEnter,
+  handleMouseLeave,
+} = useCustomCursor(isActive);
+
+const isScreenSmall = ref(false);
+
+const checkScreenSize = () => {
+  isScreenSmall.value = window.innerWidth <= 475;
+};
+
 onMounted(() => {
+  checkScreenSize();
+  window.addEventListener("resize", checkScreenSize);
+
   updateImageSrc();
   window.addEventListener("resize", updateImageSrc);
 
@@ -130,6 +153,16 @@ onMounted(() => {
     observer.observe(item);
   });
 });
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkScreenSize);
+});
+
+const handleSectionClick = () => {
+  if (!isScreenSmall.value) {
+    toggleSidebarForm();
+  }
+};
 </script>
 
 <template>
@@ -151,22 +184,42 @@ onMounted(() => {
     </div>
 
     <section class="company-team__review">
-      <img
-        class="company-team__review-image"
-        :src="teamImageSrc"
-        alt="Изображение команды"
-      />
+      <GradientButton title="Оставить заявку" @click="toggleSidebarForm" />
 
-      <ul class="company-team__review-list">
-        <li
-          v-for="(item, index) in list"
-          class="company-team__review-item"
-          :key="index"
-        >
-          {{ item.title }}
-          <p>{{ item.content }}</p>
-        </li>
-      </ul>
+      <div
+        class="custom-component"
+        @mouseenter="handleMouseEnter"
+        @mouseleave="handleMouseLeave"
+      >
+        <img
+          class="company-team__review-image"
+          :src="teamImageSrc"
+          alt="Изображение команды"
+          @click="handleSectionClick"
+        />
+
+        <ul class="company-team__review-list" @click="handleSectionClick">
+          <li
+            v-for="(item, index) in list"
+            class="company-team__review-item"
+            :key="index"
+          >
+            {{ item.title }}
+            <p>{{ item.content }}</p>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="custom-cursor"
+        :class="{ visible: isCursorVisible && !isActive }"
+      >
+        <div class="custom-cursor__circle" :style="circleStyle">
+          <span class="custom-cursor__circle-span" :style="textStyle"
+            >Оставить <span>заявку</span></span
+          >
+        </div>
+      </div>
     </section>
 
     <section class="company-team__queue">

@@ -77,6 +77,7 @@ defineProps({
             :alt="item.imageAlt"
           />
         </div>
+
         <div
           class="custom-cursor"
           :class="{ visible: isCursorVisible && !isActive }"
