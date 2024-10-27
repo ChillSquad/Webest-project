@@ -109,9 +109,10 @@ const handleSectionClick = () => {
           :class="{ visible: isCursorVisible && !isActive }"
         >
           <div class="custom-cursor__circle" :style="circleStyle">
-            <span class="custom-cursor__circle-span" :style="textStyle"
-              >Оставить <span>заявку</span></span
-            >
+            <span class="custom-cursor__circle-span" :style="textStyle">
+              Заказать
+              <span>разработку сайта</span>
+            </span>
           </div>
         </div>
       </div>

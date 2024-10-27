@@ -24,7 +24,7 @@ $ease: cubic-bezier(0.23, 1, 0.32, 1);
     transform: translate(-50%, -50%);
     transition: transform 0.4s $ease;
     will-change: transform;
-    background: rgba($color: #fff, $alpha: 0.3);
+    background: var(--color-button-gradient);
     backdrop-filter: blur(20px);
 
     &::before {

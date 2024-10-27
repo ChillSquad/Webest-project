@@ -98,6 +98,10 @@ label {
   top: 5px;
 }
 
+body.first-page-active .custom-cursor__circle {
+  background: rgba(255, 255, 255, 0.15);
+}
+
 @media (max-width: 1692px) {
   .container {
     padding: 0 16px;
