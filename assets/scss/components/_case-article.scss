@@ -403,8 +403,10 @@
   position: absolute;
   bottom: 23px;
   max-width: max-content;
-  background: #fff;
   border-radius: calc(var(--border-radius-40) - 6px);
+  color: #fff;
+  backdrop-filter: blur(38.2px);
+  background: rgba(255, 255, 255, 0.15);
 
   &__inner {
     display: flex;
@@ -427,8 +429,6 @@
 
   &__percent {
     @include font-h3;
-
-    color: var(--color-blue);
   }
 
   &__line {
