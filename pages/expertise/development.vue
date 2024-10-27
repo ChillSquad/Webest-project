@@ -68,7 +68,7 @@ const images = [
     subtitle: "Интернет-магазин «Kamatyres»",
   },
   {
-    src: "/images/imageBlogArticle1.png",
+    src: "/images/imageDevelopmentSlider1.png",
     title: "Корпоративные порталы",
     subtitle: "Портал «Личный кабинет застройщиков»",
   },
@@ -78,9 +78,17 @@ const images = [
     subtitle: "Приложение по управлению умным домом «TouchOn»",
   },
   {
-    src: "/images/imageCase8.png",
+    src: "/images/imageDevelopmentSlider2.png",
     title: "Oбучающие платформы",
     subtitle: "Образовательная онлайн-платформа «EnglishVeronika»",
+  },
+];
+
+const subImages = [
+  {
+    purple: "Топ-10 ",
+    content1:
+      " разработчиков интернет-магазинов по версии Рейтинга рунета за 2022 год",
   },
 ];
 
@@ -119,8 +127,6 @@ const heading = [
     buttonTitle: "Заказать разработку сайта",
     imageSrc: "/images/imageExpertiseDevelopment1.png",
     imageAlt: "Заголовок статьи",
-    imageCaption:
-      "В Топ-10 разработчиков интернет-магазинов по версии Рейтинга рунета за 2022 год",
   },
 ];
 </script>
@@ -129,7 +135,11 @@ const heading = [
   <div class="expertise-development">
     <ExpertiseHeading :breadcrumbItems="breadcrumbItems" :heading="heading" />
 
-    <DevelopmentSlider :images="images" title="Разрабатываем и развиваем" />
+    <DevelopmentSlider
+      :images="images"
+      title="Разрабатываем и развиваем"
+      :subtitle="subImages"
+    />
 
     <Technologies :technologies="technologies" />
 

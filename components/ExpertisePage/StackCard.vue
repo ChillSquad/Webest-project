@@ -38,7 +38,6 @@ defineProps({
 
     font-family: var(--ff-montserrat-bold);
     text-transform: uppercase;
-    margin-bottom: 16px;
   }
 
   &__item-content {
@@ -47,6 +46,7 @@ defineProps({
     display: flex;
     justify-content: space-between;
     cursor: default;
+    margin-top: 16px;
 
     &:hover {
       color: var(--color-blue);

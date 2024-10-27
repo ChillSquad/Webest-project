@@ -38,10 +38,6 @@
     text-align: center;
   }
 
-  button.gradient-button {
-    display: none;
-  }
-
   &__title {
     @include font-h1-inner;
   }
@@ -79,6 +75,8 @@
   }
 
   &__chapter {
+    display: flex;
+    flex-direction: column;
     text-transform: uppercase;
     font-family: var(--ff-montserrat-bold);
 
@@ -244,13 +242,24 @@
     margin-left: 24px;
   }
 
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+
   @media (max-width: 475px) {
     overflow-x: hidden;
 
-    button.gradient-button {
-      display: block;
+    .article-slider-mobile-swiper,
+    .article-slider-mobile__pagination {
+      padding: 0 16px;
+    }
 
-      margin-bottom: 40px;
+    .article-slider-mobile__bar-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 16px;
     }
 
     &__heading-image-review {

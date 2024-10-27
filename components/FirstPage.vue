@@ -21,10 +21,14 @@ const checkScreenSize = () => {
 onMounted(() => {
   checkScreenSize();
   window.addEventListener("resize", checkScreenSize);
+
+  document.body.classList.add("first-page-active");
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", checkScreenSize);
+
+  document.body.classList.remove("first-page-active");
 });
 
 const handleSectionClick = () => {
@@ -62,9 +66,10 @@ const handleSectionClick = () => {
       :class="{ visible: isCursorVisible && !isActive }"
     >
       <div class="custom-cursor__circle" :style="circleStyle">
-        <span class="custom-cursor__circle-span" :style="textStyle"
-          >Оставить <span>заявку</span></span
-        >
+        <span class="custom-cursor__circle-span" :style="textStyle">
+          Оставить
+          <span>заявку</span>
+        </span>
       </div>
     </div>
   </div>

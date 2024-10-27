@@ -25,11 +25,22 @@
   &__review {
     position: relative;
     overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
     margin-bottom: var(--unit-margin-y);
+
+    #gradient-button-control {
+      width: max-content;
+      display: none;
+      align-self: center;
+      margin-bottom: 66px;
+    }
 
     &-image {
       width: 100%;
       display: flex;
+      filter: brightness(70%);
+      cursor: pointer;
     }
 
     &-list {
@@ -39,6 +50,7 @@
       position: absolute;
       top: 40%;
       right: 120px;
+      cursor: pointer;
     }
 
     &-item {
@@ -46,7 +58,7 @@
 
       width: 836px;
       color: #fff;
-      border-bottom: 1px solid var(--color-white-transparent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
       p {
         @include font-h5;
@@ -125,6 +137,72 @@
     }
   }
 
+  &__feedback {
+    overflow: hidden;
+    margin-bottom: var(--unit-margin-y);
+
+    .container {
+      height: max-content;
+      display: flex;
+    }
+
+    &-left {
+      width: 40%;
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+
+      .company-team__queue-title {
+        text-align: start;
+      }
+
+      &-footer {
+        display: flex;
+        gap: 32px;
+        margin-top: auto;
+
+        p {
+          @include font-text-3;
+
+          color: var(--color-dark-blue);
+
+          display: flex;
+          flex-direction: column;
+
+          span {
+            @include font-h3;
+
+            color: var(--color-blue);
+          }
+        }
+      }
+
+      #gradient-button-control {
+        width: fit-content;
+        margin-top: 40px;
+        padding: 0;
+        background: transparent;
+        color: var(--color-blue);
+        border-radius: 0;
+        transition: border 0.3s ease-in-out;
+        border-bottom: 1px solid transparent;
+
+        &:hover {
+          border-bottom: 1px solid var(--color-blue);
+        }
+      }
+    }
+
+    &-right {
+      width: 70%;
+      margin-top: 40px;
+
+      .company-team__queue-title {
+        display: none;
+      }
+    }
+  }
+
   .expertise-unit__table-list {
     margin-bottom: var(--unit-margin-y);
     grid-template-columns: repeat(3, 1fr);
@@ -155,54 +233,6 @@
     display: none;
   }
 
-  &__feedback {
-    height: max-content;
-    margin-bottom: var(--unit-margin-y);
-    display: flex;
-
-    &-left {
-      width: 40%;
-      display: flex;
-      flex-direction: column;
-
-      .company-team__queue-title {
-        text-align: start;
-      }
-
-      &-footer {
-        display: flex;
-        gap: 32px;
-        margin-top: auto;
-        p {
-          @include font-text-3;
-
-          color: var(--color-dark-blue);
-
-          display: flex;
-          flex-direction: column;
-
-          span {
-            @include font-h3;
-
-            color: var(--color-blue);
-          }
-        }
-      }
-
-      #gradient-button-control {
-        width: fit-content;
-        margin-top: 40px;
-        padding: 0;
-        background: transparent;
-        color: var(--color-blue);
-      }
-    }
-
-    &-right {
-      width: 70%;
-    }
-  }
-
   @media (max-width: 1300px) {
     &__heading {
       display: flex;
@@ -222,6 +252,17 @@
   }
 
   @media (max-width: 475px) {
+    .expertise-unit__table-item {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     &__heading-subtitle {
       width: 100%;
     }
@@ -247,6 +288,10 @@
     }
 
     &__review {
+      #gradient-button-control {
+        display: flex;
+      }
+
       &-list {
         gap: 20px;
         top: 300px;
@@ -309,22 +354,36 @@
 
     &__feedback {
       margin-bottom: var(--unit-margin-y);
-      display: flex;
-      flex-direction: column;
       gap: 40px;
+
+      .container {
+        display: flex;
+        flex-direction: column-reverse;
+      }
 
       &-left {
         width: 100%;
+        margin-top: 0;
+
         display: flex;
         flex-direction: column;
 
         .company-team__queue-title {
-          text-align: center;
+          display: none;
+        }
+
+        &-footer {
+          margin-top: 40px;
         }
       }
 
       &-right {
         width: 100%;
+        margin-top: 0;
+
+        .company-team__queue-title {
+          display: block;
+        }
       }
     }
   }

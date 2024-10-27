@@ -76,11 +76,8 @@ defineProps({
             :src="item.imageSrc"
             :alt="item.imageAlt"
           />
-
-          <div class="expertise-heading__image-caption">
-            {{ item.imageCaption }}
-          </div>
         </div>
+
         <div
           class="custom-cursor"
           :class="{ visible: isCursorVisible && !isActive }"

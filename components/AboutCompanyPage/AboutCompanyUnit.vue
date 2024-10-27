@@ -42,10 +42,12 @@ onMounted(() => {
           <div class="about-company-content__inner">
             <a href="#" id="title-button-class-management" class="title-button">
               <p class="title-button__heading icon-arrow-right">
-                <span class="title-button__span">
-                  кратко <br />
-                  о webest
-                </span>
+                <NuxtLink to="/team">
+                  <span class="title-button__span">
+                    кратко <br />
+                    о webest
+                  </span>
+                </NuxtLink>
               </p>
             </a>
 

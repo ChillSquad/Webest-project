@@ -1,12 +1,11 @@
 <script setup>
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import { useSidebarModel } from "../models/sidebar";
-import { ref, watch } from "vue";
-
+import { ref, watch, computed, onMounted, onBeforeUnmount } from "vue";
 import Sidebar from "primevue/sidebar";
+import TeamModalSlider from "../AboutCompanyPage/TeamModalSlider.vue";
 
 const { isActiveBlog } = useSidebarModel();
-
 const transitionName = ref("slide-fade-bottom");
 
 const toggleScrollbar = (isActiveBlog) => {
@@ -20,6 +19,29 @@ const toggleScrollbar = (isActiveBlog) => {
 
 watch(isActiveBlog, (newVal) => {
   toggleScrollbar(newVal);
+});
+
+const isSmallScreen = ref(
+  typeof window !== "undefined" ? window.innerWidth > 475 : true
+);
+
+const updateScreenSize = () => {
+  if (typeof window !== "undefined") {
+    isSmallScreen.value = window.innerWidth > 475;
+  }
+};
+
+onMounted(() => {
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", updateScreenSize);
+    updateScreenSize();
+  }
+});
+
+onBeforeUnmount(() => {
+  if (typeof window !== "undefined") {
+    window.removeEventListener("resize", updateScreenSize);
+  }
 });
 
 const sidebarPT = {
@@ -49,15 +71,31 @@ const sidebarPT = {
 const props = defineProps({
   slides: {
     type: Array,
-    required: true,
+    required: false,
+  },
+  reviews: {
+    type: Array,
+    required: false,
+  },
+  team: {
+    type: Boolean,
+    default: false,
   },
 });
+
+const containerClass = computed(() => ({
+  container: !isSmallScreen.value,
+}));
 </script>
 
 <template>
   <aside>
     <Sidebar v-model:visible="isActiveBlog" :pt="sidebarPT" position="full">
-      <ArticleSlider :slides="slides" :view="true" />
+      <ArticleSlider v-if="!team" :slides="slides" :view="true" />
+
+      <div v-if="team">
+        <TeamModalSlider :reviews="reviews" />
+      </div>
     </Sidebar>
   </aside>
 </template>
@@ -183,6 +221,11 @@ const props = defineProps({
   }
 
   .article-slider-mobile {
+    .swiper-slide {
+      width: 100%;
+      height: auto;
+    }
+
     .article-slider-mobile__image {
       height: max-content;
       border-radius: 0;
@@ -190,6 +233,18 @@ const props = defineProps({
 
     .article-slider-mobile__bar {
       margin-top: 20px;
+    }
+
+    .article-slider-mobile-swiper,
+    .article-slider-mobile__pagination {
+      padding: 0 16px;
+    }
+
+    .article-slider-mobile__bar-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 16px;
     }
   }
 }

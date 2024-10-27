@@ -73,13 +73,21 @@
       height: 210px;
     }
 
-    &__heading-subtitle {
-      width: 328px;
-    }
-
     .tall {
       grid-row: span 1;
       height: 210px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    &__heading-subtitle {
+      width: 495px;
+    }
+  }
+
+  @media (max-width: 527px) {
+    &__heading-subtitle {
+      width: 100%;
     }
   }
 
@@ -114,7 +122,9 @@
     .icon-advertisement,
     .icon-cup,
     .icon-heart-empty,
-    .icon-star {
+    .icon-star,
+    .icon-b2b,
+    .icon-cybersecurity {
       &:after {
         @include expertise-icon;
       }
@@ -198,6 +208,18 @@
       }
     }
 
+    .icon-b2b {
+      &:after {
+        content: "\0033";
+      }
+    }
+
+    .icon-cybersecurity {
+      &:after {
+        content: "\0034";
+      }
+    }
+
     &:hover {
       color: #fff;
 
@@ -214,7 +236,9 @@
       .icon-advertisement,
       .icon-cup,
       .icon-heart-empty,
-      .icon-star {
+      .icon-star,
+      .icon-b2b,
+      .icon-cybersecurity {
         @include expertise-icon-hover;
       }
 
@@ -249,6 +273,13 @@
     transform: translateY(100%);
     opacity: 0;
     transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+  }
+
+  @media (max-width: 1478px) {
+    &__wrapper {
+      transform: translateY(calc(100% + -57.11px));
+      transition: transform 0.3s ease-in-out;
+    }
   }
 
   @media (max-width: 1000px) {

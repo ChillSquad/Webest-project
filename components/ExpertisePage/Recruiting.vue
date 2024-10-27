@@ -106,7 +106,7 @@ defineProps({
 
   width: 100%;
   height: auto;
-  padding: 140px 100px;
+  padding: 180px 100px;
   background-image: url("public/images/footer-background.png");
   background-size: cover;
   background-position: center;

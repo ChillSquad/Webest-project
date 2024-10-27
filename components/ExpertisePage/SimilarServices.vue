@@ -121,11 +121,6 @@ const cards = [
     gap: 8px;
   }
 
-  .tall {
-    grid-row: span 2;
-    height: 100%;
-  }
-
   &__item-heading {
     display: flex;
     flex-direction: column;
@@ -133,6 +128,8 @@ const cards = [
   }
 
   &__item {
+    width: 100%;
+    min-height: 551px;
     display: flex;
     flex-direction: column;
     text-align: start;
@@ -140,6 +137,12 @@ const cards = [
     padding: 32px 32px 0;
     background-color: var(--color-grey-light);
     border-radius: 20px;
+
+    &-image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
   }
 
   &__item-title {
@@ -163,9 +166,17 @@ const cards = [
     }
 
     &__item {
+      min-height: 320px;
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &-image {
+        width: 296px;
+        height: 160px;
+        object-fit: contain;
+        align-self: center;
+      }
 
       &.visible {
         opacity: 1;

@@ -157,7 +157,6 @@ const heading = [
     buttonTitle: "Оставить заявку",
     imageSrc: "/images/imageExpertiseOutstaff1.png",
     imageAlt: "Заголовок статьи",
-    imageCaption: "",
   },
 ];
 </script>
@@ -254,6 +253,7 @@ const heading = [
 
 <style lang="scss">
 @import "~/assets/scss/helpers/fonts-mixin";
+@import "~/assets/scss/helpers/fonts-mixin";
 
 .expertise-outstaff {
   display: flex;
@@ -265,16 +265,17 @@ const heading = [
     grid-template-rows: 1fr 1fr;
   }
 
+  .outstaff-advantages__item {
+    min-width: 100%;
+    min-height: 372px;
+  }
+
   .outstaff-advantages__item-subtitle {
     margin-bottom: 44px;
   }
 
   @media (max-width: 475px) {
     overflow-x: hidden;
-
-    .outstaff-advantages__item {
-      height: 300px;
-    }
   }
 }
 

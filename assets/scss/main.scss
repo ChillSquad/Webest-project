@@ -23,7 +23,6 @@
 @import "./components/blog-page";
 @import "./components/blog-article";
 @import "./components/customers-unit";
-@import "./components/title-button";
 @import "./components/talk-unit";
 @import "./components/talk-page";
 @import "./components/team-page";
@@ -97,6 +96,10 @@ label {
 .arrow-right-up {
   position: relative;
   top: 5px;
+}
+
+body.first-page-active .custom-cursor__circle {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 @media (max-width: 1692px) {

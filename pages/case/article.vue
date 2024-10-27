@@ -32,18 +32,34 @@ const {
 } = useCustomCursor(isActive);
 
 const isScreenSmall = ref(false);
+const isLargeScreen = ref(true);
 
 const checkScreenSize = () => {
-  isScreenSmall.value = window.innerWidth <= 360;
+  isScreenSmall.value = window.innerWidth <= 475;
+};
+
+const updateScreenSize = () => {
+  if (typeof window !== "undefined") {
+    isLargeScreen.value = window.innerWidth > 475;
+  }
 };
 
 onMounted(() => {
   checkScreenSize();
   window.addEventListener("resize", checkScreenSize);
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", updateScreenSize);
+    updateScreenSize();
+  }
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", checkScreenSize);
+
+  if (typeof window !== "undefined") {
+    window.removeEventListener("resize", updateScreenSize);
+  }
 });
 
 const handleSectionClick = () => {
@@ -55,26 +71,24 @@ const handleSectionClick = () => {
 
 <template>
   <div class="case-article">
-    <div class="container">
-      <div class="case-article__heading">
-        <div class="article-container">
-          <Breadcrumbs :items="breadcrumbItems" />
+    <div class="case-article__heading">
+      <div class="article-container">
+        <Breadcrumbs :items="breadcrumbItems" />
 
-          <div class="case-article__title">
-            Редизайн интернет-магазина Kamatyres
-          </div>
-
-          <div class="case-article__subtitle">
-            Разработали редизайн интернет-магазина для B2C- и B2B-клиентов
-            Kamatyres
-          </div>
+        <div class="case-article__title">
+          Редизайн интернет-магазина Kamatyres
         </div>
 
-        <GradientButton
-          @click="toggleSidebarForm"
-          title="Заказать разработку сайта"
-        />
+        <div class="case-article__subtitle">
+          Разработали редизайн интернет-магазина для B2C- и B2B-клиентов
+          Kamatyres
+        </div>
       </div>
+
+      <GradientButton
+        @click="toggleSidebarForm"
+        title="Заказать разработку сайта"
+      />
     </div>
 
     <div class="case-article__heading-review">
@@ -89,14 +103,16 @@ const handleSectionClick = () => {
           src="public/images/imageCaseArticle1.png"
           alt="Заголовок статьи"
         />
+
         <div
           class="custom-cursor"
           :class="{ visible: isCursorVisible && !isActive }"
         >
           <div class="custom-cursor__circle" :style="circleStyle">
-            <span class="custom-cursor__circle-span" :style="textStyle"
-              >Оставить <span>заявку</span></span
-            >
+            <span class="custom-cursor__circle-span" :style="textStyle">
+              Заказать
+              <span>разработку сайта</span>
+            </span>
           </div>
         </div>
       </div>
@@ -122,427 +138,399 @@ const handleSectionClick = () => {
       </div>
     </div>
 
-    <div class="container">
-      <ol class="case-article__content">
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Клиент
+    <ol class="case-article__content">
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Клиент
 
-            <div class="case-article__chapter-content">
+          <div class="case-article__chapter-content">
+            <p>
+              ООО «Торговый дом «Кама» — генеральный дистрибьютор продукции KAMA
+              TYRES, которую экспортирует в 37 стран мира.
+            </p>
+
+            <p>
+              Занимается закупками, хранением и обеспечением комплекса сырьем,
+              оборудованием и запасными частями, распространяет шинную продукцию
+              Viatti, КАМА, KAMA PRO, KAMA EURO, KAMARETREAD и создает для
+              клиентов максимально комфортные условия приобретения продукции.
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Задача
+
+          <div class="case-article__chapter-content">
+            <p>
+              Перед нами стояла задача сделать редизайн сайта, отличный от
+              стандартных интернет-магазинов, разработать индивидуальный и
+              узнаваемый визуальный стиль для сайта kamatyres.shop и при этом
+              сделать сайт удобным для B2C и B2B клиентов.
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Конкурентный анализ
+
+          <div class="case-article__chapter-content">
+            <p>
+              Сравнили и проанализировали дизайн-решения прямых и косвенных
+              конкурентов в отрасли с целью определения лучших практик и
+              трендов.
+            </p>
+
+            <p>
+              В конкурентном анализе учавствовали 10 образцовых сайтов в сфере
+              e-commerce: «Колеса Даром», «Колесо.ру», «Мосавтошина»,
+              «Tuning Boutique», «Detailing Boutique», «Cordiant», «Pirelli»,
+              «Ikon Tyres», «Hankook Tire» и «Yokohama».
+            </p>
+          </div>
+        </div>
+
+        <img
+          class="case-article__heading-image container margin-bottom-40"
+          src="public/images/imageCaseArticle2.png"
+          alt="Заголовок статьи"
+        />
+      </li>
+
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Анализ kamatyres.shop
+
+          <div class="case-article__chapter-content">
+            <p>
+              Провели анализ существующего сайта kamatyres.shop для выявления
+              слабых сторон и для их дальнейшего пересмотра или недопущения.
+            </p>
+          </div>
+        </div>
+
+        <img
+          class="case-article__heading-image container margin-bottom-40"
+          src="public/images/imageCaseArticle3.png"
+          alt="Заголовок статьи"
+        />
+      </li>
+
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Brainstorm
+
+          <div class="case-article__chapter-content">
+            <p>
+              Провели с командой дизайнеров «Мозговой штурм» для генерации идей
+              по современным визуальным решениям.
+            </p>
+          </div>
+        </div>
+
+        <img
+          class="case-article__heading-image container margin-bottom-40"
+          src="public/images/imageCaseArticle4.png"
+          alt="Заголовок статьи"
+        />
+      </li>
+
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Разработали концепт сайта
+
+          <div class="case-article__chapter-content">
+            <p>
+              Данный концепт собран на основе анализа конкурентов, таких как:
+              Ozon, Wildberries, Яндекс.Маркет., Все инструменты, М.видео,
+              Летуаль и другие.
+            </p>
+
+            <p>
+              Сайты были проанализированны на предмет привычек пользователей,
+              удобства работы разных решений. Сайты между собой во многом схожи,
+              имеют универсальные решения.
+            </p>
+
+            <p>
+              Мы учли, что опыт использования разных маркетплейсов формирует
+              ожидания пользователей, и чтобы не увеличивать когнитивную
+              нагрузку на пользователей, разработали сайт с универсальными
+              решениями в стиле маркетплейса.
+            </p>
+          </div>
+        </div>
+
+        <img
+          id="large-image"
+          class="case-article__heading-image container margin-bottom-40"
+          src="public/images/imageCaseArticle5.png"
+          alt="Заголовок статьи"
+        />
+      </li>
+
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Первый экран
+
+          <div class="case-article__chapter-content">
+            <p class="margin-bottom-40">
+              Мы полностью пересобрали первый экран сайта. Адаптировали его под
+              маркетплейс. Увеличили количество информации и грамотно разделили
+              ее на смысловые блоки.
+            </p>
+
+            <div class="icon-marker">
               <p>
-                ООО «Торговый дом «Кама» — генеральный дистрибьютор продукции
-                KAMA TYRES, которую экспортирует в 37 стран мира.
+                Хедер. Все важные элементы в хедере расположены на привычных
+                местах для пользователя.
               </p>
+            </div>
 
+            <div class="icon-marker">
               <p>
-                Занимается закупками, хранением и обеспечением комплекса сырьем,
-                оборудованием и запасными частями, распространяет шинную
-                продукцию Viatti, КАМА, KAMA PRO, KAMA EURO, KAMARETREAD и
-                создает для клиентов максимально комфортные условия приобретения
-                продукции.
+                Подбор шин. Поставили первым блоком. Туда наш взгляд падает
+                после хедера.
+              </p>
+            </div>
+
+            <div class="icon-marker">
+              <p>
+                Преимущества. После Подбора шин поставили блок с преимуществами
+                авторизации на сайте
+              </p>
+            </div>
+
+            <div class="icon-marker">
+              <p>
+                Баннеры. Поставили один большой баннер со слайдером, ниже 3
+                статичных с долгими акциями. Они же выполняют функцию
+                преимуществ. Прятать все баннеры в один слайдер плохая идея для
+                маркетплейса, поскольку пользователь может не долистать до
+                последнего.
               </p>
             </div>
           </div>
-        </li>
+        </div>
 
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Задача
-
-            <div class="case-article__chapter-content">
-              <p>
-                Перед нами стояла задача сделать редизайн сайта, отличный от
-                стандартных интернет-магазинов, разработать индивидуальный и
-                узнаваемый визуальный стиль для сайта kamatyres.shop и при этом
-                сделать сайт удобным для B2C и B2B клиентов.
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Конкурентный анализ
-
-            <div class="case-article__chapter-content">
-              <p>
-                Сравнили и проанализировали дизайн-решения прямых и косвенных
-                конкурентов в отрасли с целью определения лучших практик и
-                трендов.
-              </p>
-
-              <p>
-                В конкурентном анализе учавствовали 10 образцовых сайтов в сфере
-                e-commerce: «Колеса Даром», «Колесо.ру», «Мосавтошина»,
-                «Tuning Boutique», «Detailing Boutique», «Cordiant», «Pirelli»,
-                «Ikon Tyres», «Hankook Tire» и «Yokohama».
-              </p>
-            </div>
-          </div>
-          <img
-            class="case-article__heading-image margin-bottom-40"
-            src="public/images/imageCaseArticle2.png"
-            alt="Заголовок статьи"
-          />
-        </li>
-
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Анализ kamatyres.shop
-
-            <div class="case-article__chapter-content">
-              <p>
-                Провели анализ существующего сайта kamatyres.shop для выявления
-                слабых сторон и для их дальнейшего пересмотра или недопущения.
-              </p>
-            </div>
-          </div>
-          <img
-            class="case-article__heading-image margin-bottom-40"
-            src="public/images/imageCaseArticle3.png"
-            alt="Заголовок статьи"
-          />
-        </li>
-
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Brainstorm
-
-            <div class="case-article__chapter-content">
-              <p>
-                Провели с командой дизайнеров «Мозговой штурм» для генерации
-                идей по современным визуальным решениям.
-              </p>
-            </div>
-          </div>
-          <img
-            class="case-article__heading-image margin-bottom-40"
-            src="public/images/imageCaseArticle4.png"
-            alt="Заголовок статьи"
-          />
-        </li>
-
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Разработали концепт сайта
-
-            <div class="case-article__chapter-content">
-              <p>
-                Данный концепт собран на основе анализа конкурентов, таких как:
-                Ozon, Wildberries, Яндекс.Маркет., Все инструменты, М.видео,
-                Летуаль и другие.
-              </p>
-
-              <p>
-                Сайты были проанализированны на предмет привычек пользователей,
-                удобства работы разных решений. Сайты между собой во многом
-                схожи, имеют универсальные решения.
-              </p>
-
-              <p>
-                Мы учли, что опыт использования разных маркетплейсов формирует
-                ожидания пользователей, и чтобы не увеличивать когнитивную
-                нагрузку на пользователей, разработали сайт с универсальными
-                решениями в стиле маркетплейса.
-              </p>
-            </div>
-          </div>
-          <img
-            id="large-image"
-            class="case-article__heading-image margin-bottom-40"
-            src="public/images/imageCaseArticle5.png"
-            alt="Заголовок статьи"
-          />
-        </li>
-
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Первый экран
-
-            <div class="case-article__chapter-content">
-              <p class="margin-bottom-40">
-                Мы полностью пересобрали первый экран сайта. Адаптировали его
-                под маркетплейс. Увеличили количество информации и грамотно
-                разделили ее на смысловые блоки.
-              </p>
-
-              <div class="icon-marker">
-                <p>
-                  Хедер. Все важные элементы в хедере расположены на привычных
-                  местах для пользователя.
-                </p>
-              </div>
-
-              <div class="icon-marker">
-                <p>
-                  Подбор шин. Поставили первым блоком. Туда наш взгляд падает
-                  после хедера.
-                </p>
-              </div>
-
-              <div class="icon-marker">
-                <p>
-                  Преимущества. После Подбора шин поставили блок с
-                  преимуществами авторизации на сайте
-                </p>
-              </div>
-
-              <div class="icon-marker">
-                <p>
-                  Баннеры. Поставили один большой баннер со слайдером, ниже 3
-                  статичных с долгими акциями. Они же выполняют функцию
-                  преимуществ. Прятать все баннеры в один слайдер плохая идея
-                  для маркетплейса, поскольку пользователь может не долистать до
-                  последнего.
-                </p>
-              </div>
-            </div>
-          </div>
-
+        <div :class="{ container: isLargeScreen }">
           <ArticleSlider :slides="slides" />
-        </li>
+        </div>
+      </li>
 
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Каталог
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Каталог
 
-            <div class="case-article__chapter-content">
-              <p>
-                Каталог разрабатывался с учетом, что в будущем сайт будет
-                расширяться, количество разделов будет увеличиваться. Было
-                решено вывести 11 карточек разделов самых популярных, часто
-                покупаемых.
-              </p>
+          <div class="case-article__chapter-content">
+            <p>
+              Каталог разрабатывался с учетом, что в будущем сайт будет
+              расширяться, количество разделов будет увеличиваться. Было решено
+              вывести 11 карточек разделов самых популярных, часто покупаемых.
+            </p>
 
-              <p>
-                Последняя карточка дает понимание пользователю,что здесь
-                представлен не весь ассортимент и можно перейти на страницу
-                всего каталога.
-              </p>
-            </div>
+            <p>
+              Последняя карточка дает понимание пользователю,что здесь
+              представлен не весь ассортимент и можно перейти на страницу всего
+              каталога.
+            </p>
           </div>
+        </div>
+
+        <img
+          class="case-article__heading-image container margin-bottom-40"
+          src="public/images/imageCaseArticle7.png"
+          alt="Заголовок статьи"
+        />
+      </li>
+
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Карточка товара
+
+          <div class="case-article__chapter-content">
+            <p>
+              В данном концепте 6 карточек в ряд. Внутри карточки контент
+              разделен на смысловые группы.
+            </p>
+
+            <p>
+              Небольшие по размеру карточки, позволяют показать больше товаров
+              на главной странице. Внутри карточки контент разделен на смысловые
+              группы.
+            </p>
+
+            <p>
+              Иконки “Хит”, “Новинки” выполнены в ярких цветах, выделяющие товар
+              среди других.
+            </p>
+
+            <p>
+              По ховеру появляются кнопки добавления товара в Избранное или в
+              Сравнение.
+            </p>
+
+            <p>Акции выведены сразу текстом, так их легче считывать.</p>
+          </div>
+        </div>
+        <div class="case-article__split container">
           <img
-            class="case-article__heading-image margin-bottom-40"
-            src="public/images/imageCaseArticle7.png"
-            alt="Заголовок статьи"
-          />
-        </li>
-
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Карточка товара
-
-            <div class="case-article__chapter-content">
-              <p>
-                В данном концепте 6 карточек в ряд. Внутри карточки контент
-                разделен на смысловые группы.
-              </p>
-
-              <p>
-                Небольшие по размеру карточки, позволяют показать больше товаров
-                на главной странице. Внутри карточки контент разделен на
-                смысловые группы.
-              </p>
-
-              <p>
-                Иконки “Хит”, “Новинки” выполнены в ярких цветах, выделяющие
-                товар среди других.
-              </p>
-
-              <p>
-                По ховеру появляются кнопки добавления товара в Избранное или в
-                Сравнение.
-              </p>
-
-              <p>Акции выведены сразу текстом, так их легче считывать.</p>
-            </div>
-          </div>
-          <div class="case-article__split">
-            <img
-              class="case-article__chapter-image"
-              src="public/images/imageCaseArticle8.png"
-              alt="Изображение раздела"
-            />
-            <img
-              class="case-article__chapter-image"
-              src="public/images/imageCaseArticle9.png"
-              alt="Изображение раздела"
-            />
-          </div>
-        </li>
-
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Элементы интерфейса
-
-            <div class="case-article__chapter-content">
-              <div class="icon-marker">
-                <p>
-                  B2B блок. В открытом виде указаны преимущества для оптовиков
-                </p>
-              </div>
-
-              <div class="icon-marker">
-                <p>
-                  Заголовок – кнопка. Все заголовки, где есть круглая кнопка –
-                  кнопка перехода в раздел. В современных интерфейсах все чаще
-                  совмещают эти элементы
-                </p>
-              </div>
-            </div>
-          </div>
-          <img
-            class="case-article__heading-image"
-            src="public/images/imageCaseArticle10.png"
+            class="case-article__chapter-image"
+            src="public/images/imageCaseArticle8.png"
             alt="Изображение раздела"
           />
-        </li>
 
-        <li class="case-article__chapter">
-          <div class="article-container">
-            Типографика и цвет
+          <img
+            class="case-article__chapter-image"
+            src="public/images/imageCaseArticle9.png"
+            alt="Изображение раздела"
+          />
+        </div>
+      </li>
 
-            <div class="case-article__chapter-content">
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Элементы интерфейса
+
+          <div class="case-article__chapter-content">
+            <div class="icon-marker">
               <p>
-                Шрифт Inter без засечек отлично позволяет сосредоточить внимание
-                на тексте с помощью своих линий.
+                B2B блок. В открытом виде указаны преимущества для оптовиков
               </p>
+            </div>
 
+            <div class="icon-marker">
               <p>
-                В концепте использованы корпоративные цвета бренда Kamatyres.
+                Заголовок – кнопка. Все заголовки, где есть круглая кнопка –
+                кнопка перехода в раздел. В современных интерфейсах все чаще
+                совмещают эти элементы
               </p>
             </div>
           </div>
-          <img
-            class="case-article__chapter-image margin-top"
-            src="public/images/imageCaseArticle11.png"
-            alt="Изображение раздела"
-          />
-        </li>
-      </ol>
-    </div>
+        </div>
+
+        <img
+          id="bordered"
+          class="case-article__heading-image container"
+          src="public/images/imageCaseArticle10.png"
+          alt="Изображение раздела"
+        />
+      </li>
+
+      <li class="case-article__chapter">
+        <div class="article-container">
+          Типографика и цвет
+
+          <div class="case-article__chapter-content">
+            <p>
+              Шрифт Inter без засечек отлично позволяет сосредоточить внимание
+              на тексте с помощью своих линий.
+            </p>
+
+            <p>В концепте использованы корпоративные цвета бренда Kamatyres.</p>
+          </div>
+        </div>
+
+        <img
+          id="bordered"
+          class="case-article__chapter-image container margin-top"
+          src="public/images/imageCaseArticle11.png"
+          alt="Изображение раздела"
+        />
+      </li>
+    </ol>
 
     <div class="case-article__footer">
-      <div class="container">
+      <div class="article-container">
         <ol class="case-article__content">
           <li class="case-article__chapter">
-            <div class="article-container">
-              Результаты
+            Результаты
 
-              <div class="case-article__chapter-content">
-                <p>
-                  Для оперативности мы сначала запускали MVP с базовой
-                  функциональностью, а потом дорабатывали. В результате нам
-                  удалось создать объёмную цифровую платформу, которая
-                  объединяет все продукты и сервисы «Kamatyres», даёт её
-                  клиентам полное представление обо всех возможностях, а также
-                  обеспечивает удобный доступ в e-commerce часть.
-                </p>
+            <div class="case-article__chapter-content">
+              <p>
+                Для оперативности мы сначала запускали MVP с базовой
+                функциональностью, а потом дорабатывали. В результате нам
+                удалось создать объёмную цифровую платформу, которая объединяет
+                все продукты и сервисы «Kamatyres», даёт её клиентам полное
+                представление обо всех возможностях, а также обеспечивает
+                удобный доступ в e-commerce часть.
+              </p>
 
-                <p>
-                  По итогам работ заметно вырос трафик на сайт. Число уникальных
-                  посетителей увеличилось почти в 2 раза, по сравнению с 2022
-                  годом. При этом количество прямых заходов стало больше в 2,8
-                  раз, что свидетельствует о росте узнаваемости нового бренда
-                  «Kamatyres».
-                </p>
-              </div>
+              <p>
+                По итогам работ заметно вырос трафик на сайт. Число уникальных
+                посетителей увеличилось почти в 2 раза, по сравнению с 2022
+                годом. При этом количество прямых заходов стало больше в 2,8
+                раз, что свидетельствует о росте узнаваемости нового бренда
+                «Kamatyres».
+              </p>
             </div>
           </li>
 
           <li class="case-article__chapter">
-            <div class="article-container">
-              Команда
+            Команда
 
-              <div class="case-article__chapter-content chapter-team">
-                <p>
-                  Алексей Петров
-                  <span
-                    >Руководитель отдела <br />
-                    разработки</span
-                  >
-                </p>
+            <div class="case-article__chapter-content chapter-team">
+              <p>
+                Алексей Петров
+                <span
+                  >Руководитель отдела <br />
+                  разработки</span
+                >
+              </p>
 
-                <p>
-                  Тимур Дададжанов
-                  <span>Лид-дизайнер</span>
-                </p>
+              <p>
+                Тимур Дададжанов
+                <span>Лид-дизайнер</span>
+              </p>
 
-                <p>
-                  Алиса Сидоренкова
-                  <span>UX/UI-дизайнер</span>
-                </p>
+              <p>
+                Алиса Сидоренкова
+                <span>UX/UI-дизайнер</span>
+              </p>
 
-                <p>
-                  Алина Деньщикова
-                  <span>UX/UI-дизайнер</span>
-                </p>
+              <p>
+                Алина Деньщикова
+                <span>UX/UI-дизайнер</span>
+              </p>
 
-                <p>
-                  Евгений Гусев
-                  <span>UX/UI-дизайнер</span>
-                </p>
-              </div>
+              <p>
+                Евгений Гусев
+                <span>UX/UI-дизайнер</span>
+              </p>
             </div>
           </li>
 
           <li class="case-article__chapter">
-            <div class="article-container">
-              Стек технологий
+            Стек технологий
 
-              <div class="case-article__chapter-content chapter-team">
-                <div>Figma</div>
+            <div class="case-article__chapter-content chapter-team">
+              <div>Figma</div>
 
-                <div>Bitrix</div>
+              <div>Bitrix</div>
 
-                <div>SLIM</div>
+              <div>SLIM</div>
 
-                <div>REST AdivI</div>
+              <div>REST AdivI</div>
 
-                <div>React/NextJS</div>
+              <div>React/NextJS</div>
 
-                <div>SWR</div>
+              <div>SWR</div>
 
-                <div>2Gis API</div>
-              </div>
+              <div>2Gis API</div>
             </div>
           </li>
 
           <li class="case-article__chapter">
-            <div class="article-container">
-              Награды
+            Награды
 
-              <div class="case-article__chapter-content chapter-team">
-                <div class="chapter-wreath">
-                  <img
-                    class="wreath-left"
-                    src="public/images/wreath-left.png"
-                    alt="Изображение раздела"
-                  />
-                  <div>Tagline Awards <span>Золото</span></div>
-                  <img
-                    id="right"
-                    class="wreath-right"
-                    src="public/images/wreath-right.png"
-                    alt="Изображение раздела"
-                  />
-                </div>
+            <div class="case-article__chapter-content chapter-wreath">
+              <img src="public/images/wreath-1.png" alt="Изображение раздела" />
 
-                <div class="chapter-wreath">
-                  <img
-                    class="wreath-left"
-                    src="public/images/wreath-left.png"
-                    alt="Изображение раздела"
-                  />
-                  <div>Tagline Awards <span>Бронза</span></div>
-                  <img
-                    id="right"
-                    class="wreath-right"
-                    src="public/images/wreath-right.png"
-                    alt="Изображение раздела"
-                  />
-                </div>
-              </div>
+              <img src="public/images/wreath-2.png" alt="Изображение раздела" />
             </div>
           </li>
         </ol>

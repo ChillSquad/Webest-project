@@ -10,6 +10,9 @@ import Advantages from "~/components/ExpertisePage/Advantages.vue";
 import MarketplaceServices from "~/components/ExpertisePage/MarketplaceServices.vue";
 import ArticleSlider from "~/components/UI-kit/ArticleSlider.vue";
 import SimilarServices from "~/components/ExpertisePage/SimilarServices.vue";
+import { useScreenSize } from "~/components/models/useScreenSize";
+
+const { isLargeScreen } = useScreenSize();
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
@@ -227,7 +230,6 @@ const heading = [
     buttonTitle: "Оставить заявку",
     imageSrc: "/images/imageSMM1.png",
     imageAlt: "Заголовок статьи",
-    imageCaption: "",
   },
 ];
 </script>
@@ -295,12 +297,8 @@ const heading = [
 
     <CustomersUnit />
 
-    <div class="container">
-      <ArticleSlider
-        :slides="slides"
-        :review="true"
-        style="margin-bottom: 220px"
-      />
+    <div :class="{ container: isLargeScreen }">
+      <ArticleSlider :slides="slides" :review="true" />
     </div>
 
     <BlogUnit title="Наши кейсы" article="case" :slider="true" route="/case" />
@@ -321,23 +319,6 @@ const heading = [
   display: flex;
   flex-direction: column;
   padding-top: var(--page-padding);
-
-  .outstaff-advantages__list {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-
-  .outstaff-advantages__item {
-    max-height: 414px;
-    width: auto;
-  }
-
-  .development-slider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
 
   &__heading {
     @include font-h2;
@@ -410,6 +391,23 @@ const heading = [
     left: 32px;
   }
 
+  .outstaff-advantages__list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .outstaff-advantages__item {
+    min-width: 100%;
+    min-height: 411px;
+  }
+
+  .development-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   .development-slider__swiper {
     display: none;
   }
@@ -418,7 +416,13 @@ const heading = [
     margin: 0;
   }
 
+  .article-slider-unit {
+    margin-bottom: var(--unit-margin-y);
+  }
+
   @media (max-width: 475px) {
+    @include article-mobile;
+
     &__table {
       display: flex;
       justify-content: initial;
@@ -456,10 +460,6 @@ const heading = [
     &__card-capture {
       top: 20px;
       left: 20px;
-    }
-
-    .article-slider-mobile {
-      margin-bottom: var(--unit-margin-y);
     }
   }
 }

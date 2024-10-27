@@ -8,6 +8,7 @@ import FileUploadCustom from "../UI-kit/FileUploadCustom.vue";
 
 const { fields, errors, submit } = useFeedbackFormModel();
 const uploadError = ref(null);
+const checked = ref(false);
 </script>
 
 <template>
@@ -63,13 +64,29 @@ const uploadError = ref(null);
     </div>
 
     <div class="sidebar-footer">
-      <GradientButton title="Оставить заявку" @click="submit" />
-      <span class="sidebar-footer__privacy">
-        Нажимая кнопку, вы соглашаетесь с нашей
-        <a class="sidebar-footer__privacy-link" href="#">
-          политикой конфиденциальности
-        </a>
-      </span>
+      <GradientButton
+        :disabled="!checked"
+        title="Оставить заявку"
+        @click="submit"
+      />
+
+      <div class="sidebar-footer__approval">
+        <label class="custom-checkbox">
+          <input type="checkbox" v-model="checked" :binary="true" />
+          <span class="checkmark"></span>
+        </label>
+
+        <span class="sidebar-footer__privacy">
+          Я даю согласие на
+          <NuxtLink to="/policy/agreement" class="sidebar-footer__privacy-link">
+            обработку персональных данных
+          </NuxtLink>
+          и ознакомлен(-а) с
+          <NuxtLink to="/policy" class="sidebar-footer__privacy-link">
+            политикой в отношении обработки персональных данных
+          </NuxtLink>
+        </span>
+      </div>
     </div>
   </div>
 </template>

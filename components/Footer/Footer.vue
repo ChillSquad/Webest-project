@@ -80,17 +80,22 @@ onBeforeUnmount(() => {
                 <a
                   href="https://yandex.ru/maps/968/cherepovets/house/ulitsa_montkler_20/Z04YfwVjTEYHQFtjfXx5dHtlZQ==/?ll=37.924096%2C59.085603&z=16.82"
                   target="_blank"
-                  >г. Череповец, ул. Монтклер, д. 20</a
                 >
+                  г. Череповец, ул. Монтклер, д. 20
+                </a>
               </li>
+
               <li>
                 <a
                   href="https://yandex.ru/maps/213/moscow/house/leningradskiy_prospekt_36/Z04YcwJpSkAEQFtvfXt4cH1gYw==/?indoorLevel=1&ll=37.561456%2C55.792286&z=16.69"
                   target="_blank"
-                  >г. Москва, пр-кт Ленинградский, д. 36</a
                 >
+                  г. Москва, пр-кт Ленинградский, д. 36
+                </a>
               </li>
+
               <li><a href="tel:+74951282290">+7 (495) 128-22-90</a></li>
+
               <li><a href="mailto:info@webest.ru">info@webest.ru</a></li>
             </ul>
 
@@ -118,13 +123,15 @@ onBeforeUnmount(() => {
 
         <section class="footer__copyright">
           <p class="footer__copyright-logo">© 2024, Webest</p>
+
           <div class="footer__copyright-links">
-            <NuxtLink to="/policy/agreement"
-              >Согласие на обработку персональных данных</NuxtLink
-            >
-            <NuxtLink to="/policy"
-              >Политика в отношении обработки персональных данных</NuxtLink
-            >
+            <NuxtLink to="/policy/agreement">
+              Согласие на обработку персональных данных
+            </NuxtLink>
+
+            <NuxtLink to="/policy">
+              Политика в отношении обработки персональных данных
+            </NuxtLink>
           </div>
 
           <FooterIcons />

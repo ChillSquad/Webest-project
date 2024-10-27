@@ -1,5 +1,4 @@
 <script setup>
-import GradientButton from "~/components/UI-kit/GradientButton.vue";
 import { ref } from "vue";
 
 const activeIndex = ref(0);
@@ -31,7 +30,7 @@ const setActiveItem = (index) => {
             v-for="(plate, index) in plates"
             :key="index"
             :class="['expertise-menu__item', { active: activeIndex === index }]"
-            @click="setActiveItem(index)"
+            @mouseover="setActiveItem(index)"
           >
             <p class="expertise-menu__item-title icon-arrow-right-up">
               {{ plate.title }}
@@ -92,7 +91,7 @@ const setActiveItem = (index) => {
   }
 
   &__list {
-    width: 796px;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -120,6 +119,7 @@ const setActiveItem = (index) => {
         color: inherit;
         transform: rotate(45deg);
         transition: transform 0.3s ease-in-out;
+        margin-left: 10px;
       }
     }
 
@@ -162,6 +162,7 @@ const setActiveItem = (index) => {
   }
 
   &__item-aside {
+    width: 50%;
     height: max-content;
     position: relative;
     border-radius: 32px;
@@ -204,6 +205,10 @@ const setActiveItem = (index) => {
     }
 
     &__list {
+      width: 100%;
+    }
+
+    &__item-aside {
       width: 100%;
     }
 

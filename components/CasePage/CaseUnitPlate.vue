@@ -1,5 +1,7 @@
 <script setup>
-defineProps({
+import { computed } from "vue";
+
+const props = defineProps({
   items: {
     type: Array,
     required: true,
@@ -8,11 +10,23 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  pateColor: {
+    type: String,
+    default: "#000",
+  },
 });
+
+const plateClasses = computed(() => [
+  "case-unit-plate",
+  {
+    position: props.platePosition,
+    white: props.pateColor !== "#000",
+  },
+]);
 </script>
 
 <template>
-  <div :class="['case-unit-plate', { position: platePosition }]">
+  <div :class="plateClasses">
     <div class="case-unit-plate__inner">
       <div
         v-for="(item, index) in items"
@@ -20,9 +34,9 @@ defineProps({
         class="case-unit-plate__box"
       >
         <div class="case-unit-plate__content">
-          <span class="case-unit-plate__percent"
-            >{{ item.sign }}{{ item.percent }}%</span
-          >
+          <span class="case-unit-plate__percent">
+            {{ item.sign }}{{ item.percent }}%
+          </span>
           <span class="case-unit-plate__text">{{ item.text }}</span>
         </div>
 

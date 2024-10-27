@@ -2,6 +2,18 @@
   font: var(--font-h1);
   text-transform: uppercase;
 }
+@media (max-width: 1200px) {
+  :root {
+    --fs-h1: 90px;
+    --lh-h1: 110px;
+  }
+}
+@media (max-width: 800px) {
+  :root {
+    --fs-h1: 50px;
+    --lh-h1: 60px;
+  }
+}
 @media (max-width: 475px) {
   :root {
     --fs-h1: 38px;
@@ -22,6 +34,18 @@
 @mixin font-h2 {
   font: var(--font-h2);
   text-transform: uppercase;
+}
+@media (max-width: 900px) {
+  :root {
+    --fs-h2: 60px;
+    --lh-h2: 70px;
+  }
+}
+@media (max-width: 530px) {
+  :root {
+    --fs-h2: 50px;
+    --lh-h2: 60px;
+  }
 }
 @media (max-width: 475px) {
   :root {

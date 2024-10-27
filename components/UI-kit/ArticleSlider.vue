@@ -29,6 +29,7 @@ const count = computed(() => props.slides.length);
 const isMobile = ref(false);
 
 const slidesPerViewSetting = computed(() => (props.view ? 1 : 1.2));
+const spaceBetweenSetting = computed(() => (props.view ? 16 : 4));
 
 const checkScreenSize = () => {
   isMobile.value = window.innerWidth <= 475;
@@ -59,11 +60,15 @@ const updateCurrentIndex = (swiper) => {
       :class="['article-slider-mobile', { expertise: review }]"
     >
       <swiper
+        class="article-slider-mobile-swiper"
         v-if="!review"
         :loop="false"
         direction="horizontal"
         :breakpoints="{
-          0: { slidesPerView: slidesPerViewSetting, spaceBetween: 4 },
+          0: {
+            slidesPerView: slidesPerViewSetting,
+            spaceBetween: spaceBetweenSetting,
+          },
         }"
         @slideChange="updateCurrentIndex"
       >
@@ -96,7 +101,7 @@ const updateCurrentIndex = (swiper) => {
         </swiper-slide>
       </swiper>
 
-      <div class="container">
+      <div class="article-slider-mobile__bar-wrapper">
         <div class="article-slider-mobile__bar">
           <div
             class="article-slider-mobile__progress"
@@ -104,6 +109,7 @@ const updateCurrentIndex = (swiper) => {
           ></div>
         </div>
       </div>
+
       <div class="article-slider-mobile__pagination">
         0{{ currentIndex + 1 }}-0{{ count }}
       </div>
@@ -294,10 +300,6 @@ const updateCurrentIndex = (swiper) => {
     margin-top: 10px;
   }
 
-  &__pagination {
-    padding: 0 16px;
-  }
-
   &__card-heading {
     font-family: var(--ff-montserrat-bold);
     font-size: 32px;
@@ -317,9 +319,14 @@ const updateCurrentIndex = (swiper) => {
     @include font-text-3;
   }
 
+  .swiper-slide {
+    width: 300px;
+    height: 240px;
+  }
+
   &__image {
-    width: 272px;
-    height: 200px;
+    width: 100%;
+    height: 240px;
     object-fit: cover;
     border-radius: var(--border-radius-40);
   }

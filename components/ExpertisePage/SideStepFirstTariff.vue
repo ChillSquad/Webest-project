@@ -53,21 +53,21 @@ const checked = ref(false);
         </label>
 
         <span class="sidebar-footer__privacy">
-          Согласен на
-          <a class="sidebar-footer__privacy-link" href="#">
+          Я даю согласие на
+          <NuxtLink to="/policy/agreement" class="sidebar-footer__privacy-link">
             обработку персональных данных
-          </a>
-          и ознакомился
-          <a class="sidebar-footer__privacy-link" href="#">
-            с политикой в отношении обработки персональных данных
-          </a>
+          </NuxtLink>
+          и ознакомлен(-а) с
+          <NuxtLink to="/policy" class="sidebar-footer__privacy-link">
+            политикой в отношении обработки персональных данных
+          </NuxtLink>
         </span>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .custom-checkbox {
   position: relative;
   display: inline-block;

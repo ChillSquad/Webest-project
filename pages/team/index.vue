@@ -8,8 +8,14 @@ import GradientButton from "~/components/UI-kit/GradientButton.vue";
 import TeamSidebar from "~/components/AboutCompanyPage/TeamSidebar.vue";
 import TeamSlider from "~/components/AboutCompanyPage/TeamSlider.vue";
 import { useSidebarModel } from "~/components/models/sidebar";
+import { useCustomCursor } from "~/components/models/useCustomCursor";
 
-const { toggleSidebarFormStaff, toggleSidebarFormTeam } = useSidebarModel();
+const {
+  toggleSidebarFormStaff,
+  toggleSidebarFormTeam,
+  toggleSidebarForm,
+  isActive,
+} = useSidebarModel();
 
 const list = [
   { title: "10", content: "лет на рынке" },
@@ -94,6 +100,7 @@ const openDreamJobReviews = () => {
 };
 
 const activeItemId = ref(null);
+const listItems = ref([]);
 
 const setActiveItem = (id) => {
   activeItemId.value = id;
@@ -109,10 +116,53 @@ const updateImageSrc = () => {
       : "/images/imageTeam1.png";
 };
 
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+};
+
+const {
+  isCursorVisible,
+  circleStyle,
+  textStyle,
+  handleMouseEnter,
+  handleMouseLeave,
+} = useCustomCursor(isActive);
+
+const isScreenSmall = ref(false);
+
+const checkScreenSize = () => {
+  isScreenSmall.value = window.innerWidth <= 475;
+};
+
 onMounted(() => {
+  checkScreenSize();
+  window.addEventListener("resize", checkScreenSize);
+
   updateImageSrc();
   window.addEventListener("resize", updateImageSrc);
+
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1,
+  });
+
+  listItems.value.forEach((item) => {
+    observer.observe(item);
+  });
 });
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkScreenSize);
+});
+
+const handleSectionClick = () => {
+  if (!isScreenSmall.value) {
+    toggleSidebarForm();
+  }
+};
 </script>
 
 <template>
@@ -134,22 +184,42 @@ onMounted(() => {
     </div>
 
     <section class="company-team__review">
-      <img
-        class="company-team__review-image"
-        :src="teamImageSrc"
-        alt="Изображение команды"
-      />
+      <GradientButton title="Оставить заявку" @click="toggleSidebarForm" />
 
-      <ul class="company-team__review-list">
-        <li
-          v-for="(item, index) in list"
-          class="company-team__review-item"
-          :key="index"
-        >
-          {{ item.title }}
-          <p>{{ item.content }}</p>
-        </li>
-      </ul>
+      <div
+        class="custom-component"
+        @mouseenter="handleMouseEnter"
+        @mouseleave="handleMouseLeave"
+      >
+        <img
+          class="company-team__review-image"
+          :src="teamImageSrc"
+          alt="Изображение команды"
+          @click="handleSectionClick"
+        />
+
+        <ul class="company-team__review-list" @click="handleSectionClick">
+          <li
+            v-for="(item, index) in list"
+            class="company-team__review-item"
+            :key="index"
+          >
+            {{ item.title }}
+            <p>{{ item.content }}</p>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="custom-cursor"
+        :class="{ visible: isCursorVisible && !isActive }"
+      >
+        <div class="custom-cursor__circle" :style="circleStyle">
+          <span class="custom-cursor__circle-span" :style="textStyle"
+            >Оставить <span>заявку</span></span
+          >
+        </div>
+      </div>
     </section>
 
     <section class="company-team__queue">
@@ -206,6 +276,7 @@ onMounted(() => {
             :key="item.id"
             class="expertise-unit__table-item"
             @click="setActiveItem(item.id)"
+            ref="listItems"
           >
             <div class="expertise-card">
               <div class="expertise-card__inner">
@@ -222,8 +293,8 @@ onMounted(() => {
 
     <Priority title="Стать частью команды" :prioritys="priorityItems" />
 
-    <div class="container">
-      <section class="company-team__feedback">
+    <section class="company-team__feedback">
+      <div class="container">
         <div class="company-team__feedback-left">
           <p class="company-team__queue-title">
             Отзывы <br />
@@ -242,10 +313,15 @@ onMounted(() => {
         </div>
 
         <div class="company-team__feedback-right">
+          <p class="company-team__queue-title">
+            Отзывы <br />
+            сотрудников
+          </p>
+
           <TeamSlider />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
     <BlogUnit article="case" :slider="true" />
 

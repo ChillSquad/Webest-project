@@ -30,6 +30,10 @@ defineProps({
     type: String,
     default: "Наши преимущества",
   },
+  subtitle: {
+    type: Array,
+    required: false,
+  },
   forbidden: {
     type: Boolean,
     default: false,
@@ -40,7 +44,23 @@ defineProps({
 <template>
   <section class="outstaff-advantages">
     <div class="container">
-      <div class="outstaff-advantages__heading">{{ title }}</div>
+      <div class="outstaff-advantages__heading">
+        <div class="outstaff-advantages__title">{{ title }}</div>
+
+        <p
+          class="outstaff-advantages__subtitle"
+          v-if="subtitle"
+          v-for="(text, index) in subtitle"
+          :key="index"
+        >
+          <span class="custom-standing-purple">{{ text.purple }}</span>
+          {{ text.content1 }}
+          <span class="custom-standing-yellow desktop">{{ text.yellow1 }}</span>
+          <span class="custom-standing-yellow desktop">{{ text.yellow2 }}</span>
+          <span class="custom-standing-yellow">{{ text.yellow3 }}</span>
+          {{ text.content2 }}
+        </p>
+      </div>
 
       <ul class="outstaff-advantages__list">
         <li
@@ -82,11 +102,15 @@ defineProps({
 .outstaff-advantages {
   margin-bottom: var(--unit-margin-y);
 
-  &__heading {
+  &__title {
     @include font-h2;
 
     text-align: center;
     margin-bottom: var(--heading-margin-bottom);
+  }
+
+  &__subtitle {
+    @include font-text-1;
   }
 
   &__list {
@@ -141,10 +165,18 @@ defineProps({
     }
 
     &__item {
+      min-height: 320px !important;
       padding: 16px 16px 0;
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &-image {
+        width: 296px;
+        height: 160px;
+        object-fit: contain;
+        align-self: center;
+      }
 
       &.visible {
         opacity: 1;
