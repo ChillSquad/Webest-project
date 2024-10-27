@@ -5,6 +5,11 @@
     overflow-x: scroll;
     margin: var(--unit-margin-y) 0;
     user-select: none;
+    cursor: grab;
+
+    &.swiper-grabbing {
+      cursor: grabbing;
+    }
 
     &::-webkit-scrollbar {
       display: none;
