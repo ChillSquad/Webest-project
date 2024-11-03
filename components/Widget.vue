@@ -73,17 +73,19 @@ const employee = {
   bottom: 40px;
   right: 40px;
   background: var(--color-white-header);
-  z-index: 1000;
+  z-index: 2000;
   display: flex;
   flex-direction: column;
   transition: background 0.3s ease-in-out, max-width 0.4s ease-in-out,
-    max-height 0.4s ease-in-out, padding 0.3s ease-in-out;
+    max-height 0.4s ease-in-out, padding 0.3s ease-in-out,
+    box-shadow 0.4s ease-in-out;
   overflow: hidden;
   cursor: pointer;
 
   &:hover {
     background: #fff;
     max-width: 310px;
+    box-shadow: 1px 6px 30px 0px var(--color-dark-blue);
 
     .widget__header-title {
       opacity: 1;
@@ -210,6 +212,7 @@ const employee = {
   max-width: 310px;
   max-height: 352px;
   background: #fff;
+  box-shadow: 1px 6px 30px 0px var(--color-dark-blue);
   padding: 72px 16px 16px;
   cursor: default;
 
