@@ -285,6 +285,10 @@ const onTouchEnd = () => {
     background: #fff;
   }
 
+  .swiper {
+    border-radius: 40px;
+  }
+
   .icon-slide-to-left {
     z-index: 2;
     position: absolute;
