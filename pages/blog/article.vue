@@ -38,14 +38,14 @@ onBeforeUnmount(() => {
 <template>
   <div class="blog-article">
     <div class="blog-article__heading">
+      <Breadcrumbs :items="breadcrumbItems" />
+
+      <div class="blog-article__title container">
+        Когда компании нужен оптовый портал для поставщиков: 6 причин создания
+        торговой площадки
+      </div>
+
       <div class="article-container">
-        <Breadcrumbs :items="breadcrumbItems" />
-
-        <div class="blog-article__title">
-          Когда компании нужен оптовый портал для поставщиков: 6 причин создания
-          торговой площадки
-        </div>
-
         <div class="blog-article__subtitle">
           По данным Gartner, к 2025 году 80% взаимодействий B2B-продаж между
           поставщиками и покупателями будут происходить в цифровом формате. Как
