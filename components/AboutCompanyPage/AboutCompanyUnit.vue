@@ -31,7 +31,7 @@ const images = Array.from({ length: 9 }, (_, i) => ({
             >
               <p class="title-button__heading icon-arrow-right">
                 <span class="title-button__span">
-                  кратко <br />
+                  больше <br />
                   о webest
                 </span>
               </p>
