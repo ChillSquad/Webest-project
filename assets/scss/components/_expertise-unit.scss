@@ -95,6 +95,10 @@
     &__heading-subtitle {
       width: 100%;
     }
+
+    &__table-item {
+      @include list-items-animation;
+    }
   }
 }
 
@@ -204,7 +208,7 @@
 
     .icon-star {
       &:after {
-        content: "\006B";
+        content: "\0032";
       }
     }
 

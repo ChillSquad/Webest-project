@@ -49,6 +49,14 @@ onUnmounted(() => {
 const updateCurrentIndex = (swiper) => {
   currentIndex.value = swiper.activeIndex;
 };
+
+const onTouchStart = () => {
+  document.querySelector(".article-slider").classList.add("swiper-grabbing");
+};
+
+const onTouchEnd = () => {
+  document.querySelector(".article-slider").classList.remove("swiper-grabbing");
+};
 </script>
 
 <template>
@@ -122,6 +130,8 @@ const updateCurrentIndex = (swiper) => {
           prevEl: buttonPrev,
           nextEl: buttonNext,
         }"
+        @touchStart="onTouchStart"
+        @touchEnd="onTouchEnd"
         :pagination="{ clickable: true }"
         :modules="[Navigation]"
         :loop="false"
@@ -238,9 +248,18 @@ const updateCurrentIndex = (swiper) => {
 .article-slider {
   margin-top: 40px;
   position: relative;
+  cursor: grab;
+
+  &.swiper-grabbing {
+    cursor: grabbing;
+  }
 
   &__bar {
     margin-top: 18px;
+  }
+
+  &__swiper {
+    cursor: default;
   }
 
   &__card-image {

@@ -1,25 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { useIntersectionAnimation } from "../models/useIntersectionAnimation";
 
-const listItems = ref([]);
-
-const handleIntersection = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-};
-
-onMounted(() => {
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.1,
-  });
-
-  listItems.value.forEach((item) => {
-    observer.observe(item);
-  });
-});
+const { listAnimation } = useIntersectionAnimation("visible", 0.1);
 
 defineProps({
   title: {
@@ -76,7 +58,7 @@ const cards = [
           :class="['similar-services__item', { tall: card.tall }]"
           v-for="(card, index) in cards"
           :key="index"
-          ref="listItems"
+          ref="listAnimation"
         >
           <div class="similar-services__item-heading">
             <p class="similar-services__item-title">{{ card.title }}</p>
@@ -102,6 +84,7 @@ const cards = [
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .similar-services {
@@ -167,20 +150,14 @@ const cards = [
 
     &__item {
       min-height: 320px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      @include list-items-animation;
 
       &-image {
         width: 296px;
         height: 160px;
         object-fit: contain;
         align-self: center;
-      }
-
-      &.visible {
-        opacity: 1;
-        transform: translateY(0);
       }
     }
   }

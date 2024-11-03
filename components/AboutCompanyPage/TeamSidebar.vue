@@ -39,6 +39,50 @@ const sidebarPT = {
   },
 };
 
+const content = {
+  referralProgram: {
+    header: "Реферальная программа",
+    title: "Вознаграждение",
+    description:
+      "Если ты привёл одного сотрудника в нашу команду, то по прошествии испытательного срока своего друга, ты можешь получить любой бонус, предложенный в данном списке:",
+    list: [
+      "Абонемент в спортивный зал;",
+      "Купоны на бесплатную еду (пицца фабрика, кинг суши и т.д.);",
+      "Подписка на желаемые сервисы;",
+      "Посещение любого заведения города за счёт компании (на двоих);",
+      "Курсы повышения квалификации в любой сфере",
+    ],
+    plate:
+      "Если ты привёл второго сотрудника в нашу команду, то по прошествии испытательного срока второго сотрудника, ты получишь денежное вознаграждение в размере 20 000 ₽",
+  },
+  supportProgram: {
+    header: "Окружили поддержкой",
+    subHeader:
+      "Создаём комфортные условия для своих сотрудников. Всегда открыты к новым идеям и предложениям.",
+    title: "Основные пункты программы социальной поддержки:",
+    list: [
+      "Материальная помощь нуждающимся сотрудникам;",
+      "Денежные поощрения и компенсации;",
+      "Предоставление дополнительного выходного оплачиваемого дня 31 декабря всем сотрудникам предприятия;",
+      "Предоставление 3 (трёх) дополнительных выходных оплачиваемых дней сотруднику компании — отцу ребёнка в связи с выпиской матери и ребёнка из роддома;",
+    ],
+  },
+  rewardProgram: {
+    header: "Ввели поощрения для сотрудников",
+    subHeader:
+      "Создаём комфортные условия для своих сотрудников. Всегда открыты к новым идеям и предложениям.",
+    title: "Основные пункты программы поощрения:",
+    list: [
+      "Повышение ЗП согласно грейдам или ИПР;",
+      "Поощрения за хорошие идеи по развитию компании;",
+      "Оплата курсов повышения квалификации;",
+      "Корпоративная скидка на покупку личной техники — 15%;",
+      "Дополнительный выходной в счёт дня рождения сотрудника;",
+      "Корпоративные мероприятия;",
+    ],
+  },
+};
+
 defineProps({
   activeItemId: {
     type: Number,
@@ -57,95 +101,67 @@ defineProps({
     >
       <template v-if="activeItemId === 0" v-slot:header>
         <div class="sidebar-heading">
-          <p class="sidebar-heading__headline">Реферальная программа</p>
+          <p class="sidebar-heading__headline">
+            {{ content.referralProgram.header }}
+          </p>
         </div>
       </template>
       <div v-if="activeItemId === 0" class="sidebar-team">
-        <p class="sidebar-team__title">Вознаграждение</p>
-        <p>
-          Если ты привёл одного сотрудника в нашу команду, то по прошествии
-          испытательного срока своего друга, ты можешь получить любой бонус,
-          предложенный в данном списке:
-        </p>
+        <p class="sidebar-team__title">{{ content.referralProgram.title }}</p>
+        <p>{{ content.referralProgram.description }}</p>
         <div class="sidebar-team__list">
-          <span class="icon-marker">Абонемент в спортивный зал;</span>
-          <span class="icon-marker"
-            >Купоны на бесплатную еду (пицца фабрика, кинг суши и т.д.);</span
+          <span
+            v-for="(item, index) in content.referralProgram.list"
+            :key="index"
+            class="icon-marker"
           >
-          <span class="icon-marker">Подписка на желаемые сервисы;</span>
-          <span class="icon-marker"
-            >Посещение любого заведения города за счёт компании
-            (на двоих);</span
-          >
-          <span class="icon-marker"
-            >Курсы повышения квалификации в любой сфере</span
-          >
+            {{ item }}
+          </span>
         </div>
         <div class="sidebar-team__plate">
-          Если ты привёл второго сотрудника в нашу команду, то по прошествии
-          испытательного срока второго сотрудника, ты получишь денежное
-          вознаграждение в размере 20 000 ₽
+          {{ content.referralProgram.plate }}
         </div>
       </div>
 
       <template v-if="activeItemId === 1" v-slot:header>
         <div class="sidebar-heading">
-          <p class="sidebar-heading__headline">Окружили поддержкой</p>
-          <span
-            >Создаём комфортные условия для своих сотрудников. Всегда открыты к
-            новым идеям и предложениям.</span
-          >
+          <p class="sidebar-heading__headline">
+            {{ content.supportProgram.header }}
+          </p>
+          <span>{{ content.supportProgram.subHeader }}</span>
         </div>
       </template>
       <div v-if="activeItemId === 1" class="sidebar-team">
-        <p class="sidebar-team__title">
-          Основные пункты программы социальной поддержки:
-        </p>
+        <p class="sidebar-team__title">{{ content.supportProgram.title }}</p>
         <div class="sidebar-team__list">
-          <span class="icon-marker"
-            >Материальная помощь нуждающимся сотрудникам;</span
+          <span
+            v-for="(item, index) in content.supportProgram.list"
+            :key="index"
+            class="icon-marker"
           >
-          <span class="icon-marker">Денежные поощрения и компенсации;</span>
-          <span class="icon-marker"
-            >Предоставление дополнительного выходного оплачиваемого дня 31
-            декабря всем сотрудникам предприятия;</span
-          >
-          <span class="icon-marker"
-            >Предоставление 3 (трёх) дополнительных выходных оплачиваемых дней
-            сотруднику компании — отцу ребёнка в связи с выпиской матери и
-            ребёнка из роддома;</span
-          >
+            {{ item }}
+          </span>
         </div>
       </div>
 
       <template v-if="activeItemId === 2" v-slot:header>
         <div class="sidebar-heading">
           <p class="sidebar-heading__headline">
-            Ввели поощрения для сотрудников
+            {{ content.rewardProgram.header }}
           </p>
-          <span
-            >Создаём комфортные условия для своих сотрудников. Всегда открыты к
-            новым идеям и предложениям.</span
-          >
+          <span>{{ content.rewardProgram.subHeader }}</span>
         </div>
       </template>
       <div v-if="activeItemId === 2" class="sidebar-team">
-        <p class="sidebar-team__title">Основные пункты программы поощрения:</p>
+        <p class="sidebar-team__title">{{ content.rewardProgram.title }}</p>
         <div class="sidebar-team__list">
-          <span class="icon-marker"
-            >Повышение ЗП согласно грейдам или ИПР;</span
+          <span
+            v-for="(item, index) in content.rewardProgram.list"
+            :key="index"
+            class="icon-marker"
           >
-          <span class="icon-marker"
-            >Поощрения за хорошие идеи по развитию компании;</span
-          >
-          <span class="icon-marker">Оплата курсов повышения квалификации;</span>
-          <span class="icon-marker"
-            >Корпоративная скидка на покупку личной техники — 15%;</span
-          >
-          <span class="icon-marker"
-            >Дополнительный выходной в счёт дня рождения сотрудника;</span
-          >
-          <span class="icon-marker">Корпоративные мероприятия;</span>
+            {{ item }}
+          </span>
         </div>
       </div>
     </Sidebar>

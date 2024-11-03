@@ -1,7 +1,7 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useSidebarModel } from "./models/sidebar";
 import { useCustomCursor } from "./models/useCustomCursor";
-import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const { toggleSidebarForm, isActive } = useSidebarModel();
 const {

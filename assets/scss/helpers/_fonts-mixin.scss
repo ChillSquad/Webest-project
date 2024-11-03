@@ -24,6 +24,12 @@
 @mixin font-h1-inner {
   font: var(--font-h1-inner);
 }
+@media (max-width: 800px) {
+  :root {
+    --fs-h1-inner: 38px;
+    --lh-h1-inner: 43.32px;
+  }
+}
 @media (max-width: 475px) {
   :root {
     --fs-h1-inner: 24px;

@@ -6,7 +6,6 @@ const { data: items } = await useAsyncData("slider", () => {
   return $fetch("/api/slider/", { method: "GET" });
 });
 
-// Функции для добавления и удаления класса "swiper-grabbing"
 const onTouchStart = () => {
   document
     .querySelector(".main-slider__inner")

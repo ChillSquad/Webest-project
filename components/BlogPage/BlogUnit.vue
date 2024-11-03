@@ -116,7 +116,9 @@ const slides = [
         direction="horizontal"
         :modules="[Navigation]"
         :breakpoints="{
-          480: { slidesPerView: 2, spaceBetween: 8 },
+          1000: { slidesPerView: 2, spaceBetween: 8 },
+          700: { slidesPerView: 1.5, spaceBetween: 8 },
+          500: { slidesPerView: 1.2, spaceBetween: 8 },
           0: { slidesPerView: 1.1, spaceBetween: 8 },
         }"
       >
@@ -160,6 +162,7 @@ const slides = [
         :breakpoints="{
           1700: { slidesPerView: 5.2, spaceBetween: 8 },
           1000: { slidesPerView: 3.2, spaceBetween: 8 },
+          705: { slidesPerView: 2.5, spaceBetween: 8 },
           400: { slidesPerView: 1.5, spaceBetween: 8 },
           0: { slidesPerView: 1.1, spaceBetween: 8 },
         }"
@@ -185,8 +188,7 @@ const slides = [
 @import "~/assets/scss/helpers/mixin";
 
 .award-slid {
-  max-width: 326px;
-  height: 326px;
+  min-height: 326px;
   position: relative;
   border: 1px solid var(--color-grey-light-span);
   padding: var(--padding-card);

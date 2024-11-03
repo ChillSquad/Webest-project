@@ -1,12 +1,10 @@
 <script setup>
 import CaseUnitInfo from "./CaseUnitInfo.vue";
 import { useSidebarModel } from "../models/sidebar";
-import { ref, watch } from "vue";
-
+import { ref, watch, onMounted } from "vue";
 import Sidebar from "primevue/sidebar";
 
 const { isActiveCase } = useSidebarModel();
-
 const transitionName = ref("slide-fade-bottom");
 
 const toggleScrollbar = (isActiveCase) => {
@@ -16,6 +14,21 @@ const toggleScrollbar = (isActiveCase) => {
 
 watch(isActiveCase, (newVal) => {
   toggleScrollbar(newVal);
+});
+
+const checkScreenWidth = () => {
+  if (window.innerWidth > 475) {
+    isActiveCase.value = false;
+  }
+};
+
+onMounted(() => {
+  checkScreenWidth();
+  window.addEventListener("resize", checkScreenWidth);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkScreenWidth);
 });
 
 const sidebarPT = {

@@ -1,0 +1,114 @@
+.icon-one,
+.icon-two,
+.icon-three,
+.icon-four,
+.icon-five,
+.icon-six,
+.icon-seven,
+.icon-eight,
+.icon-nine,
+.icon-ten,
+.icon-eleven,
+.icon-twelve,
+.icon-thirteen,
+.icon-fourteen,
+.icon-fifteen,
+.icon-sixteen,
+.icon-seventeen {
+  @include flex-center;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #fff;
+
+  &:before {
+    @include priority-icon;
+  }
+}
+
+.icon-one {
+  &:before {
+    content: "\006D";
+  }
+}
+.icon-two {
+  &:before {
+    content: "\006E";
+  }
+}
+.icon-three {
+  &:before {
+    content: "\006F";
+  }
+}
+.icon-four {
+  &:before {
+    content: "\0070";
+  }
+}
+.icon-five {
+  &:before {
+    content: "\0071";
+  }
+}
+.icon-six {
+  &:before {
+    content: "\0072";
+  }
+}
+.icon-seven {
+  &:before {
+    content: "\0073";
+  }
+}
+.icon-eight {
+  &:before {
+    content: "\0074";
+  }
+}
+.icon-nine {
+  &:before {
+    content: "\0075";
+  }
+}
+.icon-ten {
+  &:before {
+    content: "\0076";
+  }
+}
+.icon-eleven {
+  &:before {
+    content: "\0077";
+  }
+}
+.icon-twelve {
+  &:before {
+    content: "\0078";
+  }
+}
+.icon-thirteen {
+  &:before {
+    content: "\0079";
+  }
+}
+.icon-fourteen {
+  &:before {
+    content: "\007A";
+  }
+}
+.icon-fifteen {
+  &:before {
+    content: "\0030";
+  }
+}
+.icon-sixteen {
+  &:before {
+    content: "\0031";
+  }
+}
+.icon-seventeen {
+  &:before {
+    content: "\0032";
+  }
+}

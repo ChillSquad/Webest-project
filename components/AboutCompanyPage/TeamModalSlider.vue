@@ -387,6 +387,11 @@ const updateCurrentIndex = (swiper) => {
     display: flex;
     flex-direction: column;
 
+    .team-modal-slider__bar-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
     .team-modal-slider__bar {
       max-width: 840px;
       align-self: center;

@@ -1,25 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { useIntersectionAnimation } from "../models/useIntersectionAnimation";
 
-const listItems = ref([]);
-
-const handleIntersection = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-};
-
-onMounted(() => {
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.1,
-  });
-
-  listItems.value.forEach((item) => {
-    observer.observe(item);
-  });
-});
+const { listAnimation } = useIntersectionAnimation("visible", 0.1);
 
 defineProps({
   questions: {
@@ -41,7 +23,7 @@ defineProps({
           <li
             v-for="(question, index) in questions"
             class="expertise-question__item"
-            ref="listItems"
+            ref="listAnimation"
           >
             <p class="expertise-question__item-numbering">
               Вопрос №{{ index + 1 }}
@@ -66,6 +48,7 @@ defineProps({
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .expertise-question {
@@ -113,14 +96,8 @@ defineProps({
     transition: background 0.3s ease-in-out, max-height 0.6s ease-in-out;
     overflow: hidden;
     border-radius: var(--border-radius-40);
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
-    &.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    @include list-items-animation;
   }
 
   &__item-numbering {

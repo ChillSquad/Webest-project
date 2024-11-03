@@ -10,10 +10,11 @@ defineProps({
 <template>
   <div v-for="(item, index) in items" :key="item.id" class="case-unit-info">
     <div class="case-unit-info__content">
-      <span class="case-unit-info__percent"
-        >{{ item.sign }}{{ item.percent }}%</span
-      >
-      <span class="case-unit-info__text">{{ item.text }}</span>
+      <span class="case-unit-info__content-percent">
+        {{ item.sign }}{{ item.percent }}%
+      </span>
+
+      <span class="case-unit-info__content-text">{{ item.text }}</span>
     </div>
 
     <hr class="case-unit-info__line" v-if="index === 0 || index === 1" />
@@ -33,16 +34,16 @@ defineProps({
     display: flex;
     flex-direction: column;
     text-align: center;
-  }
 
-  &__text {
-    @include font-text-4;
+    &-text {
+      @include font-text-4;
 
-    width: 100%;
-  }
+      width: 100%;
+    }
 
-  &__percent {
-    @include font-h6;
+    &-percent {
+      @include font-h6;
+    }
   }
 
   &__line {

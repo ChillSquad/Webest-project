@@ -1,28 +1,12 @@
 <script setup>
+import { useIntersectionAnimation } from "../models/useIntersectionAnimation";
+
+const { listAnimation } = useIntersectionAnimation("visible", 0.1);
+
 const images = Array.from({ length: 9 }, (_, i) => ({
   src: `/images/imageCompany${i + 1}.png`,
   alt: `imageCompany${i + 1}`,
 }));
-
-const listItems = ref([]);
-
-const handleIntersection = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-};
-
-onMounted(() => {
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.1,
-  });
-
-  listItems.value.forEach((item) => {
-    observer.observe(item);
-  });
-});
 </script>
 
 <template>
@@ -30,7 +14,7 @@ onMounted(() => {
     <div class="about-company-unit__photo-collage">
       <img
         v-for="(image, index) in images"
-        ref="listItems"
+        ref="listAnimation"
         :key="index"
         :src="image.src"
         :alt="image.alt"
@@ -40,16 +24,18 @@ onMounted(() => {
       <div class="about-company-unit__about">
         <div class="about-company-content">
           <div class="about-company-content__inner">
-            <a href="#" id="title-button-class-management" class="title-button">
+            <NuxtLink
+              to="/team"
+              id="title-button-class-management"
+              class="title-button"
+            >
               <p class="title-button__heading icon-arrow-right">
-                <NuxtLink to="/team">
-                  <span class="title-button__span">
-                    кратко <br />
-                    о webest
-                  </span>
-                </NuxtLink>
+                <span class="title-button__span">
+                  кратко <br />
+                  о webest
+                </span>
               </p>
-            </a>
+            </NuxtLink>
 
             <div class="about-company-content__subtitle">
               Узнайте больше о нашей

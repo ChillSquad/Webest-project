@@ -3,9 +3,8 @@
 @import "./helpers/transition";
 @import "./helpers/fonts-mixin";
 @import "./helpers/mixin";
-@import "../icons/font-icons";
+@import "./helpers/font-icons";
 
-@import "./components/slider-cursor";
 @import "./components/cookies";
 @import "./components/header";
 @import "./components/mobile-menu";
@@ -24,7 +23,7 @@
 @import "./components/blog-article";
 @import "./components/customers-unit";
 @import "./components/talk-unit";
-@import "./components/talk-page";
+@import "./components/contact-page";
 @import "./components/team-page";
 @import "./components/policy";
 @import "./components/footer";
@@ -108,7 +107,7 @@ body.first-page-active .custom-cursor__circle {
   }
 }
 
-@media (max-width: 1166px) {
+@media (max-width: 1500px) {
   .article-container {
     padding: 0 16px;
   }
@@ -226,7 +225,7 @@ body.first-page-active .custom-cursor__circle {
 
 @media (max-width: 475px) {
   .custom-cursor,
-  .slider-cursor {
+  .custom-cursor-white {
     display: none;
   }
 

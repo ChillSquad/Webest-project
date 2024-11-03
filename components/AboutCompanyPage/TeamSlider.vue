@@ -443,7 +443,9 @@ const updateCurrentIndex = (swiper) => {
     }
 
     &__slide-review-list {
+      max-height: 300px;
       gap: 8px;
+      overflow-y: hidden;
     }
 
     .toMobile {

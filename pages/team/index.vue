@@ -95,12 +95,8 @@ const items = [
   { id: 2, title: "Ввели поощрения для сотрудников", icon: "icon-star" },
 ];
 
-const openDreamJobReviews = () => {
-  window.open("https://dreamjob.ru/employers/304740?utm_source=hh", "_blank");
-};
-
 const activeItemId = ref(null);
-const listItems = ref([]);
+const listAnimation = ref([]);
 
 const setActiveItem = (id) => {
   activeItemId.value = id;
@@ -149,7 +145,7 @@ onMounted(() => {
     threshold: 0.1,
   });
 
-  listItems.value.forEach((item) => {
+  listAnimation.value.forEach((item) => {
     observer.observe(item);
   });
 });
@@ -163,24 +159,30 @@ const handleSectionClick = () => {
     toggleSidebarForm();
   }
 };
+
+const heading = {
+  title: "Команда",
+  subtitle: `
+    Мы Wébest — входим <span class="custom-standing-blue">в ТОП 10</span>
+    разработчиков E-commerce России. Комплексно
+    <span class="custom-standing-pink desktop">улучшаем бизнес-процессы</span>
+    <span class="custom-standing-pink mobile">улучшаем бизнес-</span>
+    <span class="custom-standing-pink mobile">процессы</span>
+    наших клиентов при помощи IT. Специализируемся на создании и развитии
+    e-commerce проектов, B2B- и B2C — сервисов, мобильных приложений,
+    корпоративных сайтов для компаний в сфере услуг и производства
+  `,
+};
 </script>
 
 <template>
   <div class="company-team">
     <div class="company-team__heading">
-      <div class="company-team__heading-title">Команда</div>
-      <div class="company-team__heading-subtitle">
-        Мы Wébest — входим <span class="custom-standing-blue">в ТОП 10</span>
-        разработчиков E-commerce России. Комплексно
-        <span class="custom-standing-pink desktop">
-          улучшаем бизнес-процессы
-        </span>
-        <span class="custom-standing-pink mobile"> улучшаем бизнес- </span>
-        <span class="custom-standing-pink mobile"> процессы </span>
-        наших клиентов при помощи IT. Специализируемся на создании и развитии
-        e-commerce проектов, B2B- и B2C — сервисов, мобильных приложений,
-        корпоративных сайтов для компаний в сфере услуг и производства
-      </div>
+      <div class="company-team__heading-title">{{ heading.title }}</div>
+      <div
+        class="company-team__heading-subtitle"
+        v-html="heading.subtitle"
+      ></div>
     </div>
 
     <section class="company-team__review">
@@ -215,9 +217,9 @@ const handleSectionClick = () => {
         :class="{ visible: isCursorVisible && !isActive }"
       >
         <div class="custom-cursor__circle" :style="circleStyle">
-          <span class="custom-cursor__circle-span" :style="textStyle"
-            >Оставить <span>заявку</span></span
-          >
+          <span class="custom-cursor__circle-span" :style="textStyle">
+            Оставить <span>заявку</span>
+          </span>
         </div>
       </div>
     </section>
@@ -276,7 +278,7 @@ const handleSectionClick = () => {
             :key="item.id"
             class="expertise-unit__table-item"
             @click="setActiveItem(item.id)"
-            ref="listItems"
+            ref="listAnimation"
           >
             <div class="expertise-card">
               <div class="expertise-card__inner">
@@ -306,10 +308,14 @@ const handleSectionClick = () => {
             <p><span>97%</span>Рекомендуют работодателя</p>
           </div>
 
-          <GradientButton
-            @click="openDreamJobReviews"
-            title="Все 99 отзывов на Dream Job"
-          />
+          <a
+            class="icon-arrow-right-up"
+            href="https://dreamjob.ru/employers/304740?utm_source=hh"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Все 99 отзывов на Dream Job
+          </a>
         </div>
 
         <div class="company-team__feedback-right">

@@ -1,8 +1,9 @@
 <script setup>
 import Header from "./components/Header/Header.vue";
 import MobileMenu from "./components/Header/MobileMenu.vue";
-import Cookies from "./components/Cookies.vue";
 import Sidebar from "./components/Sidebar/Sidebar.vue";
+import Cookies from "./components/Cookies.vue";
+import Widget from "./components/Widget.vue";
 import Footer from "./components/Footer/Footer.vue";
 </script>
 
@@ -10,7 +11,8 @@ import Footer from "./components/Footer/Footer.vue";
   <div>
     <Header />
     <MobileMenu />
-    <!-- <Cookies /> -->
+    <Cookies />
+    <Widget />
     <Sidebar />
     <main>
       <NuxtPage />

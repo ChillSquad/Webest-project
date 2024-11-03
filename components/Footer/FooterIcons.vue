@@ -3,11 +3,19 @@ import VkLogotype from "~/assets/icons/logoVk.vue";
 import ArdaLogo from "~/assets/icons/logoArda.vue";
 import WorkspaceLogo from "~/assets/icons/logoWorkspace.vue";
 import YandexStarLogo from "~/assets/icons/logoYandexStar.vue";
+import ArgumentLogo from "~/assets/icons/logoArgument.vue";
 </script>
 
 <template>
   <section class="footer__copyright-insignia">
     <ul>
+      <li>
+        <ArgumentLogo />
+        <p class="footer__copyright-insignia-text">
+          Аргумент <br />B2B-платформа
+        </p>
+      </li>
+
       <li>
         <YandexStarLogo />
         <p class="footer__copyright-insignia-text">

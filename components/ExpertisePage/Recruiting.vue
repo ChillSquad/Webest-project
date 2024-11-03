@@ -85,11 +85,11 @@ defineProps({
         </button>
       </section>
       <div
-        class="custom-cursor"
+        class="custom-cursor-white"
         :class="{ visible: isCursorVisible && !isActive }"
       >
-        <div class="custom-cursor__circle" :style="circleStyle">
-          <span class="custom-cursor__circle-span" :style="textStyle">
+        <div class="custom-cursor-white__circle" :style="circleStyle">
+          <span class="custom-cursor-white__circle-span" :style="textStyle">
             Оставить <span>заявку</span>
           </span>
         </div>
