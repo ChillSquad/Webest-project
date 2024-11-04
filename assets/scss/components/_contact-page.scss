@@ -99,18 +99,6 @@
   }
 
   &__requisites {
-    margin-bottom: var(--unit-margin-y);
-
-    &-content {
-      display: flex;
-    }
-
-    &-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
     &-item {
       @include font-text-3;
 
@@ -185,18 +173,6 @@
         }
       }
     }
-
-    &__requisites {
-      &-content {
-        flex-wrap: wrap;
-      }
-
-      &-list {
-        &:not(:last-child) {
-          margin-bottom: 16px;
-        }
-      }
-    }
   }
 
   @media (max-width: 475px) {
@@ -239,10 +215,6 @@
     }
 
     &__requisites {
-      &-content {
-        flex-direction: column;
-      }
-
       &-item {
         max-width: 414px;
         width: 100%;
