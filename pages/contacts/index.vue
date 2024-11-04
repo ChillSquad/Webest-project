@@ -27,66 +27,6 @@ const socialLinks = [
   { iconClass: "icon-dprofile", link: "#" },
 ];
 
-const requisitesData = [
-  [
-    { title: "Краткое название организации", content: "ООО «Вэбест»" },
-    {
-      title: "Полное название организации",
-      content: "Общество с ограниченной ответственностью «Вэбест»",
-    },
-    {
-      title: "Юридический, почтовый, фактический адрес",
-      content:
-        "Россия, 162626, Вологодская обл., г. Череповец, ул. Годовикова, д. 21, помещение 4 Н",
-    },
-    { title: "Регистрационный номер ОГРН", content: "1143528009030" },
-    { title: "ОКВЭД", content: "72.40" },
-    { title: "ОКПО", content: "34255912" },
-    { title: "ИНН", content: "3528217800" },
-    { title: "КПП", content: "352801001" },
-  ],
-  [
-    { title: "Банк", content: "Отделение № 8638 Сбербанка России, г.Вологда" },
-    { title: "Расчетный счет", content: "40702810912000001964" },
-    { title: "Корреспондентский счет", content: "30101810900000000644" },
-    { title: "БИК", content: "041909644" },
-  ],
-];
-
-const directorData = [
-  [
-    {
-      title: "Руководитель",
-      content: [
-        {
-          text: "Директор Чистяков Дмитрий Александрович, действующий на основании Устава",
-        },
-      ],
-    },
-    {
-      title: "Телефон",
-      content: [
-        { text: "Раб.: 8 (8202) 74-22-90", link: "tel:+78202742290" },
-        { text: "Моб.: +7 (953) 501-03-19", link: "tel:+79535010319" },
-      ],
-    },
-    {
-      title: "Сайт компании",
-      content: [{ text: "webest.ru", link: "webest.ru" }],
-    },
-    {
-      title: "E-mail",
-      content: [
-        {
-          text: "info@webest.ru - отдел по работе с клиентами",
-          link: "mailto:info@webest.ru",
-        },
-        { text: " dir@wbest.ru - директор", link: "mailto:info@webest.ru" },
-      ],
-    },
-  ],
-];
-
 const infoLinks = [
   {
     title: "Партнерам",
@@ -98,7 +38,72 @@ const infoLinks = [
     content: "Смотреть",
     link: "#",
   },
+  {
+    title: "Реквизиты",
+    content: "Смотреть",
+    link: "#",
+  },
 ];
+
+// const directorData = [
+//   [
+//     {
+//       title: "Руководитель",
+//       content: [
+//         {
+//           text: "Директор Чистяков Дмитрий Александрович, действующий на основании Устава",
+//         },
+//       ],
+//     },
+//     {
+//       title: "Телефон",
+//       content: [
+//         { text: "Раб.: 8 (8202) 74-22-90", link: "tel:+78202742290" },
+//         { text: "Моб.: +7 (953) 501-03-19", link: "tel:+79535010319" },
+//       ],
+//     },
+//     {
+//       title: "Сайт компании",
+//       content: [{ text: "webest.ru", link: "webest.ru" }],
+//     },
+//     {
+//       title: "E-mail",
+//       content: [
+//         {
+//           text: "info@webest.ru - отдел по работе с клиентами",
+//           link: "mailto:info@webest.ru",
+//         },
+//         { text: " dir@wbest.ru - директор", link: "mailto:info@webest.ru" },
+//       ],
+//     },
+//   ],
+// ];
+
+// const requisitesData = [
+//   [
+//     { title: "Краткое название организации", content: "ООО «Вэбест»" },
+//     {
+//       title: "Полное название организации",
+//       content: "Общество с ограниченной ответственностью «Вэбест»",
+//     },
+//     {
+//       title: "Юридический, почтовый, фактический адрес",
+//       content:
+//         "Россия, 162626, Вологодская обл., г. Череповец, ул. Годовикова, д. 21, помещение 4 Н",
+//     },
+//     { title: "Регистрационный номер ОГРН", content: "1143528009030" },
+//     { title: "ОКВЭД", content: "72.40" },
+//     { title: "ОКПО", content: "34255912" },
+//     { title: "ИНН", content: "3528217800" },
+//     { title: "КПП", content: "352801001" },
+//   ],
+//   [
+//     { title: "Банк", content: "Отделение № 8638 Сбербанка России, г.Вологда" },
+//     { title: "Расчетный счет", content: "40702810912000001964" },
+//     { title: "Корреспондентский счет", content: "30101810900000000644" },
+//     { title: "БИК", content: "041909644" },
+//   ],
+// ];
 </script>
 
 <template>
@@ -154,7 +159,13 @@ const infoLinks = [
         </div>
       </section>
 
-      <section class="contact-page__requisites">
+      <section class="contact-page__employee">
+        <div class="contact-page__employee-table">
+          <article class="contact-page__employee-item"></article>
+        </div>
+      </section>
+
+      <!-- <section class="contact-page__requisites">
         <p class="contact-page__communication-title">Реквизиты</p>
 
         <div class="contact-page__requisites-content">
@@ -198,7 +209,7 @@ const infoLinks = [
             </address>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <TalkUnit />
     </div>
