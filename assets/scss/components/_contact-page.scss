@@ -119,6 +119,58 @@
     }
   }
 
+  &__employee {
+    margin-bottom: var(--unit-margin-y);
+
+    &-table {
+      display: flex;
+      gap: 8px;
+    }
+
+    &-item {
+      width: 100%;
+      background: var(--color-grey-light);
+      padding: var(--padding-card);
+      border-radius: var(--border-radius-40);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      &-title {
+        @include font-text-1;
+
+        width: max-content;
+        font-family: var(--ff-montserrat-bold);
+        text-transform: uppercase;
+      }
+
+      &-wrapper {
+        display: flex;
+        gap: 16px;
+      }
+
+      &-name {
+        @include font-h7;
+
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        span {
+          @include font-text-4;
+
+          color: var(--color-dark-blue);
+        }
+      }
+
+      &-mail {
+        @include font-text-2;
+
+        color: var(--color-black);
+      }
+    }
+  }
+
   @media (max-width: 1900px) {
     &__communication {
       &-content {
@@ -259,6 +311,14 @@
       @include talk-icon;
 
       content: "\0053";
+    }
+  }
+
+  .icon-whatsapp {
+    &:after {
+      @include talk-icon;
+
+      content: "\0054";
     }
   }
 

@@ -44,6 +44,36 @@ const infoLinks = [
     link: "#",
   },
 ];
+
+const employees = [
+  {
+    title: "Обсудим проект?",
+    name: "Станислав Колодин",
+    position: "Руководитель отдела продаж",
+    email: "info@webest.ru",
+    image: "/images/imageWidget3.png",
+    socials: [
+      { icon: "icon-whatsapp", link: "#" },
+      { icon: "icon-telegram", link: "#" },
+    ],
+  },
+  {
+    title: "Хочешь Стать частью команды?",
+    name: "Юлия Подус",
+    position: "Руководитель HR отдела",
+    email: "hr@wbest.ru",
+    image: "/images/imageWidget1.png",
+    socials: [{ icon: "icon-telegram", link: "#" }],
+  },
+  {
+    title: "Мы открыты к предложениям!",
+    name: "Екатерина Комелькова",
+    position: "Руководитель PR отдела",
+    email: "ekaterina.k@webest.ru",
+    image: "/images/imageWidget2.png",
+    socials: [{ icon: "icon-telegram", link: "#" }],
+  },
+];
 </script>
 
 <template>
@@ -101,7 +131,42 @@ const infoLinks = [
 
       <section class="contact-page__employee">
         <div class="contact-page__employee-table">
-          <article class="contact-page__employee-item"></article>
+          <article
+            v-for="(employee, index) in employees"
+            :key="index"
+            class="contact-page__employee-item"
+          >
+            <p class="contact-page__employee-item-title">
+              {{ employee.title }}
+            </p>
+
+            <div class="contact-page__employee-item-wrapper">
+              <img
+                class="contact-page__employee-item-image"
+                :src="employee.image"
+                :alt="employee.name"
+              />
+              <p class="contact-page__employee-item-name">
+                {{ employee.name }} <span>{{ employee.position }}</span>
+              </p>
+            </div>
+
+            <a
+              :href="'mailto:' + employee.email"
+              class="contact-page__employee-item-mail"
+            >
+              {{ employee.email }}
+            </a>
+
+            <div class="contact-page__communication-content-social">
+              <a
+                v-for="(social, sIndex) in employee.socials"
+                :key="sIndex"
+                :href="social.link"
+                :class="social.icon"
+              ></a>
+            </div>
+          </article>
         </div>
       </section>
 
