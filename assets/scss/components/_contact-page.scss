@@ -1,0 +1,342 @@
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--page-padding);
+
+  &__title {
+    @include font-h1;
+
+    align-self: center;
+    margin-bottom: 100px;
+  }
+
+  &__communication {
+    margin-bottom: var(--unit-margin-y);
+
+    &-title {
+      @include font-h2;
+
+      margin-bottom: 100px;
+    }
+
+    &-content {
+      @include font-text-3;
+
+      color: var(--color-dark-blue);
+      width: 100%;
+      display: flex;
+
+      &-address {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        a {
+          @include font-text-2;
+
+          font-style: normal;
+          color: var(--color-black);
+        }
+      }
+
+      & > div {
+        width: 414px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      &-social {
+        display: flex;
+        gap: 4px;
+
+        a {
+          width: 60px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 16px;
+          background-color: var(--color-blue);
+
+          &:hover {
+            background: var(--color-button-gradient-hover);
+
+            &:hover:after {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    &-wrapper {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    &-item {
+      a {
+        @include font-text-2;
+
+        color: var(--color-blue);
+
+        &:hover {
+          text-decoration: underline;
+
+          &:after {
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+  }
+
+  &__requisites {
+    &-item {
+      @include font-text-3;
+
+      width: 414px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: var(--color-dark-blue);
+
+      span {
+        color: var(--color-black);
+      }
+
+      a {
+        width: fit-content;
+        color: var(--color-black);
+      }
+    }
+  }
+
+  &__employee {
+    margin-bottom: var(--unit-margin-y);
+
+    &-table {
+      display: flex;
+      gap: 8px;
+    }
+
+    &-item {
+      width: 100%;
+      background: var(--color-grey-light);
+      padding: var(--padding-card);
+      border-radius: var(--border-radius-40);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      &-title {
+        @include font-text-1;
+
+        width: max-content;
+        font-family: var(--ff-montserrat-bold);
+        text-transform: uppercase;
+      }
+
+      &-wrapper {
+        display: flex;
+        gap: 16px;
+      }
+
+      &-name {
+        @include font-h7;
+
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        span {
+          @include font-text-4;
+
+          color: var(--color-dark-blue);
+        }
+      }
+
+      &-mail {
+        @include font-text-2;
+
+        color: var(--color-black);
+      }
+    }
+  }
+
+  @media (max-width: 1900px) {
+    &__communication {
+      &-content {
+        gap: 40px;
+
+        & > div {
+          width: fit-content;
+        }
+      }
+
+      &-wrapper {
+        gap: 40px;
+
+        .contact-page__requisites-item {
+          &:first-child {
+            width: 321.7px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1300px) {
+    &__communication {
+      &-title {
+        text-align: center;
+      }
+
+      &-content {
+        flex-direction: column;
+        align-items: center;
+
+        & > div {
+          width: fit-content;
+          text-align: center;
+        }
+      }
+
+      &-wrapper {
+        margin-top: 40px;
+        align-items: center;
+        justify-content: center;
+
+        .contact-page__communication-list {
+          align-items: center;
+        }
+
+        .contact-page__requisites-item {
+          &:first-child {
+            width: fit-content;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 475px) {
+    &__title {
+      margin-bottom: 40px;
+    }
+
+    &__communication {
+      &-title {
+        margin-bottom: 40px;
+        text-align: left;
+      }
+
+      &-content {
+        gap: 24px;
+        align-items: initial;
+
+        > div {
+          gap: 8px;
+          text-align: left;
+        }
+      }
+
+      &-wrapper {
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: initial;
+        gap: 24px;
+
+        .contact-page__communication-list {
+          align-items: initial;
+        }
+      }
+
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    &__requisites {
+      &-item {
+        max-width: 414px;
+        width: 100%;
+      }
+    }
+  }
+
+  .icon-vkontakte {
+    &:after {
+      @include talk-icon;
+
+      content: "\004F";
+    }
+  }
+
+  .icon-telegram {
+    &:after {
+      @include talk-icon;
+
+      content: "\0050";
+    }
+  }
+
+  .icon-vcru {
+    &:after {
+      @include talk-icon;
+
+      content: "\0052";
+    }
+  }
+
+  .icon-behance {
+    &:after {
+      @include talk-icon;
+
+      content: "\0051";
+    }
+  }
+
+  .icon-dprofile {
+    &:after {
+      @include talk-icon;
+
+      content: "\0053";
+    }
+  }
+
+  .icon-whatsapp {
+    &:after {
+      @include talk-icon;
+
+      content: "\0054";
+    }
+  }
+
+  .icon-arrow-right-up {
+    &:after {
+      content: "\0042";
+      font-size: 12px;
+      color: inherit;
+      margin-left: 10px;
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  @media (max-width: 475px) {
+    .icon-arrow-right-up {
+      &:after {
+        font-size: 10px;
+      }
+    }
+  }
+}

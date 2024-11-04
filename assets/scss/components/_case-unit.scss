@@ -46,14 +46,7 @@
 
   @media (max-width: 475px) {
     &__table-item {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-
-      &.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      @include list-items-animation;
     }
   }
 }
@@ -95,15 +88,16 @@
     z-index: 2;
     cursor: pointer;
 
-    span {
-      width: 20px;
-      height: 20px;
-      border: 2px solid var(--color-black);
-      border-radius: 50%;
+    .icon-info {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
+
+      &:before {
+        content: "\0035";
+        font-size: 20px;
+        color: var(--color-black);
+      }
     }
   }
 
@@ -267,7 +261,7 @@
   &__text {
     @include font-text-4;
 
-    width: 246px;
+    max-width: 246px;
   }
 
   &__percent {
@@ -287,6 +281,7 @@
     width: calc(100% - 16px);
     position: static;
     margin: 8px 0;
+    background: #fff;
 
     &__inner {
       display: flex;

@@ -68,7 +68,7 @@ defineProps({
         @click="openSidebarWithCase({ title, moreData })"
         class="case-unit-card__case-button"
       >
-        <span>i</span>
+        <span class="icon-info"></span>
       </button>
 
       <CaseUnitPlate

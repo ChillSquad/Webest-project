@@ -1,5 +1,9 @@
 <script setup>
+import { useIntersectionAnimation } from "../models/useIntersectionAnimation";
+
 import TitleButton from "../UI-kit/TitleButton.vue";
+
+const { listAnimation } = useIntersectionAnimation("visible", 0.1);
 
 const { data: items } = await useAsyncData("expertise", async () => {
   return await $fetch("/api/expertise/", { method: "GET" });
@@ -26,6 +30,7 @@ const { data: items } = await useAsyncData("expertise", async () => {
               v-for="(item, index) in items.slice(0, 6)"
               :key="index"
               :class="['expertise-unit__table-item', { tall: item.tall }]"
+              ref="listAnimation"
             >
               <NuxtLink :to="item.route" class="expertise-card">
                 <div class="expertise-card__inner">

@@ -177,18 +177,27 @@
         }
       }
 
-      #gradient-button-control {
+      .icon-arrow-right-up {
+        @include font-text-2;
+
         width: fit-content;
         margin-top: 40px;
-        padding: 0;
-        background: transparent;
         color: var(--color-blue);
-        border-radius: 0;
-        transition: border 0.3s ease-in-out;
-        border-bottom: 1px solid transparent;
+
+        &:after {
+          content: "\0042";
+          font-size: 12px;
+          color: inherit;
+          transition: transform 0.2s ease-in-out;
+          margin-left: 10px;
+        }
 
         &:hover {
-          border-bottom: 1px solid var(--color-blue);
+          text-decoration: underline;
+
+          &:after {
+            transform: rotate(45deg);
+          }
         }
       }
     }
@@ -253,14 +262,7 @@
 
   @media (max-width: 475px) {
     .expertise-unit__table-item {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-
-      &.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      @include list-items-animation;
     }
 
     &__heading-subtitle {

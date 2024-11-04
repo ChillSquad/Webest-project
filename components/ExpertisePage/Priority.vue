@@ -1,10 +1,12 @@
 <script setup>
+import { useSidebarModel } from "~/components/models/sidebar";
+import { useIntersectionAnimation } from "../models/useIntersectionAnimation";
+
 import GradientButton from "~/components/UI-kit/GradientButton.vue";
 
-import { ref, onMounted } from "vue";
-import { useSidebarModel } from "~/components/models/sidebar";
-
 const { toggleSidebarFormStaff } = useSidebarModel();
+
+const { listAnimation } = useIntersectionAnimation("visible", 0.1);
 
 defineProps({
   prioritys: {
@@ -23,26 +25,6 @@ defineProps({
     type: Boolean,
     default: false,
   },
-});
-
-const listItems = ref([]);
-
-const handleIntersection = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-};
-
-onMounted(() => {
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.1,
-  });
-
-  listItems.value.forEach((item) => {
-    observer.observe(item);
-  });
 });
 </script>
 
@@ -70,7 +52,7 @@ onMounted(() => {
         class="expertise-priority__list-item"
         v-for="(priority, index) in prioritys"
         :key="index"
-        ref="listItems"
+        ref="listAnimation"
       >
         <div class="container">
           <p class="expertise-priority__list-item-number">0{{ index + 1 }}</p>
@@ -165,14 +147,8 @@ onMounted(() => {
     display: flex;
     padding: 40px 0;
     position: relative;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
-    &.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    @include list-items-animation;
 
     &:not(:last-child)::after {
       content: "";
@@ -286,6 +262,10 @@ onMounted(() => {
         display: flex;
         flex-direction: column;
         gap: 24px;
+      }
+
+      &:hover {
+        transform: none;
       }
     }
 

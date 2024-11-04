@@ -17,6 +17,18 @@ defineProps({
     required: false,
   },
 });
+
+const onTouchStart = () => {
+  document
+    .querySelector(".development-slider__swiper")
+    .classList.add("swiper-grabbing");
+};
+
+const onTouchEnd = () => {
+  document
+    .querySelector(".development-slider__swiper")
+    .classList.remove("swiper-grabbing");
+};
 </script>
 
 <template>
@@ -41,26 +53,31 @@ defineProps({
 
     <swiper
       class="development-slider__swiper"
+      @touchStart="onTouchStart"
+      @touchEnd="onTouchEnd"
       :loop="false"
       :breakpoints="{
-        400: { slidesPerView: 3, spaceBetween: 8 },
-        0: { slidesPerView: 1.09, spaceBetween: 8 },
+        480: { slidesPerView: 2.98, spaceBetween: 8 },
+        400: { slidesPerView: 1.4, spaceBetween: 8 },
+        0: { slidesPerView: 1.091, spaceBetween: 8 },
       }"
     >
       <swiper-slide v-for="(image, index) in images" :key="index">
-        <img
-          class="development-slider__image"
-          :src="image.src"
-          alt="story image"
-        />
+        <div class="development-slider__slide">
+          <img
+            class="development-slider__image"
+            :src="image.src"
+            alt="story image"
+          />
 
-        <p class="development-slider__image-title">
-          {{ image.title }}
-        </p>
+          <p class="development-slider__image-title">
+            {{ image.title }}
+          </p>
 
-        <p class="development-slider__image-subtitle">
-          {{ image.subtitle }}
-        </p>
+          <p class="development-slider__image-subtitle">
+            {{ image.subtitle }}
+          </p>
+        </div>
       </swiper-slide>
     </swiper>
   </section>
@@ -72,8 +89,20 @@ defineProps({
 .development-slider {
   margin-bottom: var(--unit-margin-y);
 
+  &__swiper {
+    cursor: grab;
+
+    &.swiper-grabbing {
+      cursor: grabbing;
+    }
+  }
+
   &__heading {
     margin-bottom: 100px;
+  }
+
+  &__slide {
+    height: 680px;
   }
 
   .split {
@@ -131,11 +160,6 @@ defineProps({
     padding: var(--swiper-padding);
   }
 
-  .swiper-slide {
-    width: 554px !important;
-    height: 680px;
-  }
-
   @media (max-width: 475px) {
     &__heading {
       margin-bottom: 40px;
@@ -151,8 +175,7 @@ defineProps({
       left: 20px;
     }
 
-    .swiper-slide {
-      width: 300px !important;
+    &__slide {
       height: 368px;
     }
 

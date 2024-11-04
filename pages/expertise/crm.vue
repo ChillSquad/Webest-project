@@ -437,7 +437,6 @@ const selectedVersion = ref("Облачная версия");
   }
 
   .expertise-menu__item-aside {
-    // width: 872px;
     height: 668px;
     background: #fff;
   }
@@ -447,6 +446,12 @@ const selectedVersion = ref("Облачная версия");
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+
+  @media (min-width: 1930px) {
+    &__tariff-table {
+      align-self: center;
+    }
   }
 
   @media (max-width: 850px) {

@@ -1,25 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { useIntersectionAnimation } from "../models/useIntersectionAnimation";
 
-const listItems = ref([]);
-
-const handleIntersection = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-};
-
-onMounted(() => {
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.1,
-  });
-
-  listItems.value.forEach((item) => {
-    observer.observe(item);
-  });
-});
+const { listAnimation } = useIntersectionAnimation("visible", 0.1);
 
 defineProps({
   title: {
@@ -42,7 +24,7 @@ defineProps({
         <li
           class="expertise-development-reporting__item"
           v-for="(report, index) in reports"
-          ref="listItems"
+          ref="listAnimation"
         >
           <p class="expertise-development-reporting__item-heading">
             {{ report.heading }}
@@ -70,6 +52,7 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .expertise-development-reporting {
@@ -190,14 +173,8 @@ defineProps({
     &__item {
       height: 200px;
       border-radius: 24px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
-      &.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      @include list-items-animation;
 
       .icon-marker {
         transform: translateY(0);

@@ -112,7 +112,7 @@ onBeforeUnmount(() => {
                 Презентацию <span>- pdf, 3mb</span>
               </a>
 
-              <a href="#" class="icon-arrow-right-up">Реквизиты </a>
+              <a href="#" class="icon-arrow-right-up">Реквизиты</a>
             </div>
           </address>
         </div>
@@ -126,12 +126,10 @@ onBeforeUnmount(() => {
 
           <div class="footer__copyright-links">
             <NuxtLink to="/policy/agreement">
-              Согласие на обработку персональных данных
+              Пользовательское соглашение
             </NuxtLink>
 
-            <NuxtLink to="/policy">
-              Политика в отношении обработки персональных данных
-            </NuxtLink>
+            <NuxtLink to="/policy">Политика конфиденциальности</NuxtLink>
           </div>
 
           <FooterIcons />

@@ -34,14 +34,33 @@
   cursor: pointer;
 
   &__inner {
+    position: relative;
     height: 374px;
     border-radius: var(--border-radius-40);
     background: #fff;
     padding: 36px 38px;
+    overflow: hidden;
+    transition: color 0.3s ease-in-out;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-button-gradient);
+      transition: opacity 0.3s ease-in-out;
+      opacity: 0;
+      z-index: 0;
+    }
 
     &:hover {
-      background: var(--color-button-gradient);
       color: #fff;
+
+      &:before {
+        opacity: 1;
+      }
 
       .icon-arrow-right {
         &:after {
@@ -61,6 +80,7 @@
     @include font-h3;
 
     margin-right: 50px;
+    z-index: 1;
   }
 
   .icon-arrow-right {
@@ -73,6 +93,8 @@
   }
 
   @media (max-width: 475px) {
+    @include list-items-animation;
+
     &__inner {
       height: 200px;
       padding: 24px;

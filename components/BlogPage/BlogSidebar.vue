@@ -68,7 +68,7 @@ const sidebarPT = {
   },
 };
 
-const props = defineProps({
+defineProps({
   slides: {
     type: Array,
     required: false,

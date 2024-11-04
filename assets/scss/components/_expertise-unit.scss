@@ -27,19 +27,14 @@
   &__table-list {
     display: grid;
     gap: 8px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     height: 100%;
-
-    .tall {
-      grid-row: span 2;
-      height: 100%;
-    }
   }
 
   &__table-item {
     background: #fff;
     border-radius: var(--border-radius-40);
-    height: 340px;
+    height: 262px;
     transition: background 0.3s ease-in-out;
 
     &:hover {
@@ -72,11 +67,6 @@
     &__table-item {
       height: 210px;
     }
-
-    .tall {
-      grid-row: span 1;
-      height: 210px;
-    }
   }
 
   @media (max-width: 900px) {
@@ -94,6 +84,10 @@
   @media (max-width: 475px) {
     &__heading-subtitle {
       width: 100%;
+    }
+
+    &__table-item {
+      @include list-items-animation;
     }
   }
 }
@@ -204,7 +198,7 @@
 
     .icon-star {
       &:after {
-        content: "\006B";
+        content: "\0032";
       }
     }
 
@@ -275,7 +269,7 @@
     transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
   }
 
-  @media (max-width: 1478px) {
+  @media (max-width: 1114px) {
     &__wrapper {
       transform: translateY(calc(100% + -57.11px));
       transition: transform 0.3s ease-in-out;

@@ -1,26 +1,12 @@
 <script setup>
+import { ref } from "vue";
+import { useIntersectionAnimation } from "~/components/models/useIntersectionAnimation";
+
 import SortingBar from "~/components/UI-kit/SortingBar.vue";
 import Pagination from "~/components/UI-kit/Pagination.vue";
 import BlogUnitCard from "~/components/BlogPage/BlogUnitCard.vue";
-const listItems = ref([]);
 
-const handleIntersection = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-};
-
-onMounted(() => {
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.1,
-  });
-
-  listItems.value.forEach((item) => {
-    observer.observe(item);
-  });
-});
+const { listAnimation } = useIntersectionAnimation("visible", 0.1);
 
 const { data: items } = await useAsyncData("blog", () => {
   return $fetch("/api/blog/", { method: "GET" });
@@ -69,7 +55,7 @@ const sortingBarItems = [
           class="blog-page__table-item"
           v-for="(item, index) in items"
           :key="index"
-          ref="listItems"
+          ref="listAnimation"
         >
           <BlogUnitCard
             :title="item.title"

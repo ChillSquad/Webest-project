@@ -1,8 +1,17 @@
 <script setup>
-const links = defineProps({
-  title: String,
-  route: String,
-  items: Array,
+defineProps({
+  title: {
+    type: String,
+    default: null,
+  },
+  route: {
+    type: String,
+    default: null,
+  },
+  items: {
+    type: Array,
+    required: true,
+  },
 });
 </script>
 

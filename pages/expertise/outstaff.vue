@@ -1,4 +1,7 @@
 <script setup>
+import { ref, onMounted } from "vue";
+import { useIntersectionAnimation } from "~/components/models/useIntersectionAnimation";
+
 import ExpertiseHeading from "~/components/ExpertisePage/ExpertiseHeading.vue";
 import Advantages from "~/components/ExpertisePage/Advantages.vue";
 import StackCard from "~/components/ExpertisePage/StackCard.vue";
@@ -8,27 +11,7 @@ import BlogUnit from "~/components/BlogPage/BlogUnit.vue";
 import Recruiting from "~/components/ExpertisePage/Recruiting.vue";
 import TalkUnit from "~/components/TalkPage/TalkUnit.vue";
 
-import { ref, onMounted } from "vue";
-
-const listItems = ref([]);
-
-const handleIntersection = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-};
-
-onMounted(() => {
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.1,
-  });
-
-  listItems.value.forEach((item) => {
-    observer.observe(item);
-  });
-});
+const { listAnimation } = useIntersectionAnimation("visible", 0.1);
 
 const breadcrumbItems = [
   { label: "Назад ко всем услугам", route: "/expertise" },
@@ -149,7 +132,7 @@ const reports = [
   },
 ];
 
-const heading = [
+const heading = ref([
   {
     title: "Аутстаф разработчиков, дизайнеров, аналитиков, тестировщиков",
     subtitle:
@@ -158,7 +141,26 @@ const heading = [
     imageSrc: "/images/imageExpertiseOutstaff1.png",
     imageAlt: "Заголовок статьи",
   },
-];
+]);
+
+const updateImageSrc = () => {
+  if (heading.value.length > 0) {
+    if (window.innerWidth <= 475) {
+      heading.value[0].imageSrc = "/images/imageExpertiseOutstaff1Mobile.png";
+    } else {
+      heading.value[0].imageSrc = "/images/imageExpertiseOutstaff1.png";
+    }
+  }
+};
+
+onMounted(() => {
+  updateImageSrc();
+  window.addEventListener("resize", updateImageSrc);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", updateImageSrc);
+});
 </script>
 
 <template>
@@ -186,7 +188,7 @@ const heading = [
             v-for="(card, index) in stackCards"
             :key="index"
             class="expertise-outstaff-stack__item"
-            ref="listItems"
+            ref="listAnimation"
           >
             <StackCard :title="card.title" :cards="card.cards" />
           </li>
@@ -252,7 +254,7 @@ const heading = [
 </template>
 
 <style lang="scss">
-@import "~/assets/scss/helpers/fonts-mixin";
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .expertise-outstaff {
@@ -328,14 +330,8 @@ const heading = [
     &__item {
       padding: 16px;
       border-radius: 24px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
-      &.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      @include list-items-animation;
     }
   }
 }

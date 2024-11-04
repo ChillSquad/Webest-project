@@ -1,25 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { useIntersectionAnimation } from "../models/useIntersectionAnimation";
 
-const listItems = ref([]);
-
-const handleIntersection = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-};
-
-onMounted(() => {
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.1,
-  });
-
-  listItems.value.forEach((item) => {
-    observer.observe(item);
-  });
-});
+const { listAnimation } = useIntersectionAnimation("visible", 0.1);
 
 defineProps({
   cards: {
@@ -71,7 +53,7 @@ defineProps({
           ]"
           v-for="(card, index) in cards"
           :key="index"
-          ref="listItems"
+          ref="listAnimation"
         >
           <div class="outstaff-advantages__item-heading">
             <p class="outstaff-advantages__item-title">{{ card.title }}</p>
@@ -97,6 +79,7 @@ defineProps({
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .outstaff-advantages {
@@ -167,20 +150,14 @@ defineProps({
     &__item {
       min-height: 320px !important;
       padding: 16px 16px 0;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      @include list-items-animation;
 
       &-image {
         width: 296px;
         height: 160px;
         object-fit: contain;
         align-self: center;
-      }
-
-      &.visible {
-        opacity: 1;
-        transform: translateY(0);
       }
     }
   }

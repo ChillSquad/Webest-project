@@ -1,29 +1,12 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import GradientButton from "~/components/UI-kit/GradientButton.vue";
+import { useIntersectionAnimation } from "../models/useIntersectionAnimation";
 import { useSidebarModel } from "../models/sidebar";
+
+import GradientButton from "~/components/UI-kit/GradientButton.vue";
 
 const { toggleSidebarForm } = useSidebarModel();
 
-const listItems = ref([]);
-
-const handleIntersection = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-};
-
-onMounted(() => {
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.1,
-  });
-
-  listItems.value.forEach((item) => {
-    observer.observe(item);
-  });
-});
+const { listAnimation } = useIntersectionAnimation("visible", 0.1);
 
 defineProps({
   services: {
@@ -47,7 +30,7 @@ defineProps({
           <li
             v-for="(service, index) in services"
             class="expertise-marketplace-services__item"
-            ref="listItems"
+            ref="listAnimation"
           >
             <p
               class="expertise-marketplace-services__item-title icon-arrow-right-up"
@@ -81,6 +64,7 @@ defineProps({
 </template>
 
 <style lang="scss">
+@import "~/assets/scss/helpers/mixin";
 @import "~/assets/scss/helpers/fonts-mixin";
 
 .expertise-marketplace-services {
@@ -214,15 +198,8 @@ defineProps({
 
     &__item {
       max-height: 110px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out,
-        max-height 0.6s ease-in-out;
 
-      &.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      @include list-items-animation;
 
       .icon-arrow-right-up {
         display: flex;

@@ -293,7 +293,7 @@ const prioritySub = [
   },
 ];
 
-const heading = [
+const heading = ref([
   {
     title: "SEO-продвижение сайтов в Яндекс и Google",
     subtitle:
@@ -302,7 +302,26 @@ const heading = [
     imageSrc: "/images/imageSEO1.png",
     imageAlt: "Заголовок статьи",
   },
-];
+]);
+
+const updateImageSrc = () => {
+  if (heading.value.length > 0) {
+    if (window.innerWidth <= 475) {
+      heading.value[0].imageSrc = "/images/imageSEO1Mobile.png";
+    } else {
+      heading.value[0].imageSrc = "/images/imageSEO1.png";
+    }
+  }
+};
+
+onMounted(() => {
+  updateImageSrc();
+  window.addEventListener("resize", updateImageSrc);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", updateImageSrc);
+});
 </script>
 
 <template>
